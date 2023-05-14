@@ -3,10 +3,79 @@
   overflow: hidden;
   min-height: 80px;
 }
-.menu-icon {
-  margin: 0;
+.top-menu {
+  min-height: 80px;
+}
+.product-title {
+  color: white;
+  font-family: 'Inter Tight';
+  font-weight: 500;
+  font-size: 30px;
+}
+.option-card {
+  background: #FFFFFF;
+  border-radius: 30px;
+  width:220px;
+  height:48px;
+}
+
+.selected-option {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
   position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  font-family: 'Inter Tight';
+  /* Secondary color */
+  cursor: pointer;
+  color: white;
+  background: #005A7B;
+  border-radius: 40px;
+  min-width: 110px;
+  margin: 2px;
+}
+.un-selected-option {
+  width:50%;
+  float:right;
+  height: inherit;
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-left:2%;
+  padding-left:3%;
+  cursor:pointer;
+  color: #005A7B;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.label {
+  width: 50%;
+  cursor: pointer;
+  height: inherit;
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  justify-content: center;
+}
+.left-label{
+    float:left;
+}
+.right-label{
+    float:right;
+}
+.selected {
+  color: white;
+  background: #005A7B;
+  border-radius: 40px;
+}
+.un-selected {
+  color: #005A7B;
 }

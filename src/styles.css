@@ -7,3 +7,6 @@ html, body {
   width: inherit !important;
   height: inherit !important;
 }
+.ml-2{
+    margin-left:2%;
+}
