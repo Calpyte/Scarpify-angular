@@ -50,18 +50,75 @@ padding-top: 1%;
   margin-top: -3%;
 }
 
-input#file {
-  display: inline-block;
-  width: 100%;
-  padding: 50px 0 0 0;
+.btn-grey{
+  background-color: #f2f6f8;
   height: 50px;
-  max-height: 3vh;
-  overflow: hidden;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  background: url('../../../assets/img/upload.png') center center no-repeat #e4e4e4;
-  border-radius: 10px;
-  background-size: 50px 50px;
+  width: 100%;
+}
 
+.form-control:hover {
+  box-shadow: none;
+}
+
+.form-control{
+  box-shadow: none;
+}
+
+.read-only{
+  background-color: #f2f6f8;
+}
+
+.btn-rounded{
+  border-radius: 50px;
+  background-color: white;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
+  height: 40px;
+}
+
+.mtop18{
+  margin-top: 20%;
+}
+
+.mtop4 {
+  margin-top: 4%;
+}
+
+
+.mtop2 {
+  margin-top: 2.3%;
+}
+
+.mtop3 {
+  margin-top: 3%;
+}
+
+.mtop1 {
+  margin-top: 1.5%;
+}
+
+.card-footer{
+  margin: -3% !important;
+  padding: -1% !important;
+  height: 80px;
+  background-color: #F2F6F8;
+}
+
+.button-rounded {
+  border-radius: 50px;
+}
+
+.f12{
+  font-size: 12px;
+}
+
+.bg-secondary{
+  background-color: white !important;
+}
+
+.bg-primary {
+  background-color: #005A7B !important;
+}
+
+.full-width{
+  width: 100%;
 }
