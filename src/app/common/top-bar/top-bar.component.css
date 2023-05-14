@@ -79,3 +79,9 @@
 .un-selected {
   color: #005A7B;
 }
+.login {
+  background: #005A7B;
+  border-radius: 24px;
+  color: white;
+  padding: 12px 28px;
+}

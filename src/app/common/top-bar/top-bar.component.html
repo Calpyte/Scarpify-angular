@@ -2,11 +2,12 @@
   <div class="d-flex align-items-center top-menu">
     <div class="ml-2"><i class="fa-sharp fa-solid fa-bars fa-2xl" style="color: white;"></i></div>
     <div class="product-title ml-2"><strong>Scrapify</strong></div>
-    <div class="d-flex align-items-center justify-content-center container">
-      <div class="option-card">
+
+    <div class="d-flex align-items-center justify-content-end container">
+      <div class="option-card ml-3">
         <div [ngClass]="selectedOption == 'seller' ? 'selected' : 'un-selected'"
              class="label left-label d-flex align-items-center" (click)="onOptionSelected(true)">
-         SELLER
+          SELLER
         </div>
 
         <div [ngClass]="selectedOption == 'buyer' ? 'selected' : 'un-selected'"
@@ -14,6 +15,10 @@
           Buyer
         </div>
       </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-end container">
+      <p style="color:white" class="mt-2">Buy/Sell Scrap</p>
+      <button class="ml-2 login">Login</button>
     </div>
   </div>
 </div>

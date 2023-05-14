@@ -1,0 +1,27 @@
+.product-img{
+    width:80px;
+    height:70px;
+    border-radius:inherit
+    
+}
+.card-container{
+    margin:2%;
+}
+
+.card-container {
+  min-width: 80px;
+  min-height: 80px;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  border-radius: 17px;
+}
+.address-widget{
+    min-height:100px;
+}
+.w-100{
+    width:100%
+}
+.product-title {
+  min-width: 80px;
+}
