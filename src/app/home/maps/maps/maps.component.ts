@@ -7,13 +7,12 @@ import { MapsService } from '../maps.service';
   styleUrls: ['./maps.component.css']
 })
 export class MapsComponent implements OnInit {
-
-  center: google.maps.LatLngLiteral = { lat: 8.530716970838743, lng: 77.390625 };
+  dataLoaded: boolean = false;
+  center: google.maps.LatLngLiteral = { lat: 8.530716970838743, lng: 77.390625 }; ;
   zoom = 10;
   markerOptions: google.maps.MarkerOptions = { draggable: false };
-  circleOptions: google.maps.CircleOptions = { fillColor: "#00DE93", strokeColor: "#00DE93", strokeOpacity:0 }
+  circleOptions: google.maps.CircleOptions = { fillColor: "#00DE93", strokeColor: "#00DE93", strokeOpacity: 0 }
   markerPositions: google.maps.LatLngLiteral[] = [];
-  circleCenter: google.maps.LatLngLiteral = { lat: 8.530716970838743, lng: 77.390625 };
   radius = 10000;
   scrapLocations: any[] = [];
   addMarker(event: google.maps.MapMouseEvent) {
@@ -26,7 +25,12 @@ export class MapsComponent implements OnInit {
 
   async ngOnInit() {
     await this.getCurrentLocation();
-    this.scrapLocations=await this.mapsService.scrapLocation(this.center.lat, this.center.lng,"asjdbs").toPromise();
+    let datas: any[] = await this.mapsService.scrapLocation(this.center.lat, this.center.lng, "asjdbs").toPromise();
+    datas.forEach((data: any) => {
+      if (!!data && !!data.displayLocation && !!data.displayLocation.coordinates && data.displayLocation.coordinates.length == 2)
+        this.markerPositions.push({ "lat": data.displayLocation.coordinates[0], "lng": data.displayLocation.coordinates[1] })
+    });
+    this.dataLoaded = true;
   }
 
   getCurrentLocation() {

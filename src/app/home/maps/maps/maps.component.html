@@ -1,4 +1,4 @@
-<google-map height="1000px"
+<google-map height="1000px" *ngIf="dataLoaded"
             width="1500px"
             [center]="center"
             [zoom]="zoom"
@@ -6,7 +6,7 @@
   <map-marker *ngFor="let markerPosition of markerPositions"
               [position]="markerPosition"
               [options]="markerOptions"></map-marker>
-  <map-circle [center]="circleCenter"
+  <map-circle [center]="center"
               [radius]="radius"
               [options]="circleOptions"
               ></map-circle>
