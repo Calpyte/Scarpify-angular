@@ -14,6 +14,9 @@ import { GoogleMapsModule } from '@angular/google-maps';
     CommonModule,
     MapsRoutingModule,
     GoogleMapsModule
+  ],
+  exports: [
+    MapsComponent
   ]
 })
 export class MapsModule { }

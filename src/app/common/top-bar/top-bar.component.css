@@ -1,0 +1,12 @@
+.topnav {
+  background: linear-gradient(90deg, #00DF8F -7.58%, #00C092 112.92%);
+  overflow: hidden;
+  min-height: 80px;
+}
+.menu-icon {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}

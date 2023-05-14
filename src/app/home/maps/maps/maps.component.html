@@ -1,13 +1,14 @@
-<google-map height="1000px" *ngIf="dataLoaded"
-            width="1500px"
+<google-map *ngIf="dataLoaded" class="g-map"
             [center]="center"
             [zoom]="zoom"
-            (mapClick)="addMarker($event)">
+            [options]="options">
   <map-marker *ngFor="let markerPosition of markerPositions"
               [position]="markerPosition"
               [options]="markerOptions"></map-marker>
+  <map-marker
+              [position]="currentLocMarkerPosition"
+              [options]="currentLocMarkerOptions"></map-marker>
   <map-circle [center]="center"
               [radius]="radius"
-              [options]="circleOptions"
-              ></map-circle>
+              [options]="circleOptions"></map-circle>
 </google-map>

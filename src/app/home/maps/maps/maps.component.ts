@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MapDirectionsService } from '@angular/google-maps';
+import { map, Observable } from 'rxjs';
 import { MapsService } from '../maps.service';
 
 @Component({
@@ -9,19 +11,27 @@ import { MapsService } from '../maps.service';
 export class MapsComponent implements OnInit {
   dataLoaded: boolean = false;
   center: google.maps.LatLngLiteral = { lat: 8.530716970838743, lng: 77.390625 }; ;
-  zoom = 10;
-  markerOptions: google.maps.MarkerOptions = { draggable: false };
+  zoom = 15;
+  
   circleOptions: google.maps.CircleOptions = { fillColor: "#00DE93", strokeColor: "#00DE93", strokeOpacity: 0 }
   markerPositions: google.maps.LatLngLiteral[] = [];
-  radius = 10000;
+  markerOptions: google.maps.MarkerOptions = { draggable: false, icon: '../../../../assets/img/pin.png' };
+  currentLocMarkerPosition: google.maps.LatLngLiteral;
+  currentLocMarkerOptions: google.maps.MarkerOptions = { draggable: false, icon: '../../../../assets/img/current_location.png' };
+  options: google.maps.MapOptions = {
+    zoomControl: false,
+    scrollwheel: false,
+    disableDoubleClickZoom: true,
+    center: this.center,
+    maxZoom: 15,
+    minZoom: 8,
+    
+  };
+  radius = 5000;
   scrapLocations: any[] = [];
-  addMarker(event: google.maps.MapMouseEvent) {
-    if (event != null && event.latLng != null) {
-      this.markerPositions.push(event.latLng.toJSON());
-    }
-  }
 
-  constructor(private mapsService: MapsService) { }
+  constructor(private mapsService: MapsService) {
+  }
 
   async ngOnInit() {
     await this.getCurrentLocation();
@@ -30,6 +40,7 @@ export class MapsComponent implements OnInit {
       if (!!data && !!data.displayLocation && !!data.displayLocation.coordinates && data.displayLocation.coordinates.length == 2)
         this.markerPositions.push({ "lat": data.displayLocation.coordinates[0], "lng": data.displayLocation.coordinates[1] })
     });
+    this.currentLocMarkerPosition = { "lat": this.center.lat, "lng": this.center.lng };
     this.dataLoaded = true;
   }
 
