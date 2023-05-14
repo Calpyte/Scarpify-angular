@@ -1,0 +1,96 @@
+.bid-header {
+  box-shadow: 0px 20px 10px #fff;
+  height: 100px;
+  padding: 1%;
+  margin-bottom: 0.1%;
+  border: none;
+}
+
+.bg {
+  height: 74vh;
+}
+
+.card {
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  width: 100%;
+  margin: 1%;
+  padding: 3%;
+  height: 68vh;
+}
+
+.nav-link {
+  color: black;
+}
+
+.active {
+  border-bottom: 3px solid #02c784;
+  color: #02c784;
+}
+
+.bg-transaparent {
+  border: 2px solid #005a7b;
+  background: #ffffff;
+  border-radius: 8px;
+  color: #005a7b;
+}
+
+.rounded-box {
+  background: #ffffff;
+  border: 1px solid #d4d9df;
+  border-radius: 10px;
+  height: 60px;
+  margin-right: 10px;
+}
+
+h6{
+  margin: 0 !important;
+  font-size: 12px;
+}
+
+p{
+  font-size: 10px;
+}
+
+.inv-category-text {
+  font-size: 11px;
+  opacity: 0.4;
+}
+
+.round-corner{
+  border: 1px solid #d4d9df;
+    border-radius: 10px;
+    height: 60px;
+}
+
+.amt{
+  font-size: 16px;
+}
+
+
+.mtop1 {
+  margin-top: 1%;
+}
+
+.button-rounded {
+  border-radius: 50px;
+}
+
+.f12 {
+  font-size: 12px;
+}
+
+.bg-secondary {
+  background-color: white !important;
+  color: #005a7b;
+  font-weight: bold;
+  border: 2px solid #005a7b;
+}
+
+.bg-primary {
+  background-color: #005a7b !important;
+}
+
+.full-width {
+  width: 100%;
+}
