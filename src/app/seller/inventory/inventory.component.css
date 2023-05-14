@@ -1,21 +1,20 @@
-.bg{
-  background-image: url('../../../assets/img/inventory.png');
+.bg {
+  background-image: url("../../../assets/img/inventory.png");
   height: 98vh;
   background-repeat: no-repeat;
-
+  background-size: cover;
 }
 
-.page-header{
-  color: #005A7B;
-
+.page-header {
+  color: #005a7b;
 }
 
-.page-sub-header{
-color: #005A7B;
-padding-top: 1%;
+.page-sub-header {
+  color: #005a7b;
+  padding-top: 1%;
 }
 
-.bold{
+.bold {
   font-weight: bold;
 }
 
@@ -27,11 +26,10 @@ padding-top: 1%;
   padding: 3%;
 }
 
-.inv-product-text{
+.inv-product-text {
   font-size: 14px;
   font-weight: bold;
 }
-
 
 .inv-category-text {
   font-size: 10px;
@@ -42,15 +40,11 @@ padding-top: 1%;
   font-weight: 500;
 }
 
-.form-text{
+.form-text {
   font-size: 10px;
 }
 
-.mtop3{
-  margin-top: -3%;
-}
-
-.btn-grey{
+.btn-grey {
   background-color: #f2f6f8;
   height: 50px;
   width: 100%;
@@ -60,29 +54,52 @@ padding-top: 1%;
   box-shadow: none;
 }
 
-.form-control{
+.form-control {
   box-shadow: none;
 }
 
-.read-only{
-  background-color: #f2f6f8;
-}
-
-.btn-rounded{
+.btn-rounded {
   border-radius: 50px;
   background-color: white;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
   height: 40px;
 }
 
-.mtop18{
+.card-footer {
+  margin: -3% !important;
+  padding: -1% !important;
+  height: 80px;
+  background-color: #f2f6f8;
+  z-index: 1;
+}
+
+.button-rounded {
+  border-radius: 50px;
+}
+
+.f12 {
+  font-size: 12px;
+}
+
+.bg-secondary {
+  background-color: white !important;
+}
+
+.bg-primary {
+  background-color: #005a7b !important;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.mtop18 {
   margin-top: 20%;
 }
 
 .mtop4 {
   margin-top: 4%;
 }
-
 
 .mtop2 {
   margin-top: 2.3%;
@@ -96,29 +113,10 @@ padding-top: 1%;
   margin-top: 1.5%;
 }
 
-.card-footer{
-  margin: -3% !important;
-  padding: -1% !important;
-  height: 80px;
-  background-color: #F2F6F8;
+.mtop3 {
+  margin-top: -3%;
 }
 
-.button-rounded {
-  border-radius: 50px;
-}
-
-.f12{
-  font-size: 12px;
-}
-
-.bg-secondary{
-  background-color: white !important;
-}
-
-.bg-primary {
-  background-color: #005A7B !important;
-}
-
-.full-width{
-  width: 100%;
+.read-only {
+  background-color: #f2f6f8;
 }

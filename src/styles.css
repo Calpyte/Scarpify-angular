@@ -3,7 +3,33 @@
 html, body {
   height: 100%;
 }
+
 .map-container {
   width: inherit !important;
   height: inherit !important;
+}
+
+
+/* Change the color of the scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  /* Set the width of the scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  /* Set the background color of the scrollbar track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #005A7B;
+  /* Set the color of the scrollbar handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #00384C;
+  /* Set the color of the scrollbar handle on hover */
 }
