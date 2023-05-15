@@ -1,5 +1,7 @@
 <div *ngFor="let category of selectedProducts">
-  <p>{{ category?.name }}</p>
+  <p style="position: sticky; top: 0px; background-color: white; z-index: 1">
+    {{ category?.name }}
+  </p>
   <mat-list role="list">
     <mat-list-item role="listitem" *ngFor="let product of category?.products">{{
       product?.name
