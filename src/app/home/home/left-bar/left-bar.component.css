@@ -1,0 +1,59 @@
+.box {
+  box-shadow: 10px 0px 30px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  min-height: 90vh;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+
+
+.location-txt{
+  font-size: 12px;
+  margin: 0;
+  color: #005A7B;
+  font-weight: 700;
+}
+
+.bi-geo-alt-fill{
+  color: #005A7B;
+  font-size: 20px;
+}
+
+.bi-pencil-fill {
+  color: #005A7B;
+  font-size: 16px;
+}
+
+.top-location{
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+
+.mtop1 {
+  margin-top: 1%;
+}
+
+.button-rounded {
+  border-radius: 50px;
+}
+
+.f12 {
+  font-size: 12px;
+}
+
+.bg-secondary {
+  background-color: white !important;
+  color: #005a7b;
+  font-weight: bold;
+  border: 2px solid #005a7b;
+}
+
+.bg-primary {
+  background-color: #005a7b !important;
+}
+
+.full-width {
+  width: 100%;
+}

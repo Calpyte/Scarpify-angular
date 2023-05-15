@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
-    path: 'maps',
-    loadChildren: () => import('./maps/maps.module')
-      .then(m => m.MapsModule)
+    path: '',
+   component: HomeComponent
   }
 ];
 
