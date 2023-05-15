@@ -1,5 +1,5 @@
 <div style="display: flex; flex-direction: column; align-items: center">
-  <h2 mat-dialog-title>Scrapify</h2>
+  <h1 mat-dialog-title style="font-weight: bold; color: #00cb91">Scrapify</h1>
   <div
     style="
       border-radius: 45px;
@@ -22,20 +22,21 @@
       Buyer
     </button>
   </div>
-  <div>
-    <label for="Username" class="form-label form-text">Phone Number</label>
-    <div class="input-group mb-3">
-      <input
-        type="text"
-        [(ngModel)]="phoneNumber"
-        class="form-control"
-        aria-label="mobileNumber"
-        aria-describedby="basic-addon1"
-      />
+  <mat-dialog-content class="mat-typography" style="width: 100%">
+    <div style="width: 100%">
+      <label for="Username" class="form-label form-text">Phone Number</label>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          [(ngModel)]="phoneNumber"
+          class="form-control"
+          aria-label="mobileNumber"
+          aria-describedby="basic-addon1"
+        />
+      </div>
     </div>
-  </div>
-  <mat-dialog-content class="mat-typography"> </mat-dialog-content>
-  <mat-dialog-actions>
+  </mat-dialog-content>
+  <mat-dialog-actions style="width: 100%">
     <button
       style="
         width: 100%;
@@ -44,13 +45,12 @@
         border-radius: 45px;
         color: white;
         padding: 5px 40px;
+        border: solid 1px #013f56;
       "
       (click)="getOTP()"
     >
       Get OTP
     </button>
-    <br />
-    <br />
     <button
       style="
         width: 100%;
@@ -58,7 +58,7 @@
         color: #013f56;
         background-color: white;
         border-radius: 45px;
-        padding: 5px 40px;
+        padding: 5px 45px;
         border: none;
         border: solid 1px #013f56;
       "
@@ -74,6 +74,8 @@
         color: #013f56;
         padding: 5px 40px;
         border: none;
+        background-color: white;
+        font-weight: bold;
       "
     >
       Don't have a account ? Register here

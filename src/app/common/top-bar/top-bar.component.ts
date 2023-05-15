@@ -23,9 +23,8 @@ export class TopBarComponent implements OnInit {
 
   login = () => {
     const dialogRef = this.dialog.open(LoginComponent, {
-      width: '250px',
+      width: '492px',
       data: null,
-      backdropClass: 'backdrop' // This is the "wanted" line
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
