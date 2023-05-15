@@ -1,0 +1,11 @@
+.form-control:hover {
+  box-shadow: none;
+}
+
+.form-control {
+  box-shadow: none;
+}
+
+.form-group{
+  min-height: 80px;
+}

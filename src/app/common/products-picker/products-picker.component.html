@@ -1,0 +1,42 @@
+<div>
+  <div class="form-group">
+    <label for="phone">Search by Products...</label>
+    <div class="input-group mb-0">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1"
+          ><mat-icon>search</mat-icon></span
+        >
+      </div>
+      <input
+        type="text"
+        class="form-control"
+        (keyup)="onSearch($event)"
+        id="phone"
+      />
+    </div>
+  </div>
+  <div>
+    <mat-accordion style="margin: 0">
+      <mat-expansion-panel
+        *ngFor="let category of filterCategories"
+        style="margin: 0"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title>{{ category?.name }}</mat-panel-title>
+          <mat-panel-description> </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div *ngFor="let product of category?.products">
+          <div>
+            <mat-checkbox
+              [checked]="selectedCheckboxIds.includes(product?.id)"
+              (change)="checkboxChanged($event)"
+              [value]="product.id"
+              [(ngModel)]="product.checked"
+              >{{ product?.name }}</mat-checkbox
+            >
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

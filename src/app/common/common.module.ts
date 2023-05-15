@@ -6,13 +6,17 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { RegisterComponent } from './register/register.component';
+import { ProductsPickerComponent } from './products-picker/products-picker.component';
+import { ProductsViewComponent } from './products-view/products-view.component';
 
 @NgModule({
   declarations: [
     TopBarComponent,
     LoginComponent,
     TopBarComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProductsPickerComponent,
+    ProductsViewComponent
   ],
   imports: [
     CommonModule,
@@ -20,6 +24,6 @@ import { RegisterComponent } from './register/register.component';
     MaterialModule,
     NgOtpInputModule
   ],
-  exports: [MaterialModule, NgOtpInputModule, TopBarComponent, LoginComponent, RegisterComponent]
+  exports: [MaterialModule, NgOtpInputModule, TopBarComponent, LoginComponent, RegisterComponent, ProductsPickerComponent, ProductsViewComponent]
 })
 export class CommonSharedModule { }
