@@ -1,0 +1,82 @@
+<div style="display: flex; flex-direction: column; align-items: center">
+  <h2 mat-dialog-title>Scrapify</h2>
+  <div
+    style="
+      border-radius: 45px;
+      display: flex;
+      border: solid 1px #013f56;
+      width: fit-content;
+      padding: 1px;
+    "
+  >
+    <button
+      [ngClass]="userType === 'seller' ? 'toggle active' : 'toggle'"
+      (click)="handleUserType('seller')"
+    >
+      Seller
+    </button>
+    <button
+      [ngClass]="userType === 'buyer' ? 'toggle active' : 'toggle'"
+      (click)="handleUserType('buyer')"
+    >
+      Buyer
+    </button>
+  </div>
+  <div>
+    <label for="Username" class="form-label form-text">Phone Number</label>
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        [(ngModel)]="phoneNumber"
+        class="form-control"
+        aria-label="mobileNumber"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+  </div>
+  <mat-dialog-content class="mat-typography"> </mat-dialog-content>
+  <mat-dialog-actions>
+    <button
+      style="
+        width: 100%;
+        background-color: #013f56;
+        border: none;
+        border-radius: 45px;
+        color: white;
+        padding: 5px 40px;
+      "
+      (click)="getOTP()"
+    >
+      Get OTP
+    </button>
+    <br />
+    <br />
+    <button
+      style="
+        width: 100%;
+        border: none;
+        color: #013f56;
+        background-color: white;
+        border-radius: 45px;
+        padding: 5px 40px;
+        border: none;
+        border: solid 1px #013f56;
+      "
+    >
+      Login With Google
+    </button>
+    <br />
+    <br />
+    <button
+      style="
+        width: 100%;
+        border: none;
+        color: #013f56;
+        padding: 5px 40px;
+        border: none;
+      "
+    >
+      Don't have a account ? Register here
+    </button>
+  </mat-dialog-actions>
+</div>
