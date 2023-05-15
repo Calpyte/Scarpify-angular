@@ -47,6 +47,96 @@
           </div>
         </div>
       </mat-dialog-content>
+      <mat-dialog-content class="col-12" *ngSwitchCase="2">
+        <div class="form-group">
+          <label for="phone">Email Id</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="email"
+            name="email"
+            id="email"
+          />
+          <div class="err">
+            <small
+              *ngIf="
+                registerForm.controls['email'].hasError('required') &&
+                registerForm.controls['email'].dirty
+              "
+            >
+              Email is Required
+            </small>
+            <small *ngIf="registerForm.controls['email'].hasError('email')">
+              Enter a valid email
+            </small>
+          </div>
+        </div>
+      </mat-dialog-content>
+      <mat-dialog-content class="col-12" *ngSwitchCase="3">
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <div class="input-group mb-0">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">+91-</span>
+            </div>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="phone"
+              id="phone"
+            />
+          </div>
+          <div class="err">
+            <small
+              *ngIf="
+                registerForm.controls['phone'].hasError('required') &&
+                registerForm.controls['phone'].dirty
+              "
+            >
+              Phone Number is Required
+            </small>
+            <small *ngIf="registerForm.controls['phone'].hasError('pattern')">
+              Enter a valid Phone Number
+            </small>
+          </div>
+        </div>
+      </mat-dialog-content>
+      <mat-dialog-content class="col-12" *ngSwitchCase="4">
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: center;
+          "
+          class="col-12"
+        >
+          <p style="padding-top: 10px">
+            Verfication code is sent to +91-
+            {{ registerForm?.value?.phone }}
+          </p>
+          <ng-otp-input
+            (onInputChange)="onOtpChange($event)"
+            [config]="{ length: 6, allowNumbersOnly: true }"
+          ></ng-otp-input>
+          <button class="btn-2 col-12" style="border: solid 1px transparent">
+            Resend Code
+          </button>
+        </div>
+      </mat-dialog-content>
+      <mat-dialog-content class="col-12" *ngSwitchCase="5">
+        <app-products-picker
+          [categories]="categories"
+          [selectedCheckboxIds]="selectedIds"
+        ></app-products-picker>
+      </mat-dialog-content>
+      <mat-dialog-content class="col-12" *ngSwitchCase="6">
+        <app-products-view
+          [categories]="categories"
+          [selectedIds]="selectedIds"
+        ></app-products-view>
+      </mat-dialog-content>
+      <!-- actions -->
       <mat-dialog-actions
         *ngIf="step === 0"
         class="col-12"
@@ -71,7 +161,9 @@
           "
         >
           <button class="btn-2" (click)="handleBackward()">Prev</button>
-          <button class="btn-1" (click)="handleForward()">Next</button>
+          <button class="btn-1" (click)="handleForward()">
+            {{ step === 3 ? "GET OTP" : "Next" }}
+          </button>
         </div>
       </mat-dialog-actions>
     </div>
