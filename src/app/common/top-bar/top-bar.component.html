@@ -6,12 +6,12 @@
     <div class="d-flex align-items-center justify-content-end container">
       <div class="option-card ml-3">
         <div [ngClass]="selectedOption == 'seller' ? 'selected' : 'un-selected'"
-             class="label left-label d-flex align-items-center" (click)="onOptionSelected(true)">
-          SELLER
+          class="label left-label d-flex align-items-center" (click)="onOptionSelected(true)">
+          Seller
         </div>
 
         <div [ngClass]="selectedOption == 'buyer' ? 'selected' : 'un-selected'"
-             class="label right-label d-flex align-items-center" (click)="onOptionSelected(false)">
+          class="label right-label d-flex align-items-center" (click)="onOptionSelected(false)">
           Buyer
         </div>
       </div>
