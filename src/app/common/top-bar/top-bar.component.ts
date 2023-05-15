@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
+import { RegisterComponent } from '../register/register.component';
 
 @Component({
   selector: 'app-top-bar',
@@ -22,11 +23,12 @@ export class TopBarComponent implements OnInit {
   }
 
   login = () => {
-    const dialogRef = this.dialog.open(LoginComponent, {
+    const dialogRef = this.dialog.open(RegisterComponent, {
       width: '492px',
       data: null,
     });
     dialogRef.afterClosed().subscribe(result => {
+      // alert(JSON.stringify(result));
       console.log(`Dialog result: ${result}`);
     });
   }

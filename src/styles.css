@@ -95,3 +95,52 @@ html, body {
 .cdk-overlay-dark-backdrop, .cdk-overlay-transparent-backdrop {
   background-color: #013F56DD;
 }
+ .btn-1 {
+        width: 'fit-content';
+        background-color: #013f56;
+        border-radius: 45px;
+        color: white;
+        padding: 10px 40px;
+        border: solid 1px #013f56;
+ }
+ .btn-2{
+  width: 'fit-content';
+  border: none;
+  color: #013f56;
+  background-color: white;
+  border-radius: 45px;
+  padding: 10px 45px;
+  border: solid 1px #013f56;
+ }
+
+.form-control:hover {
+  box-shadow: none;
+}
+
+.form-control {
+  box-shadow: none;
+}
+.full-width{
+  width: 100%;
+}
+
+button {
+   border: none;
+}
+
+.toggle {
+  border-radius: 45px;
+  border: none;
+  padding: 5px 20px;
+}
+.toggle-container {
+  border-radius: 45px;
+  display: flex;
+  border: solid 1px #013f56;
+  width: fit-content;
+  padding: 1px;
+}
+.toggle-active {
+  background-color: #013f56;
+  color: white;
+}
