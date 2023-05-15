@@ -91,3 +91,7 @@ html, body {
 .bi-star-fill{
   color: #FFCB05;
 }
+
+.cdk-overlay-dark-backdrop, .cdk-overlay-transparent-backdrop {
+  background-color: #013F56DD;
+}

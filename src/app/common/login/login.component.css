@@ -1,0 +1,17 @@
+.toggle {
+  border-radius: 45px;
+  border: none;
+  padding: 5px 20px;
+}
+
+.active {
+  background-color: #013f56;
+  color: white;
+}
+.form-control:hover {
+  box-shadow: none;
+}
+
+.form-control {
+  box-shadow: none;
+}
