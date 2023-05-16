@@ -4,47 +4,45 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpResponse,
-  HttpErrorResponse
+  HttpErrorResponse,
+  HttpResponse
 } from '@angular/common/http';
 import { Observable, catchError, switchMap, tap, throwError } from 'rxjs';
-import { AuthServiceService } from '../service/auth-service.service';
+import { AuthServiceService } from 'src/app/service/auth-service.service';
+import { environment } from 'src/environments/environment';
 
-@Injectable()
-export class HttpInterceptorInterceptor implements HttpInterceptor {
+@Injectable({
+  providedIn: 'root'
+})
+export class TokenInterceptor implements HttpInterceptor {
 
   constructor(private authService: AuthServiceService) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const clonedRequest = request.clone({
-      headers: request.headers.set('Authorization', `Bearer ${this.authService.getToken()}`)
+      headers: this.authService.getAccessToken() && request.headers.set('Authorization', `Bearer ${this.authService.getAccessToken()}`),
+      url: environment.baseUrl + request.url
     });
     return next.handle(clonedRequest).pipe(
       tap((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {
-          console.log('Response Interceptor', event);
-          // Handle successful response
+          console.log(event);
         }
       }),
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
-          // Unauthorized error, handle token refresh
           return this.authService.getToken().pipe(
             switchMap(() => {
-              // Retry the failed request with the new token
               const updatedRequest = request.clone({
-                headers: request.headers.set('Authorization', `Bearer ${this.authService.getToken()}`)
+                headers: request.headers.set('Authorization', `Bearer ${this.authService.getAccessToken()}`)
               });
               return next.handle(updatedRequest);
             }),
             catchError((refreshError: any) => {
-              // Handle refresh token error
-              // You can redirect to login or perform other actions
               return throwError(() => refreshError);
             })
           );
         } else {
-          // Handle other error scenarios
           return throwError(() => error);
         }
       })
