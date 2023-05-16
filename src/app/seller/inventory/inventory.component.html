@@ -1,9 +1,8 @@
 <div class="bg">
-  <div class="row">
-    <div class="col-md-2">
-    </div>
+  <div class="row col-12">
+    <div class="col-md-2"></div>
     <div class="col-md-8">
-      <div style="margin-bottom: 5%;margin-top: 1%;">
+      <div style="margin-bottom: 5%; margin-top: 1%">
         <h4 class="page-header float-md-start">Scrap Inventory</h4>
         <h6 class="page-sub-header float-md-end bold">₹200.00</h6>
         <h6 class="page-sub-header float-md-end">Estimated Scrap Amt.</h6>
@@ -11,13 +10,12 @@
 
       <form name="inputForm">
         <div class="card">
-
-          <div class="card-body" style="overflow-y: auto;">
+          <div class="card-body" style="overflow-y: auto">
             <div class="row">
-              <div class="col-md-3" style="margin-top: 1%;">
+              <div class="col-md-3" style="margin-top: 1%">
                 <div class="row">
                   <div class="col-md-3">
-                    <img src="assets/img/metal.png">
+                    <img src="assets/img/metal.png" />
                   </div>
                   <div class="col-md-8">
                     <div class="row inv-product-text">Aluminium</div>
@@ -29,56 +27,91 @@
               <div class="col-md-6">
                 <div class="row">
                   <div class="col-md-4">
-                    <label for="Username" class="form-label form-text">Available Qty</label>
+                    <label for="Username" class="form-label form-text"
+                      >Available Qty</label
+                    >
                     <div class="input-group mb-3">
-                      <input type="text" class="form-control" aria-label="Username" id="qty" name="qty"
-                        [(ngModel)]="values.qty" aria-describedby="basic-addon1">
+                      <input
+                        type="text"
+                        class="form-control"
+                        aria-label="Username"
+                        id="qty"
+                        name="qty"
+                        [(ngModel)]="values.qty"
+                        aria-describedby="basic-addon1"
+                      />
                       <span class="input-group-text" id="basic-addon1">kg</span>
                     </div>
                   </div>
 
                   <div class="col-md-4">
-                    <label for="Username" class="form-label form-text">Market Price/kg</label>
+                    <label for="Username" class="form-label form-text"
+                      >Market Price/kg</label
+                    >
                     <div class="input-group mb-3">
-                      <input type="text" class="form-control read-only" aria-label="Username"
-                        aria-describedby="basic-addon1" readonly>
+                      <input
+                        type="text"
+                        class="form-control read-only"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                        readonly
+                      />
                     </div>
                   </div>
 
-
                   <div class="col-md-4">
-                    <label for="Username" class="form-label form-text">Expected Price/kg</label>
+                    <label for="Username" class="form-label form-text"
+                      >Expected Price/kg</label
+                    >
                     <div class="input-group mb-3">
-                      <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                      <input
+                        type="text"
+                        class="form-control"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                      />
                       <span class="input-group-text" id="basic-addon1">₹</span>
                     </div>
-
                   </div>
                 </div>
               </div>
               <div class="col-md-1 mtop2">
-                <input type="file" accept="image/*" #file style="display: none;">
-                <button type="button" class="btn btn-grey btn-md"><img src="assets/img/upload.png"></button>
+                <input
+                  type="file"
+                  accept="image/*"
+                  #file
+                  style="display: none"
+                />
+                <button type="button" class="btn btn-grey btn-md">
+                  <img src="assets/img/upload.png" />
+                </button>
               </div>
               <div class="col-md-1 mtop2">
-                <input type="file" accept="image/*" #file2 style="display: none;">
-                <button type="button" class="btn btn-grey btn-md"><img src="assets/img/upload.png"></button>
+                <input
+                  type="file"
+                  accept="image/*"
+                  #file2
+                  style="display: none"
+                />
+                <button type="button" class="btn btn-grey btn-md">
+                  <img src="assets/img/upload.png" />
+                </button>
               </div>
               <div class="col-md-1 mtop1">
-                <button type="button" class="btn btn-rounded mtop18"><i class="bi bi-trash"></i></button>
+                <button type="button" class="btn btn-rounded mtop18">
+                  <i class="bi bi-trash"></i>
+                </button>
               </div>
               <div class="col-md-12">
                 <hr />
               </div>
             </div>
 
-
-
             <div class="row">
-              <div class="col-md-3" style="margin-top: 1%;">
+              <div class="col-md-3" style="margin-top: 1%">
                 <div class="row">
                   <div class="col-md-3">
-                    <img src="assets/img/metal.png">
+                    <img src="assets/img/metal.png" />
                   </div>
                   <div class="col-md-8">
                     <div class="row inv-product-text">Aluminium</div>
@@ -90,43 +123,78 @@
               <div class="col-md-6">
                 <div class="row">
                   <div class="col-md-4">
-                    <label for="Username" class="form-label form-text">Available Qty</label>
+                    <label for="Username" class="form-label form-text"
+                      >Available Qty</label
+                    >
                     <div class="input-group mb-3">
-                      <input type="text" class="form-control" aria-label="Username" id="Username"
-                        aria-describedby="basic-addon1">
+                      <input
+                        type="text"
+                        class="form-control"
+                        aria-label="Username"
+                        id="Username"
+                        aria-describedby="basic-addon1"
+                      />
                       <span class="input-group-text" id="basic-addon1">kg</span>
                     </div>
                   </div>
 
                   <div class="col-md-4">
-                    <label for="Username" class="form-label form-text">Market Price/kg</label>
+                    <label for="Username" class="form-label form-text"
+                      >Market Price/kg</label
+                    >
                     <div class="input-group mb-3">
-                      <input type="text" class="form-control read-only" aria-label="Username"
-                        aria-describedby="basic-addon1" readonly>
+                      <input
+                        type="text"
+                        class="form-control read-only"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                        readonly
+                      />
                     </div>
                   </div>
 
-
                   <div class="col-md-4">
-                    <label for="Username" class="form-label form-text">Expected Price/kg</label>
+                    <label for="Username" class="form-label form-text"
+                      >Expected Price/kg</label
+                    >
                     <div class="input-group mb-3">
-                      <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                      <input
+                        type="text"
+                        class="form-control"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                      />
                       <span class="input-group-text" id="basic-addon1">₹</span>
                     </div>
-
                   </div>
                 </div>
               </div>
               <div class="col-md-1 mtop2">
-                <input type="file" accept="image/*" #file style="display: none;">
-                <button type="button" class="btn btn-grey btn-md"><img src="assets/img/upload.png"></button>
+                <input
+                  type="file"
+                  accept="image/*"
+                  #file
+                  style="display: none"
+                />
+                <button type="button" class="btn btn-grey btn-md">
+                  <img src="assets/img/upload.png" />
+                </button>
               </div>
               <div class="col-md-1 mtop2">
-                <input type="file" accept="image/*" #file2 style="display: none;">
-                <button type="button" class="btn btn-grey btn-md"><img src="assets/img/upload.png"></button>
+                <input
+                  type="file"
+                  accept="image/*"
+                  #file2
+                  style="display: none"
+                />
+                <button type="button" class="btn btn-grey btn-md">
+                  <img src="assets/img/upload.png" />
+                </button>
               </div>
               <div class="col-md-1 mtop1">
-                <button type="button" class="btn btn-rounded mtop18"><i class="bi bi-trash"></i></button>
+                <button type="button" class="btn btn-rounded mtop18">
+                  <i class="bi bi-trash"></i>
+                </button>
               </div>
               <div class="col-md-12">
                 <hr />
@@ -134,8 +202,7 @@
             </div>
 
             <div class="row">
-              <div class="col-md-5">
-              </div>
+              <div class="col-md-5"></div>
               <div class="col-md-6">
                 <button class="btn inv-product-text page-header">
                   <i class="bi bi-plus-circle-fill"></i>
@@ -148,28 +215,33 @@
           <div class="card-footer">
             <div class="row">
               <div class="col-md-8">
-                <h5 class="page-header inv-product-text mtop2"> Go to Dashboard </h5>
+                <h5 class="page-header inv-product-text mtop2">
+                  Go to Dashboard
+                </h5>
               </div>
 
               <div class="col-md-2 mtop1">
-                <button class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width" type="button">
-                  <b>Reset
-                    Changes</b>
+                <button
+                  class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
+                  type="button"
+                >
+                  <b>Reset Changes</b>
                 </button>
               </div>
 
               <div class="col-md-2 mtop1">
-                <button class="btn btn-primary button-rounded f12 full-width bg-primary" type="button"> Update
-                  Inventory</button>
+                <button
+                  class="btn btn-primary button-rounded f12 full-width bg-primary"
+                  type="button"
+                >
+                  Update Inventory
+                </button>
               </div>
-
             </div>
           </div>
-
         </div>
       </form>
     </div>
-    <div class="col-md-2">
-    </div>
+    <div class="col-md-2"></div>
   </div>
 </div>
