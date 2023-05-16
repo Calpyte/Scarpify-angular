@@ -6,6 +6,10 @@ import { IndexedDBService } from 'src/app/service/IndexedDB.service';
 import { AuthServiceService } from 'src/app/service/auth-service.service';
 import { LoginService } from 'src/app/service/login.service';
 import { VerificationService } from '../verification.service';
+import { CookieService } from 'ngx-cookie-service';
+import jwt_decode from "jwt-decode";
+import { UserService } from '../user-service/user.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -24,9 +28,11 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<any>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private verificationService: VerificationService,
     private authService: AuthServiceService,
-    private indexDBService: IndexedDBService) { }
+    private cookieService: CookieService,
+    private userService: UserService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -59,12 +65,23 @@ export class LoginComponent implements OnInit {
   submit = () => {
     this.authService.login(this.loginForm.value?.phone, this.loginForm.value?.otp).subscribe({
       next: (res) => {
-        this.authService.setAccessToken(res.auth);
-        this.indexDBService.setRefreshToken(res.token);
-        this.verificationService.setIsAuthenticated(true);
+        this.cookieService.set("refreshToken", res.token)
+        this.cookieService.set("token", res.auth);
+        const token = this.cookieService.get("token");
+        if (token) {
+          const decoded = jwt_decode(token);
+          this.userService.updateData({
+            userName: decoded['given_name'],
+            email: decoded['email']
+          })
+        }
         this.close(true);
       },
-      error: (err) => { this.verificationService.setIsAuthenticated(false) }
+      error: (err) => {
+        this.cookieService.deleteAll();
+        this.userService.updateData(null);
+        this.close(false);
+      }
     });
   }
 }

@@ -3,6 +3,7 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import { Observable } from 'rxjs';
 import { AuthServiceService } from 'src/app/service/auth-service.service';
 import { VerificationService } from '../verification.service';
+import { UserService } from '../user-service/user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,17 +13,20 @@ export class AuthGuard implements CanActivate {
   constructor(
     private authService: AuthServiceService,
     private router: Router,
-    private verificationService: VerificationService) {
+    private verificationService: VerificationService,
+    private userService: UserService) {
 
   }
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.verificationService.getIsAuthenticated()) {
+    state: RouterStateSnapshot): any {
+    this.userService.getData().subscribe((e) => {
+      if (e == null) {
+        this.verificationService.openLogin(state.url);
+        return false;
+      }
       return true;
-    } else {
-      return false;
-    }
+    });
   }
 
 }
