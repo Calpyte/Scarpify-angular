@@ -9,7 +9,10 @@ export class HttpsApiService {
 
   constructor(private http: HttpClient) { }
 
-  getArray(url: any):Observable<any[]> {
+  getArray(url: any): Observable<any[]> {
     return this.http.get<any[]>(url);
   }
+
+
+
 }

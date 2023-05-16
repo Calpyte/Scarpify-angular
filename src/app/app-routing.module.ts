@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './common/AuthGuard/auth.guard';
+import { BlankComponent } from './common/blank/blank.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () => import('./seller/seller.module')
       .then(m => m.SellerModule)
+  },
+  {
+    path: 'blank',
+    component: BlankComponent
   },
   {
     path: '',
