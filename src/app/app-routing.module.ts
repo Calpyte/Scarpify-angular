@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'blank',
+    redirectTo: 'home',
     pathMatch: 'full'
   }
 ];
