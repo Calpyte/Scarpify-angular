@@ -3,25 +3,16 @@ import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VerificationService {
 
-  isAuthenticated: boolean = false;
+  constructor(public dialog: MatDialog, private router: Router) { }
 
-  setIsAuthenticated(auth: boolean) {
-    this.isAuthenticated = auth;
-  }
-
-  getIsAuthenticated() {
-    return this.isAuthenticated;
-  }
-
-  constructor(public dialog: MatDialog) { }
-
-  openRegister = () => {
+  openRegister = (route) => {
     const dialogRef = this.dialog.open(RegisterComponent, {
       width: '492px',
       data: null,
@@ -29,16 +20,16 @@ export class VerificationService {
     });
     dialogRef.afterClosed().subscribe((res) => {
       if (res === 'login') {
-        this.openLogin();
+        this.openLogin(route);
       } else if (res === true) {
-        this.setIsAuthenticated(true)
-      } else if (res === false) {
-        this.setIsAuthenticated(false)
-      } else this.setIsAuthenticated(false);
+        this.router.navigate([route])
+      } else {
+        this.router.navigate(["/home"])
+      }
     });
   }
 
-  openLogin = () => {
+  openLogin = (route) => {
     const dialogRef = this.dialog.open(LoginComponent, {
       width: '492px',
       data: null,
@@ -46,12 +37,12 @@ export class VerificationService {
     });
     dialogRef.afterClosed().subscribe((res) => {
       if (res === 'register') {
-        this.openRegister();
+        this.openRegister(route);
       } else if (res === true) {
-        this.setIsAuthenticated(true)
-      } else if (res === false) {
-        this.setIsAuthenticated(false)
-      } else this.setIsAuthenticated(false);
+        this.router.navigate([route])
+      } else {
+        this.router.navigate(["/home"])
+      }
     })
   }
 }
