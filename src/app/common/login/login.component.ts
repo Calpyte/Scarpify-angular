@@ -56,16 +56,15 @@ export class LoginComponent implements OnInit {
     this.dialogRef.close(data);
   }
 
-  submit = async () => {
-    this.authService.login(this.loginForm.value?.phone, this.loginForm.value?.otp).pipe(
-      catchError(async (error) => this.verificationService.setIsAuthenticated(false))
-    ).subscribe((res) => {
-      if (res) {
+  submit = () => {
+    this.authService.login(this.loginForm.value?.phone, this.loginForm.value?.otp).subscribe({
+      next: (res) => {
         this.authService.setAccessToken(res.auth);
         this.indexDBService.setRefreshToken(res.token);
+        this.verificationService.setIsAuthenticated(true);
         this.close(true);
-      }
+      },
+      error: (err) => { this.verificationService.setIsAuthenticated(false) }
     });
   }
-
 }

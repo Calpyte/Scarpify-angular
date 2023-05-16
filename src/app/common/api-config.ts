@@ -7,4 +7,6 @@ import { environment } from "src/environments/environment";
 export class ApiConfig {
   baseUrl: string = environment.baseUrl;
 
+  getAllCategories = 'product/category';
+
 }

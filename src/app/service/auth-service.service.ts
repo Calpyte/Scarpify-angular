@@ -1,15 +1,18 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IndexedDBService } from './IndexedDB.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthServiceService {
+export class AuthServiceService implements OnDestroy {
   private accessToken: string;
 
   constructor(private http: HttpClient, private indexedDBService: IndexedDBService) { }
+  ngOnDestroy(): void {
+    alert("service destroyed");
+  }
 
   setAccessToken(token: string): void {
     this.accessToken = token;

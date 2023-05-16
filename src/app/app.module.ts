@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TokenInterceptor } from './common/Interceptor/token.interceptor';
 import { CommonModule } from '@angular/common';
+import { AuthServiceService } from './service/auth-service.service';
 
 @NgModule({
   declarations: [
