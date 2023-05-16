@@ -7,8 +7,6 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
   styleUrls: ['./products-picker.component.css']
 })
 export class ProductsPickerComponent implements OnInit {
-  panelOpenState = false;
-  step = 0;
   @Input() selectedCheckboxIds: string[] = [];
   @Input() categories: any = [];
 

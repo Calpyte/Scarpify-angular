@@ -41,16 +41,12 @@ export class LoginComponent implements OnInit {
     this.step = 0;
     this.userType = type;
   }
-  close = () => {
-    this.dialogRef.close(null);
+  close = (data) => {
+    this.dialogRef.close(data);
   }
 
   submit = () => {
-    this.dialogRef.close(this.loginForm.value);
-  }
-
-  toRegister = () => {
-    this.dialogRef.close(null);
+    // this.dialogRef.close(this.loginForm.value);
   }
 
 }

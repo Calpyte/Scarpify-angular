@@ -2,7 +2,7 @@
   <div [ngSwitch]="step">
     <div style="display: flex; flex-direction: column; align-items: center">
       <div style="display: flex; flex-direction: row-reverse" class="col-12">
-        <button class="btn" type="button" (click)="close()">x</button>
+        <button class="btn" type="button" (click)="close(null)">x</button>
       </div>
       <h1 mat-dialog-title style="font-weight: bold; color: #00cb91">
         Scrapify
@@ -58,7 +58,7 @@
           <button
             class="btn-2 col-12"
             style="border: solid 1px transparent"
-            (click)="toRegister()"
+            (click)="close('register')"
           >
             Don't have a account ? Register here
           </button>
@@ -92,7 +92,7 @@
             class="btn-2 col-12"
             type="button"
             style="border: solid 1px transparent"
-            (click)="toRegister()"
+            (click)="close('register')"
           >
             Don't have a account ? Register here
           </button>

@@ -8,7 +8,9 @@ import { NgOtpInputModule } from 'ng-otp-input';
 import { RegisterComponent } from './register/register.component';
 import { ProductsPickerComponent } from './products-picker/products-picker.component';
 import { ProductsViewComponent } from './products-view/products-view.component';
-
+import { AgmCoreModule } from '@agm/core';
+import { LocationPickerComponent } from './location-picker/location-picker.component';
+import { VerificationService } from './verification.service';
 @NgModule({
   declarations: [
     TopBarComponent,
@@ -16,14 +18,30 @@ import { ProductsViewComponent } from './products-view/products-view.component';
     TopBarComponent,
     RegisterComponent,
     ProductsPickerComponent,
-    ProductsViewComponent
+    ProductsViewComponent,
+    LocationPickerComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     MaterialModule,
-    NgOtpInputModule
+    NgOtpInputModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyA4F9JYoct7v7oGvirzAx7_oK6XkNyL1oM'
+    })
   ],
-  exports: [MaterialModule, NgOtpInputModule, TopBarComponent, LoginComponent, RegisterComponent, ProductsPickerComponent, ProductsViewComponent]
+  exports: [
+    MaterialModule,
+    NgOtpInputModule,
+    TopBarComponent,
+    LoginComponent,
+    RegisterComponent,
+    ProductsPickerComponent,
+    ProductsViewComponent,
+    LocationPickerComponent,
+  ],
+  providers: [
+    VerificationService
+  ]
 })
 export class CommonSharedModule { }
