@@ -843,10 +843,6 @@ export class RegisterComponent implements OnInit {
     this.step = this.step - 1;
   }
 
-  handlePage = (page) => {
-    this.dialogRef.close(page);
-  }
-
   onOtpChange(e: any) {
     this.registerForm.patchValue({
       otp: e

@@ -11,6 +11,9 @@ import { ProductsViewComponent } from './products-view/products-view.component';
 import { AgmCoreModule } from '@agm/core';
 import { LocationPickerComponent } from './location-picker/location-picker.component';
 import { VerificationService } from './verification.service';
+import { LoginService } from '../service/login.service';
+import { AuthServiceService } from '../service/auth-service.service';
+import { IndexedDBService } from '../service/IndexedDB.service';
 @NgModule({
   declarations: [
     TopBarComponent,
@@ -41,7 +44,10 @@ import { VerificationService } from './verification.service';
     LocationPickerComponent,
   ],
   providers: [
-    VerificationService
+    VerificationService,
+    LoginService,
+    AuthServiceService,
+    IndexedDBService
   ]
 })
 export class CommonSharedModule { }

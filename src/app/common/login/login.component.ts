@@ -1,6 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { catchError } from 'rxjs';
+import { IndexedDBService } from 'src/app/service/IndexedDB.service';
+import { AuthServiceService } from 'src/app/service/auth-service.service';
+import { LoginService } from 'src/app/service/login.service';
+import { VerificationService } from '../verification.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +20,13 @@ export class LoginComponent implements OnInit {
   otp: number = null;
   step: number = 0;
 
-  constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<any>, @Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(
+    private fb: FormBuilder,
+    public dialogRef: MatDialogRef<any>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private verificationService: VerificationService,
+    private authService: AuthServiceService,
+    private indexDBService: IndexedDBService) { }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -45,8 +56,16 @@ export class LoginComponent implements OnInit {
     this.dialogRef.close(data);
   }
 
-  submit = () => {
-    // this.dialogRef.close(this.loginForm.value);
+  submit = async () => {
+    this.authService.login(this.loginForm.value?.phone, this.loginForm.value?.otp).pipe(
+      catchError(async (error) => this.verificationService.setIsAuthenticated(false))
+    ).subscribe((res) => {
+      if (res) {
+        this.authService.setAccessToken(res.auth);
+        this.indexDBService.setRefreshToken(res.token);
+        this.close(true);
+      }
+    });
   }
 
 }
