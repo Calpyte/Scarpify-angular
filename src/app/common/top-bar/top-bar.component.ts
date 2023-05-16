@@ -21,18 +21,7 @@ export class TopBarComponent implements OnInit {
   }
 
   login = () => {
-    this.verificationService.openLogin().subscribe((res) => {
-      if (res === 'register') {
-        this.register();
-      }
-    });
+    this.verificationService.openLogin();
   }
 
-  register = () => {
-    this.verificationService.openRegister().subscribe((res) => {
-      if (res === 'login') {
-        this.login();
-      }
-    });
-  }
 }

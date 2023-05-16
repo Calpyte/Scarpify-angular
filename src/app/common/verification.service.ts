@@ -9,6 +9,16 @@ import { Observable } from 'rxjs';
 })
 export class VerificationService {
 
+  isAuthenticated: boolean = false;
+
+  setIsAuthenticated(auth: boolean) {
+    this.isAuthenticated = auth;
+  }
+
+  getIsAuthenticated() {
+    return this.isAuthenticated;
+  }
+
   constructor(public dialog: MatDialog) { }
 
   openRegister = () => {
@@ -17,7 +27,15 @@ export class VerificationService {
       data: null,
       disableClose: true
     });
-    return dialogRef.afterClosed();
+    dialogRef.afterClosed().subscribe((res) => {
+      if (res === 'login') {
+        this.openLogin();
+      } else if (res === true) {
+        this.setIsAuthenticated(true)
+      } else if (res === false) {
+        this.setIsAuthenticated(false)
+      } else this.setIsAuthenticated(false);
+    });
   }
 
   openLogin = () => {
@@ -26,7 +44,14 @@ export class VerificationService {
       data: null,
       disableClose: true
     });
-    return dialogRef.afterClosed();
+    dialogRef.afterClosed().subscribe((res) => {
+      if (res === 'register') {
+        this.openRegister();
+      } else if (res === true) {
+        this.setIsAuthenticated(true)
+      } else if (res === false) {
+        this.setIsAuthenticated(false)
+      } else this.setIsAuthenticated(false);
+    })
   }
-
 }
