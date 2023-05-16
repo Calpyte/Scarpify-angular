@@ -2,13 +2,20 @@
   <div [ngSwitch]="step">
     <div style="display: flex; flex-direction: column; align-items: center">
       <div style="display: flex; flex-direction: row-reverse" class="col-12">
-        <button class="btn" type="button" (click)="close()">x</button>
+        <button class="btn" type="button" (click)="close(null)">x</button>
       </div>
       <h1 mat-dialog-title style="font-weight: bold; color: #00cb91">
         Scrapify
       </h1>
-      <mat-dialog-content class="col-12" *ngSwitchCase="0">
-        <div style="display: flex; flex-wrap: nowrap; gap: 10px">
+      <mat-dialog-content @fade class="col-12" *ngSwitchCase="0">
+        <div
+          style="
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 10px;
+            justify-content: center;
+          "
+        >
           <div
             *ngFor="let user of users"
             (click)="handleUserType(user?.id)"
@@ -25,7 +32,7 @@
           </div>
         </div>
       </mat-dialog-content>
-      <mat-dialog-content class="col-12" *ngSwitchCase="1">
+      <mat-dialog-content @fade class="col-12" *ngSwitchCase="1">
         <div class="form-group">
           <label for="phone">Enter your name</label>
           <input
@@ -47,7 +54,7 @@
           </div>
         </div>
       </mat-dialog-content>
-      <mat-dialog-content class="col-12" *ngSwitchCase="2">
+      <mat-dialog-content @fade class="col-12" *ngSwitchCase="2">
         <div class="form-group">
           <label for="phone">Email Id</label>
           <input
@@ -72,7 +79,7 @@
           </div>
         </div>
       </mat-dialog-content>
-      <mat-dialog-content class="col-12" *ngSwitchCase="3">
+      <mat-dialog-content @fade class="col-12" *ngSwitchCase="3">
         <div class="form-group">
           <label for="phone">Phone Number</label>
           <div class="input-group mb-0">
@@ -101,7 +108,7 @@
           </div>
         </div>
       </mat-dialog-content>
-      <mat-dialog-content class="col-12" *ngSwitchCase="4">
+      <mat-dialog-content @fade class="col-12" *ngSwitchCase="4">
         <div
           style="
             display: flex;
@@ -124,18 +131,43 @@
           </button>
         </div>
       </mat-dialog-content>
-      <mat-dialog-content class="col-12" *ngSwitchCase="5">
+      <mat-dialog-content @fade class="col-12" *ngSwitchCase="5">
+        <app-location-picker
+          [inputLocation]="registerForm?.value?.location"
+          (selectedLocation)="selectedLocation($event)"
+        ></app-location-picker>
+        <div class="form-group">
+          <label for="phone">Current Location</label>
+          <textarea
+            class="form-control"
+            formControlName="address"
+            id="exampleFormControlTextarea1"
+            rows="3"
+          ></textarea>
+          <div class="err">
+            <small
+              *ngIf="
+                registerForm.controls['address'].hasError('required') &&
+                registerForm.controls['address'].dirty
+              "
+            >
+              Address is Required
+            </small>
+          </div>
+        </div>
+      </mat-dialog-content>
+      <mat-dialog-content class="col-12" *ngSwitchCase="6">
         <app-products-picker
           [categories]="categories"
           [selectedCheckboxIds]="selectedIds"
         ></app-products-picker>
       </mat-dialog-content>
-      <mat-dialog-content class="col-12" *ngSwitchCase="6">
+      <mat-dialog-content @fade class="col-12" *ngSwitchCase="7">
         <app-products-view
-          [categories]="categories"
-          [selectedIds]="selectedIds"
+          [selectedProducts]="registerForm?.value?.products"
         ></app-products-view>
       </mat-dialog-content>
+
       <!-- actions -->
       <mat-dialog-actions
         *ngIf="step === 0"
@@ -148,6 +180,9 @@
         "
       >
         <button class="btn-1 col-11" (click)="handleForward()">Next</button>
+        <button type="button" class="btn" (click)="close('login')">
+          Resister user ? Login
+        </button>
       </mat-dialog-actions>
       <mat-dialog-actions *ngIf="step != 0" style="width: 100%">
         <div

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
+import { VerificationService } from '../verification.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -10,26 +11,28 @@ import { RegisterComponent } from '../register/register.component';
 })
 export class TopBarComponent implements OnInit {
   @Input() selectedOption: string = "seller";
-  constructor(public dialog: MatDialog) { }
+  constructor(private verificationService: VerificationService) { }
 
   ngOnInit(): void {
   }
+
   onOptionSelected(isSeller: boolean) {
-    if (isSeller) {
-      this.selectedOption = "seller";
-    } else {
-      this.selectedOption = "buyer";
-    }
+    this.selectedOption = isSeller ? "seller" : "buyer";
   }
 
   login = () => {
-    const dialogRef = this.dialog.open(RegisterComponent, {
-      width: '492px',
-      data: null,
+    this.verificationService.openLogin().subscribe((res) => {
+      if (res === 'register') {
+        this.register();
+      }
     });
-    dialogRef.afterClosed().subscribe(result => {
-      // alert(JSON.stringify(result));
-      console.log(`Dialog result: ${result}`);
+  }
+
+  register = () => {
+    this.verificationService.openRegister().subscribe((res) => {
+      if (res === 'login') {
+        this.login();
+      }
     });
   }
 }

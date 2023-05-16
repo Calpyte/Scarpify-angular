@@ -1,11 +1,21 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { trigger, style, animate, transition } from '@angular/animations';
+
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  animations: [
+    trigger('fade', [
+      transition('void => *', [
+        style({ opacity: 0 }),
+        animate(300, style({ opacity: 1 }))
+      ])
+    ])
+  ]
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
@@ -786,8 +796,27 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  close = () => {
-    this.dialogRef.close(null);
+  selectedLocation = (event) => {
+    this.registerForm.patchValue({
+      location: event
+    })
+  }
+
+  getSelectedProducts = () => {
+    let arr = [];
+    this.categories.forEach((category) => {
+      let products = [...category?.products];
+      let obj = {
+        id: category?.id,
+        name: category?.name,
+        icon: category?.icon,
+        products: products.filter((product) => this.selectedIds.includes(product?.id))
+      };
+      arr.push(obj);
+    });
+    this.registerForm.patchValue({
+      products: arr.filter((e) => e?.products?.length > 0)
+    })
   }
 
   handleUserType = (userType: string) => {
@@ -797,16 +826,25 @@ export class RegisterComponent implements OnInit {
   }
 
   handleForward = () => {
-    if (this.step === 5) {
-      console.log(this.selectedIds);
+    if (this.step === 6) {
+      this.getSelectedProducts();
       this.step = this.step + 1;
     } else {
-      this.step = this.step + 1;
+      if (this.step === 7) {
+        this.submit();
+      } else {
+        this.step = this.step + 1;
+      }
+
     }
   }
 
   handleBackward = () => {
     this.step = this.step - 1;
+  }
+
+  handlePage = (page) => {
+    this.dialogRef.close(page);
   }
 
   onOtpChange(e: any) {
@@ -816,7 +854,12 @@ export class RegisterComponent implements OnInit {
   }
 
   submit = () => {
+    this.dialogRef.close(null);
+    console.log(this.registerForm.value);
+  }
 
+  close = (data) => {
+    this.dialogRef.close(data);
   }
 
 }

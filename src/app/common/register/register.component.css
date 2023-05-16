@@ -32,3 +32,7 @@
 .err{
   color: #C0392B;
 }
+mat-dialog-content{
+  margin: 0;
+  padding: 0;
+}
