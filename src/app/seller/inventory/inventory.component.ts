@@ -5,10 +5,20 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ProductAddComponent } from './product-add/product-add.component';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { trigger, style, animate, transition } from '@angular/animations';
+
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
-  styleUrls: ['./inventory.component.css']
+  styleUrls: ['./inventory.component.css'],
+  animations: [
+    trigger('fade', [
+      transition('void => *', [
+        style({ opacity: 0 }),
+        animate(500, style({ opacity: 1 }))
+      ])
+    ])
+  ]
 })
 export class InventoryComponent implements OnInit {
   inventoryData: any = null;
