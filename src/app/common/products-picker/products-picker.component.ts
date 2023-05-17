@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
@@ -6,7 +6,7 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
   templateUrl: './products-picker.component.html',
   styleUrls: ['./products-picker.component.css']
 })
-export class ProductsPickerComponent implements OnInit {
+export class ProductsPickerComponent implements OnChanges {
   @Input() selectedCheckboxIds: string[] = [];
   @Input() categories: any = [];
 
@@ -14,7 +14,7 @@ export class ProductsPickerComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnChanges() {
     this.filterCategories = this.categories;
   }
 

@@ -4,9 +4,13 @@ import { environment } from "src/environments/environment";
 @Injectable({
   providedIn: 'root'
 })
-export class ApiConfig {
+export class ApiConfigService {
   baseUrl: string = environment.baseUrl;
 
   getAllCategories = 'product/category';
+
+  getInventories = "order/scrap/seller";
+
+  saveInventory = "order/scrap";
 
 }
