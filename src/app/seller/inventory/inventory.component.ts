@@ -30,27 +30,6 @@ export class InventoryComponent implements OnInit {
     this.getInventory();
   }
 
-  getStockForm() {
-    this.stockForm = this.fb.group({
-      stock: this.fb.array([])
-    })
-  }
-
-  addItem(): void {
-    const itemFormGroup = this.fb.group({
-      quantity: ['', Validators.required],
-      price: ['', Validators.required],
-      marketPrice: ['']
-    });
-    this.itemsFormArray.push(itemFormGroup);
-  }
-
-  get itemsFormArray(): FormArray {
-    return this.stockForm.get('stock') as FormArray;
-  }
-
-
-
   getInventory = () => {
     this.http.get(this.apiConfigService.getInventories).subscribe((data) => {
       this.inventoryData = data;
