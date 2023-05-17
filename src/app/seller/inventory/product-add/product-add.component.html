@@ -1,0 +1,43 @@
+<div [ngSwitch]="step">
+  <div style="text-align: end">
+    <button class="btn" (click)="close(null)">x</button>
+  </div>
+
+  <mat-dialog-content class="mat-typography col-12" *ngSwitchCase="0">
+    <app-products-picker
+      [categories]="categories"
+      [selectedCheckboxIds]="selectedCheckboxIds"
+    ></app-products-picker>
+  </mat-dialog-content>
+  <mat-dialog-content class="mat-typography col-12" *ngSwitchCase="1">
+    <app-products-view
+      [selectedProducts]="selectedProducts"
+    ></app-products-view>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button
+      *ngIf="step === 0"
+      class="btn-1"
+      style="width: 100%"
+      (click)="stepAction()"
+    >
+      Next
+    </button>
+    <button
+      *ngIf="step === 1"
+      class="btn-2"
+      style="width: 50%"
+      (click)="backward()"
+    >
+      Prev
+    </button>
+    <button
+      *ngIf="step === 1"
+      class="btn-1"
+      style="width: 50%"
+      (click)="stepAction()"
+    >
+      Submit
+    </button>
+  </mat-dialog-actions>
+</div>

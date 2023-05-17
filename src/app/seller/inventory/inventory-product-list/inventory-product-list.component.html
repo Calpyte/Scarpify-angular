@@ -1,0 +1,93 @@
+<form [formGroup]="inventoryForm">
+  <div class="row">
+    <div class="col-md-3" style="margin-top: 1%">
+      <div class="row">
+        <div class="col-md-3">
+          <img src="assets/img/metal.png" />
+        </div>
+        <div class="col-md-8">
+          <div class="row inv-product-text">{{ stock?.name }}</div>
+          <div class="row inv-category-text">{{ stock?.name }}</div>
+          <div class="row inv-amt-text">
+            Exp. Amt. ₹{{
+              inventoryForm.value.quantity * inventoryForm.value.price
+            }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-4">
+          <label for="Username" class="form-label form-text"
+            >Available Qty</label
+          >
+          <div class="input-group mb-3">
+            <input
+              type="number"
+              class="form-control"
+              aria-label="Username"
+              id="qty"
+              name="qty"
+              formControlName="quantity"
+              aria-describedby="basic-addon1"
+            />
+            <span class="input-group-text" id="basic-addon1">kg</span>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label for="Username" class="form-label form-text"
+            >Market Price/kg</label
+          >
+          <div class="input-group mb-3">
+            <input
+              type="number"
+              class="form-control read-only"
+              formControlName="marketPrice"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              readonly
+            />
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label for="Username" class="form-label form-text"
+            >Expected Price/kg</label
+          >
+          <div class="input-group mb-3">
+            <input
+              type="number"
+              class="form-control"
+              formControlName="price"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+            />
+            <span class="input-group-text" id="basic-addon1">₹</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1 mtop2">
+      <input type="file" accept="image/*" #file style="display: none" />
+      <button type="button" class="btn btn-grey btn-md">
+        <img src="assets/img/upload.png" />
+      </button>
+    </div>
+    <div class="col-md-1 mtop2">
+      <input type="file" accept="image/*" #file2 style="display: none" />
+      <button type="button" class="btn btn-grey btn-md">
+        <img src="assets/img/upload.png" />
+      </button>
+    </div>
+    <div class="col-md-1 mtop1">
+      <button type="button" class="btn btn-rounded mtop18">
+        <i class="bi bi-trash"></i>
+      </button>
+    </div>
+    <div class="col-md-12">
+      <hr />
+    </div>
+  </div>
+</form>

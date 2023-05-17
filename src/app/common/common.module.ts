@@ -14,6 +14,7 @@ import { VerificationService } from './verification.service';
 import { LoginService } from '../service/login.service';
 import { AuthServiceService } from '../service/auth-service.service';
 import { IndexedDBService } from '../service/IndexedDB.service';
+import { ApiConfigService } from './api-config';
 @NgModule({
   declarations: [
     TopBarComponent,
@@ -35,6 +36,7 @@ import { IndexedDBService } from '../service/IndexedDB.service';
   ],
   exports: [
     MaterialModule,
+    FormsModule,
     NgOtpInputModule,
     TopBarComponent,
     LoginComponent,
@@ -47,7 +49,8 @@ import { IndexedDBService } from '../service/IndexedDB.service';
     VerificationService,
     LoginService,
     AuthServiceService,
-    IndexedDBService
+    IndexedDBService,
+    ApiConfigService
   ]
 })
 export class CommonSharedModule { }

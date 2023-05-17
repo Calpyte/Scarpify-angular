@@ -18,12 +18,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     const token = this.cookieService.get("token");
-    // if (token) {
-    //   const decoded = jwt_decode(token);
-    //   this.userService.updateData({
-    //     userName: decoded['given_name'],
-    //     email: decoded['email']
-    //   })
-    // }
+    if (token) {
+      const decoded = jwt_decode(token);
+      this.userService.updateData({
+        userName: decoded['given_name'],
+        email: decoded['email']
+      })
+    }
   }
 }
