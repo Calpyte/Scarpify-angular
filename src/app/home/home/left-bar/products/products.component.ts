@@ -20,7 +20,7 @@ export class ProductsComponent implements OnInit {
 
   getProducts = () => {
     this.http.getArray(this.apiConfig.getAllCategories).subscribe((data) => {
-      console.log(data)
+      this.categories = data;
     });
   }
 
