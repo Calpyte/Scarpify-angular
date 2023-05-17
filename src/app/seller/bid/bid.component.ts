@@ -13,25 +13,25 @@ export class BidComponent implements OnInit {
     {
       id: 0,
       name: 'open',
-      count: 10,
-      isActive: true
+      count: 0,
+      isActive: false
     },
     {
       id: 1,
       name: 'modified',
-      count: 10,
+      count: 0,
       isActive: false
     },
     {
       id: 2,
       name: 'confirmed',
-      count: 10,
+      count: 0,
       isActive: false
     },
     {
       id: 3,
       name: 'closed',
-      count: 10,
+      count: 0,
       isActive: false
     }
   ];
@@ -48,6 +48,7 @@ export class BidComponent implements OnInit {
 
   ngOnInit() {
     this.getMyBids();
+    this.handleTab(this.tabs[0]);
   }
 
   getMyBids = () => {
@@ -56,9 +57,12 @@ export class BidComponent implements OnInit {
       this.bids.modified = bids.filter((bid) => bid?.status && bid?.status.toLowerCase() === 'modified');
       this.bids.confirmed = bids.filter((bid) => bid?.status && bid?.status.toLowerCase() === 'accepted');
       this.bids.closed = bids.filter((bid) => bid?.status && bid?.status.toLowerCase() === 'rejected');
+      this.tabs = this.tabs.map((tab) => {
+        tab.count = this.bids[tab?.name]?.length
+        return tab;
+      })
       this.handleTab(this.tabs[0]);
     });
-
   }
 
   handleTab = (selectedTab) => {

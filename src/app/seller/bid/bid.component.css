@@ -94,3 +94,11 @@ p{
 .full-width {
   width: 100%;
 }
+
+
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
