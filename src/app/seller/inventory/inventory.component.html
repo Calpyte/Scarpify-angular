@@ -8,15 +8,118 @@
         <h6 class="page-sub-header float-md-end">Estimated Scrap Amt.</h6>
       </div>
 
-      <form name="inputForm">
+      <form [formGroup]="form">
         <div class="card">
           <div class="card-body" style="overflow-y: auto">
-            <app-inventory-product-list
-              [stock]="stock"
-              [updatedStocks]="updatedStocks"
-              *ngFor="let stock of inventoryData?.stock"
-            ></app-inventory-product-list>
+            <div
+              class="row"
+              [formGroup]="addressGroup"
+              *ngFor="
+                let addressGroup of form.get('stocks')['controls'];
+                let i = index
+              "
+            >
+              <div class="col-md-3" style="margin-top: 1%">
+                <div class="row">
+                  <div class="col-md-3">
+                    <img src="assets/img/metal.png" />
+                  </div>
+                  <div class="col-md-8">
+                    <div class="row inv-product-text">
+                      {{ form?.value["stocks"][i]?.product?.name }}
+                    </div>
+                    <div class="row inv-category-text">
+                      {{ form?.value["stocks"][i]?.product?.name }}
+                    </div>
+                    <div class="row inv-amt-text">Exp. Amt. ₹200</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-4">
+                    <label for="Username" class="form-label form-text"
+                      >Available Qty</label
+                    >
+                    <div class="input-group mb-3">
+                      <input
+                        type="number"
+                        class="form-control"
+                        aria-label="Username"
+                        id="qty"
+                        name="qty"
+                        formControlName="quantity"
+                        aria-describedby="basic-addon1"
+                      />
+                      <span class="input-group-text" id="basic-addon1">kg</span>
+                    </div>
+                  </div>
 
+                  <div class="col-md-4">
+                    <label for="Username" class="form-label form-text"
+                      >Market Price/kg</label
+                    >
+                    <div class="input-group mb-3">
+                      <input
+                        type="number"
+                        class="form-control read-only"
+                        formControlName="marketPrice"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                        readonly
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label for="Username" class="form-label form-text"
+                      >Expected Price/kg</label
+                    >
+                    <div class="input-group mb-3">
+                      <input
+                        type="number"
+                        class="form-control"
+                        formControlName="price"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                      />
+                      <span class="input-group-text" id="basic-addon1">₹</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1 mtop2">
+                <input
+                  type="file"
+                  accept="image/*"
+                  #file
+                  style="display: none"
+                />
+                <button type="button" class="btn btn-grey btn-md">
+                  <img src="assets/img/upload.png" />
+                </button>
+              </div>
+              <div class="col-md-1 mtop2">
+                <input
+                  type="file"
+                  accept="image/*"
+                  #file2
+                  style="display: none"
+                />
+                <button type="button" class="btn btn-grey btn-md">
+                  <img src="assets/img/upload.png" />
+                </button>
+              </div>
+              <div class="col-md-1 mtop1">
+                <button type="button" class="btn btn-rounded mtop18">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+              <div class="col-md-12">
+                <hr />
+              </div>
+            </div>
+            <!-- </div> -->
             <div class="row">
               <div class="col-md-5"></div>
               <div class="col-md-6">
@@ -30,7 +133,6 @@
               </div>
             </div>
           </div>
-
           <div class="card-footer">
             <div class="row">
               <div class="col-md-8">
