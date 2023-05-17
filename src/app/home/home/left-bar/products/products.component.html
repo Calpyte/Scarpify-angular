@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-md-4">
+<div class="row col-12">
+  <div class="col-md-4" *ngFor="let category of categories">
     <div class="card">
       <img
         src="https://calpyte-scrapify.s3.ap-south-1.amazonaws.com/glass.png"
@@ -7,9 +7,9 @@
         width="80"
       />
     </div>
-    <p class="card-title page-header product-text">Bottles</p>
+    <p class="card-title page-header product-text">{{ category?.name }}</p>
   </div>
-  <div class="col-md-4">
+  <!-- <div class="col-md-4">
     <div class="card">
       <img
         src="https://calpyte-scrapify.s3.ap-south-1.amazonaws.com/glass.png"
@@ -95,5 +95,5 @@
       />
     </div>
     <p class="card-title page-header product-text">More</p>
-  </div>
+  </div> -->
 </div>

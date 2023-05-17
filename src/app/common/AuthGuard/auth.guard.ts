@@ -20,13 +20,12 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): any {
-    this.userService.getData().subscribe((e) => {
-      if (e == null) {
-        this.verificationService.openLogin(state.url);
-        return false;
-      }
+    if (this.userService.isAuthenticated()) {
       return true;
-    });
+    } else {
+      this.verificationService.openLogin(state.url);
+      return false;
+    }
   }
 
 }

@@ -20,6 +20,8 @@ export class TopBarComponent implements OnInit {
     this.userService.getData().subscribe((data) => {
       if (data) {
         this.userData = data;
+      } else {
+        this.userData = null;
       }
     })
   }
@@ -33,9 +35,9 @@ export class TopBarComponent implements OnInit {
   }
 
   logout = () => {
+    this.userService.updateData(null);
     this.cookieService.delete("token");
     this.cookieService.delete("refreshToken");
-    this.userService.updateData(null);
     location.reload();
   }
 }
