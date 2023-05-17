@@ -13,4 +13,6 @@ export class ApiConfigService {
 
   saveInventory = "order/scrap";
 
+  getSellerBids = 'order/bid/seller/bids';
+
 }
