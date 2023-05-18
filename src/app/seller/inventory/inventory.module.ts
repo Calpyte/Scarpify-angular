@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { InventoryDetailComponent } from './inventory-detail/inventory-detail.component';
 import { CommonSharedModule } from 'src/app/common/common.module';
 import { ProductAddComponent } from './product-add/product-add.component';
+import { InventoryService } from './inventory.service';
 
 @NgModule({
   imports: [
@@ -13,6 +14,9 @@ import { ProductAddComponent } from './product-add/product-add.component';
     InventoryRoutes,
     CommonSharedModule
   ],
-  declarations: [InventoryComponent, InventoryDetailComponent, ProductAddComponent]
+  declarations: [InventoryComponent, InventoryDetailComponent, ProductAddComponent],
+  providers: [
+    InventoryService
+  ]
 })
 export class InventoryModule { }
