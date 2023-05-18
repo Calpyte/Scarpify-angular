@@ -1,0 +1,18 @@
+<div style="min-height: 65vh">
+  <div *ngFor="let category of selectedProducts">
+    <mat-list role="list">
+      <mat-list-item
+        style="position: sticky; top: 0px; background-color: white; z-index: 1"
+      >
+        <h3 style="font-weight: bold">{{ category?.name }}</h3></mat-list-item
+      >
+      <mat-list-item
+        style="padding-left: 2%"
+        role="listitem"
+        *ngFor="let product of category?.products"
+        >{{ product?.name }}</mat-list-item
+      >
+    </mat-list>
+  </div>
+  <div *ngIf="selectedProducts?.length === 0">No Products Selected !</div>
+</div>

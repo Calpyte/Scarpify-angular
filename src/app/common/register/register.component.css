@@ -1,0 +1,38 @@
+.user-type-grid {
+  width: 200px;
+  height: 154px;
+  border-radius: 12px;
+  border: 2px solid #013f56;
+  color : #013f56;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-type-grid-active {
+  width: 200px;
+  height: 154px;
+  border-radius: 12px;
+  border: 2px solid #00cb91;
+  color : #00cb91;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-control:hover {
+  box-shadow: none;
+}
+
+.form-control {
+  box-shadow: none;
+}
+
+.form-group{
+  min-height: 80px;
+}
+.err{
+  color: #C0392B;
+}
+mat-dialog-content{
+  margin: 0;
+  padding: 0;
+}

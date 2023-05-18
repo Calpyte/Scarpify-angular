@@ -10,6 +10,8 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.1.0",
+    "@agm/js-marker-clusterer": "^1.0.0-beta.7",
     "@angular/animations": "^14.2.0",
     "@angular/cdk": "^13.0.0",
     "@angular/common": "^14.2.0",
@@ -24,6 +26,9 @@
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.5",
     "jquery": "^3.7.0",
+    "jwt-decode": "^3.1.2",
+    "ng-otp-input": "^1.8.5",
+    "ngx-cookie-service": "^16.0.0",
     "popper.js": "^1.16.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { catchError, tap } from 'rxjs';
+import { ApiConfigService } from 'src/app/common/api-config';
+import { HttpsApiService } from 'src/app/https-api.service';
 
 @Component({
   selector: 'app-products',
@@ -7,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpsApiService, private apiConfig: ApiConfigService) { }
+  categories: any = [];
 
   ngOnInit() {
+    this.getProducts();
   }
+
+  getProducts = () => {
+    this.http.getArray(this.apiConfig.getAllCategories).subscribe((data) => {
+      this.categories = data;
+    });
+  }
+
+
 
 }

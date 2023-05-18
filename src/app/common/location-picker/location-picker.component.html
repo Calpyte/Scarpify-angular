@@ -1,0 +1,17 @@
+<div>
+  <h3>Confirm your pickup location</h3>
+  <div>
+    <agm-map
+      [latitude]="location?.lat"
+      [longitude]="location?.lng"
+      [style]="style"
+    >
+      <agm-marker
+        [latitude]="location?.lat"
+        [longitude]="location?.lng"
+        [markerDraggable]="true"
+        (dragEnd)="markerDragEnd($event)"
+      ></agm-marker>
+    </agm-map>
+  </div>
+</div>

@@ -1,84 +1,103 @@
-<div style="display: flex; flex-direction: column; align-items: center">
-  <h1 mat-dialog-title style="font-weight: bold; color: #00cb91">Scrapify</h1>
-  <div
-    style="
-      border-radius: 45px;
-      display: flex;
-      border: solid 1px #013f56;
-      width: fit-content;
-      padding: 1px;
-    "
-  >
-    <button
-      [ngClass]="userType === 'seller' ? 'toggle active' : 'toggle'"
-      (click)="handleUserType('seller')"
-    >
-      Seller
-    </button>
-    <button
-      [ngClass]="userType === 'buyer' ? 'toggle active' : 'toggle'"
-      (click)="handleUserType('buyer')"
-    >
-      Buyer
-    </button>
-  </div>
-  <mat-dialog-content class="mat-typography" style="width: 100%">
-    <div style="width: 100%">
-      <label for="Username" class="form-label form-text">Phone Number</label>
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          [(ngModel)]="phoneNumber"
-          class="form-control"
-          aria-label="mobileNumber"
-          aria-describedby="basic-addon1"
-        />
+<form [formGroup]="loginForm">
+  <div [ngSwitch]="step">
+    <div style="display: flex; flex-direction: column; align-items: center">
+      <div style="display: flex; flex-direction: row-reverse" class="col-12">
+        <button class="btn" type="button" (click)="close(false)">x</button>
       </div>
+      <h1 mat-dialog-title style="font-weight: bold; color: #00cb91">
+        Scrapify
+      </h1>
+      <div class="toggle-container">
+        <button
+          [ngClass]="userType === 'seller' ? 'toggle toggle-active' : 'toggle'"
+          (click)="handleUserType('seller')"
+        >
+          Seller
+        </button>
+        <button
+          [ngClass]="userType === 'buyer' ? 'toggle toggle-active' : 'toggle'"
+          (click)="handleUserType('buyer')"
+        >
+          Buyer
+        </button>
+      </div>
+      <mat-dialog-content class="mat-typography col-12" *ngSwitchCase="0">
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <div class="input-group mb-0">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">+91-</span>
+            </div>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="phone"
+              id="phone"
+            />
+          </div>
+          <div class="err">
+            <small
+              *ngIf="
+                loginForm.controls['phone'].hasError('required') &&
+                loginForm.controls['phone'].dirty
+              "
+            >
+              Phone Number is Required
+            </small>
+            <small *ngIf="loginForm.controls['phone'].hasError('pattern')">
+              Enter a valid Phone Number
+            </small>
+          </div>
+        </div>
+        <div
+          style="display: flex; flex-direction: column; gap: 10px"
+          class="col-12"
+        >
+          <button class="btn-1 col-12" (click)="getOTP()">Get OTP</button>
+          <button class="btn-2 col-12">Login With Google</button>
+          <button
+            class="btn-2 col-12"
+            style="border: solid 1px transparent"
+            (click)="close('register')"
+          >
+            Don't have a account ? Register here
+          </button>
+        </div>
+      </mat-dialog-content>
+      <mat-dialog-content class="mat-typography col-12" *ngSwitchCase="1">
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: center;
+          "
+          class="col-12"
+        >
+          <p style="padding-top: 10px">
+            Verfication code is sent to +91-
+            {{ loginForm?.value?.phone }}
+          </p>
+          <ng-otp-input
+            (onInputChange)="onOtpChange($event)"
+            [config]="{ length: 6, allowNumbersOnly: true }"
+          ></ng-otp-input>
+          <button class="btn-2 col-12" style="border: solid 1px transparent">
+            Resend Code
+          </button>
+          <button class="btn-1 col-12" type="submit" (click)="submit()">
+            Verify
+          </button>
+          <button
+            class="btn-2 col-12"
+            type="button"
+            style="border: solid 1px transparent"
+            (click)="close('register')"
+          >
+            Don't have a account ? Register here
+          </button>
+        </div>
+      </mat-dialog-content>
     </div>
-  </mat-dialog-content>
-  <mat-dialog-actions style="width: 100%">
-    <button
-      style="
-        width: 100%;
-        background-color: #013f56;
-        border: none;
-        border-radius: 45px;
-        color: white;
-        padding: 5px 40px;
-        border: solid 1px #013f56;
-      "
-      (click)="getOTP()"
-    >
-      Get OTP
-    </button>
-    <button
-      style="
-        width: 100%;
-        border: none;
-        color: #013f56;
-        background-color: white;
-        border-radius: 45px;
-        padding: 5px 45px;
-        border: none;
-        border: solid 1px #013f56;
-      "
-    >
-      Login With Google
-    </button>
-    <br />
-    <br />
-    <button
-      style="
-        width: 100%;
-        border: none;
-        color: #013f56;
-        padding: 5px 40px;
-        border: none;
-        background-color: white;
-        font-weight: bold;
-      "
-    >
-      Don't have a account ? Register here
-    </button>
-  </mat-dialog-actions>
-</div>
+  </div>
+</form>

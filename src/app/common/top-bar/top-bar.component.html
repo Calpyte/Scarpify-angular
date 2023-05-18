@@ -1,4 +1,4 @@
-<div class="topnav" id="myTopnav">
+<div class="topnav" id="myTopnav" style="height: 8vh; width: 100%">
   <div class="d-flex align-items-center top-menu">
     <div class="ml-2">
       <i class="fa-sharp fa-solid fa-bars fa-2xl" style="color: white"></i>
@@ -26,7 +26,12 @@
     </div>
     <div class="d-flex align-items-center justify-content-end container">
       <p style="color: white" class="mt-2">Buy/Sell Scrap</p>
-      <button class="ml-2 login" (click)="login()">Login</button>
+      <div *ngIf="userData">
+        <button class="ml-2 login" (click)="logout()">Logout</button>
+      </div>
+      <div *ngIf="!userData || userData == null">
+        <button class="ml-2 login" (click)="login()">Login</button>
+      </div>
     </div>
   </div>
 </div>

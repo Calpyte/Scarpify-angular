@@ -1,14 +1,19 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IndexedDBService } from './IndexedDB.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthServiceService {
+export class AuthServiceService implements OnDestroy {
   private accessToken: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private indexedDBService: IndexedDBService, private cookieService: CookieService) { }
+  ngOnDestroy(): void {
+    alert("service destroyed");
+  }
 
   setAccessToken(token: string): void {
     this.accessToken = token;
@@ -19,20 +24,39 @@ export class AuthServiceService {
   }
 
   getToken = (): Observable<any> => {
-    const url = 'http://103.108.220.162:9000/user/unsecure/token';
+    const url = 'user/unsecure/token';
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       Accept: 'application/json',
     });
+    let refreshToken = null;
+    this.indexedDBService.getAccessToken().subscribe((res) => {
+      refreshToken = res;
+    })
     const body = {
-      token: '',
+      token: refreshToken,
     };
     return this.http.post(url, body, { headers });
   };
 
+  getRefreshToken = (): Observable<any> => {
+    const url = 'user/unsecure/token';
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    });
+
+    let token = this.cookieService.get("refreshToken");
+    const body = {
+      token: token
+    };
+    return this.http.post(url, body, { headers });
+
+  }
+
 
   login = (username: string, password: string): Observable<any> => {
-    const url = 'http://103.108.220.162:9000/user/unsecure/access/token';
+    const url = 'user/unsecure/access/token';
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Accept': 'application/json'

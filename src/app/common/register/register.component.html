@@ -1,0 +1,211 @@
+<form [formGroup]="registerForm">
+  <div [ngSwitch]="step">
+    <div style="display: flex; flex-direction: column; align-items: center">
+      <div style="display: flex; flex-direction: row-reverse" class="col-12">
+        <button class="btn" type="button" (click)="close(false)">x</button>
+      </div>
+      <h1 mat-dialog-title style="font-weight: bold; color: #00cb91">
+        Scrapify
+      </h1>
+      <mat-dialog-content @fade class="col-12" *ngSwitchCase="0">
+        <div
+          style="
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 10px;
+            justify-content: center;
+          "
+        >
+          <div
+            *ngFor="let user of users"
+            (click)="handleUserType(user?.id)"
+            [ngClass]="
+              registerForm.value.userType === user?.id
+                ? 'user-type-grid-active'
+                : 'user-type-grid'
+            "
+          >
+            <div style="text-align: center">
+              <mat-icon>{{ user?.icon }}</mat-icon>
+              <h2>{{ user?.name }}</h2>
+            </div>
+          </div>
+        </div>
+      </mat-dialog-content>
+      <mat-dialog-content @fade class="col-12" *ngSwitchCase="1">
+        <div class="form-group">
+          <label for="phone">Enter your name</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="firstName"
+            name="firstName"
+            id="firstName"
+          />
+          <div class="err">
+            <small
+              *ngIf="
+                registerForm.controls['firstName'].hasError('required') &&
+                registerForm.controls['firstName'].dirty
+              "
+            >
+              Name is Required
+            </small>
+          </div>
+        </div>
+      </mat-dialog-content>
+      <mat-dialog-content @fade class="col-12" *ngSwitchCase="2">
+        <div class="form-group">
+          <label for="phone">Email Id</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="email"
+            name="email"
+            id="email"
+          />
+          <div class="err">
+            <small
+              *ngIf="
+                registerForm.controls['email'].hasError('required') &&
+                registerForm.controls['email'].dirty
+              "
+            >
+              Email is Required
+            </small>
+            <small *ngIf="registerForm.controls['email'].hasError('email')">
+              Enter a valid email
+            </small>
+          </div>
+        </div>
+      </mat-dialog-content>
+      <mat-dialog-content @fade class="col-12" *ngSwitchCase="3">
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <div class="input-group mb-0">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">+91-</span>
+            </div>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="phone"
+              id="phone"
+            />
+          </div>
+          <div class="err">
+            <small
+              *ngIf="
+                registerForm.controls['phone'].hasError('required') &&
+                registerForm.controls['phone'].dirty
+              "
+            >
+              Phone Number is Required
+            </small>
+            <small *ngIf="registerForm.controls['phone'].hasError('pattern')">
+              Enter a valid Phone Number
+            </small>
+          </div>
+        </div>
+      </mat-dialog-content>
+      <mat-dialog-content @fade class="col-12" *ngSwitchCase="4">
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: center;
+          "
+          class="col-12"
+        >
+          <p style="padding-top: 10px">
+            Verfication code is sent to +91-
+            {{ registerForm?.value?.phone }}
+          </p>
+          <ng-otp-input
+            (onInputChange)="onOtpChange($event)"
+            [config]="{ length: 6, allowNumbersOnly: true }"
+          ></ng-otp-input>
+          <button class="btn-2 col-12" style="border: solid 1px transparent">
+            Resend Code
+          </button>
+        </div>
+      </mat-dialog-content>
+      <mat-dialog-content @fade class="col-12" *ngSwitchCase="5">
+        <app-location-picker
+          [inputLocation]="registerForm?.value?.location"
+          (selectedLocation)="selectedLocation($event)"
+        ></app-location-picker>
+        <div class="form-group">
+          <label for="phone">Current Location</label>
+          <textarea
+            class="form-control"
+            formControlName="address"
+            id="exampleFormControlTextarea1"
+            rows="3"
+          ></textarea>
+          <div class="err">
+            <small
+              *ngIf="
+                registerForm.controls['address'].hasError('required') &&
+                registerForm.controls['address'].dirty
+              "
+            >
+              Address is Required
+            </small>
+          </div>
+        </div>
+      </mat-dialog-content>
+      <mat-dialog-content class="col-12" *ngSwitchCase="6">
+        <app-products-picker
+          [categories]="categories"
+          [selectedCheckboxIds]="selectedIds"
+        ></app-products-picker>
+      </mat-dialog-content>
+      <mat-dialog-content @fade class="col-12" *ngSwitchCase="7">
+        <app-products-view
+          [selectedProducts]="registerForm?.value?.products"
+        ></app-products-view>
+      </mat-dialog-content>
+
+      <!-- actions -->
+      <mat-dialog-actions
+        *ngIf="step === 0"
+        class="col-12"
+        style="
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          padding-top: 10px;
+        "
+      >
+        <button class="btn-1 col-11" (click)="handleForward()">Next</button>
+        <button
+          class="btn-2 col-12"
+          type="button"
+          style="border: solid 1px transparent"
+          (click)="close('login')"
+        >
+          Resister user ? Login
+        </button>
+      </mat-dialog-actions>
+      <mat-dialog-actions *ngIf="step != 0" style="width: 100%">
+        <div
+          style="
+            width: 100%;
+            padding: 10px 20px;
+            display: grid;
+            justify-content: center;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+          "
+        >
+          <button class="btn-2" (click)="handleBackward()">Prev</button>
+          <button class="btn-1" (click)="handleForward()">
+            {{ step === 3 ? "GET OTP" : "Next" }}
+          </button>
+        </div>
+      </mat-dialog-actions>
+    </div>
+  </div>
+</form>

@@ -7,10 +7,10 @@ import { IndexedDBService } from './IndexedDB.service';
 })
 export class LoginService {
 
-constructor(private authService: AuthService, private indexDBService : IndexedDBService) { }
+  constructor(private authService: AuthService, private indexDBService: IndexedDBService) { }
 
-  login = () => {
-    this.authService.login('7708690114', '123456').subscribe(resp => {
+  login = (userName, password) => {
+    this.authService.login(userName, password).subscribe(resp => {
       this.authService.setAccessToken(resp.auth);
       this.indexDBService.setRefreshToken(resp.token);
     });
