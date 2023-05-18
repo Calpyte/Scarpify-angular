@@ -1,3 +1,10 @@
+<div class="progress-overlay">
+  <mat-progress-bar
+    mode="indeterminate"
+    color="primary"
+    *ngIf="isNavigating"
+  ></mat-progress-bar>
+</div>
 <app-top-bar (toggle)="toggle($event)"></app-top-bar>
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav">
