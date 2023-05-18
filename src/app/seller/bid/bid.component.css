@@ -1,13 +1,13 @@
 .bid-header {
   box-shadow: 0px 20px 10px #fff;
-  height: 100px;
+  height: 12vh;
   padding: 1%;
   margin-bottom: 0.1%;
   border: none;
 }
 
 .bg {
-  height: 80vh;
+  height: 79vh;
 }
 
 .card {
@@ -16,7 +16,7 @@
   width: 100%;
   margin: 1%;
   padding: 3%;
-  height: 68vh;
+  height: 62vh;
 }
 
 .nav-link {

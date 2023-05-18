@@ -1,7 +1,112 @@
 .bid-header {
   box-shadow: 0px 20px 10px #fff;
-  height: 100px;
+  height: fit-content;
   padding: 1%;
   margin-bottom: 0.1%;
   border: none;
 }
+
+.bg {
+  height: 79vh;
+}
+.page-header{
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 16px;
+}
+.card {
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  width: 100%;
+  margin: 1%;
+  padding: 3%;
+  height: 62vh;
+}
+.card-footer {
+  height: 80px;
+  background-color: #f2f6f8;
+  z-index: 1;
+}
+
+.ruler{
+  border: solid 1px #d4d9df
+}
+
+
+.lg-txt{
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 34px;
+  color: #4B4B4B;
+}
+
+.md-txt{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
+  color: #3B4357;
+}
+
+.sm-txt{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #818694;
+}
+
+.sm-txt-bold{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #3B4357;
+}
+
+.rating-txt{
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  font-size: 14px;
+}
+
+.button-rounded {
+  border-radius: 50px;
+}
+
+.f12 {
+  font-size: 12px;
+}
+
+.bg-secondary {
+  background-color: white !important;
+  color: #005a7b;
+  font-weight: bold;
+  border: 2px solid #005a7b;
+}
+
+.bg-primary {
+  background-color: #005a7b !important;
+}
+
+.full-width {
+  width: 100%;
+}
+
+
+
+/* .btn-primary{
+   background-color: #005a7b;
+   color: white;
+   border-radius: 45px;
+   padding: 2px 25px;
+}
+
+.btn-secondary{
+    color: #005a7b;
+    background-color: white;
+    border-radius: 45px;
+    padding: 2px 25px;
+} */

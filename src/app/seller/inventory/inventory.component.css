@@ -61,8 +61,6 @@
 }
 
 .card-footer {
-  margin: -3% !important;
-  padding: -1% !important;
   height: 80px;
   background-color: #f2f6f8;
   z-index: 1;
@@ -117,10 +115,12 @@
 }
 
 
-.custom-file-upload {
+.file-upload {
   border: 1px solid #f2f6f8;
-  display: inline-block;
-  padding: 13px 15px;
+  display: grid;
+  width: 60px;
+  height: 50px;
+  place-items: center;
   cursor: pointer;
   background-color: #f2f6f8;
 }
