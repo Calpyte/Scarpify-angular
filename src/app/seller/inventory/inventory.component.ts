@@ -94,10 +94,10 @@ export class InventoryComponent implements OnInit {
         id: this.inventoryData?.id,
         stock: this.form?.value?.stocks
       }
-      this.http.post(this.apiConfigService.saveInventory, result).subscribe((data) => {
-        alert("updated successfully");
-        this.getInventory();
-      });
+      // this.http.post(this.apiConfigService.saveInventory, result).subscribe((data) => {
+      //   alert("updated successfully");
+      //   this.getInventory();
+      // });
     }
   }
 }
