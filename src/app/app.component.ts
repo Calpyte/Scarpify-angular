@@ -74,8 +74,9 @@ export class AppComponent implements OnInit {
   }
 
   goToMenu = (link) => {
-    this.router.navigate([link])
-    this.sidenav.toggle();
+    this.router.navigate([link]).then(() => {
+      this.sidenav.toggle();
+    })
   }
 
   toggle = (event) => {

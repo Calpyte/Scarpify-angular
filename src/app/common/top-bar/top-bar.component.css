@@ -2,7 +2,7 @@
   background: linear-gradient(90deg, #00DF8F -7.58%, #00C092 112.92%);
   overflow: hidden;
   min-height: 60px;
-  z-index: 2;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 .top-menu {
   min-height: 60px;
