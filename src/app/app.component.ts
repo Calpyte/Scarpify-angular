@@ -22,35 +22,43 @@ export class AppComponent implements OnInit {
   pages: any = [
     {
       name: 'Home',
-      link: '/home'
+      link: '/home',
+      icon: ''
     },
     {
       name: 'Inventory',
-      link: '/seller/inventory'
+      link: '/seller/inventory',
+      icon: ''
     },
     {
       name: 'My Bids',
-      link: '/seller/bid'
+      link: '/seller/bid',
+      icon: ''
     },
     {
       name: 'Retail Buying',
-      link: ''
+      link: '',
+      icon: ''
     },
     {
       name: 'Rewards',
-      link: ''
+      link: '',
+      icon: ''
     },
     {
       name: 'Scrap Rates',
-      link: ''
+      link: '',
+      icon: ''
     },
     {
       name: 'FAQ',
-      link: ''
+      link: '',
+      icon: ''
     },
     {
       name: 'Contact',
-      link: ''
+      link: '',
+      icon: ''
     }
   ]
 

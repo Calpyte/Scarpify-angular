@@ -162,6 +162,13 @@
 
               <hr style="margin-top: 1%" />
             </div>
+            <div
+              @fade
+              class="row justify-content-center align-items-center"
+              *ngIf="activeBids?.length === 0"
+            >
+              No {{ selectedTab?.name | titlecase }} Bids Found !
+            </div>
           </div>
         </div>
       </div>

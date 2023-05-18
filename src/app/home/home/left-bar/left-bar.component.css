@@ -1,9 +1,10 @@
 .box {
   box-shadow: 10px 0px 30px rgba(0, 0, 0, 0.1);
   background: #fff;
-  min-height: 90vh;
+  min-height: 92vh;
   padding-left: 5%;
   padding-right: 5%;
+  height: 100%;
 }
 
 
