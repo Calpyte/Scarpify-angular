@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReferralService } from './referral.service';
 
 @Component({
   selector: 'app-referral',
@@ -10,6 +11,7 @@ export class ReferralComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

@@ -5,6 +5,7 @@ import { ScrapratesRoutes } from './scraprates.routing';
 import { FormsModule } from '@angular/forms';
 import { ScrapratesDetailsComponent } from './scraprates-details/scraprates-details.component';
 import { MatCardModule } from '@angular/material/card';
+import { ReferralService } from '../referral.service';
 
 @NgModule({
   imports: [
@@ -13,6 +14,9 @@ import { MatCardModule } from '@angular/material/card';
     FormsModule,
     MatCardModule
   ],
-  declarations: [ScrapratesComponent , ScrapratesDetailsComponent]
+  declarations: [ScrapratesComponent, ScrapratesDetailsComponent],
+  providers: [
+    ReferralService
+  ]
 })
 export class ScrapratesModule { }
