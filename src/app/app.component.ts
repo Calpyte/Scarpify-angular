@@ -3,7 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import jwt_decode from "jwt-decode";
 import { UserService } from './common/user-service/user.service';
 import { MatSidenav } from '@angular/material/sidenav';
-import { Router } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 
 
 @Component({
@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'scrapify-angular';
   @ViewChild('drawer') sidenav: MatSidenav;
+  isNavigating: boolean = false;
 
   constructor(private cookieService: CookieService, private userService: UserService, private router: Router) {
 
@@ -71,6 +72,13 @@ export class AppComponent implements OnInit {
         email: decoded['email']
       })
     }
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.isNavigating = true;
+      } else if (event instanceof NavigationEnd) {
+        this.isNavigating = false;
+      }
+    });
   }
 
   goToMenu = (link) => {
