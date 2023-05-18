@@ -2,17 +2,20 @@ mat-drawer{
   height:100%;
   width: 300px;
 }
-.mat-mdc-list-item-icon {
-  color: rgba(0, 0, 0, 0.54);
-}
-.mat-list-item :hover{
-  background-color: aqua;
-  border : solid 2px red;
-}
+
 .menu-btn{
   width: 100%;
   text-align: start;
   align-items: center;
   display: flex;
   height: 50px;
+  border-radius: 15px;
+  background-color: transparent;
+}
+
+
+.menu:is(:hover){
+  color: #00cc91 !important;
+  border-radius: 15px;
+  background-color: #f2f6f8;
 }

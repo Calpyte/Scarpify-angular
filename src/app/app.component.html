@@ -1,15 +1,17 @@
 <app-top-bar (toggle)="toggle($event)"></app-top-bar>
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav">
-    <button
-      (click)="goToMenu(page?.link)"
-      class="menu-btn btn"
-      mat-menu-item
-      *ngFor="let page of pages"
-    >
-      <mat-icon>dialpad</mat-icon>&nbsp;&nbsp;
-      <span>{{ page?.name }}</span>
-    </button>
+    <div class="p-2">
+      <button
+        (click)="goToMenu(page?.link)"
+        class="menu menu-btn btn"
+        *ngFor="let page of pages"
+      >
+        <mat-icon class="menu">{{ page?.icon || "dialpad" }}</mat-icon
+        >&nbsp;&nbsp;
+        <span>{{ page?.name }}</span>
+      </button>
+    </div>
   </mat-drawer>
   <router-outlet></router-outlet>
 </mat-drawer-container>

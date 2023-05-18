@@ -23,12 +23,12 @@ export class AppComponent implements OnInit {
     {
       name: 'Home',
       link: '/home',
-      icon: ''
+      icon: 'home'
     },
     {
       name: 'Inventory',
       link: '/seller/inventory',
-      icon: ''
+      icon: 'location_on'
     },
     {
       name: 'My Bids',
