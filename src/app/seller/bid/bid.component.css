@@ -74,6 +74,7 @@ p{
 
 .button-rounded {
   border-radius: 50px;
+  padding: 5px 15px;
 }
 
 .f12 {
@@ -101,4 +102,11 @@ p{
   white-space: nowrap;
   overflow: hidden;
   width: 100%;
+}
+
+.action-footer{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  justify-content: end;
 }

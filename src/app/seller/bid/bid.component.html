@@ -1,7 +1,7 @@
 <section @fade *ngIf="!isDetail">
   <div class="bid-header">
     <div class="d-flex justify-content-center">
-      <div class="col-md-6">
+      <div class="col-md-9">
         <div class="row">
           <div class="col">
             <h4 class="page-header float-md-start">My Bids</h4>
@@ -38,7 +38,7 @@
 
   <div class="bg">
     <div class="d-flex justify-content-center">
-      <div class="col-md-8">
+      <div class="col-md-9">
         <div class="card px-1 py-0">
           <div class="card-body px-5" style="overflow-y: auto">
             <div class="row" *ngFor="let bid of activeBids">
@@ -111,8 +111,8 @@
               <div class="col-md-4 float-md-end"></div>
 
               <div class="col-md-8 float-md-end mtop1">
-                <div class="row">
-                  <div class="col-md-3">
+                <div class="action-footer">
+                  <div>
                     <button
                       class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
                       type="button"
@@ -122,7 +122,7 @@
                     </button>
                   </div>
 
-                  <div class="col-md-3">
+                  <div *ngIf="['open', 'modified'].includes(selectedTab?.name)">
                     <button
                       class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
                       type="button"
@@ -132,7 +132,13 @@
                     </button>
                   </div>
 
-                  <div class="col-md-3">
+                  <div
+                    *ngIf="
+                      ['open', 'modified', 'confirmed'].includes(
+                        selectedTab?.name
+                      )
+                    "
+                  >
                     <button
                       class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
                       type="button"
@@ -142,7 +148,7 @@
                     </button>
                   </div>
 
-                  <div class="col-md-3">
+                  <div *ngIf="['open', 'modified'].includes(selectedTab?.name)">
                     <button
                       class="btn btn-secondary button-rounded f12 bg-primary page-header full-width"
                       type="button"
@@ -167,5 +173,6 @@
   <app-bid-detail
     [bid]="selectedBid"
     (handleAction)="detailAction($event)"
+    [selectedTab]="selectedTab"
   ></app-bid-detail>
 </section>

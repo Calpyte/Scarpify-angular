@@ -74,6 +74,7 @@
 
 .button-rounded {
   border-radius: 50px;
+  padding: 5px 15px;
 }
 
 .f12 {
@@ -95,18 +96,21 @@
   width: 100%;
 }
 
-
-
-/* .btn-primary{
-   background-color: #005a7b;
-   color: white;
-   border-radius: 45px;
-   padding: 2px 25px;
+.action-footer{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  justify-content: end;
+  align-items: center;
 }
 
-.btn-secondary{
-    color: #005a7b;
-    background-color: white;
-    border-radius: 45px;
-    padding: 2px 25px;
-} */
+.footer-txt{
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 100%;
+  color: #005A7B;
+  cursor: pointer;
+}
+.footer-txt:hover{
+  opacity: 0.9;
+}
