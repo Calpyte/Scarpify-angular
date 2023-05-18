@@ -3,6 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import jwt_decode from "jwt-decode";
 import { UserService } from './common/user-service/user.service';
 import { MatSidenav } from '@angular/material/sidenav';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,9 +15,44 @@ export class AppComponent implements OnInit {
   title = 'scrapify-angular';
   @ViewChild('drawer') sidenav: MatSidenav;
 
-  constructor(private cookieService: CookieService, private userService: UserService) {
+  constructor(private cookieService: CookieService, private userService: UserService, private router: Router) {
 
   }
+
+  pages: any = [
+    {
+      name: 'Home',
+      link: '/home'
+    },
+    {
+      name: 'Inventory',
+      link: '/seller/inventory'
+    },
+    {
+      name: 'My Bids',
+      link: '/seller/bid'
+    },
+    {
+      name: 'Retail Buying',
+      link: ''
+    },
+    {
+      name: 'Rewards',
+      link: ''
+    },
+    {
+      name: 'Scrap Rates',
+      link: ''
+    },
+    {
+      name: 'FAQ',
+      link: ''
+    },
+    {
+      name: 'Contact',
+      link: ''
+    }
+  ]
 
   ngOnInit() {
     const token = this.cookieService.get("token");
@@ -27,6 +63,11 @@ export class AppComponent implements OnInit {
         email: decoded['email']
       })
     }
+  }
+
+  goToMenu = (link) => {
+    this.router.navigate([link])
+    this.sidenav.toggle();
   }
 
   toggle = (event) => {
