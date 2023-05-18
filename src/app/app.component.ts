@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import jwt_decode from "jwt-decode";
 import { UserService } from './common/user-service/user.service';
+import { MatSidenav } from '@angular/material/sidenav';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { UserService } from './common/user-service/user.service';
 })
 export class AppComponent implements OnInit {
   title = 'scrapify-angular';
+  @ViewChild('drawer') sidenav: MatSidenav;
 
   constructor(private cookieService: CookieService, private userService: UserService) {
 
@@ -25,5 +27,9 @@ export class AppComponent implements OnInit {
         email: decoded['email']
       })
     }
+  }
+
+  toggle = (event) => {
+    this.sidenav.toggle()
   }
 }

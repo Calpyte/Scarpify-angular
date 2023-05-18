@@ -1,7 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { LoginComponent } from '../login/login.component';
-import { RegisterComponent } from '../register/register.component';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { VerificationService } from '../verification.service';
 import { UserService } from '../user-service/user.service';
 import { CookieService } from 'ngx-cookie-service';
@@ -14,6 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class TopBarComponent implements OnInit {
   @Input() selectedOption: string = "seller";
   userData: any = null;
+  @Output() toggle: EventEmitter<any> = new EventEmitter();
   constructor(private verificationService: VerificationService, private userService: UserService, private cookieService: CookieService) { }
 
   ngOnInit(): void {
@@ -39,5 +37,9 @@ export class TopBarComponent implements OnInit {
     this.cookieService.delete("token");
     this.cookieService.delete("refreshToken");
     location.reload();
+  }
+
+  toggleSideNavBar = () => {
+    this.toggle.emit(true);
   }
 }

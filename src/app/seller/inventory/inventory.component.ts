@@ -1,8 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ApiConfigService } from 'src/app/common/api-config';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import { ProductAddComponent } from './product-add/product-add.component';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { trigger, style, animate, transition } from '@angular/animations';

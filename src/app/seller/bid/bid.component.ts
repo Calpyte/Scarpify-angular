@@ -1,6 +1,4 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ApiConfigService } from 'src/app/common/api-config';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { BidService } from './bid.service';
 
@@ -52,7 +50,7 @@ export class BidComponent implements OnInit {
     confirmed: [],
     closed: []
   };
-  isDetail: boolean = true;
+  isDetail: boolean = false;
   activeBids: any = [];
   selectedTab: any = this.tabs[0];
   selectedBid: any = null;
