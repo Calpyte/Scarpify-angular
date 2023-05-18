@@ -11,6 +11,11 @@ const routes: Routes = [
     path: 'seller',
     loadChildren: () => import('./seller/seller.module')
       .then(m => m.SellerModule)
+  },
+  {
+    path: 'referral',
+    loadChildren: () => import('./referral/referral.module')
+      .then(m => m.ReferralModule)
   }
 ];
 

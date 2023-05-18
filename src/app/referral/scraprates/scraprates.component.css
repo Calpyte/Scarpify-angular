@@ -1,0 +1,174 @@
+
+.bid-header {
+  box-shadow: 0px 20px 10px #fff;
+  height: 100px;
+  padding: 1%;
+  margin-bottom: 0.1%;
+  border: none;
+}
+
+.bg {
+  height: 80vh;
+}
+
+.card {
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  width: 100%;
+  margin: 1%;
+  padding: 3%;
+  height: 68vh;
+}
+
+.nav-link {
+  color: black;
+}
+
+.active {
+  border-bottom: 3px solid #02c784;
+  color: #02c784;
+}
+
+.bg-transaparent {
+  border: 2px solid #005a7b;
+  background: #ffffff;
+  border-radius: 8px;
+  color: #005a7b;
+}
+
+.rounded-box {
+  background: #ffffff;
+  border: 1px solid #d4d9df;
+  border-radius: 10px;
+  height: 70px;
+  width: 200px;
+  margin-right: 80px;
+}
+
+h6{
+  margin: 0 !important;
+  font-size: 12px;
+}
+
+p{
+  font-size: 10px;
+}
+
+.inv-category-text {
+  font-size: 11px;
+  opacity: 0.4;
+}
+
+.round-corner{
+  border: 1px solid #d4d9df;
+    border-radius: 10px;
+    height: 60px;
+}
+
+.amt{
+  font-size: 16px;
+}
+
+
+.mtop1 {
+  margin-top: 1%;
+  color: #02C784;
+}
+
+.button-rounded {
+  border-radius: 50px;
+}
+
+.f12 {
+  font-size: 12px;
+}
+
+.bg-secondary {
+  background-color: white !important;
+  color: #005a7b;
+  font-weight: bold;
+  border: 2px solid #005a7b;
+}
+
+.bg-primary {
+  background-color: #005a7b !important;
+}
+
+.full-width {
+  width: 100%;
+}
+.search-input{
+  background: #FFFFFF;
+  /* grey90 */
+  width : 50%;
+
+  border: 2px solid #3B4357;
+  border-radius: 6px;
+}
+.scrap-rates-card-txt{
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+}
+.scrap-rates-card{
+  min-width: 250px;
+  min-height: 100px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  border: 1px solid #D4D9DF;
+}
+.scrap-rates-mat-card{
+  width: 1518.72px;
+}
+
+.product-description{
+  width: 340px;
+  justify-content: center;
+}
+
+.scrapify-product-image{
+  border-radius: 12px;
+  height: 200px;
+  width: 340px;
+}
+
+.product-name-card{
+flex:1 0 30%;
+ background: #FFFFFF;
+border: 1px solid #D4D9DF;
+border-radius: 12px;
+/* width: 340px; */
+height: 90px;
+}
+
+.product-name{
+  text-align: center;
+  margin-top: 5%;
+  font-style: normal;
+font-weight: 500;
+font-size: 16px;
+/* line-height: 22px; */
+color: #3B4357;
+/* width:inherit ; */
+
+}
+.product-price{
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+color: #02C784;
+text-align: center;
+
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
+.border-code{
+  width: 1421.44px;
+height: 0px;
+left: 248.24px;
+top: 846.02px;
+color: #02C784;
+}
