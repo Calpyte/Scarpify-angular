@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReferralService } from '../referral.service';
 
 @Component({
   selector: 'app-scraprates',
@@ -8,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class ScrapratesComponent implements OnInit {
 
   searchTerm;
-  constructor() { }
+
+  products: any[] = [];
+
+  constructor(private referralService: ReferralService) { }
 
   ngOnInit() {
+    this.referralService.getProducts().then((data) => {
+      this.products = data?.products;
+    });
   }
 
 }
