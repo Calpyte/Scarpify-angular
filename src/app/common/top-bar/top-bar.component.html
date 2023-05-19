@@ -1,6 +1,11 @@
-<div class="topnav" id="myTopnav" style="height: 8vh; width: 100%">
+<div
+  @fade
+  class="topnav"
+  id="myTopnav"
+  style="height: 8vh; top: 10vh; width: 100%"
+>
   <div class="d-flex align-items-center top-menu">
-    <div class="ml-2">
+    <div class="ml-2" (click)="toggleSideNavBar()">
       <i class="fa-sharp fa-solid fa-bars fa-2xl" style="color: white"></i>
     </div>
     <div class="product-title ml-2"><strong>Scrapify</strong></div>

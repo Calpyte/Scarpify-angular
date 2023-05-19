@@ -1,0 +1,30 @@
+mat-drawer{
+  height:100%;
+  width: 300px;
+}
+
+.menu-btn{
+  width: 100%;
+  text-align: start;
+  align-items: center;
+  display: flex;
+  height: 50px;
+  border-radius: 15px;
+  background-color: transparent;
+}
+.menu{
+  color : #2C3E50
+}
+
+.menu:is(:hover){
+  color: #00cc91 !important;
+  border-radius: 15px;
+  background-color: #f2f6f8;
+}
+.progress-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* Adjust the z-index as needed */
+}

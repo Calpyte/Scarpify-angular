@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "name": "Metals",
+      "image": ".png",
+      "banner": ".png",
+      "description": "Metal scrap refers to discarded metal materials that can be reused or recycled, including iron, steel, aluminum, copper, and brass.",
+      "products": [
+        {
+          "name": "Aluminium",
+          "price": "₹16/Kg"
+        },
+        {
+          "name": "Copper",
+          "price": "₹16/Kg"
+        },
+        {
+          "name": "Aluminium Cables",
+          "price": "₹16/Kg"
+        },
+        {
+          "name": "Iron Cables",
+          "price": "₹16/Kg"
+        }
+      ]
+    },
+    {
+      "name": "EWaste",
+      "image": ".png",
+      "banner": ".png",
+      "description": "E-waste refers to electronic devices that are no longer in use or have reached the end of their useful life, such as computers.",
+      "products": [
+        {
+          "name": "Electronics",
+          "price": "₹16/Kg"
+        },
+        {
+          "name": "Appliances",
+          "price": "₹16/Kg"
+        },
+        {
+          "name": "Air Conditioners",
+          "price": "₹16/Kg"
+        },
+        {
+          "name": "Water Heater",
+          "price": "₹16/Kg"
+        }
+      ]
+    }
+  ]
+}

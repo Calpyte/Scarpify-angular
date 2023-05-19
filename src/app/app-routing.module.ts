@@ -27,6 +27,11 @@ const routes: Routes = [
       .then(m => m.SellerModule)
   },
   {
+    path: 'referral',
+    loadChildren: () => import('./referral/referral.module')
+      .then(m => m.ReferralModule)
+  },
+  {
     path: 'blank',
     component: BlankComponent
   },

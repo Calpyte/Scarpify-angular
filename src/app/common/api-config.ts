@@ -13,4 +13,19 @@ export class ApiConfigService {
 
   saveInventory = "order/scrap";
 
+  getSellerBids = 'order/bid/seller/bids';
+
+  acceptBid = (id) => {
+    return `order/bid/${id}/accept`;
+  };
+
+  rejectBid = (id) => {
+    return `order/bid/${id}/reject`;
+  };
+
+  modifyBid = (id) => {
+    return `order/bid/${id}/seller/modify`;
+  };
+
+
 }

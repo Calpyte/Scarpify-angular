@@ -13,7 +13,7 @@ html, body {
 
 .bg {
   background-image: url("assets/img/inventory.png");
-  height: 87vh;
+  height: 92vh;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -68,8 +68,39 @@ html, body {
   background-color: #02C784;
 }
 
+
+
+/* margin classes */
 .ml-2{
     margin-left:2%;
+}
+.mb-2{
+  margin-bottom:2%;
+}
+.ml-3{
+  margin-left:3%;
+}
+.ml-4{
+  margin-left:4%;
+}
+.mt-1{
+  margin-top:1%;
+}
+.mb-5{
+  margin-bottom: 5%;
+}
+.mb-3{
+  margin-bottom: 5%;
+}
+.mr-2{
+  margin-right:2%;
+}
+/* padding classes */
+
+
+/*  width classes*/
+.w-100{
+  width: 100%;
 }
 
 .card {
@@ -95,6 +126,13 @@ html, body {
 .cdk-overlay-dark-backdrop, .cdk-overlay-transparent-backdrop {
   background-color: #013F56DD;
 }
+
+.scrapify-card{
+  width: 1518px;
+  min-height: 745px;
+}
+
+
  .btn-1 {
         width: 'fit-content';
         background-color: #013f56;
