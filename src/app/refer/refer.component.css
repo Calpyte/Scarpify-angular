@@ -1,0 +1,41 @@
+
+.page-header {
+  color: #005a7b;
+}
+
+.card {
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  width: 100%;
+  margin: 1%;
+  padding: 3%;
+  height: 75vh;
+}
+
+.heading-text{
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 36px;
+  color: #005A7B;
+}
+
+.dotted-text{
+  text-align: center;
+  color: #02C784;
+}
+
+.button-text{
+  background: #005A7B;
+  border-radius: 31.9399px;
+  height: 54px;
+  width: 450px;
+  left: 0px;
+  top: 0px;
+}
+
+.how-text{
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 27px;
+  color: #005A7B;
+}
