@@ -12,6 +12,8 @@ import { CommonModule } from '@angular/common';
 import { AuthServiceService } from './service/auth-service.service';
 import { CookieService } from 'ngx-cookie-service';
 import { UserService } from './common/user-service/user.service';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { UserService } from './common/user-service/user.service';
     HttpClientModule,
     CommonSharedModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     {

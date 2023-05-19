@@ -7,8 +7,6 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class UserLocationComponent implements OnInit {
 
-  isViewDetail: boolean = false;
-
   constructor() { }
 
   location: any = {
@@ -39,8 +37,8 @@ export class UserLocationComponent implements OnInit {
 
   }
 
-  toggleMoreDetails = () => {
-    this.isViewDetail = !this.isViewDetail;
+  infoWindowClose = (event) => {
+    alert(event);
   }
 
   circleLatitude: number = 13.0827; // Example circle latitude

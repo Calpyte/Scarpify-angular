@@ -6,3 +6,11 @@
 .card{
   background-color: gray;
 }
+.seller-tile:hover{
+   background-color: aliceblue;
+   border-radius: 14px;
+}
+.seller-tile{
+  border-radius: 14px;
+  cursor: pointer;
+}

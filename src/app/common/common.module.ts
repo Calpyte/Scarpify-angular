@@ -15,6 +15,7 @@ import { LoginService } from '../service/login.service';
 import { AuthServiceService } from '../service/auth-service.service';
 import { IndexedDBService } from '../service/IndexedDB.service';
 import { ApiConfigService } from './api-config';
+
 @NgModule({
   declarations: [
     TopBarComponent,
@@ -23,7 +24,7 @@ import { ApiConfigService } from './api-config';
     RegisterComponent,
     ProductsPickerComponent,
     ProductsViewComponent,
-    LocationPickerComponent
+    LocationPickerComponent,
   ],
   imports: [
     CommonModule,
@@ -44,7 +45,7 @@ import { ApiConfigService } from './api-config';
     ProductsPickerComponent,
     ProductsViewComponent,
     LocationPickerComponent,
-    AgmCoreModule
+    AgmCoreModule,
   ],
   providers: [
     VerificationService,
