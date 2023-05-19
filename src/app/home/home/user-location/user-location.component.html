@@ -1,0 +1,29 @@
+<div>
+  <agm-map
+    [latitude]="location?.lat"
+    [longitude]="location?.lng"
+    [zoom]="12"
+    [style]="style"
+  >
+    <agm-marker
+      [latitude]="location?.lat"
+      [longitude]="location?.lng"
+      [markerDraggable]="true"
+      (dragEnd)="markerDragEnd($event)"
+    >
+      <agm-info-window #infowindow class="agm-info-window">
+        <app-consumer-details></app-consumer-details>
+      </agm-info-window>
+    </agm-marker>
+    <agm-circle
+      [latitude]="location?.lat"
+      [longitude]="location?.lng"
+      [radius]="circleRadius"
+      [fillColor]="circleFillColor"
+      [strokeColor]="circleStrokeColor"
+      [fillOpacity]="circleFillOpacity"
+      [strokeWeight]="circleStrokeWeight"
+    >
+    </agm-circle>
+  </agm-map>
+</div>

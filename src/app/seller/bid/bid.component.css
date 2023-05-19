@@ -58,7 +58,7 @@ p{
 }
 
 .round-corner{
-  border: 1px solid #d4d9df;
+    border: 1px solid #d4d9df;
     border-radius: 10px;
     height: 60px;
 }
@@ -108,5 +108,5 @@ p{
   display: flex;
   flex-wrap: wrap;
   gap: 2px;
-  justify-content: end;
+  justify-content: flex-end;
 }

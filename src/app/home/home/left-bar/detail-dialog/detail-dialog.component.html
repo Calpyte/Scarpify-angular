@@ -1,0 +1,7 @@
+<div class="row d-flex justify-content-end" style="padding-right: 25px">
+  <mat-icon (click)="close(null)" style="cursor: pointer">close</mat-icon>
+</div>
+<app-consumer-details
+  [data]="data"
+  (placeBid)="placeBid($event)"
+></app-consumer-details>

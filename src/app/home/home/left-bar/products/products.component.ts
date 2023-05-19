@@ -16,6 +16,48 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     this.getProducts();
+    this.categories = [
+      {
+        id: 0,
+        name: 'Bottlwa'
+      },
+      {
+        id: 0,
+        name: 'Bottlwa'
+      },
+      {
+        id: 0,
+        name: 'Bottlwa'
+      },
+      {
+        id: 0,
+        name: 'Bottlwa'
+      },
+      {
+        id: 0,
+        name: 'Bottlwa'
+      },
+      {
+        id: 0,
+        name: 'Bottlwa'
+      },
+      {
+        id: 0,
+        name: 'Bottlwa'
+      },
+      {
+        id: 0,
+        name: 'Bottlwa'
+      },
+      {
+        id: 0,
+        name: 'Bottlwa'
+      },
+      {
+        id: 0,
+        name: 'Bottlwa'
+      }
+    ]
   }
 
   getProducts = () => {
