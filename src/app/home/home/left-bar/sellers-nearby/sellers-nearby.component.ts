@@ -32,6 +32,7 @@ export class SellersNearbyComponent implements OnInit {
   }
 
   openDialog(user): void {
+    this.dialog.closeAll();
     const dialogRef = this.dialog.open(DetailDialogComponent, {
       data: user,
       hasBackdrop: false
