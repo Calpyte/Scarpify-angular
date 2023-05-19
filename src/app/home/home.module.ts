@@ -8,6 +8,8 @@ import { ProductsComponent } from './home/left-bar/products/products.component';
 import { SellersNearbyComponent } from './home/left-bar/sellers-nearby/sellers-nearby.component';
 import { UserLocationComponent } from './home/user-location/user-location.component';
 import { CommonSharedModule } from '../common/common.module';
+import { ConsumerDetailsComponent } from './home/consumer-details/consumer-details.component';
+import { DetailDialogComponent } from './home/left-bar/detail-dialog/detail-dialog.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { CommonSharedModule } from '../common/common.module';
     LeftBarComponent,
     ProductsComponent,
     SellersNearbyComponent,
-    UserLocationComponent
+    UserLocationComponent,
+    ConsumerDetailsComponent,
+    DetailDialogComponent
   ],
   imports: [
     CommonModule,

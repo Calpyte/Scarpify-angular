@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { BidService } from './bid.service';
-import { ToastrService } from 'src/app/common/Toastr/toastr.service';
+import { ToastrService } from 'src/app/common/toastr/toastr.service';
 
 
 @Component({

@@ -4,7 +4,7 @@ import { ProductAddComponent } from './product-add/product-add.component';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { InventoryService } from './inventory.service';
-import { ToastrService } from 'src/app/common/Toastr/toastr.service';
+import { ToastrService } from 'src/app/common/toastr/toastr.service';
 
 @Component({
   selector: 'app-inventory',

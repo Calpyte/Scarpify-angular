@@ -1,0 +1,107 @@
+<div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-2">
+        <img src="assets/img/garbage.png" height="50" />
+      </div>
+      <div class="col-md-9">
+        <div class="row inv-product-text">
+          <span>{{ data?.name }}</span>
+        </div>
+        <div class="row inv-amt-text">
+          <span><i class="bi bi-star-fill"></i>4.7 54K Reviews</span>
+        </div>
+        <div class="row inv-category-text">
+          <span>Last posted 3 months ago</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <td>Scrap Type</td>
+          <td>Qty</td>
+          <td>Market Price</td>
+          <td>Expected Price</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <img src="assets/img/garbage.png" height="35" />&nbsp;
+            <span>Bottles</span>
+          </td>
+          <td>10kg</td>
+          <td>$(10-20)</td>
+          <td>$20kg/kg</td>
+        </tr>
+        <tr>
+          <td>
+            <img src="assets/img/garbage.png" height="35" />&nbsp;
+            <span>Bottles</span>
+          </td>
+          <td>10kg</td>
+          <td>$(10-20)</td>
+          <td>$20kg/kg</td>
+        </tr>
+        <tr>
+          <td>
+            <img src="assets/img/garbage.png" height="35" />&nbsp;
+            <span>Bottles</span>
+          </td>
+          <td>10kg</td>
+          <td>$(10-20)</td>
+          <td>$20kg/kg</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <section *ngIf="isViewDetail">
+    <div>
+      <h5 class="heading">Images</h5>
+      <div style="display: flex; flex-wrap: wrap; gap: 3px">
+        <img src="assets/img/garbage.png" height="50" />&nbsp;
+        <img src="assets/img/garbage.png" height="50" />&nbsp;
+        <img src="assets/img/garbage.png" height="50" />&nbsp;
+      </div>
+    </div>
+    <br />
+    <div>
+      <h5 class="heading">Seller Location</h5>
+      <div style="display: flex; gap: 3px">
+        <div
+          style="
+            width: 50%;
+            height: 100px;
+            background-color: lightgray;
+            display: grid;
+            place-items: center;
+          "
+        >
+          Location Marker
+        </div>
+        <div>Guindy Chennai-600 238 TamilNadu</div>
+      </div>
+    </div>
+  </section>
+
+  <br />
+  <div style="display: flex; gap: 3px">
+    <button
+      class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
+      type="button"
+      (click)="toggleMoreDetails()"
+    >
+      View {{ isViewDetail ? "Less" : "Details" }}
+    </button>
+    <button
+      class="btn btn-secondary button-rounded f12 bg-primary page-header full-width"
+      type="button"
+      (click)="placeBid.emit(data)"
+    >
+      Place Bid
+    </button>
+  </div>
+</div>

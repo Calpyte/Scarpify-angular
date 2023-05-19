@@ -46,7 +46,7 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatTreeModule } from "@angular/material/tree";
 import { OverlayModule } from "@angular/cdk/overlay";
 import { CdkAccordionModule } from "@angular/cdk/accordion";
-import { ToastrService } from './Toastr/toastr.service';
+import { ToastrService } from './toastr/toastr.service';
 
 
 @NgModule({
