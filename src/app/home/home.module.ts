@@ -10,6 +10,7 @@ import { UserLocationComponent } from './home/user-location/user-location.compon
 import { CommonSharedModule } from '../common/common.module';
 import { ConsumerDetailsComponent } from './home/consumer-details/consumer-details.component';
 import { DetailDialogComponent } from './home/left-bar/detail-dialog/detail-dialog.component';
+import { PlaceBidComponent } from './home/place-bid/place-bid.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { DetailDialogComponent } from './home/left-bar/detail-dialog/detail-dial
     SellersNearbyComponent,
     UserLocationComponent,
     ConsumerDetailsComponent,
-    DetailDialogComponent
+    DetailDialogComponent,
+    PlaceBidComponent
   ],
   imports: [
     CommonModule,
