@@ -11,6 +11,11 @@ const routes: Routes = [
     loadChildren: () => import('./bid/bid.module')
       .then(m => m.BidModule)
   }
+  // {
+  //   path: 'faq',
+  //   loadChildren: () => import('./faq/faq.module')
+  //     .then(m => m.BidModule)
+  // }
 ];
 
 export const SellerRoutes = RouterModule.forChild(routes);

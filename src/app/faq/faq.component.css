@@ -1,0 +1,19 @@
+.card{
+  height: 80vh;
+  overflow : auto;
+}
+.heading{
+  font-style: normal;
+  font-size: 20px;
+  line-height: 44px;
+  display: flex;
+  align-items: center;
+  color: #3B4357;
+}
+.answer{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: #3B4357;
+}

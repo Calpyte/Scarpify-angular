@@ -52,8 +52,13 @@ export class AppComponent implements OnInit {
       icon: ''
     },
     {
+      name: 'Refer N Earn',
+      link: '/refer',
+      icon: ''
+    },
+    {
       name: 'FAQ',
-      link: '',
+      link: '/faq',
       icon: ''
     },
     {

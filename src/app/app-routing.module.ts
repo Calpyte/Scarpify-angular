@@ -1,3 +1,4 @@
+import { ReferModule } from './refer/refer.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './common/AuthGuard/auth.guard';
@@ -8,6 +9,16 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module')
       .then(m => m.HomeModule)
+  },
+  {
+    path: 'faq',
+    loadChildren: () => import('./faq/faq.module')
+      .then(m => m.FaqModule)
+  },
+  {
+    path: 'refer',
+    loadChildren: () => import('./refer/refer.module')
+    .then(m => m.ReferModule)
   },
   {
     path: 'seller',
