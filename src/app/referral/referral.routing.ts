@@ -8,7 +8,12 @@ const routes: Routes = [
         .then(m => m.ScrapratesModule)
     },
 
+    {
 
+      path: 'contactUs',
+      loadChildren: () => import('./contactUs/contactUs.module')
+        .then(m => m.ContactUsModule)
+    }
 
 ];
 
