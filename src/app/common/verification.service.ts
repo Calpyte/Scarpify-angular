@@ -23,7 +23,7 @@ export class VerificationService {
       } else if (res === true) {
         this.router.navigate([route])
       } else {
-        this.router.navigate(["/home"])
+        this.router.navigate(["/"])
       }
     });
   }
@@ -40,7 +40,7 @@ export class VerificationService {
       } else if (res === true) {
         this.router.navigate([route])
       } else {
-        this.router.navigate(["/home"])
+        this.router.navigate(["/"])
       }
     })
   }

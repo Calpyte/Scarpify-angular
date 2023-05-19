@@ -44,6 +44,7 @@ import { ApiConfigService } from './api-config';
     ProductsPickerComponent,
     ProductsViewComponent,
     LocationPickerComponent,
+    AgmCoreModule
   ],
   providers: [
     VerificationService,
