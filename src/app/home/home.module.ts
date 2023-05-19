@@ -6,6 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { LeftBarComponent } from './home/left-bar/left-bar.component';
 import { ProductsComponent } from './home/left-bar/products/products.component';
 import { SellersNearbyComponent } from './home/left-bar/sellers-nearby/sellers-nearby.component';
+import { UserLocationComponent } from './home/user-location/user-location.component';
+import { CommonSharedModule } from '../common/common.module';
 
 
 @NgModule({
@@ -13,11 +15,13 @@ import { SellersNearbyComponent } from './home/left-bar/sellers-nearby/sellers-n
     HomeComponent,
     LeftBarComponent,
     ProductsComponent,
-    SellersNearbyComponent
+    SellersNearbyComponent,
+    UserLocationComponent
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    CommonSharedModule
   ]
 })
 export class HomeModule { }

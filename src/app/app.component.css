@@ -12,9 +12,6 @@ mat-drawer{
   border-radius: 15px;
   background-color: transparent;
 }
-.menu{
-  color : #2C3E50
-}
 
 .menu:is(:hover){
   color: #00cc91 !important;
