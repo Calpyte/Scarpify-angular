@@ -1,25 +1,210 @@
 <div class="bid-header">
-  <div class="row">
-    <div class="col-md-3">
-    </div>
-
-    <div class="col-md-6">
+  <div class="d-flex justify-content-center">
+    <div class="col-md-9">
       <div class="row">
-        <div class="col">
-          <h4 class="page-header float-md-start"> My Bids </h4>
+        <div class="col" (click)="bidAction(null, 'close')">
+          <h4 class="page-header float-md-start">
+            <span><i class="bi bi-chevron-left"></i></span>&nbsp;BID 1001
+            <button class="btn btn-success">
+              {{ selectedTab?.name | titlecase }}
+            </button>
+          </h4>
         </div>
         <div class="col">
-          <h6 class="page-header float-md-end"> <i class="bi bi-diagram-2-fill"></i> Stock </h6>
+          <h6 class="page-header float-md-end">
+            <i class="bi bi-diagram-2-fill"></i> Stock
+          </h6>
         </div>
       </div>
     </div>
-
-    <div class="col-md-2">
-    </div>
-
   </div>
 </div>
 
 <div class="bg">
+  <div class="d-flex justify-content-center">
+    <div class="col-md-9">
+      <div class="card px-1 py-0">
+        <div class="card-body" style="overflow-y: auto">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="row">
+                <div class="col-md-3">
+                  <img src="assets/img/garbage.png" height="60" />
+                </div>
 
+                <div class="col-md-8">
+                  <div class="row inv-product-text">
+                    <span>{{ bid?.buyer?.firstName }}</span>
+                  </div>
+                  <div class="row sm-txt">
+                    <span><i class="bi bi-geo-alt-fill"></i>Guindy</span>
+                  </div>
+                  <div class="row inv-product-text">
+                    <span><i class="bi bi-star-fill"></i>4.7 54K Reviews</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="row align-items-center">
+                <i class="bi bi-calendar2-event fs-4 col-1"></i
+                >&nbsp;&nbsp;&nbsp;
+                <div class="col-10">
+                  <div class="sm-txt">
+                    <span>PickupDate</span>
+                  </div>
+                  <div class="sm-txt-bold">
+                    <span>{{ bid?.consumer?.pickupDate }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="row align-items-center">
+                <i class="bi bi-clock fs-4 col-1"></i>&nbsp;&nbsp;&nbsp;
+                <div class="col-10">
+                  <div class="sm-txt">
+                    <span>Time</span>
+                  </div>
+                  <div class="sm-txt-bold">
+                    <span>{{ bid?.consumer?.pickupTime }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="row align-items-center">
+                <i class="bi bi-currency-rupee fs-4 col-1"></i
+                >&nbsp;&nbsp;&nbsp;
+                <div class="col-10">
+                  <div class="sm-txt">
+                    <span>Total Bid Amount</span>
+                  </div>
+                  <div class="sm-txt-bold">
+                    <span><i class="bi bi-currency-rupee"></i>600</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="ruler" />
+          <div *ngFor="let proposal of bid?.consumer?.proposals">
+            <div class="row" style="margin-bottom: 3%">
+              <div class="col-md-3">
+                <div class="row">
+                  <div class="col-3">
+                    <img src="assets/img/metal.png" height="60" />
+                  </div>
+                  <div class="col-9">
+                    <div class="row lg-txt">
+                      <span>{{ proposal?.product?.name }}</span>
+                    </div>
+                    <div class="row sm-txt">
+                      <span>{{ proposal?.product?.name }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-9">
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="row sm-txt">
+                      <span>Req.Qty</span>
+                    </div>
+                    <div class="row md-txt">
+                      <span>{{ proposal?.qty }}</span>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2">
+                    <div class="row sm-txt">
+                      <span>Market-price/kg</span>
+                    </div>
+                    <div class="row md-txt">
+                      <span>200.00</span>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <div class="row sm-txt">
+                      <span>Expected Price /kg</span>
+                    </div>
+                    <div class="row md-txt">
+                      <span>200.00</span>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2">
+                    <div class="row sm-txt">
+                      <span>Bid Price /kg</span>
+                    </div>
+                    <div class="row md-txt">
+                      <span>{{ proposal.amount }}</span>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <div class="row sm-txt">
+                      <span>Expected BID Amt.</span>
+                    </div>
+                    <div class="row md-txt">
+                      <span>20</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-between mt-3">
+            <div class="d-flex footer-txt" (click)="bidAction(null, 'close')">
+              <span>Go to dashboard</span><i class="bi bi-arrow-bar-right"></i>
+            </div>
+            <div class="action-footer">
+              <div *ngIf="['open', 'modified'].includes(selectedTab?.name)">
+                <button
+                  class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
+                  type="button"
+                  (click)="bidAction(bid, 'modify')"
+                >
+                  <i class="bi bi-pencil"></i> &nbsp; Modify
+                </button>
+              </div>
+
+              <div>
+                <button
+                  class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
+                  type="button"
+                  (click)="bidAction(bid, 'reject')"
+                  *ngIf="
+                    ['open', 'modified', 'confirmed'].includes(
+                      selectedTab?.name
+                    )
+                  "
+                >
+                  <i class="bi bi-x-lg"></i> &nbsp; Reject
+                </button>
+              </div>
+
+              <div>
+                <button
+                  *ngIf="['open', 'modified'].includes(selectedTab?.name)"
+                  class="btn btn-secondary button-rounded f12 bg-primary page-header full-width"
+                  type="button"
+                  (click)="bidAction(bid, 'accept')"
+                >
+                  <i class="bi bi-check"></i> &nbsp; Accept
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

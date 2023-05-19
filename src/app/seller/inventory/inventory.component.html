@@ -1,7 +1,6 @@
 <div class="bg">
-  <div class="row col-12">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
+  <div class="d-flex justify-content-center">
+    <div class="col-md-9">
       <div style="margin-bottom: 5%; margin-top: 1%">
         <h4 class="page-header float-md-start">Scrap Inventory</h4>
         <h6 class="page-sub-header float-md-end bold">₹200.00</h6>
@@ -9,8 +8,8 @@
       </div>
 
       <form [formGroup]="form">
-        <div class="card">
-          <div class="card-body" style="overflow-y: auto">
+        <div class="card px-1 py-0">
+          <div class="card-body px-5" style="overflow-y: auto">
             <div
               class="row"
               [formGroup]="addressGroup"
@@ -90,30 +89,26 @@
                 </div>
               </div>
               <div class="col-md-1 mtop2">
-                <input
-                  type="file"
-                  accept="image/*"
-                  style="display: none"
-                  #file
-                />
-                <button type="button" class="btn btn-grey btn-md">
-                  <img src="assets/img/upload.png" />
-                </button>
+                <label class="file-upload">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    (change)="handleImage($event)"
+                    style="display: none"
+                  />
+                  <img
+                    id="img1"
+                    style="max-height: 50px; object-fit: cover"
+                    class="img-fluid rounded"
+                    src="assets/img/upload.png"
+                  />
+                </label>
               </div>
               <div class="col-md-1 mtop2">
-                <label class="custom-file-upload">
+                <label class="file-upload">
                   <input type="file" accept="image/*" style="display: none" />
-                  <img src="assets/img/upload.png" />
+                  <img id="img2" src="assets/img/upload.png" />
                 </label>
-                <!-- <input
-                  type="file"
-                  accept="image/*"
-                  style="display: none"
-                  class="inventory-img"
-                /> -->
-                <!-- <button type="button" class="btn btn-grey btn-md">
-                  <img src="assets/img/upload.png" />
-                </button> -->
               </div>
               <div class="col-md-1 mtop1">
                 <button type="button" class="btn btn-rounded mtop18">
@@ -169,6 +164,5 @@
         </div>
       </form>
     </div>
-    <div class="col-md-2"></div>
   </div>
 </div>

@@ -13,7 +13,7 @@ html, body {
 
 .bg {
   background-image: url("assets/img/inventory.png");
-  height: 87vh;
+  height: 92vh;
   background-repeat: no-repeat;
   background-size: cover;
 }
