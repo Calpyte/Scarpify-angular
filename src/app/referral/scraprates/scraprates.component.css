@@ -172,3 +172,12 @@ left: 248.24px;
 top: 846.02px;
 color: #02C784;
 }
+
+.contact-text-top{
+  font-style: normal;
+font-weight: 700;
+font-size: 28px;
+line-height: 36px;
+color: #005A7B;
+text-align: center;
+}
