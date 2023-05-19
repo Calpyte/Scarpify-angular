@@ -20,17 +20,23 @@
 }
 
 .dotted-text{
-  text-align: center;
+  /* text-align: center; */
   color: #02C784;
+  border: dashed 3px #B3B8C7;
+  display: grid;
+  place-items: center;
 }
 
 .button-text{
   background: #005A7B;
   border-radius: 31.9399px;
   height: 54px;
-  width: 450px;
-  left: 0px;
-  top: 0px;
+  color: whitesmoke;
+  width: 100%;
+}
+
+.button-text:is(:hover,:focus){
+  opacity: 0.9;
 }
 
 .how-text{
