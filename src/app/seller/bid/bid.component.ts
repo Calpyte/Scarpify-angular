@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { BidService } from './bid.service';
+import { ToastrService } from 'src/app/common/Toastr/toastr.service';
 
 
 @Component({
@@ -55,7 +56,7 @@ export class BidComponent implements OnInit {
   selectedTab: any = this.tabs[0];
   selectedBid: any = null;
 
-  constructor(private bidService: BidService) { }
+  constructor(private bidService: BidService, private toastrService: ToastrService) { }
 
   ngOnInit() {
     this.getMyBids();
@@ -102,6 +103,7 @@ export class BidComponent implements OnInit {
 
   acceptBid = (id) => {
     this.bidService.acceptBid(id).subscribe((res) => {
+      this.toastrService.showSuccess("Bid accepted successfully !");
       this.getMyBids();
       this.isDetail = false;
     })
@@ -109,6 +111,7 @@ export class BidComponent implements OnInit {
 
   rejectBid = (id) => {
     this.bidService.rejectBid(id).subscribe((res) => {
+      this.toastrService.showSuccess("Bid rejected successfully !");
       this.getMyBids();
       this.isDetail = false;
     })
@@ -116,6 +119,7 @@ export class BidComponent implements OnInit {
 
   modifyBid = (id, data) => {
     this.bidService.modifyBid(id, data).subscribe((res) => {
+      this.toastrService.showSuccess("Bid modified successfully !");
       this.getMyBids();
       this.isDetail = false;
     })

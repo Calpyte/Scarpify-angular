@@ -4,6 +4,7 @@ import { ProductAddComponent } from './product-add/product-add.component';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { InventoryService } from './inventory.service';
+import { ToastrService } from 'src/app/common/Toastr/toastr.service';
 
 @Component({
   selector: 'app-inventory',
@@ -25,6 +26,7 @@ export class InventoryComponent implements OnInit {
   constructor(
     private inventoryService: InventoryService,
     public dialog: MatDialog,
+    private toastToastrService: ToastrService,
     private fb: FormBuilder) {
     this.form = fb.group({
       stocks: fb.array([])
@@ -101,7 +103,7 @@ export class InventoryComponent implements OnInit {
         stock: this.form?.value?.stocks
       }
       this.inventoryService.updateInventory(result).subscribe((data) => {
-        alert("updated successfully");
+        this.toastToastrService.showSuccess("Inventory Updated Successfully !", "");
         this.getInventory();
       });
     }

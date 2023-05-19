@@ -46,6 +46,7 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatTreeModule } from "@angular/material/tree";
 import { OverlayModule } from "@angular/cdk/overlay";
 import { CdkAccordionModule } from "@angular/cdk/accordion";
+import { ToastrService } from './Toastr/toastr.service';
 
 
 @NgModule({
@@ -150,7 +151,10 @@ import { CdkAccordionModule } from "@angular/cdk/accordion";
     MatFormFieldModule,
   ],
   providers: [
-    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } }
+    {
+      provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true },
+    },
+    ToastrService
   ],
   declarations: []
 })

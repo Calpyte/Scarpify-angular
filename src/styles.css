@@ -182,3 +182,40 @@ button {
   background-color: #013f56;
   color: white;
 }
+
+
+.toast-container .ngx-toastr  {
+  background-color: #333e5a  !important;
+  height: fit-content !important;
+  border-radius: 16px !important;
+}
+
+.toast-success{
+  background-image: none !important;
+}
+
+.toast-success::after{
+  content: '\f00c' !important;
+  font-family: 'FontAwesome' !important;
+  position: absolute !important;
+  top: 13px !important;
+  height:25px;
+  width: 25px;
+  display: grid;
+  place-items: center;
+  left: 15px !important;
+  color: #333e5a !important;
+  background-color: #02C784;
+  border : solid 2px #02C784;
+  border-radius: 45px;
+  font-size: 1.5em !important;
+}
+
+.toast-title{
+  font-size: 16px !important;
+  color:#fff !important;
+}
+
+.toast-message{
+  color:#fff !important;
+}
