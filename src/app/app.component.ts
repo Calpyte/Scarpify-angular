@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
     },
     {
       name: 'Scrap Rates',
-      link: '',
+      link: '/referral/scraprates',
       icon: ''
     },
     {
@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
     },
     {
       name: 'Contact',
-      link: '',
+      link: 'referral/contactUs',
       icon: ''
     }
   ]

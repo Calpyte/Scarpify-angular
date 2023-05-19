@@ -1,0 +1,51 @@
+.contact-text-top{
+  font-style: normal;
+font-weight: 700;
+font-size: 28px;
+line-height: 36px;
+color: #005A7B;
+}
+
+.contact-text-align{
+  font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 26px;
+color: #3B4357;
+width: 453.78px;
+height: 78px;
+left: 1104.24px;
+top: 339.71px;
+}
+
+.contact-text-size
+{
+  font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 19px;
+color: #818694;
+}
+
+.contact-text-border{
+  Width:412px;
+  Height: 54px;
+  Top:27px;
+}
+
+.bt-text{
+  background: #005A7B;
+  border-radius: 31.9399px;
+  height: 41px;
+  width: 140px;
+  left: 0px;
+  top: 0px;
+}
+
+.image-text{
+ width: 550px;
+height: 500px;
+left: 250px;
+right: 150px;
+top: 400px;
+}
