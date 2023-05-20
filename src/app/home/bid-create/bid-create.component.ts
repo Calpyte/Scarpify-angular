@@ -11,6 +11,7 @@ import { ToastrService } from 'src/app/common/toastr/toastr.service';
 export class BidCreateComponent implements OnInit {
   @Input() inventory: any;
   step: number = 0;
+  result: any = {};
 
   constructor(private toastrService: ToastrService, private dialogRef: MatDialogRef<any>,
     @Inject(MAT_DIALOG_DATA) public data: any,) { }
@@ -21,14 +22,18 @@ export class BidCreateComponent implements OnInit {
     }
   }
 
-
   close = (res) => {
     this.dialogRef.close(res);
-    // this.dialog.closeAll();
   }
 
   reviewBid = (event) => {
+    this.result['bids'] = event;
     this.step++;
+  }
+
+  submit = (event) => {
+    this.result['location'] = event;
+    this.close(this.result);
   }
 
 }

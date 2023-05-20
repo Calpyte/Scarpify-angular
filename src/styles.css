@@ -219,3 +219,7 @@ button {
 .toast-message{
   color:#fff !important;
 }
+.mat-dialog-container{
+      /* padding: 10px !important;
+      margin: 10px !important; */
+}

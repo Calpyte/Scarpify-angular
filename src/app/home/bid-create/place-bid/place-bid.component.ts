@@ -49,7 +49,6 @@ export class PlaceBidComponent implements OnInit {
   }
 
   reviewBid = () => {
-    console.log(this.bidForm.value.bids);
     this.result.emit(this.bidForm.value.bids);
   }
 

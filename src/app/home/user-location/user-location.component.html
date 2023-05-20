@@ -12,7 +12,10 @@
       (dragEnd)="markerDragEnd($event)"
     >
       <agm-info-window #infowindow class="agm-info-window">
-        <app-consumer-details></app-consumer-details>
+        <app-consumer-details
+          [data]="{}"
+          (placeBid)="placeBid($event)"
+        ></app-consumer-details>
       </agm-info-window>
     </agm-marker>
     <agm-circle
