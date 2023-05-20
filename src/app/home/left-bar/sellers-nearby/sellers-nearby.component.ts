@@ -2,7 +2,8 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ConsumerDetailsComponent } from '../../consumer-details/consumer-details.component';
 import { DetailDialogComponent } from '../detail-dialog/detail-dialog.component';
-import { PlaceBidComponent } from '../../place-bid/place-bid.component';
+import { PlaceBidComponent } from '../../bid-create/place-bid/place-bid.component';
+import { BidCreateComponent } from '../../bid-create/bid-create.component';
 
 @Component({
   selector: 'app-sellers-nearby',
@@ -34,11 +35,12 @@ export class SellersNearbyComponent implements OnInit {
 
   openBidDialog(user): void {
     this.dialog.closeAll();
-    const dialogRef = this.dialog.open(PlaceBidComponent, {
+    const dialogRef = this.dialog.open(BidCreateComponent, {
       data: user,
       hasBackdrop: true,
-      minWidth: '50%',
-      width: '80%'
+      minWidth: '30%',
+      maxWidth: '80%',
+      width: 'auto'
     });
     dialogRef.afterClosed().subscribe(result => {
       // alert(JSON.stringify(result));
