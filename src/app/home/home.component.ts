@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastrService } from '../../common/toastr/toastr.service';
+import { ToastrService } from '../common/toastr/toastr.service';
 
 @Component({
   selector: 'app-home',

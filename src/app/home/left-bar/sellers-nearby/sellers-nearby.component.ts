@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ConsumerDetailsComponent } from '../../consumer-details/consumer-details.component';
 import { DetailDialogComponent } from '../detail-dialog/detail-dialog.component';
-import { PlaceBidComponent } from 'src/app/home/home/place-bid/place-bid.component';
+import { PlaceBidComponent } from '../../place-bid/place-bid.component';
 
 @Component({
   selector: 'app-sellers-nearby',
