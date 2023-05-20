@@ -4,7 +4,7 @@
       class="mt-1 mb-5 w-100 d-flex align-items-center justify-content-center"
     >
       <div class="d-flex flex-column">
-        <div class="display: grid; place-items: center; contact-text-top ">
+        <div class="display: grid; place-items: center; contact-text-top">
           <h1><strong>Scrap Rates</strong></h1>
         </div>
         <!-- <h1 style="text-align: center"><strong>Scrap Rates</strong></h1> -->
@@ -33,7 +33,11 @@
               class="d-flex justify-content-start align-items-center mt-2 mr-2 scrap-rates-card"
               *ngFor="let product of products"
             >
-              <img src="assets/img/metal.png" class="ml-2 mt-2" />
+              <img
+                loading="lazy"
+                src="assets/img/metal.png"
+                class="ml-2 mt-2"
+              />
               <div class="scrap-rates-card-txt ml-3">{{ product?.name }}</div>
             </div>
           </div>
@@ -41,6 +45,7 @@
           <div class="row" *ngFor="let product of products">
             <div class="col-md-3">
               <img
+                loading="lazy"
                 src="assets/img/metalwaste.jpg"
                 class="ml-2 scrapify-product-image"
               />

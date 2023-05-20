@@ -3,7 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import jwt_decode from "jwt-decode";
 import { UserService } from './common/user-service/user.service';
 import { MatSidenav } from '@angular/material/sidenav';
-import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +17,19 @@ export class AppComponent implements OnInit {
   isNavigating: boolean = false;
 
   constructor(private cookieService: CookieService, private userService: UserService, private router: Router) {
-
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.isNavigating = true;
+      } else if (event instanceof NavigationEnd) {
+        this.isNavigating = false;
+      }
+      if (event instanceof NavigationCancel) {
+        this.isNavigating = false;
+      }
+      if (event instanceof NavigationError) {
+        this.isNavigating = false;
+      }
+    });
   }
 
   pages: any = [
@@ -77,13 +89,6 @@ export class AppComponent implements OnInit {
         email: decoded['email']
       })
     }
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationStart) {
-        this.isNavigating = true;
-      } else if (event instanceof NavigationEnd) {
-        this.isNavigating = false;
-      }
-    });
   }
 
   goToMenu = (link) => {
