@@ -1,7 +1,7 @@
 mat-drawer{
   height:92vh;
   width: 300px;
-  z-index: 9998;
+  /* z-index: 9998; */
 }
 mat-drawer-container{
   top:8vh;

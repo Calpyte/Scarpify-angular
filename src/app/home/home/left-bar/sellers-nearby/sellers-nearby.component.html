@@ -1,9 +1,14 @@
 <div class="row">
-  <div class="col-md-12 seller-tile" type="button" style="margin-top: 4%" *ngFor="let seller of sellers; let i = index"
-    (click)="openDetail(seller)">
+  <div
+    class="col-md-12 seller-tile"
+    type="button"
+    style="margin-top: 4%"
+    *ngFor="let seller of sellers; let i = index"
+    (click)="openDetail(seller)"
+  >
     <div class="row">
       <div class="col-md-2">
-        <img src="assets/img/Empty.png" height="50" />
+        <img loading="lazy" src="assets/img/Empty.png" height="50" />
       </div>
       <div class="col-md-9">
         <div class="row inv-product-text">
@@ -19,16 +24,16 @@
     </div>
   </div>
 
-
-
-  <div class="col-md-12" style="margin-top: 4%;">
+  <div class="col-md-12" style="margin-top: 4%">
     <div class="row">
       <div class="col-md-2">
-        <img src="assets/img/Empty.png" height="50">
+        <img loading="lazy" src="assets/img/Empty.png" height="50" />
       </div>
       <div class="col-md-9">
         <div class="row inv-product-text"><span>Lakshman Raman</span></div>
-        <div class="row inv-amt-text"><span><i class="bi bi-star-fill"></i>4.7 54K Reviews</span></div>
+        <div class="row inv-amt-text">
+          <span><i class="bi bi-star-fill"></i>4.7 54K Reviews</span>
+        </div>
         <div class="row inv-category-text">
           <span>Last posted 3 months ago</span>
         </div>
@@ -36,23 +41,20 @@
     </div>
   </div>
 
-
-
-  <div class="col-md-12" style="margin-top: 4%;">
+  <div class="col-md-12" style="margin-top: 4%">
     <div class="row">
       <div class="col-md-2">
-        <img src="assets/img/Empty.png" height="50">
+        <img loading="lazy" src="assets/img/Empty.png" height="50" />
       </div>
       <div class="col-md-9">
         <div class="row inv-product-text"><span>Lakshman Raman</span></div>
-        <div class="row inv-amt-text"><span><i class="bi bi-star-fill"></i>4.7 54K Reviews</span></div>
+        <div class="row inv-amt-text">
+          <span><i class="bi bi-star-fill"></i>4.7 54K Reviews</span>
+        </div>
         <div class="row inv-category-text">
           <span>Last posted 3 months ago</span>
         </div>
       </div>
     </div>
   </div>
-
-
-
 </div>
