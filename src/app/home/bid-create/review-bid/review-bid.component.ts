@@ -20,7 +20,6 @@ export class ReviewBidComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
   back() {

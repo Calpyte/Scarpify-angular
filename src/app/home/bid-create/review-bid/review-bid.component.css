@@ -52,3 +52,13 @@
   line-height: 29px;
   color: #3B4357
 }
+.form-control:hover {
+  box-shadow: none;
+}
+
+.form-control {
+  box-shadow: none;
+}
+.form-text {
+  font-size: 10px;
+}

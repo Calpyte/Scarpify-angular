@@ -5,7 +5,7 @@
   class="mat-typography"
   style="margin: 0; padding: 0; width: 400px"
 >
-  <form [formGroup]="reviewForm">
+  <form [formGroup]="reviewForm" style="padding: 0 2%">
     <div class="container info">
       <i class="bi bi-info-circle"></i>&nbsp;&nbsp;
       <p>
@@ -35,7 +35,7 @@
 
     <div class="mt-2">
       <p class="sub-heading">Pickup location</p>
-      <div style="display: flex; gap: 2px; padding-right: 3%">
+      <div style="display: flex; gap: 2px">
         <div style="width: 70%" class="heading-grey">
           <mat-icon> location_on</mat-icon>&nbsp;Guindy,Chennai- 600238
         </div>
@@ -52,48 +52,44 @@
       </div>
     </div>
     <hr />
-    <div style="width: 100%; padding: 3%">
-      <div style="display: flex; gap: 10px; align-items: center">
-        <i class="bi bi-calendar fa-2x" style="color: #3b4357"></i>
-        <mat-form-field style="width: 100%">
-          <mat-label>Pickup Date</mat-label>
+    <div style="width: 100%">
+      <div style="display: flex; gap: 10px; align-items: end">
+        <i class="bi bi-calendar fa-3x" style="color: #3b4357"></i>
+        <div style="width: 100%">
+          <label class="form-text" for="pickUpDate">Pick up date</label>
           <input
-            matInput
-            [matDatepicker]="picker"
-            readonly
+            class="form-control"
+            type="date"
+            id="pickUpDate"
             formControlName="pickUpDate"
+            name="pickUpDate"
+            style="width: 100%"
           />
-          <mat-datepicker-toggle matSuffix [for]="picker">
-            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
-          </mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+        </div>
       </div>
 
-      <div style="display: flex; gap: 10px; align-items: center">
-        <i class="bi bi-clock fa-2x" style="color: #3b4357"></i>
-
-        <mat-form-field style="width: 100%">
-          <mat-label>Time</mat-label>
+      <div style="display: flex; gap: 10px; align-items: end">
+        <i class="bi bi-clock fa-3x" style="color: #3b4357"></i>
+        <div style="width: 100%">
+          <label class="form-text" for="pickUpTime">Time</label>
           <input
+            class="form-control"
             type="time"
-            matInput
-            name="week"
-            min="09:00"
-            max="18:00"
+            id="pickUpTime"
             formControlName="pickUpTime"
+            name="pickUpTime"
+            style="width: 100%"
           />
-        </mat-form-field>
+        </div>
       </div>
-
-      <div style="display: flex; gap: 10px; align-items: center">
-        <i
-          class="bi bi-currency-rupee fa-2x"
-          style="color: #3b4357; border-radius: 45px; border: solid 2px #3b4357"
-        ></i>
+      <br />
+      <hr />
+      <div style="display: flex; gap: 10px; justify-content: end">
         <div>
-          <p class="sub-heading" style="font-size: medium">Total Bid Amount</p>
-          <p class="heading-grey"><i class="bi bi-currency-rupee"></i>200.00</p>
+          <label class="form-text" for="pickUpTime">Total Bid Amount</label>
+          <p class="heading-grey" style="min-height: 45px">
+            <i class="bi bi-currency-rupee"></i>200.00
+          </p>
         </div>
       </div>
     </div>

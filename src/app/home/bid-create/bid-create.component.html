@@ -5,7 +5,7 @@
     (close)="close($event)"
   ></app-place-bid>
 </div>
-<div [ngStyle]="step === 1 ? { display: 'block' } : { display: 'none' }">
+<div [ngClass]="step === 1 ? 'block' : 'none'">
   <app-review-bid
     (backToBid)="step = step - 1"
     (result)="submit($event)"
