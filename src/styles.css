@@ -39,6 +39,8 @@ html, body {
 /* Change the color of the scrollbar */
 ::-webkit-scrollbar {
   width: 4px;
+  height: 4px;
+  border-radius: 20px;
   /* Set the width of the scrollbar */
 }
 
