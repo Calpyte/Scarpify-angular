@@ -1,8 +1,6 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'src/app/common/toastr/toastr.service';
-
-
 @Component({
   selector: 'app-bid-create',
   templateUrl: './bid-create.component.html',
