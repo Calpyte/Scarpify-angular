@@ -70,7 +70,20 @@
 
       <div style="display: flex; gap: 10px; align-items: end">
         <i class="bi bi-clock fa-3x" style="color: #3b4357"></i>
-        <div style="width: 100%">
+
+        <div style="width: 50%">
+          <label class="form-text" for="pickUpTime">Time</label>
+          <input
+            class="form-control date-input"
+            type="time"
+            id="pickUpTime"
+            formControlName="pickUpTime"
+            name="pickUpTime"
+            style="width: 100%"
+          />
+        </div>
+
+        <div style="width: 50%">
           <label class="form-text" for="pickUpTime">Time</label>
           <input
             class="form-control date-input"
@@ -82,6 +95,7 @@
           />
         </div>
       </div>
+
       <br />
       <hr />
       <div style="display: flex; gap: 10px; justify-content: end">
