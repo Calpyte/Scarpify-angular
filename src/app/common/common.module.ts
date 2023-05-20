@@ -15,6 +15,7 @@ import { LoginService } from '../service/login.service';
 import { AuthServiceService } from '../service/auth-service.service';
 import { IndexedDBService } from '../service/IndexedDB.service';
 import { ApiConfigService } from './api-config';
+import { NgxMatTimepickerModule } from 'ngx-mat-timepicker';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ApiConfigService } from './api-config';
     FormsModule,
     MaterialModule,
     NgOtpInputModule,
+    NgxMatTimepickerModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA4F9JYoct7v7oGvirzAx7_oK6XkNyL1oM'
     })
@@ -44,6 +46,7 @@ import { ApiConfigService } from './api-config';
     RegisterComponent,
     ProductsPickerComponent,
     ProductsViewComponent,
+    NgxMatTimepickerModule,
     LocationPickerComponent,
     AgmCoreModule,
   ],

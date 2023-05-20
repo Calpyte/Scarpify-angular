@@ -6,5 +6,8 @@
   ></app-place-bid>
 </div>
 <div [ngStyle]="step === 1 ? { display: 'block' } : { display: 'none' }">
-  <app-review-bid (backToBid)="step = step - 1"></app-review-bid>
+  <app-review-bid
+    (backToBid)="step = step - 1"
+    (result)="submit($event)"
+  ></app-review-bid>
 </div>

@@ -1,2 +1,119 @@
-<p>review-bid works!</p>
-<button class="btn" (click)="back()">back</button>
+<div style="width: 400px">
+  <p class="heading">Review Bid Information</p>
+</div>
+<mat-dialog-content
+  class="mat-typography"
+  style="margin: 0; padding: 0; width: 400px"
+>
+  <form [formGroup]="reviewForm">
+    <div class="container info">
+      <i class="bi bi-info-circle"></i>&nbsp;&nbsp;
+      <p>
+        Exact pickup location & contact details will be shared once the BID gets
+        accepted.
+      </p>
+    </div>
+    <div class="mt-2">
+      <p class="sub-heading">Seller Name</p>
+      <div style="display: flex; justify-content: flex-start; gap: 10px">
+        <div>
+          <img loading="lazy" src="assets/img/garbage.png" height="60" />
+        </div>
+        <div>
+          <div class="inv-product-text">
+            <span>Dinesh</span>
+          </div>
+          <div class="inv-amt-text">
+            <span><i class="bi bi-star-fill"></i>4.7 54K Reviews</span>
+          </div>
+          <div class="inv-category-text">
+            <span>Last posted 3 months ago</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-2">
+      <p class="sub-heading">Pickup location</p>
+      <div style="display: flex; gap: 2px; padding-right: 3%">
+        <div style="width: 70%" class="heading-grey">
+          <mat-icon> location_on</mat-icon>&nbsp;Guindy,Chennai- 600238
+        </div>
+        <div style="width: 30%; text-align: end">
+          <img
+            loading="lazy"
+            class="rounded"
+            src="https://www.shutterstock.com/shutterstock/videos/1080790811/thumb/12.jpg?ip=x480"
+            height="100px"
+            width="100%"
+            style="object-fit: cover"
+          />
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div style="width: 100%; padding: 3%">
+      <div style="display: flex; gap: 10px; align-items: center">
+        <i class="bi bi-calendar fa-2x" style="color: #3b4357"></i>
+        <mat-form-field style="width: 100%">
+          <mat-label>Pickup Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            readonly
+            formControlName="pickUpDate"
+          />
+          <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div style="display: flex; gap: 10px; align-items: center">
+        <i class="bi bi-clock fa-2x" style="color: #3b4357"></i>
+
+        <mat-form-field style="width: 100%">
+          <mat-label>Time</mat-label>
+          <input
+            type="time"
+            matInput
+            name="week"
+            min="09:00"
+            max="18:00"
+            formControlName="pickUpTime"
+          />
+        </mat-form-field>
+      </div>
+
+      <div style="display: flex; gap: 10px; align-items: center">
+        <i
+          class="bi bi-currency-rupee fa-2x"
+          style="color: #3b4357; border-radius: 45px; border: solid 2px #3b4357"
+        ></i>
+        <div>
+          <p class="sub-heading" style="font-size: medium">Total Bid Amount</p>
+          <p class="heading-grey"><i class="bi bi-currency-rupee"></i>200.00</p>
+        </div>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions style="margin: 0; padding: 0; width: 400px">
+  <div style="display: flex; gap: 3px; width: 100%">
+    <button
+      class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
+      type="button"
+      (click)="back()"
+    >
+      Review Bid
+    </button>
+    <button
+      class="btn btn-secondary button-rounded f12 bg-primary page-header full-width"
+      type="button"
+      (click)="submit()"
+    >
+      Submit
+    </button>
+  </div>
+</mat-dialog-actions>
