@@ -1,0 +1,76 @@
+.center {
+  display: block;
+  margin-left: 120px;
+  margin-right: 100px;
+  width: 20%;
+  height: 10%;
+}
+
+.img-txt{
+  width: 360px;
+height: 23px;
+left: 779.51px;
+top: 265.24px;
+font-family: 'Inter Tight';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 130%;
+text-align: center;
+color: #3B4357;
+}
+.inv-product-text {
+  font-size: 15px;
+  font-weight: 400;
+}
+.contact-text-align{
+  font-style: normal;
+font-weight: 400;
+font-size: 12px;
+}
+.inv-products-font{
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 22px;
+  color: #3B4357;
+}
+
+.inv-products-f1{
+  font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 29px;
+color: #3B4357;
+
+}
+
+
+
+.icon-t1{
+  font-style: normal;
+font-weight: 600;
+font-size: 11px;
+line-height: 22px;
+color: #3B4357;
+}
+
+.button-rounded {
+  border-radius: 50px;
+  padding: 5px 15px;
+}
+
+.f12 {
+  font-size: 12px;
+}
+
+.bg-secondary {
+  background-color: white !important;
+  color: #005a7b;
+  font-weight: bold;
+  border: 2px solid #005a7b;
+}
+
+.bg-primary {
+  background-color: #005a7b !important;
+}
