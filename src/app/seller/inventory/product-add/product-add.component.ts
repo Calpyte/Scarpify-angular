@@ -25,9 +25,104 @@ export class ProductAddComponent implements OnInit {
   }
 
   getProducts = () => {
-    this.http.get(this.apiConfigService.getAllCategories).subscribe((res: any) => {
-      this.categories = res.map((e) => { e.products = e.products?.filter((product) => !this.data?.selectedCheckboxIds.includes(product?.id)); return e; })
-    });
+    this.categories = [
+      {
+        "id": "645cd55f1d18620f9c30810b",
+        "name": "Paper",
+        "icon": "paper.png",
+        "products": [
+          {
+            "id": "0919d4cc-efe9-11ed-a05b-0242ac120003",
+            "name": "Kraft paper",
+            "icon": "kraft_paper.png",
+            "isDeleted": false
+          },
+          {
+            "id": "5da3d27c-efe9-11ed-a05b-0242ac120003",
+            "name": "Newspapers",
+            "icon": "newspapers.png",
+            "isDeleted": false
+          },
+          {
+            "id": "5da3d27c-efe9-11ed-a05b-0242ac120018",
+            "name": "High-grade papers",
+            "icon": "high-grade_papers.png",
+            "isDeleted": false
+          },
+          {
+            "id": "0919d4cc-efe9-11ed-a05b-0242ac120014",
+            "name": "Mixed papers",
+            "icon": "mixed_papers.png",
+            "isDeleted": false
+          },
+          {
+            "id": "0919d4cc-efe9-11ed-a05b-0242ac120015",
+            "name": "waxed paper",
+            "icon": "waxed_paper.png",
+            "isDeleted": false
+          },
+          {
+            "id": "0919d4cc-efe9-11ed-a05b-0242ac120016",
+            "name": "shredded paper",
+            "icon": "shredded_paper.png",
+            "isDeleted": false
+          },
+          {
+            "id": "0919d4cc-efe9-11ed-a05b-0242ac120017",
+            "name": "wrapping gift paper",
+            "icon": "wrapping_gift_paper.png",
+            "isDeleted": false
+          },
+          {
+            "id": "0919d4cc-efe9-11ed-a05b-0242ac120018",
+            "name": "plastic-coated paper",
+            "icon": "plastic-coated_paper.png",
+            "isDeleted": false
+          },
+          {
+            "id": "0919d4cc-efe9-11ed-a05b-0242ac120019",
+            "name": "receipts",
+            "icon": "receipts.png",
+            "isDeleted": false
+          },
+          {
+            "id": "0919d4cc-efe9-11ed-a05b-0242ac120020",
+            "name": "sticky paper",
+            "icon": "sticky_paper.png",
+            "isDeleted": false
+          },
+          {
+            "id": "0919d4cc-efe9-11ed-a05b-0242ac120021",
+            "name": "milk",
+            "icon": "milk.png",
+            "isDeleted": false
+          },
+          {
+            "id": "0919d4cc-efe9-11ed-a05b-0242ac120022",
+            "name": "napkins",
+            "icon": "napkins.png",
+            "isDeleted": false
+          },
+          {
+            "id": "0919d4cc-efe9-11ed-a05b-0242ac120023",
+            "name": "paper towel",
+            "icon": "paper_towel.png",
+            "isDeleted": false
+          },
+          {
+            "id": "0919d4cc-efe9-11ed-a05b-0242ac120024",
+            "name": "toilet paper",
+            "icon": "toilet_paper.png",
+            "isDeleted": false
+          }
+        ],
+        "isDeleted": false,
+        "_class": "com.scrapify.product.domain.Category"
+      }
+    ]
+    // this.http.get(this.apiConfigService.getAllCategories).subscribe((res: any) => {
+    //   this.categories = res.map((e) => { e.products = e.products?.filter((product) => !this.data?.selectedCheckboxIds.includes(product?.id)); return e; })
+    // });
   }
 
   getSelected = () => {
