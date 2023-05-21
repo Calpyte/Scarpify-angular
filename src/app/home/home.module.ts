@@ -11,6 +11,7 @@ import { ProductsComponent } from './left-bar/products/products.component';
 import { SellersNearbyComponent } from './left-bar/sellers-nearby/sellers-nearby.component';
 import { PlaceBidComponent } from './place-bid/place-bid.component';
 import { UserLocationComponent } from './user-location/user-location.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 
 
@@ -23,7 +24,8 @@ import { UserLocationComponent } from './user-location/user-location.component';
     UserLocationComponent,
     ConsumerDetailsComponent,
     DetailDialogComponent,
-    PlaceBidComponent
+    PlaceBidComponent,
+    ProductDetailsComponent
   ],
   imports: [
     CommonModule,

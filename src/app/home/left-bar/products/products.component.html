@@ -1,5 +1,5 @@
 <div class="row col-12">
-  <div class="col-md-4" *ngFor="let category of categories">
+  <div class="col-md-4" *ngFor="let category of categories"  (click)="openDetail(category)">
     <div class="card">
       <img
         loading="lazy"
