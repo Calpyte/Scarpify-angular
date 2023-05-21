@@ -1,0 +1,13 @@
+<div [ngClass]="step === 0 ? 'block' : 'none'">
+  <app-place-bid
+    [inventory]="{ id: 0, name: 'Dinesh' }"
+    (result)="reviewBid($event)"
+    (close)="close($event)"
+  ></app-place-bid>
+</div>
+<div [ngClass]="step === 1 ? 'block' : 'none'">
+  <app-review-bid
+    (backToBid)="step = step - 1"
+    (result)="submit($event)"
+  ></app-review-bid>
+</div>

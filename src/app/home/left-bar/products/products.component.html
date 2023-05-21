@@ -1,5 +1,5 @@
 <div class="row col-12">
-  <div class="col-md-4" *ngFor="let category of categories"  (click)="openDetail(category)">
+  <div class="col-md-4" *ngFor="let category of filterCategories">
     <div class="card">
       <img
         loading="lazy"
@@ -9,5 +9,18 @@
       />
     </div>
     <p class="card-title page-header product-text">{{ category?.name }}</p>
+  </div>
+  <div class="col-md-4" (click)="viewMore()">
+    <div class="card">
+      <img
+        loading="lazy"
+        src="../../../../assets/img/more.PNG"
+        height="80"
+        width="80"
+      />
+    </div>
+    <p class="card-title page-header product-text">
+      {{ filterCategories?.length === 8 ? "More" : "Less" }}
+    </p>
   </div>
 </div>

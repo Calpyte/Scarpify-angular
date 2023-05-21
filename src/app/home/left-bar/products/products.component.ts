@@ -4,7 +4,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { catchError, tap } from 'rxjs';
 import { ApiConfigService } from 'src/app/common/api-config';
 import { HttpsApiService } from 'src/app/https-api.service';
-import { PlaceBidComponent } from '../../place-bid/place-bid.component';
 import { ProductDetailsComponent } from '../../product-details/product-details.component';
 
 @Component({
@@ -16,51 +15,53 @@ export class ProductsComponent implements OnInit {
 
   constructor(private http: HttpsApiService, private apiConfig: ApiConfigService,public dialog: MatDialog) { }
   categories: any = [];
+  filterCategories: any = [];
 
   ngOnInit() {
     this.getProducts();
     this.categories = [
       {
         id: 0,
-        name: 'Bottlwa'
+        name: 'Bottles'
       },
       {
         id: 0,
-        name: 'Bottlwa'
+        name: 'Metals'
       },
       {
         id: 0,
-        name: 'Bottlwa'
+        name: 'Glasses'
       },
       {
         id: 0,
-        name: 'Bottlwa'
+        name: 'Cardboard'
       },
       {
         id: 0,
-        name: 'Bottlwa'
+        name: 'Plastic'
       },
       {
         id: 0,
-        name: 'Bottlwa'
+        name: 'Domestic waste'
       },
       {
         id: 0,
-        name: 'Bottlwa'
+        name: 'Plastic cover'
       },
       {
         id: 0,
-        name: 'Bottlwa'
+        name: 'Electronic waste'
       },
       {
         id: 0,
-        name: 'Bottlwa'
+        name: 'Dry waste'
       },
       {
         id: 0,
-        name: 'Bottlwa'
+        name: 'Medical waste'
       }
-    ]
+    ];
+    this.filterCategories = this.categories.slice(0, 8);
   }
 
   getProducts = () => {
@@ -79,9 +80,14 @@ export class ProductsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
 
+
       }
     });
   }
+  viewMore() {
+    this.filterCategories = this.filterCategories.length === 8 ? this.categories : this.categories.slice(0, 8);
+  }
+
 
   openDetail = (user) => {
     this.openDialog(user);

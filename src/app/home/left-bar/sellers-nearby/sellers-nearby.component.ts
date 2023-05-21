@@ -1,8 +1,8 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ConsumerDetailsComponent } from '../../consumer-details/consumer-details.component';
 import { DetailDialogComponent } from '../detail-dialog/detail-dialog.component';
-import { PlaceBidComponent } from '../../place-bid/place-bid.component';
+import { BidCreateComponent } from '../../bid-create/bid-create.component';
+import { ToastrService } from 'src/app/common/toastr/toastr.service';
 
 @Component({
   selector: 'app-sellers-nearby',
@@ -11,7 +11,7 @@ import { PlaceBidComponent } from '../../place-bid/place-bid.component';
 })
 export class SellersNearbyComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private toastrService: ToastrService) { }
 
   sellers: any = [
     {
@@ -32,20 +32,12 @@ export class SellersNearbyComponent implements OnInit {
 
   }
 
-  openBidDialog(user): void {
-    this.dialog.closeAll();
-    const dialogRef = this.dialog.open(PlaceBidComponent, {
-      data: user,
-      hasBackdrop: true,
-      minWidth: '50%',
-      width: '80%'
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      // alert(JSON.stringify(result));
-    });
+  openDetail = (user) => {
+    this.openDetailDialog(user);
   }
 
-  openDialog(user): void {
+
+  openDetailDialog(user): void {
     this.dialog.closeAll();
     const dialogRef = this.dialog.open(DetailDialogComponent, {
       data: user,
@@ -58,8 +50,22 @@ export class SellersNearbyComponent implements OnInit {
     });
   }
 
-  openDetail = (user) => {
-    this.openDialog(user);
+  openBidDialog(user): void {
+    this.dialog.closeAll();
+    const dialogRef = this.dialog.open(BidCreateComponent, {
+      data: user,
+      hasBackdrop: true,
+      minWidth: '25%',
+      maxWidth: '80%',
+      width: 'auto',
+      disableClose: true
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log(result);
+        this.toastrService.showSuccess("Bid created successfully !");
+      }
+    });
   }
 
 }

@@ -1,0 +1,129 @@
+<div style="width: 400px">
+  <p class="heading">Review Bid Information</p>
+</div>
+<mat-dialog-content
+  class="mat-typography"
+  style="margin: 0; padding: 0; width: 400px"
+>
+  <form [formGroup]="reviewForm" style="padding: 0 2%">
+    <div class="container info">
+      <i class="bi bi-info-circle"></i>&nbsp;&nbsp;
+      <p>
+        Exact pickup location & contact details will be shared once the BID gets
+        accepted.
+      </p>
+    </div>
+    <div class="mt-2">
+      <p class="sub-heading">Seller Name</p>
+      <div style="display: flex; justify-content: flex-start; gap: 10px">
+        <div>
+          <img loading="lazy" src="assets/img/garbage.png" height="60" />
+        </div>
+        <div>
+          <div class="inv-product-text">
+            <span>Dinesh</span>
+          </div>
+          <div class="inv-amt-text">
+            <span><i class="bi bi-star-fill"></i>4.7 54K Reviews</span>
+          </div>
+          <div class="inv-category-text">
+            <span>Last posted 3 months ago</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-2">
+      <p class="sub-heading">Pickup location</p>
+      <div style="display: flex; gap: 2px">
+        <div style="width: 70%" class="heading-grey">
+          <mat-icon> location_on</mat-icon>&nbsp;Guindy,Chennai- 600238
+        </div>
+        <div style="width: 30%; text-align: end">
+          <img
+            loading="lazy"
+            class="rounded"
+            src="https://www.shutterstock.com/shutterstock/videos/1080790811/thumb/12.jpg?ip=x480"
+            height="100px"
+            width="100%"
+            style="object-fit: cover"
+          />
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div style="width: 100%">
+      <div style="display: flex; gap: 10px; align-items: end">
+        <i class="bi bi-calendar fa-3x" style="color: #3b4357"></i>
+        <div style="width: 100%">
+          <label class="form-text" for="pickUpDate">Pick up date</label>
+          <input
+            class="form-control date-input"
+            type="date"
+            id="pickUpDate"
+            formControlName="pickUpDate"
+            name="pickUpDate"
+            style="width: 100%"
+          />
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 10px; align-items: end">
+        <i class="bi bi-clock fa-3x" style="color: #3b4357"></i>
+
+        <div style="width: 50%">
+          <label class="form-text" for="pickUpTime">Time</label>
+          <input
+            class="form-control date-input"
+            type="time"
+            id="pickUpTime"
+            formControlName="pickUpTime"
+            name="pickUpTime"
+            style="width: 100%"
+          />
+        </div>
+
+        <div style="width: 50%">
+          <label class="form-text" for="pickUpTime">Time</label>
+          <input
+            class="form-control date-input"
+            type="time"
+            id="pickUpTime"
+            formControlName="pickUpTime"
+            name="pickUpTime"
+            style="width: 100%"
+          />
+        </div>
+      </div>
+
+      <br />
+      <hr />
+      <div style="display: flex; gap: 10px; justify-content: end">
+        <div>
+          <label class="form-text" for="pickUpTime">Total Bid Amount</label>
+          <p class="heading-grey" style="min-height: 45px">
+            <i class="bi bi-currency-rupee"></i>200.00
+          </p>
+        </div>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions style="margin: 0; padding: 0; width: 400px">
+  <div style="display: flex; gap: 3px; width: 100%">
+    <button
+      class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
+      type="button"
+      (click)="back()"
+    >
+      Review Bid
+    </button>
+    <button
+      class="btn btn-secondary button-rounded f12 bg-primary page-header full-width"
+      type="button"
+      (click)="submit()"
+    >
+      Submit
+    </button>
+  </div>
+</mat-dialog-actions>

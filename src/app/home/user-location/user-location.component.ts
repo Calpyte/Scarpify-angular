@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { BidCreateComponent } from '../bid-create/bid-create.component';
+import { ToastrService } from 'src/app/common/toastr/toastr.service';
 
 @Component({
   selector: 'app-user-location',
@@ -7,13 +10,23 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class UserLocationComponent implements OnInit {
 
-  constructor() { }
+
 
   location: any = {
     lat: 13.0827,
     lng: 80.2707
   }
   @Input() style: string = "height:92vh";
+  circleLatitude: number = 13.0827; // Example circle latitude
+  circleLongitude: number = 80.2707; // Example circle longitude
+  circleRadius: number = 10000; // Example circle radius in meters
+
+  circleFillColor: string = '#00ca91'; // Example fill color (red)
+  circleStrokeColor: string = '#00ca91'; // Example stroke color (blue)
+  circleFillOpacity: number = 0.2; // Example fill opacity (0.5)
+  circleStrokeWeight: number = 0; // Example stroke weight (2)
+
+  constructor(public dialog: MatDialog, private toastrService: ToastrService) { }
 
 
   ngOnInit() {
@@ -41,13 +54,28 @@ export class UserLocationComponent implements OnInit {
     alert(event);
   }
 
-  circleLatitude: number = 13.0827; // Example circle latitude
-  circleLongitude: number = 80.2707; // Example circle longitude
-  circleRadius: number = 10000; // Example circle radius in meters
+  placeBid = (event) => {
+    this.openBidDialog(event);
+  }
 
-  circleFillColor: string = '#00ca91'; // Example fill color (red)
-  circleStrokeColor: string = '#00ca91'; // Example stroke color (blue)
-  circleFillOpacity: number = 0.2; // Example fill opacity (0.5)
-  circleStrokeWeight: number = 0; // Example stroke weight (2)
+  openBidDialog(user): void {
+    this.dialog.closeAll();
+    const dialogRef = this.dialog.open(BidCreateComponent, {
+      data: user,
+      hasBackdrop: true,
+      minWidth: '25%',
+      maxWidth: '80%',
+      width: 'auto',
+      disableClose: true
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log(result);
+        this.toastrService.showSuccess("Bid created successfully !");
+      }
+    });
+  }
+
+
 
 }

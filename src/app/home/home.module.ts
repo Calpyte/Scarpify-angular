@@ -9,9 +9,10 @@ import { ConsumerDetailsComponent } from './consumer-details/consumer-details.co
 import { DetailDialogComponent } from './left-bar/detail-dialog/detail-dialog.component';
 import { ProductsComponent } from './left-bar/products/products.component';
 import { SellersNearbyComponent } from './left-bar/sellers-nearby/sellers-nearby.component';
-import { PlaceBidComponent } from './place-bid/place-bid.component';
 import { UserLocationComponent } from './user-location/user-location.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
+import { PlaceBidComponent } from './bid-create/place-bid/place-bid.component';
+import { BidCreateComponent } from './bid-create/bid-create.component';
+import { ReviewBidComponent } from './bid-create/review-bid/review-bid.component';
 
 
 
@@ -25,7 +26,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     ConsumerDetailsComponent,
     DetailDialogComponent,
     PlaceBidComponent,
-    ProductDetailsComponent
+    BidCreateComponent,
+    ReviewBidComponent
   ],
   imports: [
     CommonModule,

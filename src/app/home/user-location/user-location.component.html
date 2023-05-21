@@ -8,11 +8,14 @@
     <agm-marker
       [latitude]="location?.lat"
       [longitude]="location?.lng"
-      [markerDraggable]="true"
+      [markerDraggable]="false"
       (dragEnd)="markerDragEnd($event)"
     >
       <agm-info-window #infowindow class="agm-info-window">
-        <app-consumer-details></app-consumer-details>
+        <app-consumer-details
+          [data]="{ id: 0, name: 'Dinesh' }"
+          (placeBid)="placeBid($event)"
+        ></app-consumer-details>
       </agm-info-window>
     </agm-marker>
     <agm-circle

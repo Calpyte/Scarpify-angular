@@ -1,0 +1,72 @@
+.button-rounded {
+  border-radius: 50px;
+  padding: 5px 15px;
+}
+
+.f12 {
+  font-size: 12px;
+}
+
+.bg-secondary {
+  background-color: white !important;
+  color: #005a7b;
+  font-weight: bold;
+  border: 2px solid #005a7b;
+}
+
+.bg-primary {
+  background-color: #005a7b !important;
+}
+.info{
+  background-color: #fdf7eb;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 26px;
+  color: #3B4357;
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  padding: 2%;
+}
+.heading{
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+  color: #005A7B;
+}
+.sub-heading{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #818694;
+}
+.heading-grey{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 29px;
+  color: #3B4357
+}
+.form-control:hover {
+  box-shadow: none;
+}
+
+.form-control {
+  box-shadow: none;
+}
+.form-text {
+  font-size: 10px;
+}
+.date-input::-webkit-calendar-picker-indicator {
+  background-color: #f2f6f8; /* Set the desired background color */
+  padding: 12px; /* Adjust the padding as needed */
+}
+.date-input{
+  padding: 0;
+  padding-left: 10px;
+}
