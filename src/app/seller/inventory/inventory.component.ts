@@ -76,7 +76,9 @@ export class InventoryComponent implements OnInit {
   }
 
   addProduct = async () => {
-    this.selectedCheckboxIds = [...this.inventoryData?.stock?.map((e) => e?.product?.id)]
+    if (this.inventoryData?.stock?.length > 0) {
+      this.selectedCheckboxIds = [...this.inventoryData?.stock?.map((e) => e?.product?.id)]
+    }
     const dialogRef = this.dialog.open(ProductAddComponent, {
       width: '492px',
       data: { selectedCheckboxIds: this.selectedCheckboxIds },

@@ -10,7 +10,9 @@
         style="padding-left: 2%"
         role="listitem"
         *ngFor="let product of category?.products"
-        >{{ product?.name }}</mat-list-item
+        ><i class="bi bi-check-lg" style="color: '#00c991'"></i>&nbsp;&nbsp;{{
+          product?.name
+        }}</mat-list-item
       >
     </mat-list>
   </div>
