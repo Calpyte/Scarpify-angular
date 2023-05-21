@@ -93,12 +93,12 @@
                   <input
                     type="file"
                     accept="image/*"
-                    (change)="handleImage($event)"
+                    (change)="onFileChange($event, 'icon', i)"
                     style="display: none"
                   />
                   <img
                     loading="lazy"
-                    id="img1"
+                    [id]="'icon' + i"
                     style="max-height: 50px; object-fit: cover"
                     class="img-fluid rounded"
                     src="assets/img/upload.png"
@@ -107,8 +107,19 @@
               </div>
               <div class="col-md-1 mtop2">
                 <label class="file-upload">
-                  <input type="file" accept="image/*" style="display: none" />
-                  <img loading="lazy" id="img2" src="assets/img/upload.png" />
+                  <input
+                    type="file"
+                    accept="image/*"
+                    style="display: none"
+                    (change)="onFileChange($event, 'icon2', i)"
+                  />
+                  <img
+                    loading="lazy"
+                    style="max-height: 50px; object-fit: cover"
+                    class="img-fluid rounded"
+                    [id]="'icon2' + i"
+                    src="assets/img/upload.png"
+                  />
                 </label>
               </div>
               <div class="col-md-1 mtop1">

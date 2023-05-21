@@ -42,6 +42,7 @@ export class InventoryComponent implements OnInit {
       name: [stock?.name],
       product: [stock?.product],
       icon: [stock?.icon],
+      icon2: [stock?.icon2],
       unit: [stock?.unit]
     }))
   }
@@ -54,15 +55,6 @@ export class InventoryComponent implements OnInit {
     this.form = this.fb.group({
       stocks: this.fb.array([])
     })
-  }
-
-  handleImage = (event) => {
-    const previewImage = document.getElementById('img1');
-    const selectedFile = event.target.files[0];
-    if (selectedFile) {
-      const objectURL = URL.createObjectURL(selectedFile);
-      previewImage['src'] = objectURL;
-    }
   }
 
   getInventory = () => {
@@ -91,14 +83,14 @@ export class InventoryComponent implements OnInit {
           newStock = [...newStock, ...category?.products];
         });
         newStock?.forEach((s) => {
-          this.addStockGroup({ product: s, name: s?.name, quantity: 0, price: 0, unit: null, icon: null });
+          this.addStockGroup({ product: s, name: s?.name, quantity: 0, price: 0, unit: null, icon: null, icon2: null });
         });
       }
     });
   }
 
   updateInventory = () => {
-    console.log(this.form.value)
+    // console.log(this.form.value)
     if (this.form.valid) {
       let result = {
         id: this.inventoryData?.id,
@@ -109,5 +101,18 @@ export class InventoryComponent implements OnInit {
         this.getInventory();
       });
     }
+  }
+
+  onFileChange(event: any, controlName: string, index: number) {
+    const previewImage = document.getElementById(controlName + index);
+    if (event.target.files && event.target.files.length) {
+      const file = event.target.files[0];
+      if (file) {
+        this.form.controls['stocks'].value[index][controlName] = file;
+        const objectURL = URL.createObjectURL(file);
+        previewImage['src'] = objectURL;
+      }
+    }
+    console.log(this.form.controls['stocks'].value);
   }
 }
