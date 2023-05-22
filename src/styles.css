@@ -232,3 +232,11 @@ button {
       /* padding: 10px !important;
       margin: 10px !important; */
 }
+
+.form-control:hover {
+  box-shadow: none;
+}
+
+.form-control {
+  box-shadow: none;
+}
