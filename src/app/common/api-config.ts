@@ -17,6 +17,8 @@ export class ApiConfigService {
 
   getSellerBids = 'order/bid/seller/bids';
 
+  placeBid = "order/bid/create"
+
   acceptBid = (id) => {
     return `order/bid/${id}/accept`;
   };
@@ -28,6 +30,11 @@ export class ApiConfigService {
   modifyBid = (id) => {
     return `order/bid/${id}/seller/modify`;
   };
+
+  getNearBySellers = (lat, lng) => {
+    return `order/scrap/location/lat/${lat}/lon/${lng}`
+  }
+
 
 
 }

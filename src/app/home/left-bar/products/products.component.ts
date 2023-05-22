@@ -22,60 +22,18 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     this.getProducts();
-    this.categories = [
-      {
-        id: 0,
-        name: 'Bottles'
-      },
-      {
-        id: 0,
-        name: 'Metals'
-      },
-      {
-        id: 0,
-        name: 'Glasses'
-      },
-      {
-        id: 0,
-        name: 'Cardboard'
-      },
-      {
-        id: 0,
-        name: 'Plastic'
-      },
-      {
-        id: 0,
-        name: 'Domestic waste'
-      },
-      {
-        id: 0,
-        name: 'Plastic cover'
-      },
-      {
-        id: 0,
-        name: 'Electronic waste'
-      },
-      {
-        id: 0,
-        name: 'Dry waste'
-      },
-      {
-        id: 0,
-        name: 'Medical waste'
-      }
-    ];
-    this.filterCategories = this.categories.slice(0, 8);
   }
 
   getProducts = () => {
     this.http.getArray(this.apiConfig.getAllCategories).subscribe((data) => {
       this.categories = data;
+      this.filterCategories = this.categories.slice(0, 8);
     });
   }
 
   openDialog(user): void {
     this.dialog.closeAll();
-    const dialogRef = this.dialog.open(user.toLowerCase() === 'bottles' ? QuantityDetailsComponent : ProductDetailsComponent, {
+    const dialogRef = this.dialog.open(user.toLowerCase() === 'paper' ? QuantityDetailsComponent : ProductDetailsComponent, {
       data: user,
       hasBackdrop: true,
       disableClose: true

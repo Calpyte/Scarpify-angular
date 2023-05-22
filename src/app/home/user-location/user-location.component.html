@@ -12,8 +12,18 @@
       (dragEnd)="markerDragEnd($event)"
     >
       <agm-info-window #infowindow class="agm-info-window">
+        <p>You</p>
+      </agm-info-window>
+    </agm-marker>
+    <agm-marker
+      *ngFor="let inventory of inventories"
+      [latitude]="inventory?.displayLocation?.coordinates[0]"
+      [longitude]="inventory?.displayLocation?.coordinates[1]"
+      [markerDraggable]="false"
+    >
+      <agm-info-window #infowindow class="agm-info-window">
         <app-consumer-details
-          [data]="{ id: 0, name: 'Dinesh' }"
+          [data]="inventory"
           (placeBid)="placeBid($event)"
         ></app-consumer-details>
       </agm-info-window>

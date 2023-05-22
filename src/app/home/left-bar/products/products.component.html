@@ -1,13 +1,23 @@
 <div class="row col-12">
-  <div class="col-md-4" *ngFor="let category of filterCategories" (click)="openDetail(category)">
-    <div class="card">
-      <img loading="lazy" src="https://calpyte-scrapify.s3.ap-south-1.amazonaws.com/glass.png" height="80" width="80" />
+  <div class="col-md-4" *ngFor="let category of filterCategories">
+    <div class="card" (click)="openDialog(category?.name)">
+      <img
+        loading="lazy"
+        src="https://calpyte-scrapify.s3.ap-south-1.amazonaws.com/glass.png"
+        height="80"
+        width="80"
+      />
     </div>
     <p class="card-title page-header product-text">{{ category?.name }}</p>
   </div>
   <div class="col-md-4" (click)="viewMore()">
     <div class="card">
-      <img loading="lazy" src="../../../../assets/img/more.PNG" height="80" width="80" />
+      <img
+        loading="lazy"
+        src="../../../../assets/img/more.PNG"
+        height="80"
+        width="80"
+      />
     </div>
     <p class="card-title page-header product-text">
       {{ filterCategories?.length === 8 ? "More" : "Less" }}
