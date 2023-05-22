@@ -68,8 +68,8 @@ export class ProductsComponent implements OnInit {
   }
 
   getProducts = () => {
-    this.http.getArray(this.apiConfig.getAllCategories).subscribe((data) => {
-      this.categories = data;
+    this.http.getArray(this.apiConfig.getProducts).subscribe((data) => {
+
     });
   }
 

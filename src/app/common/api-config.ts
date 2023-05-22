@@ -11,6 +11,8 @@ export class ApiConfigService {
 
   getAllCategories = 'product/category';
 
+  getProducts = 'product/category/pagination/page/0/size/30';
+
   getInventories = "order/scrap/seller";
 
   saveInventory = "order/scrap";
