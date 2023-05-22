@@ -7,6 +7,9 @@ import { ApiConfigService } from '../api-config';
 import { AuthServiceService } from 'src/app/service/auth-service.service';
 import { NgxOtpInputConfig } from 'ngx-otp-input';
 import { catchError, of, throwError } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
+import { UserService } from '../user-service/user.service';
+import jwt_decode from "jwt-decode";
 
 
 @Component({
@@ -58,7 +61,9 @@ export class RegisterComponent implements OnInit {
     public dialogRef: MatDialogRef<any>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private http: HttpClient,
+    private cookieService: CookieService,
     private authService: AuthServiceService,
+    private userService: UserService,
     private apiConfigService: ApiConfigService) { }
 
   ngOnInit() {
@@ -114,7 +119,20 @@ export class RegisterComponent implements OnInit {
 
   loginUser = (userName, password) => {
     this.authService.login(userName, password).subscribe({
-      next: (res) => { this.step++; },
+      next: (res) => {
+        this.cookieService.set("refreshToken", res.token)
+        this.cookieService.set("token", res.auth);
+        const token = this.cookieService.get("token");
+        if (token) {
+          const decoded = jwt_decode(token);
+          this.userService.updateData({
+            userName: decoded['given_name'],
+            email: decoded['email']
+          })
+        }
+        this.step++;
+        this.getProducts();
+      },
       error: (err) => { alert(err?.message) }
     });
   }
@@ -163,7 +181,37 @@ export class RegisterComponent implements OnInit {
     })
   }
 
+  saveAddress = () => {
+    let address = {
+      addresses: [
+        {
+          name: this.registerForm.value?.address,
+          latitude: this.registerForm.value?.location?.lat,
+          longitude: this.registerForm.value?.location?.lng,
+          geocode: null
+        }
+      ],
+    }
+    this.http.put(this.apiConfigService.saveAddressToConsumer, address).subscribe((res) => {
+      console.log(res);
+    })
+  }
+  saveProducts = () => {
+    let products = [];
+    this.registerForm.value?.products.forEach((e) => {
+      products = [...products, ...e.products];
+    });
+    let result = {
+      "products": products
+    }
+    this.http.put(this.apiConfigService.saveProductToConsumer, result).subscribe((res) => {
+      console.log(res);
+    })
+  }
+
   submit = () => {
+    this.saveAddress();
+    this.saveProducts();
     this.dialogRef.close(null);
     console.log(this.registerForm.value);
   }

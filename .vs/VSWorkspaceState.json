@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\common",
+    "\\src\\app\\common\\left-bar",
+    "\\src\\app\\common\\top-bar",
+    "\\src\\app\\home",
+    "\\src\\app\\home\\home",
+    "\\src\\app\\home\\maps",
+    "\\src\\app\\home\\maps\\maps"
+  ],
+  "SelectedNode": "\\src\\app\\common\\left-bar\\left-bar.component.html",
+  "PreviewInSolutionExplorer": false
+}

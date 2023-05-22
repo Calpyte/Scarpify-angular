@@ -1,16 +1,12 @@
 <div>
-  <agm-map
-    [latitude]="location?.lat"
-    [longitude]="location?.lng"
-    [zoom]="12"
-    [style]="style"
-  >
-    <agm-marker
-      [latitude]="location?.lat"
-      [longitude]="location?.lng"
-      [markerDraggable]="false"
-      (dragEnd)="markerDragEnd($event)"
-    >
+  <agm-map [latitude]="location?.lat"
+           [longitude]="location?.lng"
+           [zoom]="12"
+           [style]="style">
+    <agm-marker [latitude]="location?.lat"
+                [longitude]="location?.lng"
+                [markerDraggable]="false"
+                (dragEnd)="markerDragEnd($event)">
       <agm-info-window #infowindow class="agm-info-window">
         <p>You</p>
       </agm-info-window>
@@ -28,15 +24,19 @@
         ></app-consumer-details>
       </agm-info-window>
     </agm-marker>
-    <agm-circle
-      [latitude]="location?.lat"
-      [longitude]="location?.lng"
-      [radius]="circleRadius"
-      [fillColor]="circleFillColor"
-      [strokeColor]="circleStrokeColor"
-      [fillOpacity]="circleFillOpacity"
-      [strokeWeight]="circleStrokeWeight"
-    >
+    <agm-circle [latitude]="location?.lat"
+                [longitude]="location?.lng"
+                [radius]="circleRadius"
+                [fillColor]="circleFillColor"
+                [strokeColor]="circleStrokeColor"
+                [fillOpacity]="circleFillOpacity"
+                [strokeWeight]="circleStrokeWeight">
     </agm-circle>
+    <agm-polyline [strokeColor]="'#eb4034'">
+      <ng-container *ngFor="let i of polyLinePoints">
+        <agm-polyline-point [latitude]="i.lat" [longitude]="i.lng">
+        </agm-polyline-point>
+      </ng-container>
+    </agm-polyline>
   </agm-map>
 </div>
