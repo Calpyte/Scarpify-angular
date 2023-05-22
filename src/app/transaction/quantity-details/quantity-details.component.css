@@ -1,0 +1,44 @@
+.inv-products-f1{
+  font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 29px;
+color: #3B4357;
+}
+
+.box-fit{
+  left: 46.9%;
+right: 31.77%;
+top: 52.7%;
+bottom: 36.19%;
+
+
+/* White */
+
+background: #FFFFFF;
+/* grey90 */
+
+border: 2px solid #3B4357;
+border-radius: 8px;
+}
+
+.button-rounded {
+  border-radius: 50px;
+  padding: 5px 15px;
+}
+
+.f12 {
+  font-size: 12px;
+}
+
+.bg-secondary {
+  background-color: white !important;
+  color: #005a7b;
+  font-weight: bold;
+  border: 2px solid #005a7b;
+}
+
+.bg-primary {
+  background-color: #005a7b !important;
+}
+

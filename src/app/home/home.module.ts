@@ -32,7 +32,8 @@ import { ReviewBidComponent } from './bid-create/review-bid/review-bid.component
   imports: [
     CommonModule,
     HomeRoutingModule,
-    CommonSharedModule
+    CommonSharedModule,
+
   ]
 })
 export class HomeModule { }
