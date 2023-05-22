@@ -17,6 +17,7 @@ import { IndexedDBService } from '../service/IndexedDB.service';
 import { ApiConfigService } from './api-config';
 import { ConfirmationDialogService } from './confirmation-dialog/confirmation-dialog.service';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog/confirmation-dialog.component';
+import { NgxOtpInputModule } from 'ngx-otp-input';
 @NgModule({
   declarations: [
     TopBarComponent,
@@ -33,6 +34,7 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     FormsModule,
     MaterialModule,
     NgOtpInputModule,
+    NgxOtpInputModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA4F9JYoct7v7oGvirzAx7_oK6XkNyL1oM'
     })
@@ -48,7 +50,8 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     ProductsViewComponent,
     LocationPickerComponent,
     AgmCoreModule,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    NgxOtpInputModule
   ],
   providers: [
     VerificationService,
