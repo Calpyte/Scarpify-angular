@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DetailDialogComponent } from '../detail-dialog/detail-dialog.component';
 import { BidCreateComponent } from '../../bid-create/bid-create.component';
@@ -12,6 +12,8 @@ import { ToastrService } from 'src/app/common/toastr/toastr.service';
 export class SellersNearbyComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private toastrService: ToastrService) { }
+
+  @Input() inventories: any = [];
 
   sellers: any = [
     {

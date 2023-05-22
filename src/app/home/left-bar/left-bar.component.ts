@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-left-bar',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./left-bar.component.css']
 })
 export class LeftBarComponent implements OnInit {
+
+  @Input() inventories: any = [];
 
   constructor() { }
 
