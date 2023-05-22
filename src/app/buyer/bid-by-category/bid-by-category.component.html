@@ -1,1 +1,53 @@
-<p class="title">BID by Category</p>
+<p class="title" (click)="onDialogClose()"><i class="fa-solid fa-chevron-left"></i> BID by Category</p>
+
+<form #f="ngForm">
+  <div class="mb-3">
+    <label class="form-label">Category</label>
+    <select name="category" #category="ngModel" [(ngModel)]="bid.category" class="form-control" [ngClass]="{ 'is-invalid': f.submitted && category.invalid }" required>
+      <option value=""></option>
+      <option value="Mr">Mr</option>
+      <option value="Mrs">Mrs</option>
+      <option value="Miss">Miss</option>
+      <option value="Ms">Ms</option>
+    </select>
+    <div *ngIf="f.submitted && category.errors" class="invalid-feedback">
+      <div *ngIf="category.errors.required">Category is required</div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Sub Category</label>
+    <select name="subCategory" [(ngModel)]="bid.subCategory" class="form-control" #subCategory="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && subCategory.invalid }" required>
+      <option value=""></option>
+      <option value="Mr">Mr</option>
+      <option value="Mrs">Mrs</option>
+      <option value="Miss">Miss</option>
+      <option value="Ms">Ms</option>
+    </select>
+    <div *ngIf="f.submitted && subCategory.errors" class="invalid-feedback">
+      <div *ngIf="subCategory.errors.required">Sub category is required</div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Required Quantity</label>
+    <input type="number" class="form-control" name="quantity" [(ngModel)]="bid.quantity" #quantity="ngModel"
+           min="1" [ngClass]="{ 'is-invalid': f.submitted && quantity.invalid }" required />
+    <div *ngIf="f.submitted && quantity.errors" class="invalid-feedback">
+      <div *ngIf="subCategory.errors.min">Sub category is required</div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <div>
+      <label class="form-label">Distance Range (km)</label>
+    </div> 
+    <mat-slider color="primary" min="1" max="100" name="distance" [(ngModel)]="bid.distance" #distance="ngModel">
+      <input matSliderThumb >
+    </mat-slider>
+    <div>
+      <label> {{ distance.value  }} Km </label>
+    </div>
+  </div>
+  <div class="mb-3">
+    <button class="seller-submit" (click)="onSubmit(f)">Search Sellers</button>
+  </div>
+</form>

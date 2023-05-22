@@ -1,0 +1,17 @@
+.title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  color: #005A7B;
+  cursor:pointer;
+}
+
+mat-slider {
+  width: 400px;
+}
+.seller-submit {
+  min-width: 334px;
+  min-height: 54px;
+  border-radius: 15px;
+  background-color: #005A7B;
+}
