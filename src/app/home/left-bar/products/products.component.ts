@@ -4,7 +4,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { catchError, tap } from 'rxjs';
 import { ApiConfigService } from 'src/app/common/api-config';
 import { HttpsApiService } from 'src/app/https-api.service';
-import { ProductDetailsComponent } from '../../product-details/product-details.component';
+import { ProductDetailsComponent } from 'src/app/transaction/product-details/product-details.component';
+import { QuantityDetailsComponent } from 'src/app/transaction/quantity-details/quantity-details.component';
+
+
 
 @Component({
   selector: 'app-products',
@@ -72,7 +75,7 @@ export class ProductsComponent implements OnInit {
 
   openDialog(user): void {
     this.dialog.closeAll();
-    const dialogRef = this.dialog.open(ProductDetailsComponent, {
+    const dialogRef = this.dialog.open(QuantityDetailsComponent, {
       data: user,
       hasBackdrop: true,
       disableClose:true
@@ -92,4 +95,5 @@ export class ProductsComponent implements OnInit {
   openDetail = (user) => {
     this.openDialog(user);
   }
+
 }
