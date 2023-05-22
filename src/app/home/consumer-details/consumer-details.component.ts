@@ -15,6 +15,7 @@ export class ConsumerDetailsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.table(this.data);
   }
 
   toggleMoreDetails = () => {

@@ -19,11 +19,10 @@ const routes: Routes = [
   {
     path: 'refer',
     loadChildren: () => import('./refer/refer.module')
-    .then(m => m.ReferModule)
+      .then(m => m.ReferModule)
   },
   {
     path: 'seller',
-    canActivate: [AuthGuardService],
     loadChildren: () => import('./seller/seller.module')
       .then(m => m.SellerModule)
   },

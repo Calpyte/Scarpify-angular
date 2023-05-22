@@ -1,6 +1,6 @@
 <div [ngClass]="step === 0 ? 'block' : 'none'">
   <app-place-bid
-    [inventory]="{ id: 0, name: 'Dinesh' }"
+    [inventory]="data"
     (result)="reviewBid($event)"
     (close)="close($event)"
   ></app-place-bid>

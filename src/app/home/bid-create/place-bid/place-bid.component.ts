@@ -9,14 +9,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dial
 })
 export class PlaceBidComponent implements OnInit {
 
-  inventories: any = [
-    1, 2, 3
-  ]
-
-  @Input() inventory: any = {
-    id: 0,
-    name: 'Dinesh'
-  };
+  @Input() inventory: any = {};
 
   @Output() result: EventEmitter<any> = new EventEmitter();
   @Output() close: EventEmitter<any> = new EventEmitter();
@@ -31,8 +24,8 @@ export class PlaceBidComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.inventories.forEach((data) => {
-      this.addStockGroup({ product: '', availableQty: 5, marketPrice: 323, expectedPrice: 23, qty: '', amount: '' });
+    this.inventory.stock?.forEach((data) => {
+      this.addStockGroup({ product: data?.product, availableQty: data?.quantity, marketPrice: data?.quantity, expectedPrice: data?.price, qty: '', amount: '' });
     })
   }
 

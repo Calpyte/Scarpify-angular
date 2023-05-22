@@ -9,6 +9,8 @@ import { ToastrService } from 'src/app/common/toastr/toastr.service';
   styleUrls: ['./user-location.component.css']
 })
 export class UserLocationComponent implements OnInit {
+
+  @Input() inventories: any = [];
   polyLinePoints: any[] = [{
     "lat": 13.0827,
     "lng": 80.2707
@@ -22,11 +24,11 @@ export class UserLocationComponent implements OnInit {
       "lng": 80.4707
     }  ];
 
-
   location: any = {
     lat: 13.0827,
     lng: 80.2707
   }
+
   @Input() style: string = "height:92vh";
   circleLatitude: number = 13.0827; // Example circle latitude
   circleLongitude: number = 80.2707; // Example circle longitude
@@ -69,10 +71,10 @@ export class UserLocationComponent implements OnInit {
     this.openBidDialog(event);
   }
 
-  openBidDialog(user): void {
+  openBidDialog(inventory): void {
     this.dialog.closeAll();
     const dialogRef = this.dialog.open(BidCreateComponent, {
-      data: user,
+      data: inventory,
       hasBackdrop: true,
       minWidth: '25%',
       maxWidth: '80%',
@@ -81,7 +83,6 @@ export class UserLocationComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log(result);
         this.toastrService.showSuccess("Bid created successfully !");
       }
     });

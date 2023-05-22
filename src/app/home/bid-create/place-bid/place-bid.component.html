@@ -6,13 +6,13 @@
       </div>
       <div>
         <div class="inv-product-text">
-          <span>{{ inventory?.name }}</span>
+          <span>{{ inventory?.seller?.firstName }}</span>
         </div>
         <div class="inv-amt-text">
           <span><i class="bi bi-star-fill"></i>4.7 54K Reviews</span>
         </div>
         <div class="inv-category-text">
-          <span>Last posted 3 months ago</span>
+          <span>Last posted {{ inventory?.lastUpdated }}</span>
         </div>
       </div>
     </div>
@@ -44,7 +44,7 @@
             </div>
             <div class="col-9">
               <div class="row lg-txt">
-                <span>Aluminium</span>
+                <span>{{ bidGroup?.value?.product?.name }}</span>
               </div>
               <div class="row sm-txt">
                 <span>Metals</span>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DetailDialogComponent } from '../detail-dialog/detail-dialog.component';
 import { BidCreateComponent } from '../../bid-create/bid-create.component';
@@ -13,20 +13,7 @@ export class SellersNearbyComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private toastrService: ToastrService) { }
 
-  sellers: any = [
-    {
-      id: 0,
-      name: 'Dinesh'
-    },
-    {
-      id: 1,
-      name: 'Kumar'
-    },
-    {
-      id: 2,
-      name: 'Kishore'
-    }
-  ]
+  @Input() inventories: any = [];
 
   ngOnInit() {
 
@@ -40,6 +27,7 @@ export class SellersNearbyComponent implements OnInit {
   openDetailDialog(user): void {
     this.dialog.closeAll();
     const dialogRef = this.dialog.open(DetailDialogComponent, {
+      maxHeight: '90vh',
       data: user,
       hasBackdrop: false
     });

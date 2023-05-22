@@ -1,8 +1,8 @@
 <div style="width: 100%; display: flex">
   <div class="col-md-3 col-sm-12">
-    <app-left-bar> </app-left-bar>
+    <app-left-bar [inventories]="inventories"> </app-left-bar>
   </div>
   <div class="col-md-9 col-sm-12">
-    <app-user-location></app-user-location>
+    <app-user-location [inventories]="inventories"></app-user-location>
   </div>
 </div>
