@@ -15,21 +15,6 @@ export class SellersNearbyComponent implements OnInit {
 
   @Input() inventories: any = [];
 
-  sellers: any = [
-    {
-      id: 0,
-      name: 'Dinesh'
-    },
-    {
-      id: 1,
-      name: 'Kumar'
-    },
-    {
-      id: 2,
-      name: 'Kishore'
-    }
-  ]
-
   ngOnInit() {
 
   }
@@ -42,6 +27,7 @@ export class SellersNearbyComponent implements OnInit {
   openDetailDialog(user): void {
     this.dialog.closeAll();
     const dialogRef = this.dialog.open(DetailDialogComponent, {
+      maxHeight: '90vh',
       data: user,
       hasBackdrop: false
     });
