@@ -46,7 +46,7 @@ export class PlaceBidComponent implements OnInit {
   }
 
   cancel = () => {
-    this.close.emit(true);
+    this.close.emit(false);
   }
 
 }
