@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
 import { ApiConfigService } from '../api-config';
+import { AuthServiceService } from 'src/app/service/auth-service.service';
 
 
 @Component({
@@ -43,6 +44,7 @@ export class RegisterComponent implements OnInit {
     public dialogRef: MatDialogRef<any>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private http: HttpClient,
+    private authService: AuthServiceService,
     private apiConfigService: ApiConfigService) { }
 
   ngOnInit() {
@@ -96,11 +98,43 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  loginUser = (userName, password) => {
+    this.authService.login(userName, password).subscribe(
+      (res) => {
+        this.step++;
+      },
+      ((err) => {
+        alert(err?.message);
+      })
+    );
+  }
+
+  createUser = (user) => {
+    const formData = new FormData();
+    formData.append('file', null);
+    formData.append('request', JSON.stringify(user));
+    this.http.post(this.apiConfigService.createUser, formData).subscribe({
+      next: (res) => { this.loginUser(user?.mobile, user?.password) },
+      error: (err) => { alert(err?.message) }
+    });
+  }
+
   handleForward = () => {
-    if (this.step === 6) {
+    if (this.step === 4) {
+      let user = {
+        "firstName": this.registerForm.value?.firstName,
+        "lastName": this.registerForm.value?.firstName,
+        "mobile": this.registerForm.value?.phone,
+        "email": this.registerForm.value?.email,
+        "role": this.registerForm.value?.userType,
+        "password": this.registerForm.value?.otp
+      }
+      this.createUser(user);
+    } else if (this.step === 6) {
       this.getSelectedProducts();
       this.step = this.step + 1;
-    } else {
+    }
+    else {
       if (this.step === 7) {
         this.submit();
       } else {

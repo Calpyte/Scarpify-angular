@@ -22,7 +22,7 @@ export class TopBarComponent implements OnInit {
   @Input() selectedOption: string = "seller";
   userData: any = null;
   @Output() toggle: EventEmitter<any> = new EventEmitter();
-  constructor(private verificationService: VerificationService, private userService: UserService, private cookieService: CookieService, private confirmationDialogService: ConfirmationDialogService) { }
+  constructor(private verificationService: VerificationService, private userService: UserService, private cookieService: CookieService) { }
 
   ngOnInit(): void {
     this.userService.getData().subscribe((data) => {

@@ -7,6 +7,8 @@ import { environment } from "src/environments/environment";
 export class ApiConfigService {
   baseUrl: string = environment.baseUrl;
 
+  createUser: string = 'user/scrap/save';
+
   getAllCategories = 'product/category';
 
   getInventories = "order/scrap/seller";
