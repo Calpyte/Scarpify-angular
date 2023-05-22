@@ -1,0 +1,98 @@
+.txt-s1{
+  width: 157px;
+  height: 29px;
+  left: 720.18px;
+  top: 122.74px;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 130%;
+  color: #005A7B;
+}
+
+.txt-s2{
+  width: 154px;
+height: 26px;
+
+
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+
+
+color: #005A7B;
+}
+.box-t1{
+  width: 502px;
+height: 132px;
+left: 708.69px;
+top: 319.34px;
+background: #F2F6F8;
+border-radius: 20px;
+}
+.input[type=text] {
+  width: 80%;
+  padding: 15px 22px;
+  margin: 10px 5px;
+  box-sizing: border-box;
+}
+.f12 {
+  font-size: 12px;
+}
+.button-rounded {
+  border-radius: 50px;
+  padding: 5px 15px;
+}
+
+.bg-secondary {
+  background-color: white !important;
+  color: #005a7b;
+  font-weight: bold;
+  border: 2px solid #005a7b;
+}
+
+.bg-primary {
+  background-color: #005a7b !important;
+}
+.rate {
+  float: left;
+  height: 46px;
+  padding: 0 10px;
+}
+.rate:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+}
+.rate:not(:checked) > label {
+  float:right;
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:38px;
+  color:#ccc;
+  margin: 0 20px;
+}
+.rate:not(:checked) > label:before {
+  content: '★ ';
+  size: 60px;
+}
+.rate > input:checked ~ label {
+  color: #ffc700;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+}
+.rate-css input {
+  font-size: 60px;
+
+}
