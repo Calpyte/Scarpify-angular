@@ -19,7 +19,11 @@ export class ApiConfigService {
 
   getSellerBids = 'order/bid/seller/bids';
 
-  placeBid = "order/bid/create"
+  placeBid = "order/bid/create";
+
+  saveAddressToConsumer = "user/consumer/address";
+
+  saveProductToConsumer = "user/consumer/product";
 
   acceptBid = (id) => {
     return `order/bid/${id}/accept`;
