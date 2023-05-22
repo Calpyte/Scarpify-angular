@@ -24,7 +24,6 @@ export class BidCreateComponent implements OnInit {
   }
 
   reviewBid = (event) => {
-
     this.result['bids'] = event;
     this.step++;
   }
