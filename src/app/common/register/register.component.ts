@@ -5,6 +5,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
 import { ApiConfigService } from '../api-config';
 import { AuthServiceService } from 'src/app/service/auth-service.service';
+import { NgxOtpInputConfig } from 'ngx-otp-input';
 
 
 @Component({
@@ -21,6 +22,18 @@ import { AuthServiceService } from 'src/app/service/auth-service.service';
   ]
 })
 export class RegisterComponent implements OnInit {
+  otpInputConfig: NgxOtpInputConfig = {
+    otpLength: 6,
+    autofocus: true,
+    classList: {
+      inputBox: 'my-super-box-class',
+      input: 'my-super-class',
+      inputFilled: 'my-super-filled-class',
+      inputDisabled: 'my-super-disable-class',
+      inputSuccess: 'my-super-success-class',
+      inputError: 'my-super-error-class',
+    },
+  };
   registerForm: FormGroup;
   step: number = 0;
   selectedIds: any = [];
@@ -150,7 +163,7 @@ export class RegisterComponent implements OnInit {
 
   onOtpChange(e: any) {
     this.registerForm.patchValue({
-      otp: e
+      otp: e.join('')
     })
   }
 

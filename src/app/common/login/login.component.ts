@@ -10,6 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
 import jwt_decode from "jwt-decode";
 import { UserService } from '../user-service/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxOtpInputConfig } from 'ngx-otp-input';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,18 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  otpInputConfig: NgxOtpInputConfig = {
+    otpLength: 6,
+    autofocus: true,
+    classList: {
+      inputBox: 'my-super-box-class',
+      input: 'my-super-class',
+      inputFilled: 'my-super-filled-class',
+      inputDisabled: 'my-super-disable-class',
+      inputSuccess: 'my-super-success-class',
+      inputError: 'my-super-error-class',
+    },
+  };
   loginForm: FormGroup;
   userType: string = 'seller';
   phoneNumber: number = null;
@@ -49,7 +61,7 @@ export class LoginComponent implements OnInit {
 
   onOtpChange(e: any) {
     this.loginForm.patchValue({
-      otp: e
+      otp: e.join('')
     })
   }
 
@@ -84,4 +96,5 @@ export class LoginComponent implements OnInit {
       }
     });
   }
+
 }
