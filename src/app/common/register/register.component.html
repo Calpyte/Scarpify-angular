@@ -34,7 +34,7 @@
       </mat-dialog-content>
       <mat-dialog-content @fade class="col-12" *ngSwitchCase="1">
         <div class="form-group">
-          <label for="phone">Enter your name</label>
+          <label for="phone">Enter your name *</label>
           <input
             type="text"
             class="form-control"
@@ -46,7 +46,7 @@
             <small
               *ngIf="
                 registerForm.controls['firstName'].hasError('required') &&
-                registerForm.controls['firstName'].dirty
+                registerForm.controls['firstName'].touched
               "
             >
               Name is Required
@@ -67,13 +67,10 @@
           <div class="err">
             <small
               *ngIf="
-                registerForm.controls['email'].hasError('required') &&
-                registerForm.controls['email'].dirty
+                registerForm.controls['email'].hasError('email') &&
+                registerForm.controls['email'].touched
               "
             >
-              Email is Required
-            </small>
-            <small *ngIf="registerForm.controls['email'].hasError('email')">
               Enter a valid email
             </small>
           </div>
@@ -81,7 +78,7 @@
       </mat-dialog-content>
       <mat-dialog-content @fade class="col-12" *ngSwitchCase="3">
         <div class="form-group">
-          <label for="phone">Phone Number</label>
+          <label for="phone">Phone Number *</label>
           <div class="input-group mb-0">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">+91-</span>
@@ -97,12 +94,17 @@
             <small
               *ngIf="
                 registerForm.controls['phone'].hasError('required') &&
-                registerForm.controls['phone'].dirty
+                registerForm.controls['phone'].touched
               "
             >
               Phone Number is Required
             </small>
-            <small *ngIf="registerForm.controls['phone'].hasError('pattern')">
+            <small
+              *ngIf="
+                registerForm.controls['phone'].hasError('pattern') &&
+                registerForm.controls['phone'].touched
+              "
+            >
               Enter a valid Phone Number
             </small>
           </div>
@@ -127,10 +129,6 @@
             (otpChange)="onOtpChange($event)"
           >
           </ngx-otp-input>
-          <!-- <ng-otp-input
-            (onInputChange)="onOtpChange($event)"
-            [config]="{ length: 6, allowNumbersOnly: true }"
-          ></ng-otp-input> -->
           <button class="btn-2 col-12" style="border: solid 1px transparent">
             Resend Code
           </button>
@@ -147,13 +145,14 @@
             class="form-control"
             formControlName="address"
             id="exampleFormControlTextarea1"
+            placeholder="Enter your address *"
             rows="3"
           ></textarea>
           <div class="err">
             <small
               *ngIf="
                 registerForm.controls['address'].hasError('required') &&
-                registerForm.controls['address'].dirty
+                registerForm.controls['address'].touched
               "
             >
               Address is Required

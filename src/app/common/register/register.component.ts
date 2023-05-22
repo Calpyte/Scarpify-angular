@@ -10,6 +10,7 @@ import { catchError, of, throwError } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { UserService } from '../user-service/user.service';
 import jwt_decode from "jwt-decode";
+import { ToastrService } from '../toastr/toastr.service';
 
 
 @Component({
@@ -63,6 +64,7 @@ export class RegisterComponent implements OnInit {
     private http: HttpClient,
     private cookieService: CookieService,
     private authService: AuthServiceService,
+    private toastrService: ToastrService,
     private userService: UserService,
     private apiConfigService: ApiConfigService) { }
 
@@ -73,11 +75,11 @@ export class RegisterComponent implements OnInit {
       firstName: ['', [Validators.required]],
       lastName: [''],
       businessType: [''],
-      email: ['', [Validators.email, Validators.required]],
+      email: ['', [Validators.email]],
       phone: ['', [Validators.required, Validators.pattern('^[1-9]{1}[0-9]{9}$')]],
-      otp: [''],
-      address: [''],
-      location: [''],
+      otp: ['', Validators.required],
+      address: ['', Validators.required],
+      location: ['', Validators.required],
       products: [''],
     })
   }
@@ -130,10 +132,11 @@ export class RegisterComponent implements OnInit {
             email: decoded['email']
           })
         }
+        this.toastrService.showSuccess("Registered successfully !");
         this.step++;
         this.getProducts();
       },
-      error: (err) => { alert(err?.message) }
+      error: (err) => { this.toastrService.showError("Login Failed") }
     });
   }
 
@@ -141,38 +144,67 @@ export class RegisterComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', null);
     formData.append('request', JSON.stringify(user));
-    this.http.post(this.apiConfigService.createUser, formData).pipe(catchError(err => { alert(err?.message); return throwError(() => err) })).subscribe((res) => {
-      this.loginUser(user?.mobile, user?.password)
-    });
+    this.http.post(this.apiConfigService.createUser, formData).
+      pipe(catchError(err => { this.toastrService.showError("Registration Failed"); return throwError(() => err) })).subscribe((res) => {
+        this.loginUser(user?.mobile, user?.password)
+      });
   }
 
   handleForward = () => {
-    if (this.step === 4) {
-      let user = {
-        "firstName": this.registerForm.value?.firstName,
-        "lastName": this.registerForm.value?.firstName,
-        "mobile": this.registerForm.value?.phone,
-        "email": this.registerForm.value?.email,
-        "role": this.registerForm.value?.userType,
-        "password": this.registerForm.value?.otp
+    if (this.step === 1) {
+      this.registerForm.controls['firstName'].markAsTouched();
+      if (!this.registerForm.controls['firstName'].invalid) {
+        this.step++;
       }
-      this.createUser(user);
+    } else if (this.step === 2) {
+      this.registerForm.controls['email'].markAsTouched();
+      if (!this.registerForm.controls['email'].invalid) {
+        this.step++;
+      }
+    } else if (this.step === 3) {
+      this.registerForm.controls['phone'].markAsTouched();
+      if (!this.registerForm.controls['phone'].invalid) {
+        this.step++;
+      }
+    } else if (this.step === 4) {
+      if (this.registerForm.value.otp?.length === 6) {
+        this.createUser({
+          "firstName": this.registerForm.value?.firstName,
+          "lastName": this.registerForm.value?.firstName,
+          "mobile": this.registerForm.value?.phone,
+          "email": this.registerForm.value?.email,
+          "role": this.registerForm.value?.userType,
+          "password": this.registerForm.value?.otp
+        });
+      } else {
+        this.toastrService.showError("Enter your OTP");
+      }
+    } else if (this.step === 5) {
+      this.registerForm.controls['address'].markAsTouched();
+      if (this.registerForm.value.address.trim()?.length > 0 && this.registerForm.value?.location) {
+        this.step++;
+      } else {
+        this.toastrService.showError("Enter your address and pick yout location on map");
+      }
     } else if (this.step === 6) {
       this.getSelectedProducts();
-      this.step = this.step + 1;
+      if (this.registerForm?.value?.products?.length > 0) {
+        this.step++;
+      } else {
+        this.toastrService.showError("Please select atleast one product");
+      }
+    } else if (this.step === 7) {
+      this.submit();
     }
     else {
-      if (this.step === 7) {
-        this.submit();
-      } else {
-        this.step = this.step + 1;
-      }
-
+      this.step++;
     }
   }
 
   handleBackward = () => {
-    this.step = this.step - 1;
+    if (this.step != 5) {
+      this.step--;
+    }
   }
 
   onOtpChange(e: any) {
@@ -193,7 +225,7 @@ export class RegisterComponent implements OnInit {
       ],
     }
     this.http.put(this.apiConfigService.saveAddressToConsumer, address).subscribe((res) => {
-      console.log(res);
+      this.toastrService.showSuccess("Address saved successfully !");
     })
   }
   saveProducts = () => {
@@ -205,7 +237,7 @@ export class RegisterComponent implements OnInit {
       "products": products
     }
     this.http.put(this.apiConfigService.saveProductToConsumer, result).subscribe((res) => {
-      console.log(res);
+      this.toastrService.showSuccess("Products saved successfully !");
     })
   }
 
