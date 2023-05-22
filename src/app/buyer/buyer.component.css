@@ -1,0 +1,6 @@
+.centered-to-anchor-dialog 
+  .mat-dialog-container
+
+{
+  transform: translateX(-50%) !important;
+}

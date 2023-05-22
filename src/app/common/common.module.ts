@@ -48,7 +48,8 @@ import { NgxOtpInputModule } from 'ngx-otp-input';
     LocationPickerComponent,
     AgmCoreModule,
     ConfirmationDialogComponent,
-    NgxOtpInputModule
+    NgxOtpInputModule,
+    
   ],
   providers: [
     VerificationService,

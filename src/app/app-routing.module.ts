@@ -37,6 +37,11 @@ const routes: Routes = [
     component: BlankComponent
   },
   {
+    path: 'buyer',
+    loadChildren: () => import('./buyer/buyer.module')
+      .then(m => m.BuyerModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
