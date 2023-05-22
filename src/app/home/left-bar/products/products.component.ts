@@ -16,7 +16,7 @@ import { QuantityDetailsComponent } from 'src/app/transaction/quantity-details/q
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private http: HttpsApiService, private apiConfig: ApiConfigService, public dialog: MatDialog) { }
+  constructor(private http: HttpsApiService, private apiConfig: ApiConfigService, public dialog: MatDialog, private httpC: HttpClient) { }
   categories: any = [];
   filterCategories: any = [];
 
@@ -25,8 +25,8 @@ export class ProductsComponent implements OnInit {
   }
 
   getProducts = () => {
-    this.http.getArray(this.apiConfig.getAllCategories).subscribe((data) => {
-      this.categories = data;
+    this.httpC.get(this.apiConfig.getProducts).subscribe((data: any) => {
+      this.categories = data?.content;
       this.filterCategories = this.categories.slice(0, 8);
     });
   }
