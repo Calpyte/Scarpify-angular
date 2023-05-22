@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { BidByCategoryComponent } from './bid-by-category/bid-by-category.component';
 
 @Component({
   selector: 'app-buyer',

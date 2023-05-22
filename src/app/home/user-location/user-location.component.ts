@@ -11,6 +11,18 @@ import { ToastrService } from 'src/app/common/toastr/toastr.service';
 export class UserLocationComponent implements OnInit {
 
   @Input() inventories: any = [];
+  polyLinePoints: any[] = [{
+    "lat": 13.0827,
+    "lng": 80.2707
+  },
+    {
+      "lat": 13.1827,
+      "lng": 80.3707
+    },
+    {
+      "lat": 13.0827,
+      "lng": 80.4707
+    }  ];
 
   location: any = {
     lat: 13.0827,

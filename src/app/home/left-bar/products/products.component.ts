@@ -6,6 +6,7 @@ import { ApiConfigService } from 'src/app/common/api-config';
 import { HttpsApiService } from 'src/app/https-api.service';
 import { ProductDetailsComponent } from 'src/app/transaction/product-details/product-details.component';
 import { QuantityDetailsComponent } from 'src/app/transaction/quantity-details/quantity-details.component';
+import { RatingComponent } from 'src/app/transaction/rating/rating.component';
 
 
 
@@ -33,7 +34,7 @@ export class ProductsComponent implements OnInit {
 
   openDialog(user): void {
     this.dialog.closeAll();
-    const dialogRef = this.dialog.open(user.toLowerCase() === 'paper' ? QuantityDetailsComponent : ProductDetailsComponent, {
+    const dialogRef = this.dialog.open(user.toLowerCase() === 'paper' ? QuantityDetailsComponent : RatingComponent, {
       data: user,
       hasBackdrop: true,
       disableClose: true
