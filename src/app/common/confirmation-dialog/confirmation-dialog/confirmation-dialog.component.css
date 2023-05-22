@@ -1,0 +1,34 @@
+.button-rounded {
+  border-radius: 31px;
+  padding: 10px 15px;
+}
+
+.f12 {
+  font-size: 12px;
+}
+
+.bg-secondary {
+  background-color: white !important;
+  color: #005a7b;
+  font-weight: bold;
+  border: 2px solid #005a7b;
+}
+
+.bg-primary {
+  background-color: #005a7b !important;
+}
+ .footer{
+  display: flex; gap: 3px
+ }
+
+ .dialog-txt{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 130%;
+  color: #3B4357;
+ }
+.icon{
+  box-shadow: #fdeaec 0px 48px 100px 0px;
+  color: white;
+}
