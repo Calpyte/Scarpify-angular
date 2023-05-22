@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   constructor(private toastrService: ToastrService) { }
 
   ngOnInit(): void {
-    this.toastrService.showSuccess("Bid Created Successfully", "");
+
   }
 
 }

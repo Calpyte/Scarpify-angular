@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './common/AuthGuard/auth.guard';
 import { BlankComponent } from './common/blank/blank.component';
+import { AuthGuardService } from './service/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -22,7 +23,7 @@ const routes: Routes = [
   },
   {
     path: 'seller',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuardService],
     loadChildren: () => import('./seller/seller.module')
       .then(m => m.SellerModule)
   },

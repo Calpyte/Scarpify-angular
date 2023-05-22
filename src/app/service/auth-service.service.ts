@@ -11,6 +11,7 @@ export class AuthServiceService implements OnDestroy {
   private accessToken: string;
 
   constructor(private http: HttpClient, private indexedDBService: IndexedDBService, private cookieService: CookieService) { }
+
   ngOnDestroy(): void {
     alert("service destroyed");
   }
@@ -29,13 +30,17 @@ export class AuthServiceService implements OnDestroy {
       'Content-Type': 'application/json',
       Accept: 'application/json',
     });
+
     let refreshToken = null;
+
     this.indexedDBService.getAccessToken().subscribe((res) => {
       refreshToken = res;
     })
+
     const body = {
       token: refreshToken,
     };
+
     return this.http.post(url, body, { headers });
   };
 

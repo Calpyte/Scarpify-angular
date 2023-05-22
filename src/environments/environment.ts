@@ -5,8 +5,7 @@
 export const environment = {
   production: false,
   // baseUrl:"http://103.108.220.162:9002/"
-  // baseUrl: "http://103.108.220.162:9111/"
-  baseUrl: "http://ec2-65-2-79-255.ap-south-1.compute.amazonaws.com:9111/"
+  baseUrl: "http://qa.scrapify.org.in:9111/"
 };
 
 /*
