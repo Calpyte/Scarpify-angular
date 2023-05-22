@@ -122,10 +122,15 @@
             Verfication code is sent to +91-
             {{ registerForm?.value?.phone }}
           </p>
-          <ng-otp-input
+          <ngx-otp-input
+            [config]="otpInputConfig"
+            (otpChange)="onOtpChange($event)"
+          >
+          </ngx-otp-input>
+          <!-- <ng-otp-input
             (onInputChange)="onOtpChange($event)"
             [config]="{ length: 6, allowNumbersOnly: true }"
-          ></ng-otp-input>
+          ></ng-otp-input> -->
           <button class="btn-2 col-12" style="border: solid 1px transparent">
             Resend Code
           </button>

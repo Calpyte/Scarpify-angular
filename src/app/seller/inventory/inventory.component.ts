@@ -5,6 +5,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { InventoryService } from './inventory.service';
 import { ToastrService } from 'src/app/common/toastr/toastr.service';
+import { ConfirmationDialogService } from 'src/app/common/confirmation-dialog/confirmation-dialog.service';
 
 @Component({
   selector: 'app-inventory',
@@ -27,6 +28,7 @@ export class InventoryComponent implements OnInit {
     private inventoryService: InventoryService,
     public dialog: MatDialog,
     private toastToastrService: ToastrService,
+    private confirmationDialogService: ConfirmationDialogService,
     private fb: FormBuilder) {
     this.form = fb.group({
       stocks: fb.array([])
@@ -65,6 +67,14 @@ export class InventoryComponent implements OnInit {
         this.addStockGroup(e);
       })
     });
+  }
+
+  deleteInventory = () => {
+    this.confirmationDialogService.openModal({ title: "Are you sure to delete" }).afterClosed().subscribe((res) => {
+      if (res) {
+
+      }
+    })
   }
 
   addProduct = async () => {

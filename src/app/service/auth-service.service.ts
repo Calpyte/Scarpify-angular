@@ -50,8 +50,9 @@ export class AuthServiceService implements OnDestroy {
     const body = {
       token: token
     };
-    return this.http.post(url, body, { headers });
 
+
+    return this.http.post(url, token && body, { headers });
   }
 
 
