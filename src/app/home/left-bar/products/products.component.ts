@@ -16,7 +16,7 @@ import { QuantityDetailsComponent } from 'src/app/transaction/quantity-details/q
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private http: HttpsApiService, private apiConfig: ApiConfigService,public dialog: MatDialog) { }
+  constructor(private http: HttpsApiService, private apiConfig: ApiConfigService, public dialog: MatDialog) { }
   categories: any = [];
   filterCategories: any = [];
 
@@ -75,10 +75,10 @@ export class ProductsComponent implements OnInit {
 
   openDialog(user): void {
     this.dialog.closeAll();
-    const dialogRef = this.dialog.open(QuantityDetailsComponent, {
+    const dialogRef = this.dialog.open(user.toLowerCase() === 'bottles' ? QuantityDetailsComponent : ProductDetailsComponent, {
       data: user,
       hasBackdrop: true,
-      disableClose:true
+      disableClose: true
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {

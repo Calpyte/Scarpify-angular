@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { ApiConfigService } from '../api-config';
 import { AuthServiceService } from 'src/app/service/auth-service.service';
 import { NgxOtpInputConfig } from 'ngx-otp-input';
+import { catchError, of, throwError } from 'rxjs';
 
 
 @Component({
@@ -112,23 +113,18 @@ export class RegisterComponent implements OnInit {
   }
 
   loginUser = (userName, password) => {
-    this.authService.login(userName, password).subscribe(
-      (res) => {
-        this.step++;
-      },
-      ((err) => {
-        alert(err?.message);
-      })
-    );
+    this.authService.login(userName, password).subscribe({
+      next: (res) => { this.step++; },
+      error: (err) => { alert(err?.message) }
+    });
   }
 
   createUser = (user) => {
     const formData = new FormData();
     formData.append('file', null);
     formData.append('request', JSON.stringify(user));
-    this.http.post(this.apiConfigService.createUser, formData).subscribe({
-      next: (res) => { this.loginUser(user?.mobile, user?.password) },
-      error: (err) => { alert(err?.message) }
+    this.http.post(this.apiConfigService.createUser, formData).pipe(catchError(err => { alert(err?.message); return throwError(() => err) })).subscribe((res) => {
+      this.loginUser(user?.mobile, user?.password)
     });
   }
 
