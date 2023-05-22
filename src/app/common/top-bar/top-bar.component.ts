@@ -3,6 +3,7 @@ import { VerificationService } from '../verification.service';
 import { UserService } from '../user-service/user.service';
 import { CookieService } from 'ngx-cookie-service';
 import { trigger, style, animate, transition } from '@angular/animations';
+import { ConfirmationDialogService } from '../confirmation-dialog/confirmation-dialog.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -21,7 +22,7 @@ export class TopBarComponent implements OnInit {
   @Input() selectedOption: string = "seller";
   userData: any = null;
   @Output() toggle: EventEmitter<any> = new EventEmitter();
-  constructor(private verificationService: VerificationService, private userService: UserService, private cookieService: CookieService) { }
+  constructor(private verificationService: VerificationService, private userService: UserService, private cookieService: CookieService, private confirmationDialogService: ConfirmationDialogService) { }
 
   ngOnInit(): void {
     this.userService.getData().subscribe((data) => {

@@ -15,6 +15,8 @@ import { LoginService } from '../service/login.service';
 import { AuthServiceService } from '../service/auth-service.service';
 import { IndexedDBService } from '../service/IndexedDB.service';
 import { ApiConfigService } from './api-config';
+import { ConfirmationDialogService } from './confirmation-dialog/confirmation-dialog.service';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog/confirmation-dialog.component';
 @NgModule({
   declarations: [
     TopBarComponent,
@@ -24,6 +26,7 @@ import { ApiConfigService } from './api-config';
     ProductsPickerComponent,
     ProductsViewComponent,
     LocationPickerComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     CommonModule,
@@ -45,13 +48,15 @@ import { ApiConfigService } from './api-config';
     ProductsViewComponent,
     LocationPickerComponent,
     AgmCoreModule,
+    ConfirmationDialogComponent
   ],
   providers: [
     VerificationService,
     LoginService,
     AuthServiceService,
     IndexedDBService,
-    ApiConfigService
+    ApiConfigService,
+    ConfirmationDialogService
   ]
 })
 export class CommonSharedModule { }

@@ -1,0 +1,28 @@
+<div style="padding: 2%; text-align: center">
+  <div>
+    <button mat-mini-fab style="color: #ea2d3f; background-color: #ea2d3f">
+      <mat-icon class="icon">close</mat-icon>
+    </button>
+  </div>
+  <br />
+  <div>
+    <p class="dialog-txt">{{ data?.title }}</p>
+  </div>
+  <br />
+  <div class="footer">
+    <button
+      class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
+      type="button"
+      (click)="submit(false)"
+    >
+      No
+    </button>
+    <button
+      class="btn btn-secondary button-rounded f12 bg-primary page-header full-width"
+      type="button"
+      (click)="submit(true)"
+    >
+      Yes
+    </button>
+  </div>
+</div>
