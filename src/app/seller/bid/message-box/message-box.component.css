@@ -19,12 +19,6 @@
   border-radius:32px;
   box-sizing: border-box;
 }
-.message-box{
-  display: flex;
-  flex-direction: column;
-  height: 95vh;
-  justify-content: space-between;
-}
 .form-control:hover {
   box-shadow: none;
   background-color: #f2f6f8;
