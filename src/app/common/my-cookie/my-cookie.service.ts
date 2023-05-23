@@ -25,9 +25,13 @@ export class MyCookieService {
     return null;
   }
 
-  deleteCookie(name: string) {
-    const expiration = 'expires=Thu, 01 Jan 1970 00:00:00 UTC';
-    document.cookie = `${name}=; ${expiration}; path=/`;
+  // deleteCookie(name: string) {
+  //   const expiration = 'expires=Thu, 01 Jan 1970 00:00:00 UTC';
+  //   document.cookie = `${name}=; ${expiration}; path=/`;
+  // }
+
+  public deleteCookie(name: string): void {
+    this.setCookie(name, '', -1);
   }
 
 }
