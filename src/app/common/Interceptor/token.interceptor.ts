@@ -71,7 +71,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
   private addAuthorizationHeader(request: HttpRequest<any>): HttpRequest<any> {
     const token = this.cookieService.get('token');
-    if (token) {
+    if (token && token != 'undefined' && token != 'null' && token != undefined) {
       return request.clone({
         headers: request.headers.set('Authorization', `Bearer ${token}`),
         url: environment.baseUrl + request.url
