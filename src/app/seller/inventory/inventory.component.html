@@ -3,8 +3,8 @@
     <div class="col-md-9">
       <div style="margin-bottom: 5%; margin-top: 1%">
         <h4 class="page-header float-md-start">Scrap Inventory</h4>
-        <h6 class="page-sub-header float-md-end bold">₹200.00</h6>
-        <h6 class="page-sub-header float-md-end">Estimated Scrap Amt.</h6>
+        <h1 class="page-sub-header float-md-end bold">₹ {{ totalAmount }}</h1>
+        <h3 class="page-sub-header float-md-end">Estimated Scrap Amt.</h3>
       </div>
 
       <form [formGroup]="form">
@@ -12,9 +12,9 @@
           <div class="card-body px-5" style="overflow-y: auto">
             <div
               class="row"
-              [formGroup]="addressGroup"
+              [formGroup]="stockGroup"
               *ngFor="
-                let addressGroup of form.get('stocks')['controls'];
+                let stockGroup of form.get('stocks')['controls'];
                 let i = index
               "
               @fade
@@ -31,7 +31,12 @@
                     <div class="row inv-category-text">
                       {{ form?.value["stocks"][i]?.product?.name }}
                     </div>
-                    <div class="row inv-amt-text">Exp. Amt. ₹200</div>
+                    <div class="row inv-amt-text">
+                      Exp. Amt. ₹
+                      {{
+                        stockGroup?.value?.quantity * stockGroup?.value?.price
+                      }}
+                    </div>
                   </div>
                 </div>
               </div>
