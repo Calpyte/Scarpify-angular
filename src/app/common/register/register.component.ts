@@ -129,9 +129,11 @@ export class RegisterComponent implements OnInit {
         const token = this.cookieService.get("token");
         if (token) {
           const decoded = jwt_decode(token);
+          const roles = decoded['realm_access']['roles'];
           this.userService.updateData({
             userName: decoded['given_name'],
-            email: decoded['email']
+            email: decoded['email'],
+            role: roles.includes('ROLE_BUYER') ? 'buyer' : roles.includes('ROLE_SELLER') ? "seller" : null
           })
         }
         this.toastrService.showSuccess("Registered successfully !");
