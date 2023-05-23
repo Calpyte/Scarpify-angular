@@ -23,6 +23,7 @@
     <ng-container
       *ngFor="let message of data?.consumer?.communication; let i = index"
     >
+      <p style="font-size: 10px">{{ message?.dateTime | date }}</p>
       <div
         class="message container"
         [ngStyle]="
