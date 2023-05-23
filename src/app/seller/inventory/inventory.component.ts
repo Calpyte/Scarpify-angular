@@ -106,10 +106,14 @@ export class InventoryComponent implements OnInit {
         id: this.inventoryData?.id,
         stock: this.form?.value?.stocks
       }
-      this.inventoryService.updateInventory(result).subscribe((data) => {
-        this.toastToastrService.showSuccess("Inventory Updated Successfully !", "");
-        this.getInventory();
-      });
+      this.confirmationDialogService.openModal({ title: "Are you sure to update the inventory" }).afterClosed().subscribe((res) => {
+        if (res) {
+          this.inventoryService.updateInventory(result).subscribe((data) => {
+            this.toastToastrService.showSuccess("Inventory Updated Successfully !", "");
+            this.getInventory();
+          });
+        }
+      })
     }
   }
 
