@@ -100,6 +100,7 @@ export class AppComponent implements OnInit {
     } else {
       this.cookieService.delete("token");
       this.cookieService.delete("refreshToken");
+      this.userService.updateData(null);
     }
   }
 

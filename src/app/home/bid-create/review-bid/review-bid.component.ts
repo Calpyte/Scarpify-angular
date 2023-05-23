@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class ReviewBidComponent implements OnInit {
   @Output() backToBid: EventEmitter<any> = new EventEmitter();
   @Output() result: EventEmitter<any> = new EventEmitter();
+  @Input() bidData: any = null;
 
   reviewForm: FormGroup;
 
@@ -21,6 +22,16 @@ export class ReviewBidComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  get totalAmount() {
+    let amount = 0;
+    this.bidData.bids?.forEach((e) => {
+      amount = amount + (e?.qty * e?.amount)
+    })
+    return amount;
+  }
+
+
 
   back() {
     this.backToBid.emit(true);
