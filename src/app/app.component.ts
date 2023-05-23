@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   title = 'scrapify-angular';
   @ViewChild('drawer') sidenav: MatSidenav;
   isNavigating: boolean = false;
-  pages: any = []
+  pages: any = [];
 
   constructor(private cookieService: CookieService, private userService: UserService, private router: Router) {
     this.router.events.subscribe(event => {
@@ -31,6 +31,13 @@ export class AppComponent implements OnInit {
         this.isNavigating = false;
       }
     });
+    this.userService.getData().subscribe((data) => {
+      if (data && data?.role === 'buyer') {
+        this.pages = this.buyerMenus;
+      } else {
+        this.pages = this.sellerMenus;
+      }
+    })
   }
 
 
@@ -126,12 +133,12 @@ export class AppComponent implements OnInit {
         email: decoded['email'],
         role: roles.includes('ROLE_BUYER') ? 'buyer' : roles.includes('ROLE_SELLER') ? "seller" : null
       });
-      this.pages = roles.includes('ROLE_BUYER') ? this.buyerMenus : this.sellerMenus
+      // this.pages = this.userData ? this.buyerMenus : this.sellerMenus
     } else {
       this.cookieService.delete("token");
       this.cookieService.delete("refreshToken");
       this.userService.updateData(null);
-      this.pages = this.sellerMenus;
+      // this.pages = this.sellerMenus;
     }
   }
 
