@@ -4,13 +4,16 @@ import { BidComponent } from './bid.component';
 import { BidRoutes } from './bid.routing';
 import { BidDetailComponent } from './bid-detail/bid-detail.component';
 import { BidService } from './bid.service';
+import { MessageBoxComponent } from './message-box/message-box.component';
+import { CommonSharedModule } from 'src/app/common/common.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    BidRoutes
+    BidRoutes,
+    CommonSharedModule
   ],
-  declarations: [BidComponent, BidDetailComponent],
+  declarations: [BidComponent, BidDetailComponent, MessageBoxComponent],
   providers: [
     BidService
   ]
