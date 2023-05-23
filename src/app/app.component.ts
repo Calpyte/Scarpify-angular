@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   title = 'scrapify-angular';
   @ViewChild('drawer') sidenav: MatSidenav;
   isNavigating: boolean = false;
+  pages: any = []
 
   constructor(private cookieService: CookieService, private userService: UserService, private router: Router) {
     this.router.events.subscribe(event => {
@@ -32,7 +33,9 @@ export class AppComponent implements OnInit {
     });
   }
 
-  pages: any = [
+
+
+  sellerMenus: any = [
     {
       name: 'Home',
       link: '/home',
@@ -80,6 +83,29 @@ export class AppComponent implements OnInit {
     }
   ]
 
+  buyerMenus: any = [
+    {
+      name: 'Home',
+      link: '/home',
+      icon: 'home'
+    },
+    {
+      name: 'Refer N Earn',
+      link: '/refer',
+      icon: ''
+    },
+    {
+      name: 'FAQ',
+      link: '/faq',
+      icon: ''
+    },
+    {
+      name: 'Contact',
+      link: 'referral/contactUs',
+      icon: ''
+    }
+  ]
+
   validateToken = (token) => {
     if (token && token != undefined && token != 'undefined' && token != 'null') {
       return true
@@ -99,11 +125,13 @@ export class AppComponent implements OnInit {
         userName: decoded['given_name'],
         email: decoded['email'],
         role: roles.includes('ROLE_BUYER') ? 'buyer' : roles.includes('ROLE_SELLER') ? "seller" : null
-      })
+      });
+      this.pages = roles.includes('ROLE_BUYER') ? this.buyerMenus : this.sellerMenus
     } else {
       this.cookieService.delete("token");
       this.cookieService.delete("refreshToken");
       this.userService.updateData(null);
+      this.pages = this.sellerMenus;
     }
   }
 
