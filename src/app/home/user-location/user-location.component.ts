@@ -15,14 +15,14 @@ export class UserLocationComponent implements OnInit {
     "lat": 13.0827,
     "lng": 80.2707
   },
-    {
-      "lat": 13.1827,
-      "lng": 80.3707
-    },
-    {
-      "lat": 13.0827,
-      "lng": 80.4707
-    }  ];
+  {
+    "lat": 13.1827,
+    "lng": 80.3707
+  },
+  {
+    "lat": 13.0827,
+    "lng": 80.4707
+  }];
 
   location: any = {
     lat: 13.0827,
@@ -38,6 +38,14 @@ export class UserLocationComponent implements OnInit {
   circleStrokeColor: string = '#00ca91'; // Example stroke color (blue)
   circleFillOpacity: number = 0.2; // Example fill opacity (0.5)
   circleStrokeWeight: number = 0; // Example stroke weight (2)
+
+  icon: any = {
+    url: 'https://www.shareicon.net/data/512x512/2016/07/24/800943_location_512x512.png',
+    scaledSize: {
+      width: 32,
+      height: 32
+    }
+  }
 
   constructor(public dialog: MatDialog, private toastrService: ToastrService) { }
 

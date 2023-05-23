@@ -24,7 +24,6 @@ export class BidCreateComponent implements OnInit {
   }
 
   reviewBid = (event) => {
-
     this.result['bids'] = event;
     this.step++;
   }
@@ -49,7 +48,8 @@ export class BidCreateComponent implements OnInit {
         "pickupDate": this.result?.location?.pickUpDate,
         "pickupTime": this.result?.location?.pickUpTime,
         "pickupDateTime": null,
-        "communication": null
+        "communication": null,
+        "status": "OPEN"
       }
     }
     this.http.post(this.apiConfig.placeBid, data).pipe(catchError((err) => { this.close(false); return throwError(() => err); })).subscribe((res) => {
