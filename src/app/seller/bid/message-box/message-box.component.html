@@ -18,28 +18,26 @@
   <br />
   <br />
 </div>
-<mat-dialog-content>
-  <div class="messages" style="max-height: 60vh; overflow-y: auto">
-    <ng-container
-      *ngFor="let message of data?.consumer?.communication; let i = index"
+<mat-dialog-content style="height: 60vh">
+  <ng-container
+    *ngFor="let message of data?.consumer?.communication; let i = index"
+  >
+    <p style="font-size: 10px">{{ message?.dateTime | date }}</p>
+    <div
+      class="message container"
+      [ngStyle]="
+        i % 2 == 0
+          ? { 'border-radius': '0 32px 32px 32px' }
+          : {
+              'border-radius': '32px 32px 0 32px',
+              'background-color': '#f2f6f8'
+            }
+      "
     >
-      <p style="font-size: 10px">{{ message?.dateTime | date }}</p>
-      <div
-        class="message container"
-        [ngStyle]="
-          i % 2 == 0
-            ? { 'border-radius': '0 32px 32px 32px' }
-            : {
-                'border-radius': '32px 32px 0 32px',
-                'background-color': '#f2f6f8'
-              }
-        "
-      >
-        <p>{{ message?.message }}</p>
-      </div>
-      <br />
-    </ng-container>
-  </div>
+      <p>{{ message?.message }}</p>
+    </div>
+    <br />
+  </ng-container>
 </mat-dialog-content>
 
 <mat-dialog-actions>
