@@ -7,7 +7,7 @@ import {
   HttpErrorResponse,
   HttpResponse
 } from '@angular/common/http';
-import { Observable, catchError, switchMap, take, tap, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, filter, finalize, mergeMap, switchMap, take, tap, throwError } from 'rxjs';
 import { AuthServiceService } from 'src/app/service/auth-service.service';
 import { environment } from 'src/environments/environment';
 import { CookieService } from 'ngx-cookie-service';
@@ -16,6 +16,9 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root'
 })
 export class TokenInterceptor implements HttpInterceptor {
+  private isRefreshingToken = false;
+  private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+
 
   constructor(private authService: AuthServiceService, private cookieService: CookieService) { }
 
@@ -32,27 +35,48 @@ export class TokenInterceptor implements HttpInterceptor {
     return next.handle(clonedRequest).pipe(
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
-          this.cookieService.delete("token");
-          return this.authService.getRefreshToken().pipe(
-            switchMap((response) => {
-              this.cookieService.set("token", response['token']);
-              this.cookieService.set("refreshToken", response['refreshToken']);
-              const updatedRequest = request.clone({
-                headers: request.headers.set('Authorization', `Bearer ${this.cookieService.get("token")}`),
-                url: environment.baseUrl + request.url
-              });
-              return next.handle(updatedRequest);
-            }),
-            catchError((refreshError: any) => {
-              this.cookieService.delete("token");
-              this.cookieService.delete("refreshToken");
-              return throwError(() => refreshError);
-            })
-          )
+          if (!this.isRefreshingToken) {
+            this.isRefreshingToken = true;
+            this.refreshTokenSubject.next(null);
+            this.cookieService.delete("token");
+            return this.authService.getRefreshToken().pipe(
+              switchMap((response) => {
+                this.cookieService.set("token", response['token']);
+                this.cookieService.set("refreshToken", response['refreshToken']);
+                return next.handle(this.addAuthorizationHeader(request));
+              }),
+              catchError((refreshError: any) => {
+                this.cookieService.delete("token");
+                this.cookieService.delete("refreshToken");
+                return throwError(() => refreshError);
+              }),
+              finalize(() => {
+                this.isRefreshingToken = false;
+              })
+            )
+          } else {
+            return this.refreshTokenSubject.pipe(
+              filter((token) => token !== null),
+              take(1),
+              switchMap(() => next.handle(this.addAuthorizationHeader(request)))
+            );
+          }
+
         } else {
           return throwError(() => error);
         }
       })
     );
+  }
+
+  private addAuthorizationHeader(request: HttpRequest<any>): HttpRequest<any> {
+    const token = this.cookieService.get('token');
+    if (token) {
+      return request.clone({
+        headers: request.headers.set('Authorization', `Bearer ${token}`),
+        url: environment.baseUrl + request.url
+      });
+    }
+    return request;
   }
 }
