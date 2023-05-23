@@ -39,3 +39,17 @@ thead {
   font-size: 15px;
   font-weight: 400;
 }
+
+.tbl-header{
+  text-transform: uppercase;
+  color: #818694;
+  font-size: 10px;
+}
+
+.bold{
+  font-weight: 500;
+}
+
+.right-align{
+  text-align: right;
+}
