@@ -4,6 +4,7 @@ import { BidService } from './bid.service';
 import { ToastrService } from 'src/app/common/toastr/toastr.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MessageBoxComponent } from './message-box/message-box.component';
+import { ConfirmationDialogService } from 'src/app/common/confirmation-dialog/confirmation-dialog.service';
 
 
 @Component({
@@ -58,7 +59,11 @@ export class BidComponent implements OnInit {
   selectedTab: any = this.tabs[0];
   selectedBid: any = null;
 
-  constructor(private bidService: BidService, private toastrService: ToastrService, public dialog: MatDialog) { }
+  constructor(
+    private bidService: BidService,
+    private toastrService: ToastrService,
+    public dialog: MatDialog,
+    private confirmationDialogService: ConfirmationDialogService) { }
 
   ngOnInit() {
     this.getMyBids();
@@ -104,19 +109,29 @@ export class BidComponent implements OnInit {
   }
 
   acceptBid = (id) => {
-    this.bidService.acceptBid(id).subscribe((res) => {
-      this.toastrService.showSuccess("Bid accepted successfully !");
-      this.getMyBids();
-      this.isDetail = false;
+    this.confirmationDialogService.openModal({ title: "Are you sure to accept this bid ?" }).afterClosed().subscribe((res) => {
+      if (res) {
+        this.bidService.acceptBid(id).subscribe((res) => {
+          this.toastrService.showSuccess("Bid accepted successfully !");
+          this.getMyBids();
+          this.isDetail = false;
+        })
+      }
     })
+
   }
 
   rejectBid = (id) => {
-    this.bidService.rejectBid(id).subscribe((res) => {
-      this.toastrService.showSuccess("Bid rejected successfully !");
-      this.getMyBids();
-      this.isDetail = false;
+    this.confirmationDialogService.openModal({ title: "Are you sure to reject this bid ?" }).afterClosed().subscribe((res) => {
+      if (res) {
+        this.bidService.rejectBid(id).subscribe((res) => {
+          this.toastrService.showSuccess("Bid rejected successfully !");
+          this.getMyBids();
+          this.isDetail = false;
+        })
+      }
     })
+
   }
 
   modifyBid = (selectedBid) => {
@@ -138,7 +153,7 @@ export class BidComponent implements OnInit {
           this.toastrService.showSuccess("Bid modified successfully !");
           this.getMyBids();
           this.isDetail = false;
-        })
+        });
       }
     });
   }

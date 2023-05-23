@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ConfirmationDialogService } from 'src/app/common/confirmation-dialog/confirmation-dialog.service';
 import { ToastrService } from 'src/app/common/toastr/toastr.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class MessageBoxComponent implements OnInit {
   date: any = new Date();
 
   constructor(public dialogRef: MatDialogRef<any>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private toastrService: ToastrService) { }
+    @Inject(MAT_DIALOG_DATA) public data: any, private toastrService: ToastrService, private confirmationDialogService: ConfirmationDialogService) { }
 
 
 
@@ -24,7 +25,11 @@ export class MessageBoxComponent implements OnInit {
 
   sendMessage = () => {
     if (this.message.trim() != '') {
-      this.dialogRef.close(this.message);
+      this.confirmationDialogService.openModal({ title: "Are u sure to modify this bid ? " }).afterClosed().subscribe((res) => {
+        if (res) {
+          this.dialogRef.close(this.message);
+        }
+      })
     } else {
       this.toastrService.showError("Enter a message");
     }
