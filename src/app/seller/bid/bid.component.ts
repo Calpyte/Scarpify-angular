@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { BidService } from './bid.service';
 import { ToastrService } from 'src/app/common/toastr/toastr.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MessageBoxComponent } from './message-box/message-box.component';
 
 
 @Component({
@@ -56,7 +58,7 @@ export class BidComponent implements OnInit {
   selectedTab: any = this.tabs[0];
   selectedBid: any = null;
 
-  constructor(private bidService: BidService, private toastrService: ToastrService) { }
+  constructor(private bidService: BidService, private toastrService: ToastrService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getMyBids();
@@ -93,7 +95,7 @@ export class BidComponent implements OnInit {
     } else if (action === "close") {
       this.isDetail = false;
     } else if (action === 'modify') {
-      this.modifyBid(selectedBid?.id, null);
+      this.modifyBid(selectedBid);
     } else if (action === 'reject') {
       this.rejectBid(selectedBid?.id);
     } else if (action === 'accept') {
@@ -117,12 +119,28 @@ export class BidComponent implements OnInit {
     })
   }
 
-  modifyBid = (id, data) => {
-    this.bidService.modifyBid(id, data).subscribe((res) => {
-      this.toastrService.showSuccess("Bid modified successfully !");
-      this.getMyBids();
-      this.isDetail = false;
-    })
+  modifyBid = (selectedBid) => {
+    this.dialog.closeAll();
+    this.dialog.open(MessageBoxComponent, {
+      data: selectedBid,
+      position: { right: '0', top: '0' },
+      minHeight: '100vh',
+      maxWidth: '350px',
+      hasBackdrop: false
+    }).afterClosed().subscribe((res) => {
+      if (res) {
+        let message = {
+          "id": selectedBid?.id,
+          "message": res,
+          "dateTime": new Date()
+        }
+        this.bidService.modifyBid(selectedBid?.id, message).subscribe((res) => {
+          this.toastrService.showSuccess("Bid modified successfully !");
+          this.getMyBids();
+          this.isDetail = false;
+        })
+      }
+    });
   }
 
   detailAction = (event) => {
