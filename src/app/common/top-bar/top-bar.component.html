@@ -40,6 +40,17 @@
         </button>
 
         <mat-menu #beforeMenu="matMenu" xPosition="before">
+          <div
+            style="
+              padding: 0 10%;
+              width: 250px;
+              display: flex;
+              flex-direction: column;
+            "
+          >
+            <h2>{{ userData?.userName }}</h2>
+            <h4>{{ userData?.email }}</h4>
+          </div>
           <button mat-menu-item>
             <span><mat-icon>person</mat-icon></span
             >Profile

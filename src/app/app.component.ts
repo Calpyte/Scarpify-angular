@@ -93,9 +93,12 @@ export class AppComponent implements OnInit {
     const refreshToken = this.cookieService.get("refreshToken");
     if (this.validateToken(token) && this.validateToken(refreshToken)) {
       const decoded = jwt_decode(token);
+      const roles = decoded['realm_access']['roles'];
+      console.log(decoded);
       this.userService.updateData({
         userName: decoded['given_name'],
-        email: decoded['email']
+        email: decoded['email'],
+        role: roles.includes('ROLE_BUYER') ? 'buyer' : roles.includes('ROLE_SELLER') ? "seller" : null
       })
     } else {
       this.cookieService.delete("token");
