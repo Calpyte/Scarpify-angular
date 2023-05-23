@@ -80,14 +80,26 @@ export class AppComponent implements OnInit {
     }
   ]
 
+  validateToken = (token) => {
+    if (token && token != undefined && token != 'undefined' && token != 'null') {
+      return true
+    } else {
+      return false;
+    }
+  }
+
   ngOnInit() {
     const token = this.cookieService.get("token");
-    if (token) {
+    const refreshToken = this.cookieService.get("refreshToken");
+    if (this.validateToken(token) && this.validateToken(refreshToken)) {
       const decoded = jwt_decode(token);
       this.userService.updateData({
         userName: decoded['given_name'],
         email: decoded['email']
       })
+    } else {
+      this.cookieService.delete("token");
+      this.cookieService.delete("refreshToken");
     }
   }
 
