@@ -11,6 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { UserService } from '../user-service/user.service';
 import jwt_decode from "jwt-decode";
 import { ToastrService } from '../toastr/toastr.service';
+import { InventoryService } from 'src/app/seller/inventory/inventory.service';
 
 
 @Component({
@@ -66,7 +67,8 @@ export class RegisterComponent implements OnInit {
     private authService: AuthServiceService,
     private toastrService: ToastrService,
     private userService: UserService,
-    private apiConfigService: ApiConfigService) { }
+    private apiConfigService: ApiConfigService,
+    private inventoryService: InventoryService) { }
 
   ngOnInit() {
     this.getProducts();
@@ -225,7 +227,7 @@ export class RegisterComponent implements OnInit {
       ],
     }
     this.http.put(this.apiConfigService.saveAddressToConsumer, address).subscribe((res) => {
-      this.toastrService.showSuccess("Address saved successfully !");
+      console.log("Address saved successfully !");
     })
   }
   saveProducts = () => {
@@ -237,8 +239,25 @@ export class RegisterComponent implements OnInit {
       "products": products
     }
     this.http.put(this.apiConfigService.saveProductToConsumer, result).subscribe((res) => {
-      this.toastrService.showSuccess("Products saved successfully !");
+      console.log("Products saved successfully !");
+      this.saveProductsToInventory();
     })
+  }
+
+  saveProductsToInventory = () => {
+    let products = [];
+    this.registerForm.value?.products.forEach((e) => {
+      products = [...products, ...e.products];
+    });
+    if (this.registerForm.value?.userType.toLowerCase() === 'seller') {
+      let inventories = products.map((product) => ({ product: product, name: product?.name, quantity: 0, price: 0, unit: null, icon: null, icon2: null }));
+      let result = {
+        stock: inventories
+      }
+      this.inventoryService.updateInventory(result).subscribe((data) => {
+        console.log("inventory updated");
+      });
+    }
   }
 
   submit = () => {
