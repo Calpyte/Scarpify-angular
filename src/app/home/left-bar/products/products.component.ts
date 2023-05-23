@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Type } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { catchError, tap } from 'rxjs';
 import { ApiConfigService } from 'src/app/common/api-config';
@@ -8,6 +8,7 @@ import { ProductDetailsComponent } from 'src/app/transaction/product-details/pro
 import { QuantityDetailsComponent } from 'src/app/transaction/quantity-details/quantity-details.component';
 import { RatingComponent } from 'src/app/transaction/rating/rating.component';
 import { SelectReasonsComponent } from 'src/app/transaction/select-reasons/select-reasons.component';
+import { TypeTransactionComponent } from 'src/app/transaction/type-transaction/type-transaction.component';
 
 
 
@@ -35,7 +36,7 @@ export class ProductsComponent implements OnInit {
 
   openDialog(user): void {
     this.dialog.closeAll();
-    const dialogRef = this.dialog.open(user.toLowerCase() === 'paper' ? QuantityDetailsComponent : SelectReasonsComponent, {
+    const dialogRef = this.dialog.open(user.toLowerCase() === 'paper' ? QuantityDetailsComponent : TypeTransactionComponent, {
       data: user,
       hasBackdrop: true,
       disableClose: true
