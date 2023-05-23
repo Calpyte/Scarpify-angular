@@ -97,6 +97,21 @@ export class AppComponent implements OnInit {
       icon: 'home'
     },
     {
+      name: 'My Bids',
+      link: '/buyer/bids',
+      icon: ''
+    },
+    {
+      name: 'Retail Buying',
+      link: '/buyer/retail',
+      icon: ''
+    },
+    {
+      name: 'Rewards',
+      link: '/buyer/retail',
+      icon: ''
+    },
+    {
       name: 'Refer N Earn',
       link: '/refer',
       icon: ''

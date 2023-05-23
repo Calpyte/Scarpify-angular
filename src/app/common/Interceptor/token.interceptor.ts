@@ -11,6 +11,7 @@ import { BehaviorSubject, Observable, catchError, filter, finalize, mergeMap, sw
 import { AuthServiceService } from 'src/app/service/auth-service.service';
 import { environment } from 'src/environments/environment';
 import { CookieService } from 'ngx-cookie-service';
+import { UserService } from '../user-service/user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class TokenInterceptor implements HttpInterceptor {
   private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
 
-  constructor(private authService: AuthServiceService, private cookieService: CookieService) { }
+  constructor(private authService: AuthServiceService, private cookieService: CookieService, private userService: UserService) { }
 
 
 
@@ -48,6 +49,7 @@ export class TokenInterceptor implements HttpInterceptor {
               catchError((refreshError: any) => {
                 this.cookieService.delete("token");
                 this.cookieService.delete("refreshToken");
+                this.userService.updateData(null);
                 return throwError(() => refreshError);
               }),
               finalize(() => {
