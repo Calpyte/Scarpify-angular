@@ -36,7 +36,7 @@ export class ProductsComponent implements OnInit {
 
   openDialog(user): void {
     this.dialog.closeAll();
-    const dialogRef = this.dialog.open(user.toLowerCase() === 'paper' ? QuantityDetailsComponent : TypeTransactionComponent, {
+    const dialogRef = this.dialog.open(user.toLowerCase() === 'paper' ? ProductDetailsComponent : RatingComponent, {
       data: user,
       hasBackdrop: true,
       disableClose: true

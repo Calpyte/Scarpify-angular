@@ -13,7 +13,7 @@ import { AuthServiceService } from './service/auth-service.service';
 import { CookieService } from 'ngx-cookie-service';
 import { UserService } from './common/user-service/user.service';
 import { ToastrModule } from 'ngx-toastr';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { ToastrModule } from 'ngx-toastr';
     CommonSharedModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatFormFieldModule,
   ],
   providers: [
     {

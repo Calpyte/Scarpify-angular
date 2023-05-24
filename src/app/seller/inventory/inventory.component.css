@@ -124,3 +124,20 @@
   cursor: pointer;
   background-color: #f2f6f8;
 }
+
+
+/* new  */
+.page-header-title{
+  font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 16px;
+color: #005A7B;
+}
+
+.page-sub-h1{
+  font-style: normal;
+font-weight: 590;
+font-size: 19px;
+line-height: 24px;
+}

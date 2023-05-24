@@ -1,5 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+/* html{
+  font-size: 300px !important;
+}
+
+:root {
+  font-size: 50px; /* Set the desired base font size in pixels
+} */
+
+/* @media screen and (max-width: 600px){
+  :root {
+    font-size: 18px; /* Set the desired base font size in pixels
+  }
+} */
+
 html, body {
   height: 100%;
 }
@@ -106,6 +120,9 @@ html, body {
 }
 .mr-2{
   margin-right:2%;
+}
+.mr-4{
+  margin-right:4%;
 }
 /* padding classes */
 
