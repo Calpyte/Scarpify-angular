@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
+import { RoutesByFilter } from "../buyer/buyer.service";
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,10 @@ export class ApiConfigService {
     return `order/scrap/location/lat/${lat}/lon/${lng}`
   }
 
-
+  getRoutes = (data: RoutesByFilter) => {
+    return `order/scrap/route/d/${data.distance}/l/${data.lat}/ln/${data.lng}/p/${data.product}/q/${data.quantity}`;
+  }
+  // 'order/scrap/route/d/100/l/9.6064532/ln/77.9394303/p/0919d4cc-efe9-11ed-a05b-0242ac120003/q/32';
+  //
 
 }

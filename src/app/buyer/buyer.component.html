@@ -1,8 +1,17 @@
 <div style="width: 100%; display: flex">
-  <div class="col-md-3 col-sm-12">
-    <app-buyer-left-bar> </app-buyer-left-bar>
+  <div class="col-md-3">
+    <app-buyer-left-bar
+      [routeList]="routes"
+      (selected)="selectedRoute($event)"
+      (filter)="getFilter($event)"
+    >
+    </app-buyer-left-bar>
   </div>
-  <div class="col-md-9 col-sm-12">
-    <!--<app-user-location></app-user-location>-->
+  <div class="col-md-9">
+    <app-route-location
+      [location]="location"
+      [mapData]="mapData"
+      [distance]="distance"
+    ></app-route-location>
   </div>
 </div>

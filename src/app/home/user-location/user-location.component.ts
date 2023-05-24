@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { BidCreateComponent } from '../bid-create/bid-create.component';
 import { ToastrService } from 'src/app/common/toastr/toastr.service';
+import { AgmInfoWindow } from '@agm/core';
 
 @Component({
   selector: 'app-user-location',
@@ -9,7 +10,7 @@ import { ToastrService } from 'src/app/common/toastr/toastr.service';
   styleUrls: ['./user-location.component.css']
 })
 export class UserLocationComponent implements OnInit {
-
+  @ViewChildren(AgmInfoWindow) infoWindows: QueryList<AgmInfoWindow>;
   @Input() inventories: any = [];
   polyLinePoints: any[] = [{
     "lat": 13.0827,
@@ -52,6 +53,16 @@ export class UserLocationComponent implements OnInit {
 
   ngOnInit() {
     this.getCurrentLocation();
+  }
+
+  openInfoWindow(infoWindow: AgmInfoWindow) {
+    this.infoWindows.forEach((window: AgmInfoWindow) => {
+      if (window !== infoWindow && window.isOpen) {
+        window.close();
+      }
+    });
+
+    infoWindow.open();
   }
 
   getCurrentLocation(): void {
