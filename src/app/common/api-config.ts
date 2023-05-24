@@ -49,5 +49,4 @@ export class ApiConfigService {
   }
   // 'order/scrap/route/d/100/l/9.6064532/ln/77.9394303/p/0919d4cc-efe9-11ed-a05b-0242ac120003/q/32';
   //
-
 }
