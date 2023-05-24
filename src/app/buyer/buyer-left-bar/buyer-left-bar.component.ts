@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { BidByCategoryComponent } from '../bid-by-category/bid-by-category.component';
 import { HttpClient } from '@angular/common/http';
 import { ApiConfigService } from 'src/app/common/api-config';
+import { RouteDetailComponent } from '../route-detail/route-detail.component';
 
 
 @Component({
@@ -33,26 +33,40 @@ export class BuyerLeftBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getProducts()
+    this.getProducts();
   }
 
   handleRoutes(index) {
     this.selectedRoute = index;
-    this.selected.emit(this.routeList[index])
+    this.selected.emit(this.routeList[index]);
+    this.openDetail({ routeData: this.routeList[index], formData: this.form });
   }
 
   search = () => {
+    this.selectedRoute = null;
     let data = {
       distance: this.form.selectedDistance,
       product: this.form.selectedProduct?.id,
       quantity: this.form.selectedQuantity
     }
-    this.selectedRoute = null;
     this.filter.emit(data);
     this.isEdit = false;
   }
 
   edit = () => {
     this.isEdit = true;
+  }
+
+  openDetail = (data) => {
+    this.dialog.open(RouteDetailComponent, {
+      width: '25%',
+      minHeight: '92vh',
+      maxHeight: '92vh',
+      data: data,
+      position: { top: '8vh', left: '0' },
+      hasBackdrop: false
+    }).afterClosed().subscribe((res) => {
+      console.log(res)
+    })
   }
 }
