@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -48,7 +48,6 @@ import { OverlayModule } from "@angular/cdk/overlay";
 import { CdkAccordionModule } from "@angular/cdk/accordion";
 import { ToastrService } from './toastr/toastr.service';
 import { ConfirmationDialogService } from './confirmation-dialog/confirmation-dialog.service';
-
 
 @NgModule({
   imports: [
@@ -115,6 +114,7 @@ import { ConfirmationDialogService } from './confirmation-dialog/confirmation-di
     MatBadgeModule,
     MatBottomSheetModule,
     MatButtonModule,
+    MatDatepickerModule,
     MatButtonToggleModule,
     MatCardModule,
     MatCheckboxModule,
@@ -159,6 +159,7 @@ import { ConfirmationDialogService } from './confirmation-dialog/confirmation-di
     },
     ToastrService
   ],
-  declarations: []
+  declarations: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MaterialModule { }

@@ -13,9 +13,9 @@ export class FaqComponent implements OnInit {
   faqs:any = [];
 
   ngOnInit() {
-    this.faqService.getFAQ().then((data)=>{
-        this.faqs = data?.faq;
-    })
+    this.faqService.getFAQ().subscribe((data: any) => {
+      this.faqs = data?.faq;
+    });
   }
 
 }

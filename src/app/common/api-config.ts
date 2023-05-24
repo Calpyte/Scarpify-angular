@@ -41,6 +41,6 @@ export class ApiConfigService {
     return `order/scrap/location/lat/${lat}/lon/${lng}`
   }
 
-
+  getFAQ = "product/faq";
 
 }
