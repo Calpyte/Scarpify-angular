@@ -5,6 +5,8 @@ import { CommonSharedModule } from '../common/common.module';
 import { BidByCategoryComponent } from './bid-by-category/bid-by-category.component';
 import { BuyerRoutingModule } from './buyer-routing.module';
 import { BuyerLeftBarComponent } from './buyer-left-bar/buyer-left-bar.component';
+import { RouteLocationComponent } from './route-location/route-location.component';
+import { BuyerService } from './buyer.service';
 
 @NgModule({
   imports: [
@@ -12,6 +14,9 @@ import { BuyerLeftBarComponent } from './buyer-left-bar/buyer-left-bar.component
     CommonSharedModule,
     BuyerRoutingModule
   ],
-  declarations: [BuyerComponent, BidByCategoryComponent, BuyerLeftBarComponent]
+  declarations: [BuyerComponent, BidByCategoryComponent, BuyerLeftBarComponent, RouteLocationComponent],
+  providers: [
+    BuyerService
+  ]
 })
 export class BuyerModule { }
