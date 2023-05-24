@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UserService } from 'src/app/common/user-service/user.service';
-import { AuthServiceService } from 'src/app/service/auth-service.service';
 
 @Component({
   selector: 'app-consumer-details',
