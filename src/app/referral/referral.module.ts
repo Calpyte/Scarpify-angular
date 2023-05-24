@@ -4,13 +4,14 @@ import { ReferralComponent } from './referral.component';
 import { ScrapratesRoutes } from './scraprates/scraprates.routing';
 import { ReferralRoutes } from './referral.routing';
 import { ReferralService } from './referral.service';
+import { ContactUsComponent } from './contactUs/ContactUs.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    ReferralRoutes
+    ReferralRoutes,
   ],
-  declarations: [ReferralComponent],
+  declarations: [ReferralComponent,],
   providers: [
     ReferralService
   ]

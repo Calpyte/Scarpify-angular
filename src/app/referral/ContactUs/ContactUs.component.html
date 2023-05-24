@@ -1,3 +1,4 @@
+
 <div class="bg">
   <div class="d-flex justify-content-center">
     <div class="col-md-8 contact-text-top mt-2">
@@ -13,7 +14,7 @@
               >
                 <img
                   loading="lazy"
-                  src="assets/img/Capture.PNG"
+                  src="assets/img/Capture56.PNG"
                   class="ml-2 mt-2 image-text"
                 />
               </div>
@@ -33,11 +34,14 @@
               <div class="contact-text-top">
                 <p class="heading-text">Send your query</p>
               </div>
+
+              <form [formGroup]="contactForm">
               <div class="contact-text-size">Name</div>
               <div class="mb-2 contact-text-border">
                 <input
                   type="text"
                   id="myInput"
+                  formControlName="name"
                   placeholder=""
                   class="form-control search-input"
                   title="Type in a name"
@@ -50,9 +54,12 @@
                   type="text"
                   id="myInput"
                   placeholder=""
+                  formControlName="email"
                   class="form-control search-input"
                   title="Type in a name"
+
                 />
+
               </div>
               <div class="contact-text-size">Mobile</div>
               <div class="contact-text-border">
@@ -60,15 +67,20 @@
                   type="text"
                   id="myInput"
                   placeholder=""
+                  formControlName="mobile"
                   class="form-control search-input"
                   title="Type in a name"
                 />
               </div>
-              <button
-                class="bt-text bg-secondary f12 bg-primary btn-rounded text-btn"
+              <!-- </form> -->
+
+              <!-- <mat-error *ngIf="basic.Mobile.hasError('name')">Invalid</mat-error> -->
+              <button type="submit"
+                class="bt-text bg-secondary f12 bg-primary btn-rounded text-btn"(click)="submitForm()"
               >
                 Submit
               </button>
+            </form>
             </div>
           </div>
         </div>
@@ -79,3 +91,4 @@
     </div>
   </div>
 </div>
+
