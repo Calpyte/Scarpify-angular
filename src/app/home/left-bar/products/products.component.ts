@@ -7,6 +7,8 @@ import { HttpsApiService } from 'src/app/https-api.service';
 import { ProductDetailsComponent } from 'src/app/transaction/product-details/product-details.component';
 import { QuantityDetailsComponent } from 'src/app/transaction/quantity-details/quantity-details.component';
 import { RatingComponent } from 'src/app/transaction/rating/rating.component';
+import { SelectReasonsComponent } from 'src/app/transaction/select-reasons/select-reasons.component';
+import { TypeTransactionComponent } from 'src/app/transaction/type-transaction/type-transaction.component';
 
 
 
