@@ -140,3 +140,8 @@ mat-option{
   color: #FFFFFF;
   text-align: center;
 }
+
+
+/* ::ng-deep .mat-dialog-container.ng-leave {
+  animation: slideOut 0.3s !important;
+} */

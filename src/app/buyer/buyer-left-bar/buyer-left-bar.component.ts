@@ -5,6 +5,7 @@ import { ApiConfigService } from 'src/app/common/api-config';
 import { RouteDetailComponent } from '../route-detail/route-detail.component';
 
 
+
 @Component({
   selector: 'app-buyer-left-bar',
   templateUrl: './buyer-left-bar.component.html',
