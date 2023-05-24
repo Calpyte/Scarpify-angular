@@ -11,8 +11,8 @@
           </h4>
         </div>
         <div class="col">
-          <h6 class="page-header float-md-end">
-            <i class="bi bi-diagram-2-fill"></i> Stock
+          <h6 class="page-header float-md-end top-text">
+            <i class="bi bi-diagram-2-fill"></i> My Inventory
           </h6>
         </div>
       </div>
@@ -32,18 +32,18 @@
                   <img
                     loading="lazy"
                     src="assets/img/garbage.png"
-                    height="60"
+                    height="70"
                   />
                 </div>
 
                 <div class="col-md-8">
-                  <div class="row inv-product-text">
+                  <div class="row ins-product-txt1">
                     <span>{{ bid?.buyer?.firstName }}</span>
                   </div>
-                  <div class="row sm-txt">
+                  <div class="row ins-sm-txt2">
                     <span><i class="bi bi-geo-alt-fill"></i>Guindy</span>
                   </div>
-                  <div class="row inv-product-text">
+                  <div class="row ins-product-txt2">
                     <span><i class="bi bi-star-fill"></i>4.7 54K Reviews</span>
                   </div>
                 </div>
@@ -51,11 +51,11 @@
             </div>
 
             <div class="col-md-3">
-              <div class="row align-items-center">
-                <i class="bi bi-calendar2-event fs-4 col-1"></i
-                >&nbsp;&nbsp;&nbsp;
-                <div class="col-10">
-                  <div class="sm-txt">
+              <div class="row align-items-center ">
+                <i class='far fa-calendar-alt fs-4 col-1' style='font-size:36px'></i>
+                &nbsp;&nbsp;&nbsp;
+                <div class="col-8">
+                  <div class="sm-txt1">
                     <span>PickupDate</span>
                   </div>
                   <div class="sm-txt-bold">
@@ -71,7 +71,7 @@
               <div class="row align-items-center">
                 <i class="bi bi-clock fs-4 col-1"></i>&nbsp;&nbsp;&nbsp;
                 <div class="col-10">
-                  <div class="sm-txt">
+                  <div class="sm-txt1">
                     <span>Time</span>
                   </div>
                   <div class="sm-txt-bold">
@@ -88,7 +88,7 @@
                 <i class="bi bi-currency-rupee fs-4 col-1"></i
                 >&nbsp;&nbsp;&nbsp;
                 <div class="col-10">
-                  <div class="sm-txt">
+                  <div class="sm-txt1">
                     <span>Total Bid Amount</span>
                   </div>
                   <div class="sm-txt-bold">
@@ -111,10 +111,10 @@
                     />
                   </div>
                   <div class="col-9">
-                    <div class="row lg-txt">
+                    <div class="row prod-txt">
                       <span>{{ proposal?.product?.name }}</span>
                     </div>
-                    <div class="row sm-txt">
+                    <div class="row prod-txt2">
                       <span>{{ proposal?.product?.name }}</span>
                     </div>
                   </div>
@@ -124,47 +124,77 @@
               <div class="col-md-9">
                 <div class="row">
                   <div class="col-md-2">
-                    <div class="row sm-txt">
-                      <span>Req.Qty</span>
+                    <div class="row sm1-txt2">
+                      <span>Req. Quantity</span>
                     </div>
-                    <div class="row md-txt">
-                      <span>{{ proposal?.qty }}</span>
+                    <div class="input-group md-txt">
+                      <input
+                        type="number"
+                        class="form-control"
+                        aria-describedby="basic-addon1"
+                      />
+                      <span class="input-group-text" id="basic-addon1">kg</span>
+                      <!-- <span>{{ proposal?.qty }}</span> -->
                     </div>
                   </div>
 
                   <div class="col-md-2">
-                    <div class="row sm-txt">
+                    <div class="row sm1-txt2 ">
                       <span>Market-price/kg</span>
                     </div>
-                    <div class="row md-txt">
-                      <span>200.00</span>
+                    <div class="input-group mb-3">
+                      <input
+                        type="number"
+                        class="form-control read-only"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                        readonly
+                      />
+                      <span class="input-group-text" id="basic-addon1">₹</span>
                     </div>
                   </div>
 
                   <div class="col-md-3">
-                    <div class="row sm-txt">
+                    <div class="row sm1-txt2">
                       <span>Expected Price /kg</span>
                     </div>
-                    <div class="row md-txt">
-                      <span>200.00</span>
+                    <div class="input-group mb-3">
+                      <input
+                        type="number"
+                        class="form-control read-only"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                        readonly
+                      />
+                      <span class="input-group-text" id="basic-addon1">₹</span>
                     </div>
                   </div>
 
                   <div class="col-md-2">
-                    <div class="row sm-txt">
+                    <div class="row sm1-txt2">
                       <span>Bid Price /kg</span>
                     </div>
-                    <div class="row md-txt">
-                      <span>{{ proposal.amount }}</span>
+                    <div class="input-group mb-3">
+                      <input
+                        type="number"
+                        class="form-control read-only"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                        readonly
+                      />
+                      <span class="input-group-text" id="basic-addon1">₹</span>
                     </div>
+                    <!-- <div class="row md-txt">
+                      <span>{{ proposal.amount }}</span>
+                    </div> -->
                   </div>
 
                   <div class="col-md-3">
-                    <div class="row sm-txt">
+                    <div class="row sm-txt1">
                       <span>Expected BID Amt.</span>
                     </div>
                     <div class="row md-txt">
-                      <span>20</span>
+                      <span>₹ 20</span>
                     </div>
                   </div>
                 </div>
