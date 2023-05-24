@@ -1,4 +1,4 @@
-<div>
+<div @dialogAnimation>
   <div>
     <p class="heading" (click)="back()">
       <i class="bi bi-arrow-left"></i>&nbsp;&nbsp;{{ routeData?.name || "" }}
@@ -43,6 +43,7 @@
   </div>
 </div>
 <mat-dialog-content
+  @dialogAnimation
   style="min-height: 50vh; max-height: 50vh; overflow-y: auto"
 >
   <div>
@@ -75,6 +76,6 @@
     </div>
   </div>
 </mat-dialog-content>
-<mat-dialog-actions class="button-container">
+<mat-dialog-actions class="button-container" @dialogAnimation>
   <button class="bid-btn" (click)="placeBid()">Place Bid</button>
 </mat-dialog-actions>
