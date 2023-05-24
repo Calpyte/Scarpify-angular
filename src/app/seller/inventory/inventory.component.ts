@@ -77,6 +77,15 @@ export class InventoryComponent implements OnInit {
     })
   }
 
+  get totalAmount() {
+    let invetories = this.form?.controls['stocks'];
+    let amount = 0;
+    invetories.value?.forEach((data) => {
+      amount = amount + (data?.quantity * data?.price);
+    })
+    return amount;
+  }
+
   addProduct = async () => {
     if (this.inventoryData?.stock?.length > 0) {
       this.selectedCheckboxIds = [...this.inventoryData?.stock?.map((e) => e?.product?.id)]
@@ -106,10 +115,14 @@ export class InventoryComponent implements OnInit {
         id: this.inventoryData?.id,
         stock: this.form?.value?.stocks
       }
-      this.inventoryService.updateInventory(result).subscribe((data) => {
-        this.toastToastrService.showSuccess("Inventory Updated Successfully !", "");
-        this.getInventory();
-      });
+      this.confirmationDialogService.openModal({ title: "Are you sure to update the inventory" }).afterClosed().subscribe((res) => {
+        if (res) {
+          this.inventoryService.updateInventory(result).subscribe((data) => {
+            this.toastToastrService.showSuccess("Inventory Updated Successfully !", "");
+            this.getInventory();
+          });
+        }
+      })
     }
   }
 

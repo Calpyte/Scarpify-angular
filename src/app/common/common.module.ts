@@ -17,6 +17,8 @@ import { ApiConfigService } from './api-config';
 import { ConfirmationDialogService } from './confirmation-dialog/confirmation-dialog.service';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog/confirmation-dialog.component';
 import { NgxOtpInputModule } from 'ngx-otp-input';
+import { MyCookieService } from './my-cookie/my-cookie.service';
+
 @NgModule({
   declarations: [
     TopBarComponent,
@@ -49,7 +51,7 @@ import { NgxOtpInputModule } from 'ngx-otp-input';
     AgmCoreModule,
     ConfirmationDialogComponent,
     NgxOtpInputModule,
-    
+
   ],
   providers: [
     VerificationService,
@@ -57,7 +59,8 @@ import { NgxOtpInputModule } from 'ngx-otp-input';
     AuthServiceService,
     IndexedDBService,
     ApiConfigService,
-    ConfirmationDialogService
+    ConfirmationDialogService,
+    MyCookieService
   ]
 })
 export class CommonSharedModule { }

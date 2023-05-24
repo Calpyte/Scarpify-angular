@@ -29,6 +29,15 @@ export class PlaceBidComponent implements OnInit {
     })
   }
 
+  get totalAmount() {
+    let bids = this.bidForm?.controls['bids'];
+    let amount = 0;
+    bids.value?.forEach((data) => {
+      amount = amount + (data?.qty * data?.amount);
+    })
+    return amount;
+  }
+
   addStockGroup(stock) {
     const add = this.bidForm.get('bids') as FormArray;
     add.push(this.fb.group({

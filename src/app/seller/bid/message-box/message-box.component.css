@@ -1,0 +1,30 @@
+.msg-heading{
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  color: #005A7B;
+}
+.message{
+  background: #FFFFFF;
+  border: 1px solid #D4D9DF;
+  border-radius: 0px 32px 32px 32px;
+  box-sizing: border-box;
+}
+.date{
+  text-align: center;
+  background: #FFFFFF;
+  border: 1px solid #D4D9DF;
+  padding: 5px;
+  border-radius:32px;
+  box-sizing: border-box;
+}
+.form-control:hover {
+  box-shadow: none;
+  background-color: #f2f6f8;
+}
+
+.form-control {
+  box-shadow: none;
+  background-color: #f2f6f8;
+}

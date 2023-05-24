@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, Type } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { catchError, tap } from 'rxjs';
 import { ApiConfigService } from 'src/app/common/api-config';
@@ -22,6 +22,8 @@ export class ProductsComponent implements OnInit {
   constructor(private http: HttpsApiService, private apiConfig: ApiConfigService, public dialog: MatDialog, private httpC: HttpClient) { }
   categories: any = [];
   filterCategories: any = [];
+  selectedProducts: any = [];
+  @Output() selected: EventEmitter<any> = new EventEmitter();
 
   ngOnInit() {
     this.getProducts();
@@ -34,27 +36,30 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  openDialog(user): void {
-    this.dialog.closeAll();
-    const dialogRef = this.dialog.open(user.toLowerCase() === 'paper' ? ProductDetailsComponent : RatingComponent, {
-      data: user,
-      hasBackdrop: true,
-      disableClose: true
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
+  // openDialog(user): void {
+  //   this.dialog.closeAll();
+  //   const dialogRef = this.dialog.open(user.toLowerCase() === 'paper' ? QuantityDetailsComponent : RatingComponent, {
+  //     data: user,
+  //     hasBackdrop: true,
+  //     disableClose: true
+  //   });
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if (result) {
 
 
-      }
-    });
-  }
+  //     }
+  //   });
+  // }
   viewMore() {
     this.filterCategories = this.filterCategories.length === 8 ? this.categories : this.categories.slice(0, 8);
   }
 
-
-  openDetail = (user) => {
-    this.openDialog(user);
+  handleSelectedProducts = (id) => {
+    if (this.selectedProducts.includes(id)) {
+      this.selectedProducts = this.selectedProducts.filter((exist) => exist != id);
+    } else {
+      this.selectedProducts.push(id);
+    }
+    this.selected.emit(this.selectedProducts);
   }
-
 }

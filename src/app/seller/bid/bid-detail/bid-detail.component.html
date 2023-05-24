@@ -59,7 +59,9 @@
                     <span>PickupDate</span>
                   </div>
                   <div class="sm-txt-bold">
-                    <span>{{ bid?.consumer?.pickupDate }}</span>
+                    <span>{{
+                      bid?.consumer?.pickupDate || "May 23, 2023"
+                    }}</span>
                   </div>
                 </div>
               </div>
@@ -73,7 +75,9 @@
                     <span>Time</span>
                   </div>
                   <div class="sm-txt-bold">
-                    <span>{{ bid?.consumer?.pickupTime }}</span>
+                    <span>{{
+                      bid?.consumer?.pickupTime || "10.00 AM - 7.00 PM"
+                    }}</span>
                   </div>
                 </div>
               </div>
