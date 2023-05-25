@@ -10,6 +10,7 @@
 
 .bold {
   font-weight: bold;
+  font-size: 35px;
 }
 
 .card {
@@ -95,12 +96,13 @@
 }
 
 .mtop2 {
-  margin-top: 2.3%;
+  margin-top: 2px;
 }
 
 .mtop3 {
   margin-top: 3%;
 }
+
 
 .mtop1 {
   margin-top: 1.5%;
@@ -119,10 +121,11 @@
   border: 1px solid #f2f6f8;
   display: grid;
   width: 60px;
-  height: 50px;
+  height: 70px;
   place-items: center;
   cursor: pointer;
   background-color: #f2f6f8;
+  border-radius: 12px;
 }
 
 
@@ -145,14 +148,14 @@ line-height: 24px;
 .int-protuct-txt1{
   font-style: normal;
 font-weight: 700;
-font-size: 28px;
+font-size: 25px;
 line-height: 34px;
 }
 
 .int-category-txt2{
   font-style: normal;
 font-weight: 500;
-font-size: 20px;
+font-size: 17px;
 line-height: 24px;
 color: #818694;
 }
