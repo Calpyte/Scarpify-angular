@@ -36,8 +36,88 @@
     </div>
   </div>
 
+<div class="bg">
+  <div class="row col-12" *ngFor="let bid of activeBids">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div class="card" style="overflow-y: auto">
+          <div class="col-md-12">
+            <span class="badge bg-transaparent">ID B0001</span>
+          </div>
+          <div class="row col-md-12">
+
+            <div class="col-md-3" style="margin-top: 1%">
+              <div class="row">
+                <div class="col-md-3">
+                  <img
+                    loading="lazy"
+                    src="assets/img/garbage.png"
+                    height="50"
+                    width="50"
+                  />
+                </div>
+                <div class="col-md-8">
+                  <div class="row inv-product-text">
+                    <span>{{ bid?.buyer?.firstName }}</span>
+                  </div>
+                  <div class="row inv-category-text">
+                    <span><i class="bi bi-geo-alt-fill"></i>Guindy</span>
+                  </div>
+                  <div class="row inv-amt-text">
+                    <span
+                      ><i class="bi bi-star-fill"></i>4.7 54K Reviews</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-7" style="margin-top: 1%">
+              <div class="row">
+                <div
+                  class="col-md-3 rounded-box"
+                  *ngFor="let proposal of bid?.consumer?.proposals"
+                >
+                  <div class="row">
+                    <div class="col-md-4" style="padding: 10% 5% 1px 7%">
+                      <img
+                        loading="lazy"
+                        src="assets/img/metal.png"
+                        height="60%"
+                      />
+                    </div>
+
+                    <div class="col-md-7" style="padding: 12% 5% 1px 7%">
+                      <h6 class="ellipsis">
+                        {{ proposal?.product?.name }}
+                      </h6>
+                      <p>{{ proposal?.qty }}kg</p>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+
+            <div class="col-md-2 round-corner"
+            style="margin-top: 1%; padding: 1% 0% 1px 1%"
+          >
+            <h6 class="inv-category-text">Expected BID Amt.</h6>
+            <p class="amt"><b>200</b></p>
+          </div>
+
+          </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
   <div class="bg">
-    <div class="d-flex justify-content-center">
+     <div class="d-flex justify-content-center">
       <div class="col-md-9">
         <div class="card px-1 py-0">
           <div class="card-body px-5" style="overflow-y: auto">
@@ -94,22 +174,10 @@
                     </div>
                   </div>
 
-                  <!-- <div class="col-md-3 rounded-box">
-                    <div class="row">
-                      <div class="col-md-4" style="padding: 10% 5% 1px 7%">
-                        <img loading="lazy" src="assets/img/metal.png" height="60%" />
-                      </div>
 
-                      <div class="col-md-8" style="padding: 12% 5% 1px 7%">
-                        <h6>Cartons</h6>
-                        <p>25kg</p>
-                      </div>
-                    </div>
-                  </div> -->
                 </div>
               </div>
-              <div
-                class="col-md-2 round-corner"
+              <div class="col-md-2 round-corner"
                 style="margin-top: 1%; padding: 1% 0% 1px 1%"
               >
                 <h6 class="inv-category-text">Expected BID Amt.</h6>
@@ -180,8 +248,12 @@
           </div>
         </div>
       </div>
-    </div>
+     </div>
   </div>
+
+
+
+
 </section>
 
 <section @fade *ngIf="isDetail">
@@ -191,3 +263,20 @@
     [selectedTab]="selectedTab"
   ></app-bid-detail>
 </section>
+
+
+
+<!-- 107 -->
+
+ <!-- <div class="col-md-3 rounded-box">
+                    <div class="row">
+                      <div class="col-md-4" style="padding: 10% 5% 1px 7%">
+                        <img loading="lazy" src="assets/img/metal.png" height="60%" />
+                      </div>
+
+                      <div class="col-md-8" style="padding: 12% 5% 1px 7%">
+                        <h6>Cartons</h6>
+                        <p>25kg</p>
+                      </div>
+                    </div>
+                  </div> -->
