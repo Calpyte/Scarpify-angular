@@ -31,16 +31,19 @@
 .bg-transaparent {
   border: 2px solid #005a7b;
   background: #ffffff;
-  border-radius: 8px;
+  border-radius: 15x;
   color: #005a7b;
+  font-size: 12px;
+
 }
 
 .rounded-box {
   background: #ffffff;
   border: 1px solid #d4d9df;
   border-radius: 10px;
-  height: 60px;
-  margin-right: 10px;
+  height: 68px;
+  width: 170px;
+  margin-right:13px;
 }
 
 h6{
@@ -60,7 +63,9 @@ p{
 .round-corner{
     border: 1px solid #d4d9df;
     border-radius: 10px;
-    height: 60px;
+    height: 68px;
+    padding-left: 5px;
+
 }
 
 .amt{
@@ -73,12 +78,18 @@ p{
 }
 
 .button-rounded {
-  border-radius: 50px;
-  padding: 5px 15px;
+  border-radius: 45px;
+  padding: 6px 15px;
+  margin-right:15px;
+
 }
 
 .f12 {
-  font-size: 12px;
+  font-size: 15px;
+  /* margin-right:15px; */
+}
+.f13 {
+  font-size: 20px;
 }
 
 .bg-secondary {
@@ -86,6 +97,7 @@ p{
   color: #005a7b;
   font-weight: bold;
   border: 2px solid #005a7b;
+ size: 40px;
 }
 
 .bg-primary {
@@ -123,3 +135,75 @@ p{
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;} */
+/* new */
+.int-product-txt1{
+  font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 29px;
+color: #3B4357;
+}
+
+.ins-place-txt{
+  font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+color: #818694;
+}
+
+.ins-row-txt{
+  font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 22px;
+color: #3B4357;
+}
+
+.ins-amnt-txt{
+  font-style: normal;
+font-weight: 500;
+font-size: 17px;
+line-height: 22px;
+color: #818694;
+}
+
+.int-amt{
+  font-style: normal;
+font-weight: 700;
+font-size: 28px;
+line-height: 16px;
+color: #3B4357;
+}
+
+.ins-product-txt2{
+  font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 22px;
+color: #3B4357;
+}
+
+.int-wight-txt3{
+  font-style: normal;
+font-weight: 450;
+font-size: 16px;
+line-height: 19px;
+color: #3B4357;
+}
+
+.product-text {
+  text-align: center;
+  color: #005A7B;
+  font-weight: 500;
+  margin-left: 5%;
+  font-size: 13px;
+}
+
+.heat-txt1{
+  font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 16px;
+color: #005A7B;
+}
