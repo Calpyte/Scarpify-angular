@@ -1,0 +1,61 @@
+.date-picker{
+  width: 320px;
+  top: 100px;
+}
+
+.f12 {
+  font-size: 12px;
+}
+.button-rounded {
+  border-radius: 50px;
+  padding: 5px 15px;
+}
+
+.bg-secondary {
+  background-color: white !important;
+  color: #005a7b;
+  font-weight: bold;
+  border: 2px solid #005a7b;
+}
+
+.bg-primary {
+  background-color: #005a7b !important;
+}
+
+/*
+.calendar {
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.weekdays {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.weekday {
+  flex: 1;
+  text-align: center;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  background-color: lightgray;
+  cursor: pointer;
+}
+ */

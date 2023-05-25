@@ -14,7 +14,7 @@ export class FaqComponent implements OnInit {
 
   ngOnInit() {
     this.faqService.getFAQ().subscribe((data: any) => {
-      this.faqs = data?.faq;
+      this.faqs = data;
     });
   }
 

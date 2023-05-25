@@ -1,7 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TransactionComponent } from './transaction.component';
-import { DateComponent } from './date/date.component';
 import { CommonSharedModule } from '../common/common.module';
 
 @NgModule({
@@ -9,7 +8,7 @@ import { CommonSharedModule } from '../common/common.module';
     CommonModule,
     CommonSharedModule
   ],
-  declarations: [TransactionComponent, DateComponent]
+  declarations: [TransactionComponent]
 
 })
 export class TransactionModule { }

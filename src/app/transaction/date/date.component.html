@@ -1,17 +1,14 @@
 
-<div>
-  <div class="col-md-12">
+<div class="date-picker">
     <h3>Select Date</h3>
-
-    <mat-card class="demo-inline-calendar-card">
-      <mat-calendar [(selected)]="selected"></mat-calendar>
-    </mat-card>
-    <p>Selected date: {{selected}}</p>
-  </div>
-  <div>
-
-  </div>
-  <section >
-
-  </section>
+      <mat-calendar  [(selected)]="selected"></mat-calendar>
+      <div class="row">
+        <div class="col-md-12  mt-3 ">
+        <div style="display: flex; gap: 3px">
+        <button type="button" class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
+        >Cancel</button>
+        <button type="button" class="btn btn-secondary button-rounded f12 bg-primary page-header full-width">Done</button>
+      </div>
+      </div>
+      </div>
 </div>

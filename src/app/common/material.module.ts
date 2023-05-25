@@ -47,7 +47,6 @@ import { MatTreeModule } from "@angular/material/tree";
 import { OverlayModule } from "@angular/cdk/overlay";
 import { CdkAccordionModule } from "@angular/cdk/accordion";
 import { ToastrService } from './toastr/toastr.service';
-import { ConfirmationDialogService } from './confirmation-dialog/confirmation-dialog.service';
 
 @NgModule({
   imports: [
@@ -120,7 +119,6 @@ import { ConfirmationDialogService } from './confirmation-dialog/confirmation-di
     MatCheckboxModule,
     MatChipsModule,
     MatStepperModule,
-    MatDatepickerModule,
     MatDialogModule,
     MatDividerModule,
     MatExpansionModule,
