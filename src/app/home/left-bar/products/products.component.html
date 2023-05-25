@@ -1,6 +1,14 @@
 <div class="row col-12">
   <div class="col-md-4" *ngFor="let category of filterCategories">
-    <div class="card" (click)="openDialog(category?.name)">
+    <div
+      class="card"
+      [ngStyle]="
+        selectedProducts.includes(category?.id) && {
+          border: '2px solid #005A7B'
+        }
+      "
+      (click)="handleSelectedProducts(category?.id)"
+    >
       <img
         loading="lazy"
         src="https://calpyte-scrapify.s3.ap-south-1.amazonaws.com/glass.png"

@@ -1,5 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+/* html{
+  font-size: 300px !important;
+}
+
+:root {
+  font-size: 50px; /* Set the desired base font size in pixels
+} */
+
+/* @media screen and (max-width: 600px){
+  :root {
+    font-size: 18px; /* Set the desired base font size in pixels
+  }
+} */
+
 html, body {
   height: 100%;
 }
@@ -95,6 +109,9 @@ html, body {
 .mt-3{
   margin-top:3%;
 }
+.mt-5{
+  margin-top:5%;
+}
 .mb-5{
   margin-bottom: 5%;
 }
@@ -103,6 +120,9 @@ html, body {
 }
 .mr-2{
   margin-right:2%;
+}
+.mr-4{
+  margin-right:4%;
 }
 /* padding classes */
 
@@ -240,3 +260,12 @@ button {
 .form-control {
   box-shadow: none;
 }
+
+.mlft6{
+  margin-left: 6%;
+}
+
+.lh20{
+  line-height: 16px;
+}
+

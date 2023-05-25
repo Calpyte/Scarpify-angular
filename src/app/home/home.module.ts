@@ -34,8 +34,7 @@ import { DateComponent } from '../transaction/date/date.component';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    CommonSharedModule,
-
+    CommonSharedModule
   ]
 })
 export class HomeModule { }

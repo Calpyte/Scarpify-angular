@@ -7,6 +7,7 @@
 </div>
 <div [ngClass]="step === 1 ? 'block' : 'none'">
   <app-review-bid
+    [bidData]="{ bids: result?.bids, inventory: data }"
     (backToBid)="step = step - 1"
     (result)="submit($event)"
   ></app-review-bid>

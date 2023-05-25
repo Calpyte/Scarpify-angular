@@ -15,19 +15,20 @@
       </agm-info-window>
     </agm-marker>
     <agm-marker
-      *ngFor="let inventory of inventories"
+      *ngFor="let inventory of inventories; let i = index"
       [latitude]="inventory?.displayLocation?.coordinates[0]"
       [longitude]="inventory?.displayLocation?.coordinates[1]"
       [iconUrl]="icon"
       [markerDraggable]="false"
     >
-      <agm-info-window #infowindow class="agm-info-window">
+      <agm-info-window class="agm-info-window">
         <app-consumer-details
           [data]="inventory"
           (placeBid)="placeBid($event)"
         ></app-consumer-details>
       </agm-info-window>
     </agm-marker>
+
     <agm-circle
       [latitude]="location?.lat"
       [longitude]="location?.lng"
@@ -38,11 +39,11 @@
       [strokeWeight]="circleStrokeWeight"
     >
     </agm-circle>
-    <agm-polyline [strokeColor]="'#eb4034'">
+    <!-- <agm-polyline [strokeColor]="'#eb4034'">
       <ng-container *ngFor="let i of polyLinePoints">
         <agm-polyline-point [latitude]="i.lat" [longitude]="i.lng">
         </agm-polyline-point>
       </ng-container>
-    </agm-polyline>
+    </agm-polyline> -->
   </agm-map>
 </div>

@@ -1,65 +1,63 @@
-<div class="message-box">
-  <div class="section-one">
-    <div style="display: flex; justify-content: space-between">
-      <div>
-        <p class="msg-heading">
-          <mat-icon class="msg-heading"> message</mat-icon>&nbsp;&nbsp;Messages
-        </p>
-      </div>
-      <div>
-        <button mat-mini-button (click)="dialogRef.close(null)">
-          <mat-icon>close</mat-icon>
-        </button>
-      </div>
+<div>
+  <div style="display: flex; justify-content: space-between">
+    <div>
+      <p class="msg-heading">
+        <mat-icon class="msg-heading"> message</mat-icon>&nbsp;&nbsp;Messages
+      </p>
     </div>
-
-    <div class="date">
-      <div class="">{{ date | date }}</div>
-    </div>
-    <br />
-    <br />
-    <div class="messages">
-      <ng-container
-        *ngFor="let message of data?.consumer?.communication; let i = index"
-      >
-        <div
-          class="message container"
-          [ngStyle]="
-            i % 2 == 0
-              ? { 'border-radius': '0 32px 32px 32px', 'margin-right': '20px' }
-              : {
-                  'border-radius': '32px 32px 0 32px',
-                  'background-color': '#f2f6f8',
-                  'margin-left': '20px'
-                }
-          "
-        >
-          <p>{{ message?.message }}</p>
-        </div>
-        <br />
-      </ng-container>
-    </div>
-  </div>
-
-  <div class="section-two">
-    <div class="form-group">
-      <textarea
-        class="form-control"
-        placeholder="Enter your message here..."
-        [(ngModel)]="message"
-        rows="4"
-      >
-      </textarea>
-      <p></p>
-    </div>
-    <div style="width: 100%; display: flex; justify-content: flex-end">
-      <button
-        mat-button
-        style="background-color: #005a7b; color: white"
-        (click)="sendMessage()"
-      >
-        <mat-icon>send</mat-icon>&nbsp;Send
+    <div>
+      <button mat-mini-button (click)="dialogRef.close(null)">
+        <mat-icon>close</mat-icon>
       </button>
     </div>
   </div>
+
+  <div class="date">
+    <div class="">{{ date | date }}</div>
+  </div>
+  <br />
+  <br />
 </div>
+<mat-dialog-content style="height: 60vh">
+  <ng-container
+    *ngFor="let message of data?.consumer?.communication; let i = index"
+  >
+    <p style="font-size: 10px">{{ message?.dateTime | date }}</p>
+    <div
+      class="message container"
+      [ngStyle]="
+        i % 2 == 0
+          ? { 'border-radius': '0 32px 32px 32px' }
+          : {
+              'border-radius': '32px 32px 0 32px',
+              'background-color': '#f2f6f8'
+            }
+      "
+    >
+      <p>{{ message?.message }}</p>
+    </div>
+    <br />
+  </ng-container>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <div class="form-group" style="width: 100%">
+    <textarea
+      class="form-control"
+      placeholder="Enter your message here..."
+      [(ngModel)]="message"
+      rows="4"
+    >
+    </textarea>
+    <p></p>
+  </div>
+  <div style="width: 100%; display: flex; justify-content: flex-end">
+    <button
+      mat-button
+      style="background-color: #005a7b; color: white"
+      (click)="sendMessage()"
+    >
+      <mat-icon>send</mat-icon>&nbsp;Send
+    </button>
+  </div>
+</mat-dialog-actions>

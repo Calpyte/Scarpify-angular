@@ -21,13 +21,13 @@
         </div>
         <div>
           <div class="inv-product-text">
-            <span>Dinesh</span>
+            <span>{{ bidData?.inventory?.seller?.firstName }}</span>
           </div>
           <div class="inv-amt-text">
             <span><i class="bi bi-star-fill"></i>4.7 54K Reviews</span>
           </div>
           <div class="inv-category-text">
-            <span>Last posted 3 months ago</span>
+            <span>Last posted {{ bidData?.inventory?.lastUpdated }}</span>
           </div>
         </div>
       </div>
@@ -102,7 +102,7 @@
         <div>
           <label class="form-text" for="pickUpTime">Total Bid Amount</label>
           <p class="heading-grey" style="min-height: 45px">
-            <i class="bi bi-currency-rupee"></i>200.00
+            <i class="bi bi-currency-rupee"></i>{{ totalAmount }}
           </p>
         </div>
       </div>

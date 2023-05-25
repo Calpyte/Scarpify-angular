@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   title = 'scrapify-angular';
   @ViewChild('drawer') sidenav: MatSidenav;
   isNavigating: boolean = false;
+  pages: any = [];
 
   constructor(private cookieService: CookieService, private userService: UserService, private router: Router) {
     this.router.events.subscribe(event => {
@@ -30,9 +31,18 @@ export class AppComponent implements OnInit {
         this.isNavigating = false;
       }
     });
+    this.userService.getData().subscribe((data) => {
+      if (data && data?.role === 'buyer') {
+        this.pages = this.buyerMenus;
+      } else {
+        this.pages = this.sellerMenus;
+      }
+    })
   }
 
-  pages: any = [
+
+
+  sellerMenus: any = [
     {
       name: 'Home',
       link: '/home',
@@ -80,14 +90,70 @@ export class AppComponent implements OnInit {
     }
   ]
 
+  buyerMenus: any = [
+    {
+      name: 'Home',
+      link: '/home',
+      icon: 'home'
+    },
+    {
+      name: 'My Bids',
+      link: '/buyer',
+      icon: ''
+    },
+    {
+      name: 'Retail Buying',
+      link: '/buyer/retail',
+      icon: ''
+    },
+    {
+      name: 'Rewards',
+      link: '/buyer/retail',
+      icon: ''
+    },
+    {
+      name: 'Refer N Earn',
+      link: '/refer',
+      icon: ''
+    },
+    {
+      name: 'FAQ',
+      link: '/faq',
+      icon: ''
+    },
+    {
+      name: 'Contact',
+      link: 'referral/contactUs',
+      icon: ''
+    }
+  ]
+
+  validateToken = (token) => {
+    if (token && token != undefined && token != 'undefined' && token != 'null') {
+      return true
+    } else {
+      return false;
+    }
+  }
+
   ngOnInit() {
     const token = this.cookieService.get("token");
-    if (token) {
+    const refreshToken = this.cookieService.get("refreshToken");
+    if (this.validateToken(token) && this.validateToken(refreshToken)) {
       const decoded = jwt_decode(token);
+      const roles = decoded['realm_access']['roles'];
+      console.log(decoded);
       this.userService.updateData({
         userName: decoded['given_name'],
-        email: decoded['email']
-      })
+        email: decoded['email'],
+        role: roles.includes('ROLE_BUYER') ? 'buyer' : roles.includes('ROLE_SELLER') ? "seller" : null
+      });
+      // this.pages = this.userData ? this.buyerMenus : this.sellerMenus
+    } else {
+      this.cookieService.delete("token");
+      this.cookieService.delete("refreshToken");
+      this.userService.updateData(null);
+      // this.pages = this.sellerMenus;
     }
   }
 
