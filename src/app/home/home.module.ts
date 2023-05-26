@@ -13,6 +13,7 @@ import { UserLocationComponent } from './user-location/user-location.component';
 import { PlaceBidComponent } from './bid-create/place-bid/place-bid.component';
 import { BidCreateComponent } from './bid-create/bid-create.component';
 import { ReviewBidComponent } from './bid-create/review-bid/review-bid.component';
+import { TransactionComponent } from '../transaction/transaction.component';
 
 
 
@@ -27,7 +28,7 @@ import { ReviewBidComponent } from './bid-create/review-bid/review-bid.component
     DetailDialogComponent,
     PlaceBidComponent,
     BidCreateComponent,
-    ReviewBidComponent
+    ReviewBidComponent,TransactionComponent
   ],
   imports: [
     CommonModule,
