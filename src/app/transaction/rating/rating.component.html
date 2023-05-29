@@ -1,78 +1,59 @@
-<!-- <p>
-  rating works!
-</p> -->
-<!-- <p style="font-size: 0.4rem;">testing</p> -->
 <div>
-  <div class="row">
-    <div class="col-md-10">
-      <div class="txt-s1">
-        Rate your Buyer
-      </div>
-    </div>
-    <div class="col-md-2" style="text-align: end">
-      <button class="btn" (click)="dialogRef.close()">x</button>
-    </div>
-
-  </div>
-
-
-  <section >
-    <div>
-      <div class="row">
-        <div class="col-md-12 mt-3">
-          <div class="rate">
-            <input type="radio" id="star5" name="rate" value="5" />
-            <label for="star5" title="text">5 stars</label>
-            <input type="radio" id="star4" name="rate" value="4" />
-            <label for="star4" title="text">4 stars</label>
-            <input type="radio" id="star3" name="rate" value="3" />
-            <label for="star3" title="text">3 stars</label>
-            <input type="radio" id="star2" name="rate" value="2" />
-            <label for="star2" title="text">2 stars</label>
-            <input type="radio" id="star1" name="rate" value="1" />
-            <label for="star1" title="text">1 star</label>
-          </div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="txt-s1">
+          Rate your Buyer
         </div>
       </div>
-
-     </div>
-
-
-
-     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-2" style="padding-left: 80px; text-align: end">
+        <button class="btn" (click)="dialogRef.close()">x</button>
       </div>
-      <div class="col-md-12 txt-s2">
+    </div>
+  </div>
+
+  <section >
+    <div class="row">
+      <!-- <div class="col-md-3">
+        <img loading="lazy" src="assets/img/garbage.png" height="80" />
+      </div> -->
+      <div class="col-md-12 " style="padding-left: 25px;" >
+        <span class="fa fa-star fa-3x checked" ></span>
+        <span class="fa fa-star fa-3x checked"></span>
+        <span class="fa fa-star fa-3x checked"></span>
+        <span class="fa fa-star fa-3x checked"></span>
+        <span class="fa fa-star fa-3x checked"></span>
+      </div>
+    </div>
+    <div class="row">
+      <!-- <div class="col-md-3 mt-4">
+      </div> -->
+      <div class="col-md-8 txt-s2  mt-4 " style="margin-left: 65px;">
         Good Experience
         </div>
     </div>
 
-
-
-
-
-         <div>
-          <textarea type="text" id="form7" class="md-textarea form-control box-t1"  placeholder ="Enter your feedback" mdbInput></textarea>
-      </div>
-
-  </section>
-
-  <div class="row">
-
-
-    <div class="col-md-12  mt-3 ">
-      <div style="display: flex; gap: 3px">
-        <button
-          class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
-          type="button">
-          Prev
-        </button>
-        <button
-          class="btn btn-secondary button-rounded f12 bg-primary page-header full-width"
-          type="button">
-          Next
-        </button>
-      </div>
-    </div>
+    <div class="col-md-8 " style="padding-top: 5px;">
+      <textarea type="text" id="form7" class="md-textarea form-control box-t1"  placeholder ="Enter your feedback" mdbInput></textarea>
   </div>
+     </section>
+
+     <div class="row">
+
+
+      <div class="col-md-12  mt-3 ">
+        <div style="padding-top: 15px;  display: flex; gap: 3px ;">
+          <button
+            class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
+            type="button">
+            Prev
+          </button>
+          <button
+            class="btn btn-secondary button-rounded f12 bg-primary page-header full-width"
+            type="button">
+            Next
+          </button>
+        </div>
+      </div>
+
 </div>

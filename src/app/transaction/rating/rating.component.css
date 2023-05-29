@@ -24,8 +24,8 @@ font-size: 20px;
 color: #005A7B;
 }
 .box-t1{
-  width: 502px;
-height: 132px;
+  width: 400px;
+height: 120px;
 left: 708.69px;
 top: 319.34px;
 background: #F2F6F8;
@@ -75,9 +75,9 @@ border-radius: 20px;
   overflow:hidden;
   white-space:nowrap;
   cursor:pointer;
-  font-size:30px;
+  font-size:40px;
   color:#ccc;
-  margin: 0 30px;
+  margin: 0 10px;
 }
 .rate:not(:checked) > label:before {
   content: '★ ';
@@ -99,5 +99,12 @@ border-radius: 20px;
 }
 .rate-css input {
   font-size: 60px;
+
+}
+
+.checked{
+
+  color: #ffc700;
+ margin-right: 25px;
 
 }
