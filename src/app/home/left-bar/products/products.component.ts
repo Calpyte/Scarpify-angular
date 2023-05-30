@@ -36,9 +36,10 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  // openDialog(user): void {
+  // openDetailDialog(user): void {
   //   this.dialog.closeAll();
-  //   const dialogRef = this.dialog.open(user.toLowerCase() === 'paper' ? QuantityDetailsComponent : RatingComponent, {
+  //   const dialogRef = this.dialog.open(ProductDetailsComponent,{
+  //   // const dialogRef = this.dialog.open(user.toLowerCase() === 'paper' ? QuantityDetailsComponent : RatingComponent, {
   //     data: user,
   //     hasBackdrop: true,
   //     disableClose: true
@@ -50,6 +51,12 @@ export class ProductsComponent implements OnInit {
   //     }
   //   });
   // }
+
+
+  // openDetail = (user) => {
+  //   this.openDetailDialog(user);
+  // }
+
   viewMore() {
     this.filterCategories = this.filterCategories.length === 8 ? this.categories : this.categories.slice(0, 8);
   }

@@ -29,6 +29,17 @@
   color: #005A7B;
 }
 
+.txt-s2{
+  height: 26px;
+  text-align: center;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+
+
+  color: #005A7B;
+}
 .image {
   opacity: 0.8;
   width: 170px;
@@ -37,6 +48,8 @@
   /* background-color: green; */
   display: inline-block;
   margin: 10px;
+  border: 2px solid #D4D9DF;
+  border-radius: 10px;
 
 
 }
@@ -50,10 +63,29 @@
   .image{
 cursor:pointer;
 
+
     border: 3px solid rgb(158, 156, 156);
 
 }
+
   > input:checked + .image{
-border:3px solid rgb(103, 231, 77);
+border:3px solid #02C784;
 }
 }
+
+
+.mtop2 {
+  margin-top: 2px;
+}
+
+.mtop3 {
+  margin-top: 3%;
+}
+.mtop4 {
+  margin-top: 4%;
+}
+
+
+  .heading:hover {
+  color: #02C784
+  }
