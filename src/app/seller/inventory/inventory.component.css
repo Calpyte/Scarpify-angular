@@ -75,6 +75,7 @@
   font-size: 12px;
 }
 
+
 .bg-secondary {
   background-color: white !important;
 }
@@ -110,6 +111,10 @@
 
 .mtop3 {
   margin-top: -3%;
+}
+
+.mtop5{
+  margin-bottom: 2%;
 }
 
 .read-only {
@@ -171,7 +176,7 @@ color: #3B4357;
 .label-from{
   font-style: normal;
 font-weight: 500;
-font-size: 16px;
+font-size: 15px;
 line-height: 19px;
 color: #818694;
 

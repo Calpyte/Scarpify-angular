@@ -14,6 +14,7 @@ import { PlaceBidComponent } from './bid-create/place-bid/place-bid.component';
 import { BidCreateComponent } from './bid-create/bid-create.component';
 import { ReviewBidComponent } from './bid-create/review-bid/review-bid.component';
 import { DateComponent } from '../transaction/date/date.component';
+import { TransactionComponent } from '../transaction/transaction.component';
 
 
 
@@ -29,7 +30,8 @@ import { DateComponent } from '../transaction/date/date.component';
     PlaceBidComponent,
     BidCreateComponent,
     ReviewBidComponent,
-    DateComponent
+    DateComponent,
+    TransactionComponent
   ],
   imports: [
     CommonModule,

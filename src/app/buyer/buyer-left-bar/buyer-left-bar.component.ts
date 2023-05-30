@@ -67,6 +67,9 @@ export class BuyerLeftBarComponent implements OnInit {
       position: { top: '8vh', left: '0' },
       hasBackdrop: false
     }).afterClosed().subscribe((res) => {
+      if (res && res === 'edit') {
+        this.isEdit = true;
+      }
       console.log(res)
     })
   }
