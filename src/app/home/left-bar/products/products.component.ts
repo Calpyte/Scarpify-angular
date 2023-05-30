@@ -4,6 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { catchError, tap } from 'rxjs';
 import { ApiConfigService } from 'src/app/common/api-config';
 import { HttpsApiService } from 'src/app/https-api.service';
+import { BuyerQuantityDetailsComponent } from 'src/app/transaction/buyer-quantity-details/buyer-quantity-details.component';
+import { BuyerTransactionComponent } from 'src/app/transaction/buyer-transaction/buyer-transaction.component';
 import { ProductDetailsComponent } from 'src/app/transaction/product-details/product-details.component';
 import { QuantityDetailsComponent } from 'src/app/transaction/quantity-details/quantity-details.component';
 import { RatingComponent } from 'src/app/transaction/rating/rating.component';
@@ -38,7 +40,7 @@ export class ProductsComponent implements OnInit {
 
   // openDetailDialog(user): void {
   //   this.dialog.closeAll();
-  //   const dialogRef = this.dialog.open(ProductDetailsComponent,{
+  //   const dialogRef = this.dialog.open(BuyerTransactionComponent,{
   //   // const dialogRef = this.dialog.open(user.toLowerCase() === 'paper' ? QuantityDetailsComponent : RatingComponent, {
   //     data: user,
   //     hasBackdrop: true,
