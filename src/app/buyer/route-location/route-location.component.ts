@@ -27,9 +27,16 @@ export class RouteLocationComponent implements OnInit, OnChanges {
 
   ngOnInit() {
 
+
+
+  }
+
+  onLineClick() {
+
   }
 
   ngOnChanges() {
+    console.log(this.mapData);
   }
 
 }
