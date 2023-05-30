@@ -44,78 +44,141 @@
           <div class="col-md-12">
             <span class="badge bg-transaparent">ID B0001</span>
           </div>
+
           <div class="row col-md-12">
 
-            <div class="col-md-3" style="margin-top: 1%">
-              <div class="row">
-                <div class="col-md-3">
-                  <img
-                    loading="lazy"
-                    src="assets/img/garbage.png"
-                    height="50"
-                    width="50"
-                  />
-                </div>
-                <div class="col-md-8">
-                  <div class="row inv-product-text">
-                    <span>{{ bid?.buyer?.firstName }}</span>
+              <div class="col-md-3" style="margin-top: 0.3%">
+                 <div class="row">
+                   <div class="col-md-3">
+                    <img
+                      loading="lazy"
+                      src="assets/img/garbage.png"
+                      height="70"
+                    />
                   </div>
-                  <div class="row inv-category-text">
-                    <span><i class="bi bi-geo-alt-fill"></i>Guindy</span>
-                  </div>
-                  <div class="row inv-amt-text">
-                    <span
-                      ><i class="bi bi-star-fill"></i>4.7 54K Reviews</span
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-7" style="margin-top: 1%">
-              <div class="row">
-                <div
-                  class="col-md-3 rounded-box"
-                  *ngFor="let proposal of bid?.consumer?.proposals"
-                >
-                  <div class="row">
-                    <div class="col-md-4" style="padding: 10% 5% 1px 7%">
-                      <img
-                        loading="lazy"
-                        src="assets/img/metal.png"
-                        height="60%"
-                      />
+                   <div class="col-md-9">
+                    <div class=" int-product-txt1" style="padding-left: 10px;">
+                      <span>{{ bid?.buyer?.firstName }}</span>
                     </div>
-
-                    <div class="col-md-7" style="padding: 12% 5% 1px 7%">
-                      <h6 class="ellipsis">
-                        {{ proposal?.product?.name }}
-                      </h6>
-                      <p>{{ proposal?.qty }}kg</p>
+                    <div class=" ins-place-txt "style="padding-left: 10px;">
+                      <span><i class="bi bi-geo-alt-fill"></i>Guindy</span>
+                    </div>
+                    <div class=" ins-row-txt "style="padding-left: 10px;">
+                      <span
+                        ><i class="bi bi-star-fill"></i>4.7 54K Reviews</span
+                      >
                     </div>
                   </div>
                 </div>
-
-
               </div>
+
+              <div class="col-md-7" style="margin-top: 0.3%; padding: 0px 0px 0px 145px">
+                <div class="row">
+                  <div class="col-md-4 rounded-box" *ngFor="let proposal of bid?.consumer?.proposals">
+                    <!-- <div class="row"> -->
+                      <!-- <div class="col-md-4" style="padding: 10% 5% 1px 7%"> -->
+                        <!-- <div class="card rounded-box"> -->
+                           <img
+                          loading="lazy"
+                          src="assets/img/metal.png"
+                          height="70%"
+                          width="40"
+                        />
+                        <p class="card-title product-text">{{ proposal?.product?.name }}</p>
+                        <p class="card-title product-text">{{ proposal?.qty }}kg</p>
+                        <!-- </div> -->
+
+                      <!-- </div> -->
+
+                      <!-- <div class="col-md-8" style="padding: 9% 5% 1px 7%">
+                        <h6 class="ellipsis ins-product-txt2">
+                          {{ proposal?.product?.name }}
+                        </h6>
+                        <h6 class="int-wight-txt3">{{ proposal?.qty }}kg</h6>
+                      </div> -->
+                    <!-- </div> -->
+                  </div>
+                </div>
+              </div>
+
+            <div class="col-md-2 round-corner" style="margin-top: 0.3%; padding: 1% 0% 1px 1%">
+              <h6 class="ins-amnt-txt">Expected BID Amt.</h6>
+              <p class="int-amt mt-2"><b>₹200</b></p>
             </div>
 
-            <div class="col-md-2 round-corner"
-            style="margin-top: 1%; padding: 1% 0% 1px 1%"
+          </div>
+
+
+          <div class="row col-md-12">
+          <div class="col-md-4 float-md-end"></div>
+
+          <div class="col-md-8 float-md-end mtop1">
+            <div class="action-footer mt-2 " style="padding-left: 75px;">
+              <div
+              *ngIf="
+                ['open', 'modified', 'confirmed'].includes(
+                  selectedTab?.name
+                )
+              "
+              style="padding: 5px;"
+            >
+            <button
+            class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
+            type="button"
+            (click)="handleAction(bid, 'more')"
           >
-            <h6 class="inv-category-text">Expected BID Amt.</h6>
-            <p class="amt"><b>200</b></p>
-          </div>
+            <i class="bi bi-chat-dots-fill"></i> &nbsp; More Details
+            </button>
+            </div>
 
-          </div>
+            <div *ngIf="['open', 'modified'].includes(selectedTab?.name)" style="padding: 5px;">
+              <button
+                class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width" style="text-align: left;"
+                type="button"
+                (click)="handleAction(bid, 'modify')"
+              >
+                <i class="bi bi-pencil"></i> &nbsp; Modify
+              </button>
+            </div>
 
+              <div style="padding: 5px;">
+                <button
+                class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"style="text-align: left;"
+                type="button"
+                (click)="handleAction(bid, 'reject')"
+              >
+                <i class="bi bi-x-lg"></i> &nbsp; Reject
+              </button>
+              </div>
+
+              <div *ngIf="['open', 'modified'].includes(selectedTab?.name)" style="padding: 5px;">
+                <button
+                  class="btn btn-secondary button-rounded f12 bg-primary page-header full-width"style="text-align: left;"
+                  type="button"
+                  (click)="handleAction(bid, 'accept')"
+                >
+                  <i class="bi bi-check"></i> &nbsp; Accept
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr style="margin-top: 1%" />
 
       </div>
     </div>
+    <div
+              @fade
+              class="row justify-content-center align-items-center"
+              *ngIf="activeBids?.length === 0"
+            >
+              No {{ selectedTab?.name | titlecase }} Bids Found !
+            </div>
   </div>
 </div>
 
-
+<!--
   <div class="bg">
      <div class="d-flex justify-content-center">
       <div class="col-md-9">
@@ -250,10 +313,7 @@
         </div>
       </div>
      </div>
-  </div>
-
-
-
+  </div> -->
 
 </section>
 
