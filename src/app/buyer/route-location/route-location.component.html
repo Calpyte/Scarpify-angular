@@ -38,7 +38,7 @@
         [strokeWeight]="circleStrokeWeight"
       >
       </agm-circle>
-      <agm-polyline [strokeColor]="'#eb4034'">
+      <agm-polyline [strokeColor]="'#eb4034'" (lineClick)="onLineClick()">
         <agm-polyline-point
           [latitude]="point?.displayLocation?.coordinates[0]"
           [longitude]="point?.displayLocation?.coordinates[1]"

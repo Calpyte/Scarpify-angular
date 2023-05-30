@@ -34,7 +34,7 @@ export class RouteDetailComponent implements OnInit {
     this.dialogRef.close();
   }
   edit = () => {
-
+    this.dialogRef.close('edit');
   }
   placeBid = () => {
 
