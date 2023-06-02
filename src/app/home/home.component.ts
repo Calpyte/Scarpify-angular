@@ -16,6 +16,8 @@ export class HomeComponent implements OnInit {
 
   inventories: any = [];
 
+  address:any = "";
+
 
 
   constructor(private toastrService: ToastrService, private http: HttpClient, private apiConfig: ApiConfigService) { }
@@ -26,10 +28,12 @@ export class HomeComponent implements OnInit {
         this.location.lat = position.coords.latitude;
         this.location.lng = position.coords.longitude;
         this.getNearBySellers(this.location.lat, this.location.lng);
+        this.getCurrentLocation(this.location.lat, this.location.lng);
       }, (error) => {
         console.log(error);
       });
     } else {
+      this.getCurrentLocation(this.location.lat, this.location.lng);
       console.log('Geolocation is not supported by this browser.');
     }
   }
@@ -39,5 +43,12 @@ export class HomeComponent implements OnInit {
       this.inventories = res;
     })
   }
+
+
+  getCurrentLocation = (lat, lon) => {
+    this.http.get(this.apiConfig.getCityAddress(lat, lon)).subscribe((res:any) => {
+      this.address = res?.loc;
+    })
+  };
 
 }

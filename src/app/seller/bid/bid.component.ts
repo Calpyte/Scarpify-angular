@@ -1,4 +1,3 @@
-import { filter } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { BidService } from './bid.service';
@@ -22,12 +21,11 @@ import { ConfirmationDialogService } from 'src/app/common/confirmation-dialog/co
   ]
 })
 export class BidComponent implements OnInit {
-  filterbid: any = [];
-  bid :any = [];
+
   tabs: any[] = [
     {
       id: 0,
-        name: 'open',
+      name: 'open',
       count: 0,
       isActive: false
     },
@@ -163,7 +161,5 @@ export class BidComponent implements OnInit {
   detailAction = (event) => {
     this.handleAction(event?.bid, event?.action);
   }
-  viewMore() {
-    this.filterbid = this.filterbid.length === 3 ? this.filterbid : this.filterbid.slice(0, 3);
-  }
+
 }

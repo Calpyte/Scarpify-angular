@@ -1,43 +1,21 @@
 <div>
-  <agm-map
-    [latitude]="location?.lat"
-    [longitude]="location?.lng"
-    [zoom]="14"
-    [style]="style"
-  >
-    <agm-marker
-      [latitude]="location?.lat"
-      [longitude]="location?.lng"
-      [markerDraggable]="false"
-    >
-      <agm-info-window #infowindow class="agm-info-window">
-        <p>Your Current Location</p>
-      </agm-info-window>
-    </agm-marker>
-    <agm-marker
-      *ngFor="let inventory of inventories; let i = index"
-      [latitude]="inventory?.displayLocation?.coordinates[0]"
-      [longitude]="inventory?.displayLocation?.coordinates[1]"
-      [iconUrl]="icon"
-      [markerDraggable]="false"
-    >
-      <agm-info-window class="agm-info-window">
-        <app-consumer-details
-          [data]="inventory"
-          (placeBid)="placeBid($event)"
-        ></app-consumer-details>
-      </agm-info-window>
+  <agm-map [latitude]="location?.lat" [longitude]="location?.lng" [zoom]="14" [style]="style">
+    <agm-marker [latitude]="location?.lat" [longitude]="location?.lng" [markerDraggable]="false">
     </agm-marker>
 
-    <agm-circle
-      [latitude]="location?.lat"
-      [longitude]="location?.lng"
-      [radius]="circleRadius"
-      [fillColor]="circleFillColor"
-      [strokeColor]="circleStrokeColor"
-      [fillOpacity]="circleFillOpacity"
-      [strokeWeight]="circleStrokeWeight"
-    >
+    <agm-marker *ngFor="let inventory of inventories; let i = index"
+      [latitude]="inventory?.displayLocation?.coordinates[0]" [longitude]="inventory?.displayLocation?.coordinates[1]"
+      [iconUrl]="icon" [markerDraggable]="false">
+
+      <agm-info-window class="agm-info-window">
+        <app-consumer-details [data]="inventory" (placeBid)="placeBid($event)"></app-consumer-details>
+      </agm-info-window>
+
+    </agm-marker>
+
+    <agm-circle [latitude]="location?.lat" [longitude]="location?.lng" [radius]="circleRadius"
+      [fillColor]="circleFillColor" [strokeColor]="circleStrokeColor" [fillOpacity]="circleFillOpacity"
+      [strokeWeight]="circleStrokeWeight">
     </agm-circle>
     <!-- <agm-polyline [strokeColor]="'#eb4034'">
       <ng-container *ngFor="let i of polyLinePoints">

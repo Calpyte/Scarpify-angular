@@ -2,134 +2,84 @@
   <div class="d-flex justify-content-center">
     <div class="col-md-9">
       <div style="margin-bottom: 5%; margin-top: 1%">
-        <h4 class="page-header float-md-start page-header-title"style="padding: 15px;">Scrap Inventory</h4>
-        <h1 class="page-sub-header float-md-end bold" slot="padding-top:2px">₹ {{ totalAmount }}</h1>
-        <h3 class="page-sub-header float-md-end page-sub-h1" style="padding-right: 6px;">Estimated Scrap Amt.</h3>
+        <h4 class="page-header float-md-start page-header-title" style="padding: 15px;">Scrap Inventory</h4>
+        <h1 class="page-sub-header float-md-end bold">₹ {{ totalAmount }}</h1>
+        <h3 class="page-sub-header float-md-end page-sub-h1">Estimated Scrap Amt.</h3>
       </div>
 
       <form [formGroup]="form">
         <div class="card px-1 py-0">
           <div class="card-body px-5" style="overflow-y: auto">
-            <div
-              class="row"
-              [formGroup]="stockGroup"
-              *ngFor="
+            <div class="row" [formGroup]="stockGroup" *ngFor="
                 let stockGroup of form.get('stocks')['controls'];
                 let i = index
-              "
-              @fade
-            >
+              " @fade>
               <div class="col-md-3" style="margin-top: 1%">
                 <div class="row">
-                  <div class="col-md-3 mt-3">
-                    <img loading="lazy" src="assets/img/metal.png" height="70px"/>
+                  <div class="col-md-3">
+                    <img loading="lazy" src="assets/img/metal.png" />
                   </div>
-                  <div class="col-md-8 ">
-                    <div class="row int-protuct-txt1 " style="padding-left: 15px;">
+                  <div class="col-md-8">
+                    <div class="row int-protuct-txt1 content-color">
                       {{ form?.value["stocks"][i]?.product?.name }}
                     </div>
-                    <div class="row int-category-txt2 mb-2" style="padding-left: 15px;">
+                    <div class="row int-category-txt2 content-color">
                       {{ form?.value["stocks"][i]?.product?.name }}
                     </div>
-                    <div class="row int-amt-txt3 "style="padding-left:15px;">
-                      Exp. Amt. ₹
-                      {{
-                        stockGroup?.value?.quantity * stockGroup?.value?.price
-                      }}
+                    <div class="row int-amt-txt3 content-color">
+                      Exp. Amt.₹{{stockGroup?.value?.quantity * stockGroup?.value?.price}}
                     </div>
                   </div>
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="row mt-4">
-                  <div class="col-md-4 ">
-                    <label for="Username" class="form-label label-from "
-                      >Available Quantity</label
-                    >
+                <div class="row">
+                  <div class="col-md-4">
+                    <label for="Username" class="form-label label-from">Available Quantity</label>
                     <div class="input-group mb-3">
-                      <input
-                        type="number"
-                        class="form-control"
-                        aria-label="Username"
-                        id="qty"
-                        name="qty"
-                        formControlName="quantity"
-                        aria-describedby="basic-addon1"
-                      />
-                      <span class="input-group-text " id="basic-addon1">kg</span>
+                      <input type="number" class="form-control" aria-label="Username" id="qty" name="qty"
+                        formControlName="quantity" aria-describedby="basic-addon1" />
+                      <span class="input-group-text suffix-text" id="basic-addon1">kg</span>
                     </div>
                   </div>
 
                   <div class="col-md-4">
-                    <label for="Username" class="form-label label-from"
-                      >Market Price/kg</label
-                    >
+                    <label for="Username" class="form-label label-from">Market Price/kg</label>
                     <div class="input-group mb-3">
-                      <input
-                        type="number"
-                        class="form-control"
-                        formControlName="marketPrice"
-                        aria-label="Username"
-                        aria-describedby="basic-addon1"
-
-                      />
-                      <span class="input-group-text" id="basic-addon1">₹</span>
+                      <input type="number" class="form-control" formControlName="marketPrice" aria-label="Username"
+                        readonly aria-describedby="basic-addon1" />
+                      <span class="input-group-text suffix-text" id="basic-addon1">₹</span>
                     </div>
                   </div>
 
                   <div class="col-md-4">
-                    <label for="Username" class="form-label label-from"
-                      >Expected Price/kg</label
-                    >
+                    <label for="Username" class="form-label label-from">Expected Price/kg</label>
                     <div class="input-group mb-3">
-                      <input
-                        type="number"
-                        class="form-control"
-                        formControlName="price"
-                        aria-label="Username"
-                        aria-describedby="basic-addon1"
-                      />
-                      <span class="input-group-text" id="basic-addon1">₹</span>
+                      <input type="number" class="form-control grey-color" formControlName="price" aria-label="Username"
+                        aria-describedby="basic-addon1" />
+                      <span class="input-group-text suffix-text" id="basic-addon1">₹</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-1 mtop2 ">
-                <label class="file-upload mt-4">
-                  <input
-                    type="file"
-                    accept="image/*"
-                    (change)="onFileChange($event, 'icon', i)"
-                    style="display: none"
-                  />
-                  <img
-                    loading="lazy"
-                    [id]="'icon' + i"
-                    style="max-height: 50px; object-fit: cover"
-                    class="img-fluid rounded"
-                    src="assets/img/camera.png"alt="Girl in a jacket" width="30" height="40"
-                  />
+              <div class="col-md-1 mtop1">
+                <label class="file-upload">
+                  <input type="file" accept="image/*" (change)="onFileChange($event, 'icon', i)"
+                    style="display: none" />
+                  <img loading="lazy" [id]="'icon' + i" style="max-height: 50px; object-fit: cover"
+                    class="img-fluid rounded" src="assets/img/upload.png" />
                 </label>
               </div>
-              <div class="col-md-1 mtop2">
-                <label class="file-upload mt-4">
-                  <input
-                    type="file"
-                    accept="image/*"
-                    style="display: none"
-                    (change)="onFileChange($event, 'icon2', i)"
-                  />
-                  <img
-                    loading="lazy"
-                    style="max-height: 50px; object-fit: cover"
-                    class="img-fluid rounded"
-                    [id]="'icon2' + i"
-                    src="assets/img/camera.png"  alt="" width="30" height="40"
-                  />
+              <div class="col-md-1 mtop1">
+                <label class="file-upload">
+                  <input type="file" accept="image/*" style="display: none"
+                    (change)="onFileChange($event, 'icon2', i)" />
+                  <img loading="lazy" style="max-height: 50px; object-fit: cover" class="img-fluid rounded"
+                    [id]="'icon2' + i" src="assets/img/upload.png" />
                 </label>
               </div>
-              <div class="col-md-1 mtop1 mt-5">
-                <button type="button" class="btn btn-rounded mtop18 mtop3">
+              <div class="col-md-1 mtop1">
+                <button type="button" class="btn btn-rounded mtop18">
                   <i class="bi bi-trash"></i>
                 </button>
               </div>
@@ -141,10 +91,7 @@
             <div class="row">
               <div class="col-md-5"></div>
               <div class="col-md-6">
-                <button
-                  class="btn inv-product-text page-header"
-                  (click)="addProduct()"
-                >
+                <button class="btn inv-product-text page-header" (click)="addProduct()">
                   <i class="bi bi-plus-circle-fill"></i>
                   Add more products
                 </button>
@@ -152,28 +99,22 @@
             </div>
           </div>
           <div class="card-footer">
-            <div class="row mt-3">
-              <div class="col-md-8" >
+            <div class="row">
+              <div class="col-md-8">
                 <h5 class="page-header inv-product-text mtop2">
-                  Go to Dashboard >
+                  Go to Dashboard
                 </h5>
               </div>
 
-              <div class="col-md-2 mtop5" >
-                <button
-                  class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
-                  type="button"
-                >
+              <div class="col-md-2 mtop1">
+                <button class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width" type="button">
                   <b>Reset Changes</b>
                 </button>
               </div>
 
-              <div class="col-md-2 mtop5">
-                <button
-                  (click)="updateInventory()"
-                  class="btn btn-primary button-rounded f12 full-width bg-primary"
-                  type="button"
-                >
+              <div class="col-md-2 mtop1">
+                <button (click)="updateInventory()" class="btn btn-primary button-rounded f12 full-width bg-primary"
+                  type="button">
                   Update Inventory
                 </button>
               </div>

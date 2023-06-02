@@ -44,6 +44,11 @@ export class ApiConfigService {
     return `order/scrap/location/lat/${lat}/lon/${lng}`
   }
 
+  getCityAddress = (lat, lng) => {
+    return `user/unsecure/loc/${lat}/${lng}`
+  }
+
+
   getRoutes = (data: RoutesByFilter) => {
     return `order/scrap/route/d/${data.distance}/l/${data.lat}/ln/${data.lng}/p/${data.product}/q/${data.quantity}`;
   }

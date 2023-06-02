@@ -9,6 +9,8 @@ export class LeftBarComponent implements OnInit {
 
   @Input() inventories: any = [];
 
+  @Input() address:any = "Chennai";
+
   constructor() { }
 
   ngOnInit() {
