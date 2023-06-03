@@ -1,3 +1,18 @@
-<p>
-  transaction works!
-</p>
+<ng-container *ngIf="transactionStep==transactionStepsEnum.productDetails">
+  <app-product-details [pendingItems]="data" (onNextClick)="onProductDetailsResult($event)"></app-product-details>
+</ng-container>
+
+<ng-container *ngIf="transactionStep==transactionStepsEnum.quantity">
+  <app-quantity-details [pendingItems]="data" (onNextClick)="onQuantityDetailsResult($event)"></app-quantity-details>
+</ng-container>
+
+<ng-container *ngIf="transactionStep==transactionStepsEnum.paymentOption">
+  <app-type-transaction (onPaymentSelect)="paymentSelect($event)"></app-type-transaction>
+</ng-container>
+<ng-container *ngIf="transactionStep==transactionStepsEnum.rating">
+  <app-rating (onNextClick)="onRatingResult($event)"></app-rating>
+</ng-container>
+<ng-container *ngIf="transactionStep==transactionStepsEnum.reason">
+  <app-select-reasons (onNextClick)="onReasonClick($event)"></app-select-reasons>
+</ng-container>
+

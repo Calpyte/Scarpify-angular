@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog/public-api';
 
 @Component({
@@ -8,7 +8,8 @@ import { MatDialog } from '@angular/material/dialog/public-api';
 })
 export class ProductDetailsComponent implements OnInit {
   isViewDetail: boolean = false;
-  @Input() data: any;
+  @Input() pendingItems: any[];
+  @Output() onNextClick: EventEmitter<boolean> = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
@@ -17,6 +18,7 @@ export class ProductDetailsComponent implements OnInit {
   toggleMoreDetails = () => {
     this.isViewDetail = !this.isViewDetail;
   }
-
-
+  nextClick(event) {
+    this.onNextClick.emit(event);
+  }
 }

@@ -14,6 +14,7 @@ import { PlaceBidComponent } from './bid-create/place-bid/place-bid.component';
 import { BidCreateComponent } from './bid-create/bid-create.component';
 import { ReviewBidComponent } from './bid-create/review-bid/review-bid.component';
 import { TransactionComponent } from '../transaction/transaction.component';
+import { TransactionModule } from '../transaction/transaction.module';
 
 
 
@@ -33,7 +34,8 @@ import { TransactionComponent } from '../transaction/transaction.component';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    CommonSharedModule
+    CommonSharedModule,
+    TransactionModule
   ]
 })
 export class HomeModule { }

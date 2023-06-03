@@ -9,51 +9,40 @@
         Rate your Buyer
       </div>
     </div>
-    <div class="col-md-2" style="text-align: end">
-      <button class="btn" (click)="dialogRef.close()">x</button>
-    </div>
 
   </div>
 
 
-  <section >
+  <section>
     <div>
       <div class="row">
-        <div class="col-md-12 mt-3">
-          <div class="rate">
-            <input type="radio" id="star5" name="rate" value="5" />
-            <label for="star5" title="text">5 stars</label>
-            <input type="radio" id="star4" name="rate" value="4" />
-            <label for="star4" title="text">4 stars</label>
-            <input type="radio" id="star3" name="rate" value="3" />
-            <label for="star3" title="text">3 stars</label>
-            <input type="radio" id="star2" name="rate" value="2" />
-            <label for="star2" title="text">2 stars</label>
-            <input type="radio" id="star1" name="rate" value="1" />
-            <label for="star1" title="text">1 star</label>
-          </div>
-        </div>
+        <button mat-icon-button [color]="color" *ngFor="let ratingId of ratingArr;index as i" [id]="'star_'+i" (click)="onClick(i+1)"
+                [matTooltip]="'ratingId+1'" matTooltipPosition="above">
+          <mat-icon>
+            {{showIcon(i)}}
+          </mat-icon>
+        </button>
       </div>
 
-     </div>
+    </div>
 
 
 
-     <div class="row">
+    <div class="row">
       <div class="col-md-3">
       </div>
       <div class="col-md-12 txt-s2">
         Good Experience
-        </div>
+      </div>
     </div>
 
 
 
 
 
-         <div>
-          <textarea type="text" id="form7" class="md-textarea form-control box-t1"  placeholder ="Enter your feedback" mdbInput></textarea>
-      </div>
+    <div>
+      <textarea type="text" id="form7" class="md-textarea form-control box-t1" placeholder="Enter your feedback" mdbInput [(ngModel)]="review"></textarea>
+    </div>
 
   </section>
 
@@ -62,14 +51,12 @@
 
     <div class="col-md-12  mt-3 ">
       <div style="display: flex; gap: 3px">
-        <button
-          class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
-          type="button">
+        <button class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
+                type="button" (click)="actionClick('prev')">
           Prev
         </button>
-        <button
-          class="btn btn-secondary button-rounded f12 bg-primary page-header full-width"
-          type="button">
+        <button class="btn btn-secondary button-rounded f12 bg-primary page-header full-width"
+                type="button" (click)="actionClick('next')">
           Next
         </button>
       </div>

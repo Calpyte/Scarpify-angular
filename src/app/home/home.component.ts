@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from '../common/toastr/toastr.service';
 import { HttpClient } from '@angular/common/http';
 import { ApiConfigService } from '../common/api-config';
+import { TransactionService } from '../transaction/transaction.service';
 
 @Component({
   selector: 'app-home',
@@ -19,10 +20,10 @@ export class HomeComponent implements OnInit {
   address:any = "";
 
 
+  constructor(private toastrService: ToastrService, private http: HttpClient, private apiConfig: ApiConfigService
+              ) { }
 
-  constructor(private toastrService: ToastrService, private http: HttpClient, private apiConfig: ApiConfigService) { }
-
-  ngOnInit(): void {
+  async ngOnInit() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.location.lat = position.coords.latitude;
@@ -50,5 +51,6 @@ export class HomeComponent implements OnInit {
       this.address = res?.loc;
     })
   };
+
 
 }

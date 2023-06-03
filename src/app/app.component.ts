@@ -4,6 +4,7 @@ import jwt_decode from "jwt-decode";
 import { UserService } from './common/user-service/user.service';
 import { MatSidenav } from '@angular/material/sidenav';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
+import { TransactionService } from './transaction/transaction.service';
 
 
 @Component({
@@ -16,8 +17,9 @@ export class AppComponent implements OnInit {
   @ViewChild('drawer') sidenav: MatSidenav;
   isNavigating: boolean = false;
   pages: any = [];
+  pendingTransactions: any[] = [];
 
-  constructor(private cookieService: CookieService, private userService: UserService, private router: Router) {
+  constructor(private cookieService: CookieService, private userService: UserService, private router: Router, private transactionService: TransactionService) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         this.isNavigating = true;
@@ -136,7 +138,7 @@ export class AppComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     const token = this.cookieService.get("token");
     const refreshToken = this.cookieService.get("refreshToken");
     if (this.validateToken(token) && this.validateToken(refreshToken)) {
@@ -148,6 +150,8 @@ export class AppComponent implements OnInit {
         email: decoded['email'],
         role: roles.includes('ROLE_BUYER') ? 'buyer' : roles.includes('ROLE_SELLER') ? "seller" : null
       });
+      this.pendingTransactions = await this.getTransactionPending();
+      this.openPendingTransaction();
       // this.pages = this.userData ? this.buyerMenus : this.sellerMenus
     } else {
       this.cookieService.delete("token");
@@ -165,5 +169,17 @@ export class AppComponent implements OnInit {
 
   toggle = (event) => {
     this.sidenav.toggle()
+  }
+  async onLoginResult(event) {
+    if (event) {
+      this.pendingTransactions = await this.getTransactionPending();
+      this.openPendingTransaction();
+    }
+  }
+  async getTransactionPending() {
+    return await this.transactionService.getTransactionPending().toPromise();
+  }
+  openPendingTransaction() {
+    this.transactionService.openTransactionModal(this.pendingTransactions);
   }
 }

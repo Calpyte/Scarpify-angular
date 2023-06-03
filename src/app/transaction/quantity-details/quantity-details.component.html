@@ -1,17 +1,17 @@
 <!-- <p>
   quantity-details works!
 </p> -->
-
+<!--<pre>{{pendingItems[0].consumer.proposals|json}}</pre>-->
 <div>
   <section>
     <div>
       <div class="row">
         <div class="col-md-2">
-          <img loading="lazy" src="assets/img/garbage.png" height="75" />
+          <img loading="lazy" src="{{pendingItems[0]?.consumer?.image}}" height="75" />
         </div>
         <div class="col-md-8">
           <div class="row inv-products-f1">
-            <span>Garbage Crunchers</span>
+            <span>{{pendingItems[0]?.consumer?.firstName}} {{pendingItems[0]?.consumer?.lastName}}</span>
           </div>
           <div class="contact-text-align mt-1">
             <i class="fas fa-map-marker-alt"></i> Guinty
@@ -26,12 +26,12 @@
       </div>
       <h5 class="heading img-txt mt-1">Select the scrap products bought</h5>
 
-      <div class="row">
+      <div class="row" *ngFor="let proposal of pendingItems[0]?.consumer?.proposals">
         <div class="col-md-2">
-          <img loading="lazy" src="assets/img/metal.png" height="60" />
+          <img loading="lazy" src="{{proposal?.product?.image}}" height="60" />
         </div>
         <div class="col-md-4 inv-products-f1">
-          Aluminium
+          {{proposal?.product?.name}}
           <div>
             <h5>Metals</h5>
           </div>
@@ -47,78 +47,11 @@
                 type="number"
                 class="form-control"
                 aria-label="Username"
-                formControlName="qty"
+                
                 id="qty"
                 name="qty"
                 aria-describedby="basic-addon1"
-              />
-              <span class="input-group-text" id="basic-addon1">kg</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-2">
-          <img loading="lazy" src="assets/img/metal.png" height="60" />
-        </div>
-        <div class="col-md-4 inv-products-f1">
-          Brass
-          <div>
-            <h5>Metals</h5>
-          </div>
-        </div>
-        <div class="col-md-2">
-          <!-- <img loading="lazy" src="assets/img/metal.png" height="50" /> -->
-        </div>
-        <div class="col-md-4">
-          Purchased Quantity
-          <div>
-            <div class="input-group mb-3">
-              <input
-                type="number"
-                class="form-control"
-                aria-label="Username"
-                formControlName="qty"
-                id="qty"
-                name="qty"
-                aria-describedby="basic-addon1"
-              />
-              <span class="input-group-text" id="basic-addon1">kg</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-2">
-          <img
-            loading="lazy"
-            src="https://calpyte-scrapify.s3.ap-south-1.amazonaws.com/glass.png"
-            height="70"
-          />
-        </div>
-        <div class="col-md-4 inv-products-f1">
-          Bottles
-          <div>
-            <h5>Metals</h5>
-          </div>
-        </div>
-        <div class="col-md-2">
-          <!-- <img loading="lazy" src="assets/img/metal.png" height="50" /> -->
-        </div>
-        <div class="col-md-4">
-          Purchased Quantity
-          <div>
-            <div class="input-group mb-3">
-              <input
-                type="number"
-                class="form-control"
-                aria-label="Username"
-                formControlName="qty"
-                id="qty"
-                name="qty"
-                aria-describedby="basic-addon1"
+                [(ngModel)]="proposal.qty"
               />
               <span class="input-group-text" id="basic-addon1">kg</span>
             </div>
@@ -138,6 +71,7 @@
                 aria-label="Username"
                 id="qty"
                 name="qty"
+                [(ngModel)]="totalAmount"
               />
               <span class="input-group-text" id="basic-addon1">₹</span>
             </div>
@@ -152,13 +86,13 @@
           <div style="display: flex; gap: 3px">
             <button
               class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
-              type="button"
+              type="button" (click)="actionClick('prev')"
             >
               Prev
             </button>
             <button
               class="btn btn-secondary button-rounded f12 bg-primary page-header full-width"
-              type="button"
+              type="button" (click)="actionClick('next')"
             >
               Next
             </button>

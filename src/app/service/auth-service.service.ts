@@ -3,6 +3,7 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IndexedDBService } from './IndexedDB.service';
 import { CookieService } from 'ngx-cookie-service';
+import { environment } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +26,7 @@ export class AuthServiceService implements OnDestroy {
   }
 
   getToken = (): Observable<any> => {
-    const url = 'user/unsecure/token';
+    const url = environment.baseUrl + 'user/unsecure/token';
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       Accept: 'application/json',
@@ -45,7 +46,7 @@ export class AuthServiceService implements OnDestroy {
   };
 
   getRefreshToken = (): Observable<any> => {
-    const url = 'user/unsecure/token';
+    const url = environment.baseUrl + 'user/unsecure/token';
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       Accept: 'application/json',
@@ -62,7 +63,7 @@ export class AuthServiceService implements OnDestroy {
 
 
   login = (username: string, password: string): Observable<any> => {
-    const url = 'user/unsecure/access/token';
+    const url = environment.baseUrl+'user/unsecure/access/token';
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Accept': 'application/json'

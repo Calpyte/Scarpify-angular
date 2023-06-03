@@ -31,7 +31,7 @@ export class TokenInterceptor implements HttpInterceptor {
         && this.cookieService.get("token") != undefined
         && this.cookieService.get("token") != 'undefined'
         && request.headers.set('Authorization', `Bearer ${this.cookieService.get("token")}`),
-      url: environment.baseUrl + request.url
+      url: request.url
     });
     return next.handle(clonedRequest).pipe(
       catchError((error: HttpErrorResponse) => {
@@ -76,7 +76,7 @@ export class TokenInterceptor implements HttpInterceptor {
     if (token && token != 'undefined' && token != 'null' && token != undefined) {
       return request.clone({
         headers: request.headers.set('Authorization', `Bearer ${token}`),
-        url: environment.baseUrl + request.url
+        url: request.url
       });
     }
     return request;

@@ -13,6 +13,8 @@ export class HttpsApiService {
     return this.http.get<any[]>(url);
   }
 
-
+  post(data: any, url: any): Observable<any> {
+    return this.http.post<any[]>(url,data);
+  }
 
 }

@@ -22,6 +22,7 @@ export class TopBarComponent implements OnInit {
   @Input() selectedOption: string = "seller";
   userData: any = null;
   @Output() toggle: EventEmitter<any> = new EventEmitter();
+  @Output() loginResult: EventEmitter<any> = new EventEmitter();
   constructor(private verificationService: VerificationService, private userService: UserService, private cookieService: CookieService) { }
 
   ngOnInit(): void {
@@ -39,7 +40,10 @@ export class TopBarComponent implements OnInit {
   }
 
   login = () => {
-    this.verificationService.openLogin("/login");
+    let result = this.verificationService.openLogin("/login");
+    this.verificationService.currentMessage.subscribe(message => {
+      this.loginResult.emit(message);
+    });
   }
 
   logout = () => {

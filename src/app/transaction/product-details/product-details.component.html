@@ -1,11 +1,12 @@
 <!-- <p>
   product-details works!
 </p> -->
+<!--<pre>{{pendingItems|json}}</pre>-->
 <div>
   <div class="col-md-12">
     <div class="row">
       <div class="col-md-4 center">
-        <img loading="lazy" src="assets/img/right.PNG "  height="100">
+        <img loading="lazy" src="assets/img/right.PNG" height="100">
       </div>
 
     </div>
@@ -13,16 +14,16 @@
   <div>
 
   </div>
-  <section >
+  <section>
     <div>
       <h5 class="heading img-txt">Did the transaction with the buyer happen?</h5>
       <div class="row">
         <div class="col-md-3">
-          <img loading="lazy" src="assets/img/garbage.png" height="80" />
+          <img loading="lazy" src="{{pendingItems[0]?.consumer?.image}}" height="80" />
         </div>
         <div class="col-md-8 " style="margin-bottom: 0.2%;">
-          <div class="row inv-products-f1" style="padding-right: 10px; "  >
-           <span>Garbage Crunchers</span>
+          <div class="row inv-products-f1" style="padding-right: 10px; ">
+            <span>{{pendingItems[0]?.consumer?.firstName}} {{pendingItems[0]?.consumer?.lastName}}</span>
           </div>
           <div class="contact-text-align " style="padding-right: 10px; margin-bottom: 2%;">
             <i class='fas fa-map-marker-alt'></i> Guinty
@@ -36,40 +37,38 @@
 
       <hr style="border: solid 1px #000000" />
 
-     <div class="row">
-      <div class="col-md-2">
-        <i class='far fa-calendar-alt' style='font-size:46px'></i>
-      </div>
-      <div class="col-md-4 contact-text-align "  style="padding-right: 2px;">
-        Pickup Date
-        <div class="icon-t1" style="margin-right: 0.2%;" >
-          Sunday Apr30,2023
+      <div class="row">
+        <div class="col-md-2">
+          <i class='far fa-calendar-alt' style='font-size:46px'></i>
         </div>
-      </div>
+        <div class="col-md-4 contact-text-align " style="padding-right: 2px;">
+          Pickup Date
+          <div class="icon-t1" style="margin-right: 0.2%;">
+            {{pendingItems[0]?.consumer?.pickupDateTime | date:'mediumDate'}}
+          </div>
+        </div>
 
-      <div class="col-md-2 ">
-        <i class="fa fa-clock-o" style="font-size:46px"></i>
-      </div>
-      <div class="col-md-4 contact-text-align" style="padding-right: 2px;">
-        Time
-        <div class="icon-t1">
-          Between 2pm-5pm
+        <div class="col-md-2 ">
+          <i class="fa fa-clock-o" style="font-size:46px"></i>
+        </div>
+        <div class="col-md-4 contact-text-align" style="padding-right: 2px;">
+          Time
+          <div class="icon-t1">
+            {{pendingItems[0]?.consumer?.pickupDateTime | date:'mediumTime'}}
+          </div>
         </div>
       </div>
-      </div>
-     </div>
+    </div>
 
     <br />
     <div>
       <div style="display: flex; gap: 3px">
-        <button
-          class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
-          type="button">
+        <button class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
+                type="button" (click)="nextClick('no')">
           No
         </button>
-        <button
-          class="btn btn-secondary button-rounded f12 bg-primary page-header full-width"
-          type="button">
+        <button class="btn btn-secondary button-rounded f12 bg-primary page-header full-width"
+                type="button" (click)="nextClick('yes')">
           Yes
         </button>
       </div>
@@ -78,10 +77,9 @@
 
   <br />
   <div style="display: flex; gap: 3px">
-    <button
-          class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
-          type="button">
-          Postponed
-        </button>
+    <button class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
+            type="button" (click)="nextClick('postpond')">
+      Postponed
+    </button>
   </div>
 </div>

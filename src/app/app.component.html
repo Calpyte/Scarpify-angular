@@ -1,4 +1,4 @@
-<app-top-bar (toggle)="toggle($event)"></app-top-bar>
+<app-top-bar (toggle)="toggle($event)" (loginResult)="onLoginResult($event)"></app-top-bar>
 <div class="progress-overlay">
   <mat-progress-bar
     mode="indeterminate"

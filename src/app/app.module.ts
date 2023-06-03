@@ -14,6 +14,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { UserService } from './common/user-service/user.service';
 import { ToastrModule } from 'ngx-toastr';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { TransactionModule } from './transaction/transaction.module';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     MatFormFieldModule,
+    TransactionModule
   ],
   providers: [
     {

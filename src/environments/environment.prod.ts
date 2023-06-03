@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  baseUrl: "http://103.108.220.162:9002/"
+  baseUrl: "http://qa.scrapify.org.in:9000/",
+  ordersBaseUrl: "http://qa.scrapify.org.in:9002/"
 };
