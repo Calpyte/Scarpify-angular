@@ -1,16 +1,13 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { catchError } from 'rxjs';
-import { IndexedDBService } from 'src/app/service/IndexedDB.service';
 import { AuthServiceService } from 'src/app/service/auth-service.service';
-import { LoginService } from 'src/app/service/login.service';
-import { VerificationService } from '../verification.service';
 import { CookieService } from 'ngx-cookie-service';
 import jwt_decode from "jwt-decode";
 import { UserService } from '../user-service/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxOtpInputConfig } from 'ngx-otp-input';
+import { ToastrService } from '../toastr/toastr.service';
 
 @Component({
   selector: 'app-login',
@@ -43,6 +40,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthServiceService,
     private cookieService: CookieService,
     private userService: UserService,
+    private toastrService: ToastrService,
     private activatedRoute: ActivatedRoute,
     private router: Router) { }
 
@@ -82,16 +80,20 @@ export class LoginComponent implements OnInit {
         const token = this.cookieService.get("token");
         if (token) {
           const decoded = jwt_decode(token);
+          const roles = decoded['realm_access']['roles'];
           this.userService.updateData({
             userName: decoded['given_name'],
-            email: decoded['email']
+            email: decoded['email'],
+            role: roles.includes('ROLE_BUYER') ? 'buyer' : roles.includes('ROLE_SELLER') ? "seller" : null
           })
-        }
+        };
+        this.toastrService.showSuccess("Login success");
         this.close(true);
       },
       error: (err) => {
         this.cookieService.deleteAll();
         this.userService.updateData(null);
+        this.toastrService.showError("Login failed");
         this.close(false);
       }
     });

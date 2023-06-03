@@ -1,0 +1,51 @@
+<div class="map-container">
+  <div>
+    <agm-map
+      [latitude]="location?.lat"
+      [longitude]="location?.lng"
+      [zoom]="14"
+      style="height: 92vh"
+    >
+      <agm-marker
+        [latitude]="location?.lat"
+        [longitude]="location?.lng"
+        [markerDraggable]="false"
+      >
+        <agm-info-window #infowindow class="agm-info-window">
+          <p>Your Current Location</p>
+        </agm-info-window>
+      </agm-marker>
+
+      <agm-marker
+        [latitude]="marker?.displayLocation?.coordinates[0]"
+        [longitude]="marker?.displayLocation?.coordinates[1]"
+        [markerDraggable]="false"
+        [iconUrl]="icon"
+        *ngFor="let marker of mapData?.data"
+      >
+        <agm-info-window #infowindow class="agm-info-window">
+          <p>{{ marker?.seller?.firstName }}</p>
+        </agm-info-window>
+      </agm-marker>
+
+      <agm-circle
+        [latitude]="location?.lat"
+        [longitude]="location?.lng"
+        [radius]="distance * 1000"
+        [fillColor]="circleFillColor"
+        [strokeColor]="circleStrokeColor"
+        [fillOpacity]="circleFillOpacity"
+        [strokeWeight]="circleStrokeWeight"
+      >
+      </agm-circle>
+      <agm-polyline [strokeColor]="'#eb4034'" (lineClick)="onLineClick()">
+        <agm-polyline-point
+          [latitude]="point?.displayLocation?.coordinates[0]"
+          [longitude]="point?.displayLocation?.coordinates[1]"
+          *ngFor="let point of mapData?.data"
+        >
+        </agm-polyline-point>
+      </agm-polyline>
+    </agm-map>
+  </div>
+</div>

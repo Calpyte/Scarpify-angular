@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // baseUrl:"http://103.108.220.162:9002/"
-  baseUrl: "http://qa.scrapify.org.in:9111/"
+  baseUrl:"http://localhost:9111/"
+ // baseUrl: "http://qa.scrapify.org.in:9111/"
 };
 
 /*

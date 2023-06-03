@@ -1,18 +1,18 @@
-<div>
+<div style="overflow-y: none;">
   <div class="col-md-12">
     <div class="row">
       <div class="col-md-2">
-        <img loading="lazy" src="assets/img/garbage.png" height="50" />
+        <img loading="lazy" src="assets/img/Empty.png" height="50" />
       </div>
-      <div class="col-md-9">
+      <div class="col-md-9 mlft6">
         <div class="row inv-product-text">
-          <span>{{ data?.seller?.firstName }}</span>
+          <span class="lh20" style="font-weight: 400;">{{ data?.seller?.firstName }}</span>
         </div>
         <div class="row inv-amt-text">
-          <span><i class="bi bi-star-fill"></i>4.7 54K Reviews</span>
+          <span class="lh20"><i class="bi bi-star-fill"></i>4.7 54K Reviews</span>
         </div>
         <div class="row inv-category-text">
-          <span>Last posted {{ data?.seller?.lastUpdated }}</span>
+          <span class="lh20">Last posted {{ data?.lastUpdated }}</span>
         </div>
       </div>
     </div>
@@ -21,25 +21,19 @@
     <table class="table">
       <thead>
         <tr>
-          <td>Scrap Type</td>
-          <td>Qty</td>
-          <td>Market Price</td>
-          <td>Expected Price</td>
+          <td class="tbl-header">Scrap Type</td>
+          <td class="tbl-header">Qty</td>
+          <td class="tbl-header">Exp. Price</td>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let stock of data?.stock">
           <td>
-            <img
-              loading="lazy"
-              src="assets/img/garbage.png"
-              height="35"
-            />&nbsp;
-            <span>{{ stock?.name }}</span>
+            <img loading="lazy" src="assets/img/metal.png" height="20" />&nbsp;
+            <span class="bold">{{ stock?.name }}</span>
           </td>
-          <td>{{ stock?.quantity }} kg</td>
-          <td>₹{{ stock?.price }}</td>
-          <td>₹{{ stock?.price }}/kg</td>
+          <td class="right-align">{{ stock?.quantity }} kg</td>
+          <td class="right-align">₹{{ stock?.price }}/kg</td>
         </tr>
       </tbody>
     </table>
@@ -57,15 +51,13 @@
     <div>
       <h5 class="heading">Seller Location</h5>
       <div style="display: flex; gap: 3px">
-        <div
-          style="
+        <div style="
             width: 50%;
             height: 100px;
             background-color: lightgray;
             display: grid;
             place-items: center;
-          "
-        >
+          ">
           Location Marker
         </div>
         <div>Guindy Chennai-600 238 TamilNadu</div>
@@ -75,18 +67,12 @@
 
   <br />
   <div style="display: flex; gap: 3px">
-    <button
-      class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width"
-      type="button"
-      (click)="toggleMoreDetails()"
-    >
+    <button class="btn btn-secondary button-rounded f12 bg-secondary page-header full-width" type="button"
+      (click)="toggleMoreDetails()">
       View {{ isViewDetail ? "Less" : "Details" }}
     </button>
-    <button
-      class="btn btn-secondary button-rounded f12 bg-primary page-header full-width"
-      type="button"
-      (click)="placeBid.emit(data)"
-    >
+    <button class="btn btn-secondary button-rounded f12 bg-primary page-header full-width" type="button"
+      (click)="handleBid()">
       Place Bid
     </button>
   </div>

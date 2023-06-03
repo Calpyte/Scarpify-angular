@@ -14,7 +14,7 @@ top: 265.24px;
 font-family: 'Inter Tight';
 font-style: normal;
 font-weight: 500;
-font-size: 13px;
+font-size: 14px;
 line-height: 130%;
 text-align: center;
 color: #3B4357;
@@ -25,13 +25,15 @@ color: #3B4357;
 }
 .contact-text-align{
   font-style: normal;
-font-weight: 400;
-font-size: 12px;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+color: #818694;
 }
 .inv-products-font{
 
   font-weight: 500;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 22px;
   color: #3B4357;
 }
@@ -39,7 +41,7 @@ font-size: 12px;
 .inv-products-f1{
   font-style: normal;
 font-weight: 600;
-font-size: 18px;
+font-size: 20px;
 line-height: 29px;
 color: #3B4357;
 
@@ -50,7 +52,7 @@ color: #3B4357;
 .icon-t1{
   font-style: normal;
 font-weight: 600;
-font-size: 11px;
+font-size: 13px;
 line-height: 22px;
 color: #3B4357;
 }
@@ -73,4 +75,32 @@ color: #3B4357;
 
 .bg-primary {
   background-color: #005a7b !important;
+}
+
+
+.mtop4 {
+  margin-top: 4%;
+}
+
+.mtop2 {
+  margin-top: 2px;
+}
+
+.mtop3 {
+  margin-top: 3%;
+}
+
+
+.mtop1 {
+  margin-top: 1.5%;
+}
+
+.mtop3 {
+  margin-top: -3%;
+}
+
+.image {
+
+  width: 7px;
+  height: 5   px;
 }

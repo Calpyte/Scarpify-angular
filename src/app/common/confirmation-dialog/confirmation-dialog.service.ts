@@ -13,7 +13,8 @@ export class ConfirmationDialogService {
     return this.dialog.open(ConfirmationDialogComponent, {
       minWidth: '400px',
       data: data,
-      disableClose: true
+      disableClose: true,
+      position: { top: '2px' }
     });
   }
 

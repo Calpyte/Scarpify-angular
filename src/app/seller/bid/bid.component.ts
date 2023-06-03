@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { BidService } from './bid.service';
 import { ToastrService } from 'src/app/common/toastr/toastr.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MessageBoxComponent } from './message-box/message-box.component';
+import { ConfirmationDialogService } from 'src/app/common/confirmation-dialog/confirmation-dialog.service';
 
 
 @Component({
@@ -56,7 +59,11 @@ export class BidComponent implements OnInit {
   selectedTab: any = this.tabs[0];
   selectedBid: any = null;
 
-  constructor(private bidService: BidService, private toastrService: ToastrService) { }
+  constructor(
+    private bidService: BidService,
+    private toastrService: ToastrService,
+    public dialog: MatDialog,
+    private confirmationDialogService: ConfirmationDialogService) { }
 
   ngOnInit() {
     this.getMyBids();
@@ -93,7 +100,7 @@ export class BidComponent implements OnInit {
     } else if (action === "close") {
       this.isDetail = false;
     } else if (action === 'modify') {
-      this.modifyBid(selectedBid?.id, null);
+      this.modifyBid(selectedBid);
     } else if (action === 'reject') {
       this.rejectBid(selectedBid?.id);
     } else if (action === 'accept') {
@@ -102,27 +109,53 @@ export class BidComponent implements OnInit {
   }
 
   acceptBid = (id) => {
-    this.bidService.acceptBid(id).subscribe((res) => {
-      this.toastrService.showSuccess("Bid accepted successfully !");
-      this.getMyBids();
-      this.isDetail = false;
+    this.confirmationDialogService.openModal({ title: "Are you sure to accept this bid ?" }).afterClosed().subscribe((res) => {
+      if (res) {
+        this.bidService.acceptBid(id).subscribe((res) => {
+          this.toastrService.showSuccess("Bid accepted successfully !");
+          this.getMyBids();
+          this.isDetail = false;
+        })
+      }
     })
+
   }
 
   rejectBid = (id) => {
-    this.bidService.rejectBid(id).subscribe((res) => {
-      this.toastrService.showSuccess("Bid rejected successfully !");
-      this.getMyBids();
-      this.isDetail = false;
+    this.confirmationDialogService.openModal({ title: "Are you sure to reject this bid ?" }).afterClosed().subscribe((res) => {
+      if (res) {
+        this.bidService.rejectBid(id).subscribe((res) => {
+          this.toastrService.showSuccess("Bid rejected successfully !");
+          this.getMyBids();
+          this.isDetail = false;
+        })
+      }
     })
+
   }
 
-  modifyBid = (id, data) => {
-    this.bidService.modifyBid(id, data).subscribe((res) => {
-      this.toastrService.showSuccess("Bid modified successfully !");
-      this.getMyBids();
-      this.isDetail = false;
-    })
+  modifyBid = (selectedBid) => {
+    this.dialog.closeAll();
+    this.dialog.open(MessageBoxComponent, {
+      data: selectedBid,
+      position: { right: '0', top: '0' },
+      minHeight: '100vh',
+      maxWidth: '350px',
+      hasBackdrop: false
+    }).afterClosed().subscribe((res) => {
+      if (res) {
+        let message = {
+          "id": selectedBid?.id,
+          "message": res,
+          "dateTime": new Date()
+        }
+        this.bidService.modifyBid(selectedBid?.id, message).subscribe((res) => {
+          this.toastrService.showSuccess("Bid modified successfully !");
+          this.getMyBids();
+          this.isDetail = false;
+        });
+      }
+    });
   }
 
   detailAction = (event) => {

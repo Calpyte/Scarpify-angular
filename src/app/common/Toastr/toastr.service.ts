@@ -15,7 +15,7 @@ export class ToastrService {
     this.toastr.success(message, title, this.options);
   }
 
-  showError(message: string, title: string): void {
+  showError(message: string = '', title: string = ''): void {
     this.toastr.error(message, title, this.options);
   }
 

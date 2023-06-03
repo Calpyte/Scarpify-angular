@@ -1,12 +1,20 @@
 <!-- <p>
   rating works!
 </p> -->
+<!-- <p style="font-size: 0.4rem;">testing</p> -->
 <div>
-  <div class="col-md-12">
-    <div class="txt-s1">
-      Rate your Buyer
+  <div class="row">
+    <div class="col-md-10">
+      <div class="txt-s1">
+        Rate your Buyer
+      </div>
     </div>
+    <div class="col-md-2" style="text-align: end">
+      <button class="btn" (click)="dialogRef.close()">x</button>
+    </div>
+
   </div>
+
 
   <section >
     <div>
@@ -42,17 +50,13 @@
 
 
 
-    <div>
 
-         <!-- class="box-t1 input" -->
          <div>
           <textarea type="text" id="form7" class="md-textarea form-control box-t1"  placeholder ="Enter your feedback" mdbInput></textarea>
-
       </div>
-    </div>
+
   </section>
 
-  <br />
   <div class="row">
 
 
