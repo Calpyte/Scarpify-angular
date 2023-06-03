@@ -6,23 +6,26 @@
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   width: 100%;
 }
+
 .heading{
   font-style: normal;
-  font-weight: 700;
-  font-size: 22px;
+  font-weight: 600;
+  font-size: 16px;
   line-height: 27px;
   color: #005A7B;
 }
+
 .col-flex{
   display: flex; flex-direction: column; gap: 0px;
 }
 .col-flex-outer{
   display: flex; flex-direction: column; gap: 10px;
 }
+
 .form-field-txt{
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 19px;
   color: #818694;
 }
@@ -30,7 +33,7 @@
 .form-control , .form-control:hover{
   box-shadow: none;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 14px;
   line-height: 16px;
   color: #3B4357;
 }
@@ -44,7 +47,7 @@
 
 ::ng-deep .mat-select-value, ::ng-deep .mat-select-placeholder {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 14px;
   line-height: 16px;
   color: #3B4357;
 }
@@ -56,7 +59,7 @@
  }
  .form-select , .form-select:hover {
    box-shadow: none;
-   font-size: 20px;
+   font-size: 14px;
    font-weight: 700;
    color: #3B4357;
    /* color: #3B4357; */
@@ -120,7 +123,7 @@ mat-option{
 }
 .content-txt{
   font-weight: 600;
-  font-size: 20px;
+  font-size: 14px;
   line-height: 16px;
   color: #3B4357;
 }
@@ -150,19 +153,21 @@ mat-option{
 
 .container-heading-txt{
   font-weight: 700;
-  font-size: 24px;
+  font-size: 14px;
   line-height: 29px;
   color: #005A7B;
 }
+
 .container-sub-txt{
   font-weight: 400;
-  font-size: 20px;
+  font-size: 12px;
   line-height: 24px;
   color: #818694;
 }
+
 .btn-txt{
   font-weight: 700;
-  font-size: 18px;
+  font-size: 14px;
   color: #FFFFFF;
   text-align: center;
 }

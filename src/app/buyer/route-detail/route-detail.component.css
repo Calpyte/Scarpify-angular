@@ -1,81 +1,87 @@
-.seller-container{
+.seller-container {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   margin-bottom: 10px;
 }
 
-.detail-container{
- width: 288px;
- height: 78.65px;
- display: flex;
- gap: 10px;
- align-items: stretch;
+.detail-container {
+  width: 288px;
+  height: 78.65px;
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
 }
 
-.detail-inner-container{
- display: flex;
- flex-direction: column;
- align-items: start;
- justify-content: flex-start;
+.detail-inner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-start;
 }
 
-.heading{
- font-weight: 700;
- font-size: 22px;
- line-height: 27px;
- color: #005A7B;
+.heading {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 27px;
+  color: #005A7B;
 }
 
-.seller-name-txt{
- font-weight: 600;
- font-size: 20px;
- margin-top: 3px;
- line-height: 24px;
- color: #3B4357;
+.seller-name-txt {
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 1px;
+  line-height: 24px;
+  color: #3B4357;
 }
-.rating-txt{
- font-weight: 600;
- font-size: 16px;
- line-height: 19px;
- margin-top: -6px;
- text-align: right;
- color: #3B4357;
+
+.rating-txt {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 19px;
+  text-align: right;
+  color: #3B4357;
+  margin-top: -6px;
 }
-.review-txt{
- font-weight: 400;
- font-size: 16px;
- margin-top: -6px;
- line-height: 19px;
- color: #3B4357;
+
+.review-txt {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 19px;
+  color: #3B4357;
+  margin-top: -6px;
 }
-.last-posted-txt{
- font-weight: 400;
- font-size: 16px;
- margin-top: -5px;
- line-height: 19px;
- color: #818694;
+
+.last-posted-txt {
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: -5px;
+  line-height: 19px;
+  color: #818694;
 }
+
 ::ng-deep .mat-checkbox-ripple .mat-ripple-element {
- background-color: #00ca91 !important;
+  background-color: #00ca91 !important;
 }
 
 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
- background-color: #00ca91 !important;
+  background-color: #00ca91 !important;
 }
 
 ::ng-deep .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
- background-color: #00ca91 !important;
+  background-color: #00ca91 !important;
 }
-.bid-btn{
- width: 100%;
- background: #005A7B;
- color: white;
- border-radius: 31px;
- padding: 4% 5%;
+
+.bid-btn {
+  width: 100%;
+  background: #005A7B;
+  color: white;
+  border-radius: 31px;
+  padding: 4% 5%;
 
 }
-.edit-btn{
+
+.edit-btn {
   width: 100%;
   background: #005A7B;
   color: white;
@@ -84,12 +90,14 @@
   border-radius: 31px;
   padding: 4% 5%;
 }
-.edit-btn:hover{
+
+.edit-btn:hover {
   opacity: 0.9;
 }
-.btn-txt{
+
+.btn-txt {
   font-weight: 700;
-  font-size: 18px;
+  font-size: 14px;
   color: #FFFFFF;
   text-align: center;
 }
@@ -104,15 +112,16 @@
  z-index: 3;
  margin-bottom: -1;
 } */
-.label-txt{
+.label-txt {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 19px;
   color: #818694;
 }
-.content-txt{
+
+.content-txt {
   font-weight: 600;
-  font-size: 20px;
+  font-size: 14px;
   line-height: 16px;
   color: #3B4357;
 }
