@@ -12,6 +12,8 @@ export class ConsumerDetailsComponent implements OnInit {
   @Output() placeBid: EventEmitter<any> = new EventEmitter();
   @Input() data: any;
 
+  popupCoordinates: { left: string, top: string } = { left: '0', top: '0' };
+
   userData: any = null;
 
 
@@ -22,7 +24,7 @@ export class ConsumerDetailsComponent implements OnInit {
       } else {
         this.userData = null;
       }
-    })
+    });
   }
 
   ngOnInit() {
@@ -30,6 +32,7 @@ export class ConsumerDetailsComponent implements OnInit {
   }
 
   toggleMoreDetails = () => {
+    //this.location.reload();
     this.isViewDetail = !this.isViewDetail;
   }
 

@@ -53,3 +53,12 @@ thead {
 .right-align{
   text-align: right;
 }
+
+
+.map-container{
+  position: relative;
+}
+
+.gm-style .gm-style-iw-c{
+  top: 100px !important;
+}

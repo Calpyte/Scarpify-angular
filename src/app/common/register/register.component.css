@@ -36,3 +36,15 @@ mat-dialog-content{
   margin: 0;
   padding: 0;
 }
+
+
+.page-header {
+  color: #005a7b;
+}
+
+.skip{
+  font-size: 16px;
+  font-family: bold;
+  text-decoration: none;
+  color: #005a7b;
+}

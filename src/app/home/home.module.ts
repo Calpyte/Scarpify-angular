@@ -28,7 +28,7 @@ import { TransactionComponent } from '../transaction/transaction.component';
     DetailDialogComponent,
     PlaceBidComponent,
     BidCreateComponent,
-    ReviewBidComponent,TransactionComponent
+    ReviewBidComponent,
   ],
   imports: [
     CommonModule,

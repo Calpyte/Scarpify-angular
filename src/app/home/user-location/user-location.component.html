@@ -5,9 +5,9 @@
 
     <agm-marker *ngFor="let inventory of inventories; let i = index"
       [latitude]="inventory?.displayLocation?.coordinates[0]" [longitude]="inventory?.displayLocation?.coordinates[1]"
-      [iconUrl]="icon" [markerDraggable]="false">
+      [iconUrl]="icon" [markerDraggable]="false" (markerClick)="openInfoWindow(infoWindow)">
 
-      <agm-info-window class="agm-info-window">
+      <agm-info-window class="agm-info-window" #infoWindow>
         <app-consumer-details [data]="inventory" (placeBid)="placeBid($event)"></app-consumer-details>
       </agm-info-window>
 

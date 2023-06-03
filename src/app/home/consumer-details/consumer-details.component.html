@@ -1,4 +1,4 @@
-<div style="overflow-y: none;">
+<div class="map-container">
   <div class="col-md-12">
     <div class="row">
       <div class="col-md-2">
@@ -38,7 +38,8 @@
       </tbody>
     </table>
   </div>
-  <section *ngIf="isViewDetail">
+  <section *ngIf="isViewDetail" class="popup">
+
     <div>
       <h5 class="heading">Images</h5>
       <div style="display: flex; flex-wrap: wrap; gap: 3px">
