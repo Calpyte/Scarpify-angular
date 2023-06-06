@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
 import { ApiConfigService } from 'src/app/common/api-config';
 import { RouteDetailComponent } from '../route-detail/route-detail.component';
+import { BidByRoutesComponent } from '../route-location/bid-by-routes/bid-by-routes.component';
 
 
 
@@ -59,6 +60,16 @@ export class BuyerLeftBarComponent implements OnInit {
     this.isEdit = true;
   }
 
+  placeBid = () => {
+    this.dialog.open(BidByRoutesComponent, {
+      width: '75%',
+      data: { routeData: this.routeList[this.selectedRoute], formData: this.form },
+      hasBackdrop: true,
+    }).afterClosed().subscribe((res) => {
+
+    })
+  }
+
   openDetail = (data) => {
     this.dialog.open(RouteDetailComponent, {
       width: '25%',
@@ -70,6 +81,8 @@ export class BuyerLeftBarComponent implements OnInit {
     }).afterClosed().subscribe((res) => {
       if (res && res === 'edit') {
         this.isEdit = true;
+      } else if (res && res === 'place-bid') {
+        this.placeBid();
       }
       console.log(res)
     })
