@@ -39,7 +39,7 @@ export class ApiConfigService {
   //Dynmaic Routes
 
   acceptBid = (id) => {
-    return this.baseUrl +`order/bid/${id}/accept`;
+    return this.baseUrl + `order/bid/${id}/accept`;
   };
 
   saveTransaction(id) {
@@ -47,24 +47,24 @@ export class ApiConfigService {
   }
 
   rejectBid = (id) => {
-    return this.baseUrl +`order/bid/${id}/reject`;
+    return this.baseUrl + `order/bid/${id}/reject`;
   };
 
   modifyBid = (id) => {
-    return this.baseUrl +`order/bid/${id}/seller/modify`;
+    return this.baseUrl + `order/bid/${id}/seller/modify`;
   };
 
   getNearBySellers = (lat, lng) => {
-    return this.baseUrl +`order/scrap/location/lat/${lat}/lon/${lng}`
+    return this.baseUrl + `order/scrap/location/lat/${lat}/lon/${lng}`
   }
 
   getCityAddress = (lat, lng) => {
-    return this.baseUrl +`user/unsecure/loc/${lat}/${lng}`
+    return this.baseUrl + `user/unsecure/loc/${lat}/${lng}`
   }
 
 
   getRoutes = (data: RoutesByFilter) => {
-    return `order/scrap/route/d/${data.distance}/l/${data.lat}/ln/${data.lng}/p/${data.product}/q/${data.quantity}`;
+    return this.baseUrl + `order/scrap/route/d/${data.distance}/l/${data.lat}/ln/${data.lng}/p/${data.product}/q/${data.quantity}`;
   }
 
   // 'order/scrap/route/d/100/l/9.6064532/ln/77.9394303/p/0919d4cc-efe9-11ed-a05b-0242ac120003/q/32';

@@ -21,11 +21,12 @@
         [longitude]="marker?.displayLocation?.coordinates[1]"
         [markerDraggable]="false"
         [iconUrl]="icon"
-        *ngFor="let marker of mapData?.data"
+        (markerClick)="onLineClick()"
+        *ngFor="let marker of mapData?.routeData?.data"
       >
-        <agm-info-window #infowindow class="agm-info-window">
+        <!-- <agm-info-window #infowindow class="agm-info-window">
           <p>{{ marker?.seller?.firstName }}</p>
-        </agm-info-window>
+        </agm-info-window> -->
       </agm-marker>
 
       <agm-circle
@@ -38,11 +39,16 @@
         [strokeWeight]="circleStrokeWeight"
       >
       </agm-circle>
-      <agm-polyline [strokeColor]="'#eb4034'" (lineClick)="onLineClick()">
+      <agm-polyline
+        [strokeColor]="'#005A7B'"
+        (polylineClick)="onLineClick()"
+        [clickable]="true"
+        [zIndex]="20"
+      >
         <agm-polyline-point
           [latitude]="point?.displayLocation?.coordinates[0]"
           [longitude]="point?.displayLocation?.coordinates[1]"
-          *ngFor="let point of mapData?.data"
+          *ngFor="let point of mapData?.routeData?.data"
         >
         </agm-polyline-point>
       </agm-polyline>

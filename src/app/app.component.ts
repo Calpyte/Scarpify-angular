@@ -150,8 +150,8 @@ export class AppComponent implements OnInit {
         email: decoded['email'],
         role: roles.includes('ROLE_BUYER') ? 'buyer' : roles.includes('ROLE_SELLER') ? "seller" : null
       });
-      this.pendingTransactions = await this.getTransactionPending();
-      this.openPendingTransaction();
+      // this.pendingTransactions = await this.getTransactionPending();
+      // this.openPendingTransaction();
       // this.pages = this.userData ? this.buyerMenus : this.sellerMenus
     } else {
       this.cookieService.delete("token");

@@ -8,6 +8,8 @@ import { BuyerLeftBarComponent } from './buyer-left-bar/buyer-left-bar.component
 import { RouteLocationComponent } from './route-location/route-location.component';
 import { BuyerService } from './buyer.service';
 import { RouteDetailComponent } from './route-detail/route-detail.component';
+import { RouteDialogComponent } from './route-location/route-dialog/route-dialog.component';
+import { BidByRoutesComponent } from './route-location/bid-by-routes/bid-by-routes.component';
 
 @NgModule({
   imports: [
@@ -20,7 +22,9 @@ import { RouteDetailComponent } from './route-detail/route-detail.component';
     BidByCategoryComponent,
     BuyerLeftBarComponent,
     RouteLocationComponent,
-    RouteDetailComponent
+    RouteDetailComponent,
+    RouteDialogComponent,
+    BidByRoutesComponent
   ],
   providers: [
     BuyerService

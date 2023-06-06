@@ -39,8 +39,9 @@ export class BuyerLeftBarComponent implements OnInit {
 
   handleRoutes(index) {
     this.selectedRoute = index;
-    this.selected.emit(this.routeList[index]);
-    this.openDetail({ routeData: this.routeList[index], formData: this.form });
+    let data = { routeData: this.routeList[index], formData: this.form }
+    this.selected.emit(data);
+    this.openDetail(data);
   }
 
   search = () => {

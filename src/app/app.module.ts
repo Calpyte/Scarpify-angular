@@ -9,12 +9,12 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TokenInterceptor } from './common/Interceptor/token.interceptor';
 import { CommonModule } from '@angular/common';
-import { AuthServiceService } from './service/auth-service.service';
 import { CookieService } from 'ngx-cookie-service';
 import { UserService } from './common/user-service/user.service';
 import { ToastrModule } from 'ngx-toastr';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { TransactionModule } from './transaction/transaction.module';
+import { BuyerService } from './buyer/buyer.service';
 
 
 @NgModule({

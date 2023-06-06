@@ -1,0 +1,189 @@
+<div [ngClass]="step === 0 ? 'block' : 'none'">
+  <div>
+    <div style="display: flex; justify-content: space-between">
+      <div style="display: flex; gap: 10px">
+        <img loading="lazy" src="assets/img/metal.png" height="60" />
+        <div class="col">
+          <h3>{{ formData?.selectedCategory?.name }}</h3>
+          <p>{{ formData?.selectedProduct?.name }}</p>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 30px; flex-wrap: wrap">
+        <div>
+          <h3>Qty</h3>
+          <p>{{ formData?.selectedQuantity }} kg</p>
+        </div>
+        <div>
+          <h3>Distance</h3>
+          <p>{{ formData?.selectedDistance }} km</p>
+        </div>
+        <div>
+          <h3>Est.Amt</h3>
+          <p>₹ {{ totalAmount }}</p>
+        </div>
+      </div>
+      <div>
+        <button mat-icon-button><mat-icon>close</mat-icon></button>
+      </div>
+    </div>
+  </div>
+  <hr class="ruler" />
+  <mat-dialog-content class="mat-typography" style="margin: 0; padding: 0">
+    <form
+      [formGroup]="$any(bidGroup)"
+      *ngFor="let bidGroup of bidsArray.controls; let i = index"
+    >
+      <div
+        class="row d-flex align-items-center"
+        style="margin: 0; padding: 0; margin-bottom: 1%"
+      >
+        <div class="col-md-3 col-sm-12">
+          <div class="row">
+            <div class="col-3">
+              <img
+                loading="lazy"
+                src="assets/img/garbage.png"
+                height="60"
+              />&nbsp;
+            </div>
+            <div class="col-9">
+              <div class="row lg-txt">
+                <span>{{ bidGroup?.value?.detail?.seller?.firstName }}</span>
+              </div>
+              <div class="row sm-txt">
+                <span
+                  >Last Updated {{ bidGroup?.value?.detail?.lastUpdated }}</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-9 col-sm-12">
+          <div class="row">
+            <div class="col-md-2 col-sm-6 col-xs-6">
+              <label for="Username" class="form-label form-text"
+                >Available Qty</label
+              >
+              <div class="input-group mb-3">
+                <input
+                  type="number"
+                  class="form-control read-only"
+                  aria-label="availableQty"
+                  id="availableQty"
+                  formControlName="availableQty"
+                  name="availableQty"
+                  readonly
+                  aria-describedby="basic-addon1"
+                />
+                <span class="input-group-text" id="basic-addon1">kg</span>
+              </div>
+            </div>
+
+            <div class="col-md-2 col-sm-6 col-xs-6">
+              <label for="Username" class="form-label form-text"
+                >Requested Qty</label
+              >
+              <div class="input-group mb-3">
+                <input
+                  type="number"
+                  class="form-control"
+                  aria-label="requestedQty"
+                  formControlName="requestedQty"
+                  id="requestedQty"
+                  name="requestedQty"
+                  aria-describedby="basic-addon1"
+                />
+                <span class="input-group-text" id="basic-addon1">kg</span>
+              </div>
+            </div>
+
+            <div class="col-md-2 col-sm-6 col-xs-6">
+              <label for="Username" class="form-label form-text"
+                >Market Price/kg</label
+              >
+              <div class="input-group mb-3">
+                <input
+                  type="number"
+                  class="form-control read-only"
+                  formControlName="marketPrice"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                  readonly
+                />
+              </div>
+            </div>
+
+            <div class="col-md-2 col-sm-6 col-xs-6">
+              <label for="Username" class="form-label form-text"
+                >Expected Price/kg</label
+              >
+              <div class="input-group mb-3">
+                <input
+                  type="number"
+                  class="form-control read-only"
+                  aria-label="expectedPrice"
+                  readonly
+                  formControlName="expectedPrice"
+                  aria-describedby="basic-addon1"
+                />
+                <span class="input-group-text" id="basic-addon1">₹</span>
+              </div>
+            </div>
+
+            <div class="col-md-2 col-sm-6 col-xs-6">
+              <label for="Username" class="form-label form-text"
+                >Bid Price/kg</label
+              >
+              <div class="input-group mb-3">
+                <input
+                  type="number"
+                  class="form-control"
+                  formControlName="bidPrice"
+                  aria-label="bidPrice"
+                  aria-describedby="basic-addon1"
+                />
+                <span class="input-group-text" id="basic-addon1">₹</span>
+              </div>
+            </div>
+
+            <div class="col-md-2 col-sm-6 col-xs-6">
+              <label for="Username" class="form-label form-text"
+                >Total Amount</label
+              >
+              <div>
+                <span id="basic-addon1"
+                  >₹
+                  {{
+                    bidGroup?.value?.requestedQty * bidGroup?.value?.bidPrice
+                  }}</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="d-flex justify-content-end">
+      <h3 class="footer-txt">
+        Estimated Bid Amt. &nbsp;<span style="font-size: 24px"
+          >₹ {{ totalAmount }}</span
+        >
+      </h3>
+    </div>
+  </mat-dialog-content>
+  <hr class="ruler" />
+  <mat-dialog-actions class="d-flex justify-content-end">
+    <div>
+      <button
+        class="btn btn-secondary button-rounded f12 bg-primary page-header full-width"
+        type="button"
+        (click)="reviewBid()"
+      >
+        Review Bid
+      </button>
+    </div>
+  </mat-dialog-actions>
+</div>
+<div [ngClass]="step === 1 ? 'block' : 'none'"></div>

@@ -1,0 +1,57 @@
+<div>
+  <div class="row header mb-3">
+    <div class="col-md-2">
+      <img loading="lazy" src="assets/img/Empty.png" height="50" />
+    </div>
+    <div class="col-md-6">
+      <p>{{ routeData?.name }}</p>
+      <p>{{ routeData?.km }} km . {{ routeData?.noOfSellers }} sellers</p>
+    </div>
+    <div class="col-md-4" style="text-align: end">
+      <i class="bi bi-x-lg" (click)="dialogRef.close()"></i>
+      <p>{{ routeData?.quantity }} kg</p>
+    </div>
+  </div>
+  <mat-dialog-content>
+    <div class="selected-fields row">
+      <div class="col-md-6 mb-2">
+        <div class="col-flex">
+          <p class="label-txt">Category</p>
+          <p class="content-txt">
+            {{ formData.selectedCategory?.name || "none" }}
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6 mb-2">
+        <div class="col-flex">
+          <p class="label-txt">Subcategory</p>
+          <p class="content-txt">
+            {{ formData.selectedProduct?.name || "none" }}
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6 mb-2">
+        <div class="col-flex">
+          <p class="label-txt">Required Qty</p>
+          <p class="content-txt">{{ formData.selectedQuantity }} kg</p>
+        </div>
+      </div>
+      <div class="col-md-6 mb-2">
+        <div class="col-flex">
+          <p class="label-txt">Distance Range</p>
+          <p class="content-txt">{{ formData.selectedDistance }} km</p>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions
+    style="display: flex; width: 100%; justify-content: space-between"
+  >
+    <div style="width: 45%">
+      <button class="btn-1">View More</button>
+    </div>
+    <div style="width: 48%">
+      <button class="btn-2" (click)="placeBid()">Place Bid</button>
+    </div>
+  </mat-dialog-actions>
+</div>

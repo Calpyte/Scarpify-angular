@@ -18,7 +18,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 export class RouteDetailComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<any>,
-    @Inject(MAT_DIALOG_DATA) public data: any,) { }
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
   }
