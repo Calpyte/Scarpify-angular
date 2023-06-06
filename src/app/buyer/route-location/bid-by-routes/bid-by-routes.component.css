@@ -60,3 +60,9 @@
   line-height: 24px;
   color: #005A7B;
 }
+.block {
+  display: block;
+}
+.none{
+display: none;
+}
