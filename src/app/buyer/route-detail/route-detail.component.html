@@ -43,22 +43,25 @@
       </div>
     </div>
   </div>
-  <mat-dialog-content style="min-height: 50vh; max-height: 50vh; overflow-y: auto">
+  <mat-dialog-content
+    style="min-height: 50vh; max-height: 50vh; overflow-y: auto"
+  >
     <div>
       <div class="col-md-12 mb-1">
         <p class="heading">Sellers Nearby</p>
       </div>
-      <div class="seller-container" *ngFor="let routeDetail of routeData?.data">
+      <div
+        class="seller-container"
+        *ngFor="let routeDetail of routeData?.data; let i = index"
+      >
         <div class="col-md-1">
-          <mat-checkbox></mat-checkbox>
+          <mat-checkbox [(ngModel)]="routeDetail['isSelected']"></mat-checkbox>
         </div>
         <div class="col-md-11 detail-container">
           <img loading="lazy" src="assets/img/Empty.png" class="img-fluid" />
           <div class="detail-inner-container">
             <p class="seller-name-txt">
-              {{
-              routeDetail?.seller?.firstName
-              }}
+              {{ routeDetail?.seller?.firstName }}
             </p>
             <p class="rating-txt">
               <i class="bi bi-star-fill" style="color: 'orange'"></i>&nbsp;4.0 .

@@ -32,18 +32,6 @@ export class RouteLocationComponent implements OnInit, OnChanges {
 
   }
 
-  placeBid = () => {
-    this.dialog.open(BidByRoutesComponent, {
-      width: '75%',
-      data: this.mapData,
-      hasBackdrop: true,
-    }).afterClosed().subscribe((res) => {
-      if (res === 'place-bid') {
-
-      }
-    })
-  }
-
   onLineClick() {
     this.dialog.closeAll();
     this.dialog.open(RouteDialogComponent, {
@@ -52,7 +40,7 @@ export class RouteLocationComponent implements OnInit, OnChanges {
       hasBackdrop: false,
     }).afterClosed().subscribe((res) => {
       if (res === 'place-bid') {
-        this.placeBid();
+        // this.placeBid();
       }
     })
   }

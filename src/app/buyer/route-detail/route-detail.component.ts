@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { BidByRoutesComponent } from '../route-location/bid-by-routes/bid-by-routes.component';
 
 
 @Component({
@@ -18,7 +19,9 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 export class RouteDetailComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<any>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: any, private dialog: MatDialog) { }
+
+  selectedSellers: any = {}
 
   ngOnInit() {
   }
@@ -36,8 +39,19 @@ export class RouteDetailComponent implements OnInit {
   edit = () => {
     this.dialogRef.close('edit');
   }
+
+
+
   placeBid = () => {
+    let selectedSellers = this.data?.routeData.data.filter(e => e?.isSelected === true);
+    let bidData = { routeData: this.data?.routeData, formData: this.data?.formData }
+    bidData.routeData['data'] = [...selectedSellers];
+    this.dialog.open(BidByRoutesComponent, {
+      width: '75%',
+      data: bidData,
+      hasBackdrop: true,
+    }).afterClosed().subscribe((res) => {
 
+    })
   }
-
 }
