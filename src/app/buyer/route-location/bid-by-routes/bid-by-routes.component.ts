@@ -59,7 +59,7 @@ export class BidByRoutesComponent implements OnInit {
     return amount;
   }
   reviewBid = () => {
-
+    this.step = 1;
   }
 
 }
