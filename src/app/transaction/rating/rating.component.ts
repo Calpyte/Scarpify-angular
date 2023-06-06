@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-rating',
@@ -7,7 +6,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./rating.component.css']
 })
 export class RatingComponent implements OnInit {
-  rating: any=0;
+  rating: any = 0;
   ratingArr = [0, 1, 2, 3, 4];
   color: string = 'yellow';
   review: string = "";

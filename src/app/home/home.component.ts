@@ -17,11 +17,11 @@ export class HomeComponent implements OnInit {
 
   inventories: any = [];
 
-  address:any = "";
+  address: any = "";
 
 
   constructor(private toastrService: ToastrService, private http: HttpClient, private apiConfig: ApiConfigService
-              ) { }
+  ) { }
 
   async ngOnInit() {
     if (navigator.geolocation) {
@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
 
 
   getCurrentLocation = (lat, lon) => {
-    this.http.get(this.apiConfig.getCityAddress(lat, lon)).subscribe((res:any) => {
+    this.http.get(this.apiConfig.getCityAddress(lat, lon)).subscribe((res: any) => {
       this.address = res?.loc;
     })
   };

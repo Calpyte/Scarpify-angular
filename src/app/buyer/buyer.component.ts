@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { BidByCategoryComponent } from './bid-by-category/bid-by-category.component';
 import { BuyerService, RoutesByFilter } from './buyer.service';
-import { GoogleMap } from '@angular/google-maps';
 
 @Component({
   selector: 'app-buyer',
@@ -58,8 +55,9 @@ export class BuyerComponent implements OnInit {
     })
   }
 
-  selectedRoute = (route) => {
-    this.mapData = route;
+  selectedRoute = (event) => {
+    this.mapData = event;
+    // this.formData = event.formData;
   }
 
 }

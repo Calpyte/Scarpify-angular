@@ -5,30 +5,12 @@
   <div class="fields row" *ngIf="isEdit">
     <div class="col-flex col-md-12 mb-2">
       <label class="form-field-txt">Select Category</label>
-      <!--    <select class="form-select" aria-label="Disabled select example">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>-->
       <mat-form-field appearance="outline" class="small-form-field">
         <mat-select [(ngModel)]="form.selectedCategory">
           <mat-option value="">None</mat-option>
           <mat-option *ngFor="let category of categories" [value]="category">{{
             category?.name
-            }}</mat-option>
+          }}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -37,24 +19,41 @@
       <mat-form-field appearance="outline">
         <mat-select [(ngModel)]="form.selectedProduct">
           <mat-option value="">None</mat-option>
-          <mat-option *ngFor="let product of form.selectedCategory?.products" [value]="product">{{ product?.name
-            }}</mat-option>
+          <mat-option
+            *ngFor="let product of form.selectedCategory?.products"
+            [value]="product"
+            >{{ product?.name }}</mat-option
+          >
         </mat-select>
       </mat-form-field>
     </div>
     <div class="col-md-12 mb-2">
       <label class="form-field-txt">Enter Required Quantity</label>
       <div class="input-group">
-        <input type="number" class="form-control" aria-label="Username" [(ngModel)]="form.selectedQuantity" id="qty"
-          name="qty" aria-describedby="basic-addon1" />
+        <input
+          type="number"
+          class="form-control"
+          aria-label="Username"
+          [(ngModel)]="form.selectedQuantity"
+          id="qty"
+          name="qty"
+          aria-describedby="basic-addon1"
+        />
         <span class="input-group-text" id="basic-addon1">kg</span>
       </div>
     </div>
     <div class="col-flex col-md-12 mb-2" style="gap: 10px">
       <label class="form-field-txt">Distance Range (km)</label>
       <div class="slidecontainer">
-        <input type="range" min="1" [(ngModel)]="form.selectedDistance" max="100" [value]="form.selectedDistance"
-          class="custom-range" id="myRange" />
+        <input
+          type="range"
+          min="1"
+          [(ngModel)]="form.selectedDistance"
+          max="100"
+          [value]="form.selectedDistance"
+          class="custom-range"
+          id="myRange"
+        />
       </div>
       <p class="range-txt">{{ form.selectedDistance }} km</p>
     </div>
@@ -102,8 +101,12 @@
       <p class="heading">Available Routes</p>
     </div>
     <div class="col-md-12 mb-2" *ngIf="routeList?.length > 0">
-      <div [ngClass]="i == selectedRoute ? 'r-container-selected' : 'r-container'" class="col-md-12 mb-1"
-        *ngFor="let route of routeList; let i = index" (click)="handleRoutes(i)">
+      <div
+        [ngClass]="i == selectedRoute ? 'r-container-selected' : 'r-container'"
+        class="col-md-12 mb-1"
+        *ngFor="let route of routeList; let i = index"
+        (click)="handleRoutes(i)"
+      >
         <p class="container-heading-txt">{{ route?.name }}</p>
         <div style="display: flex; justify-content: space-between">
           <p class="container-sub-txt">
